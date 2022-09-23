@@ -34,13 +34,6 @@ parse:
     - substitution
   myst_dmath_double_inline: true
 
-
-# Information about where the book exists on the web
-repository:
-  url: https://github.com/KieranVaudaux/test-deployement-/book
-  path_to_book: book/
-  branch: master  # Which branch of the repository should be used when creating links (optional)
-
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
@@ -48,7 +41,14 @@ html:
   use_issues_button: true
   use_repository_button: true
   use_multitoc_numbering: false
-  baseurl: https://github.com/KieranVaudaux/test-deployement-/book
+  
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/KieranVaudaux/test-deployement-/
+  path_to_book: book
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
   
 sphinx:
     config:
