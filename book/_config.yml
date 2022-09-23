@@ -41,11 +41,12 @@ html:
   use_issues_button: true
   use_repository_button: true
   use_multitoc_numbering: false
+  baseurl: https://KieranVaudaux.github.io/test-deployement-
   
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/KieranVaudaux/test-deployement-/
+  url: https://github.com/KieranVaudaux/test-deployement-
   path_to_book: book
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
