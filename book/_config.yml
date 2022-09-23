@@ -47,7 +47,7 @@ html:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/KieranVaudaux/test-deployement-/
+  url: https://gitlab.com/MWilh/notes-de-cours-probabilites-et-statistique #https://github.com/KieranVaudaux/test-deployement-/
   path_to_book: book
   branch: master
 
