@@ -1,4 +1,0 @@
-# Probabilités et Statistique
-
-```{tableofcontents}
-```
