@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Théorème fondamentaux &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="../Statistique_inf%C3%A9rentielle/introduction.html" />
+    <link rel="prev" title="Valeurs caractéristiques" href="valeurs_caracteristiques.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/graphiques.html">
+   Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/boxplot.html">
+   Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/loi_normale.html">
+   Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="concepts_de_base.html">
+   Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arrangements_et_combinaisons.html">
+   Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probabilite_conditionnelle_independance.html">
+   Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probabilites_totales_et_theoreme_de_bayes.html">
+   Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables_aleatoires_discretes.html">
+   Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables_aleatoires_continues.html">
+   Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables_aleatoires_conjointes.html">
+   Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="valeurs_caracteristiques.html">
+   Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Théorème fondamentaux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   Test du Chi2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   Régréssion linéaire: hypothèses et diagnostics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FProbabilité/theoreme_fondamentaux.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Probabilité/theoreme_fondamentaux.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#une-premiere-approche-experimentale">
+   Une première approche expérimentale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theoremes-fondamentaux">
+   Théorèmes fondamentaux
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Théorème fondamentaux</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#une-premiere-approche-experimentale">
+   Une première approche expérimentale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theoremes-fondamentaux">
+   Théorèmes fondamentaux
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="theoreme-fondamentaux">
+<h1>Théorème fondamentaux<a class="headerlink" href="#theoreme-fondamentaux" title="Permalink to this headline">#</a></h1>
+<div class="math notranslate nohighlight">
+\[\newcommand\E{\mathbb{E}}
+\newcommand\var{\text{Var}}
+\newcommand\cov{\text{Cov}}
+\newcommand\corr{\text{Corr}}\]</div>
+<p>Quand on définit des systèmes complexes à l’aide de la théorie des probabilités, on obtient souvent des distributions de probabilités particulièrement difficiles à manipuler et à utiliser.</p>
+<p>On va présenter deux théorèmes clés qui permettent d’approximer ces probabilités difficiles.</p>
+<ul class="simple">
+<li><p>Inégalité de Tchebychev.</p></li>
+<li><p>Loi des Grands Nombres.</p></li>
+<li><p>Théorème Central Limite.</p></li>
+</ul>
+<section id="une-premiere-approche-experimentale">
+<h2>Une première approche expérimentale<a class="headerlink" href="#une-premiere-approche-experimentale" title="Permalink to this headline">#</a></h2>
+<p>Alice veut intégrer l’équipe de basket. Pour cela, elle doit prouver qu’elle est capable de marquer souvent des paniers. Comment pouvons nous mesurer le taux de réussite d’Alice?</p>
+<p>Principe de la statistique:</p>
+<ul class="simple">
+<li><p>Proposer un modèle probabiliste de la situation.
+Soit <span class="math notranslate nohighlight">\( X_i \)</span> la variable représentant la réussite du i-ème lancer. Un choix possible: <span class="math notranslate nohighlight">\( X_i \stackrel{idd}{\sim} \mathcal{B}(p) \)</span>.</p></li>
+<li><p>Trouver une procédure qui, à l’aide des valeurs observées de <span class="math notranslate nohighlight">\( X_1 \dots X_n \)</span>, retrouve la valeur des paramètres inconnus. Ici: retrouver le taux de réussite <span class="math notranslate nohighlight">\( p \)</span>.</p></li>
+</ul>
+<p>Idée basique:</p>
+<ul class="simple">
+<li><p>Alice lance <span class="math notranslate nohighlight">\( n \)</span> fois.</p></li>
+<li><p>On note son taux de réussite dans ces <span class="math notranslate nohighlight">\( n \)</span> lancers.</p></li>
+<li><p><strong>Intuitivement</strong>, ce taux de réussite expérimental va être <strong>proche</strong> de son vrai taux de réussite.</p></li>
+<li><p><strong>Intuitivement</strong>, plus <span class="math notranslate nohighlight">\(n\)</span> est grand, plus les deux valeurs devraient être proches.</p></li>
+</ul>
+<p>Si <span class="math notranslate nohighlight">\( X_i \sim \mathcal{B}(p) \)</span> représente le <span class="math notranslate nohighlight">\(i\)</span>-ème lancer et vaut 1 s’il est réussi, 0 sinon, le nombre total de lancers réussis suit une loi binomiale et est donc</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} S = \sum_{i=1}^n X_i \sim \mathcal{B}(n,p). \end{equation*}\]</div>
+<p>La proportion de lancers réussis est <span class="math notranslate nohighlight">\(\displaystyle \overline{X} = \frac{S}{n}. \)</span>
+On a alors</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \E[ \overline{X} ] = \frac{\E[ S ]}{n} = \frac{np}{n}  = p,\end{gather*}\]</div>
+<p>et</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \var( \overline{X} ) =\frac{ \var(S)}{n^2} =\frac{n p(1-p)}{n^2} = \frac{p (1-p) }{n}.\end{gather*}\]</div>
+<p>Plus <span class="math notranslate nohighlight">\( n \)</span> est grand et plus  <span class="math notranslate nohighlight">\( \overline{X} \)</span> est « certain ».</p>
+</section>
+<section id="theoremes-fondamentaux">
+<h2>Théorèmes fondamentaux<a class="headerlink" href="#theoremes-fondamentaux" title="Permalink to this headline">#</a></h2>
+<div class="proof theorem admonition" id="LGN">
+<p class="admonition-title"><span class="caption-number">Theorem 7 </span> (Loi des grands nombres)</p>
+<section class="theorem-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(X_1, \dots, X_n, \dots\)</span> une suite de variables aléatoires réelles indépendantes et identiquement distribuées, d’espérance <span class="math notranslate nohighlight">\(\E[X_1] = \mu &lt; \infty\)</span> et de variance finie <span class="math notranslate nohighlight">\(\var(X_1) = \sigma^2 &lt; \infty\)</span>. Pour tout <span class="math notranslate nohighlight">\(n \in \mathbb{N},\)</span> soit</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\overline{X}_n =\frac{1}{n} \sum_{k = 1}^n X_k.\end{gather*}\]</div>
+<p>Alors pour tout <span class="math notranslate nohighlight">\(\varepsilon &gt;0\)</span>, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\lim_{n\rightarrow \infty} \Pr\left(\left| \overline{X}_n - \mu  \right| &gt; \varepsilon\right)  = 0.\end{gather*}\]</div>
+</section>
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Une démonstration de ces trois résultats est donnée sur la page du cours. Ici, nous donnons la preuve par soucis de complétude, mais les démonstrations <strong>ne sont pas matière à examen</strong>.</p>
+<p>En revanche, les énoncés précis des résultats sont à connaître.</p>
+</div>
+<figure class="align-default" id="evolving-mean">
+<a class="reference internal image-reference" href="../_images/Evolving_mean.svg"><img alt="../_images/Evolving_mean.svg" src="../_images/Evolving_mean.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">: Illustration pour des variables <span class="math notranslate nohighlight">\( X \sim \text{Exp}(1) \)</span>.</span><a class="headerlink" href="#evolving-mean" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="proof proposition admonition" id="Markov">
+<p class="admonition-title"><span class="caption-number">Proposition 3 </span> (L’inégalité de Markov)</p>
+<section class="proposition-content" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(X\)</span> une variable aléatoire réelle \textbf{positive} de moyenne <span class="math notranslate nohighlight">\(\E[X] = \mu &lt; \infty\)</span>. Alors pour tout <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span>, on a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \Pr(X &gt; \varepsilon ) \leq \frac{\E[X]}{\varepsilon}. \end{gather*}\]</div>
+</section>
+</div><div class="proof proposition admonition" id="Tchebychev">
+<p class="admonition-title"><span class="caption-number">Proposition 4 </span> (L’inégalité de Tchebychev)</p>
+<section class="proposition-content" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(X\)</span> une variable aléatoire réelle de moyenne <span class="math notranslate nohighlight">\(\E[X] = \mu &lt; \infty\)</span> et de variance finie <span class="math notranslate nohighlight">\(\var(X) = \sigma^2 &lt; \infty\)</span>. Alors pour tout <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span>, on a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \Pr(| X - \mu | &gt; \varepsilon ) \leq \frac{\sigma^2}{\varepsilon^2}. \end{gather*}\]</div>
+</section>
+</div><p>La LGN ne nous parle pas de la taille des erreurs de <span class="math notranslate nohighlight">\( \overline{X} \approx \mu \)</span>. Pour cela, il faut le TCL.</p>
+<p>Soit <span class="math notranslate nohighlight">\(\mu, \sigma^2 \)</span> la moyenne et variance commune des <span class="math notranslate nohighlight">\( X_i \)</span>. Considérons la version standardisée de <span class="math notranslate nohighlight">\( \overline{X} \)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} Z_n = \frac{\overline{X}_n - \E[\overline{X}_n] }{ \sqrt{\var\left(\overline{X}_n\right)}} = \sqrt{n} \frac{ \overline{X}_n -\mu}{\sigma}. \end{gather*}\]</div>
+<p>La distribution de <span class="math notranslate nohighlight">\( Z_n \)</span> serait très compliquée à calculer exactement (intégrale de dimension n-1 ). Heureusement, la distribution de <span class="math notranslate nohighlight">\( Z_n \)</span> est approximativement simple si le nombre d’observations <span class="math notranslate nohighlight">\( n \)</span> est suffisamment grand.</p>
+<div class="proof theorem admonition" id="TCL">
+<p class="admonition-title"><span class="caption-number">Theorem 8 </span> (Théorème central limite)</p>
+<section class="theorem-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(X_1, \dots, X_n, \dots\)</span> une suite de variables aléatoires réelles indépendantes et identiquement distribuées de moyennes et de variances communes <span class="math notranslate nohighlight">\(\mu\)</span> et <span class="math notranslate nohighlight">\(\sigma^2 \)</span> respectivement. Alors, pour <span class="math notranslate nohighlight">\( n \rightarrow \infty\)</span>, <span class="math notranslate nohighlight">\( Z_n \)</span> est approximativement Gaussienne, c’est-à-dire qu’on a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \Pr( Z_n \leq z ) \stackrel{n\rightarrow\infty}{\longrightarrow} \Phi(z).\end{gather*}\]</div>
+<p>Donc, pour <span class="math notranslate nohighlight">\( n \)</span> suffisamment grand,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\overline{X}_n \stackrel{\dot}{\sim} \mathcal{N}(\mu, \sigma^2 / n)\end{gather*}\]</div>
+</section>
+</div><figure class="align-default" id="convergence-tcl-exp">
+<a class="reference internal image-reference" href="../_images/convergence_TCL_exp.svg"><img alt="../_images/convergence_TCL_exp.svg" src="../_images/convergence_TCL_exp.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">: Illustration du TCL pour <span class="math notranslate nohighlight">\( X_i \stackrel{idd}{\sim} exp(1) \)</span>. En noir, la vraie fonction de distribution et en rouge son approximation Gaussienne <span class="math notranslate nohighlight">\( \Phi \)</span>.</span><a class="headerlink" href="#convergence-tcl-exp" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="convergence-tcl-exp-histo">
+<a class="reference internal image-reference" href="../_images/convergence_TCL_exp_histo.svg"><img alt="../_images/convergence_TCL_exp_histo.svg" src="../_images/convergence_TCL_exp_histo.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">: Illustration du TCL pour <span class="math notranslate nohighlight">\( X \sim exp(1) \)</span>. Histogramme empirique, vraie densité (bleu) et densité Gaussienne (rouge).</span><a class="headerlink" href="#convergence-tcl-exp-histo" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="proof example admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">Example 46 </span></p>
+<section class="example-content" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\( X \sim \mathcal{B}(n,p) \)</span>, donner une approximation pour <span class="math notranslate nohighlight">\( \Pr( X \leq r)\)</span>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Une variable Binomiale correspond à une somme de variables de Bernoulli IID. Si <span class="math notranslate nohighlight">\( n \)</span> est suffisamment grand, on peut donc appliquer le TCL.</p>
+<p>On calcule la probabilité demandée par standardisation</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        \Pr(X \leq r ) &amp;= \Pr(X - n p \leq r - n p) \\
+                &amp;= \Pr \left(\frac{X - n p}{\sqrt{n  p  (1-p)}} \leq \frac{r - n  p}{\sqrt{n  p  (1-p)}} \right) \\
+                &amp; \approx \Phi \left( \frac{r - n  p}{\sqrt{n  p  (1-p)}} \right)
+    \end{align*}\]</div>
+</div>
+</section>
+</div><div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">Example 47 </span></p>
+<section class="example-content" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\( X_1 \dots X_n \stackrel{idd}{\sim} \exp(\lambda) \)</span>. Donner une approximation pour:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \Pr(X_1 + \dots + X_n \leq r) \end{gather*}\]</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>De nouveau, on a affaire a une somme de variables IID. On peut donc appliquer le TCL. On trouve la moyenne et variance de la loi exponentielle soit par calcul, soit dans le formulaire du cours. En l’occurrence, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\E[X_1] = \frac{1}{\lambda},\quad \var(X_1) = \frac{1}{\lambda^2} \Rightarrow \sqrt{\var(X_1)} = \frac{1}{\lambda}.\end{gather*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        \Pr( X_1 + \dots + X_n \leq r ) &amp;= \Pr(\overline{X}_n - \frac{1}{\lambda} \leq r/n - \frac{1}{\lambda}) \\
+                &amp;= \Pr \left(\frac{\overline{X}_n - \frac{1}{\lambda}}{\frac{1}{\sqrt{n}\lambda}} \leq \frac{r - \frac{n}{\lambda}}{\frac{n}{\sqrt{n}\lambda}}  \right) \\
+                &amp; \approx \Phi \left( \frac{r - n / \lambda}{\sqrt{n} / \lambda} \right) =  \Phi \left( \frac{\lambda r - n}{\sqrt{n}} \right).
+    \end{align*}\]</div>
+</div>
+</section>
+</div><div class="proof remark admonition" id="remarque_avancee">
+<p class="admonition-title"><span class="caption-number">Remark 3 </span> (Remarques avancées sur le TCL)</p>
+<section class="remark-content" id="proof-content">
+<p>Le TCL est simultanément le théorème le plus connu et le plus mal compris de la théorie des probabilités.</p>
+<p>L’erreur la plus fréquente consiste à croire que tout est Gaussien, à cause du TCL.</p>
+<p>TCL, version intuitive: « tout <span class="math notranslate nohighlight">\( S \)</span> obtenue par somme de <span class="math notranslate nohighlight">\( X_i \)</span> <strong>suffisament nombreux</strong> et <strong>suffisament indépendants</strong> (et <strong>tous petits</strong>) est approximativement Gaussien.»</p>
+<p>La condition d’avoir assez de <span class="math notranslate nohighlight">\( X_i \)</span> est souvent vérifiés. Les hypothèses qui font défaut sont en général l’indépendance ou l’absence de moyenne/variance finie.</p>
+</section>
+</div><p>Les problèmes d’une application aveugle du TCL peuvent être multiples, et il faut y prendre garde.</p>
+<ul class="simple">
+<li><p>moyenne ou variance infinie: certaines variables aléatoires n’ont pas de moyenne finie (Cauchy, par exemple). Dès lors, le TCL ne s’applique pas. En particulier la distribution Gaussienne n’a  pas de « queues lourdes », elle est incapable de quantifier l’incertitude pour des hauts quantiles.</p></li>
+<li><p>indépendance: parfois, l’hypothèse d’indépendance est (fortement) violée et il est dangereux de se fier à une approximation Gaussienne dans ces cas.</p></li>
+</ul>
+<div class="proof example admonition" id="ex_taille_tcl">
+<p class="admonition-title"><span class="caption-number">Example 48 </span> (Taille et TCL)</p>
+<section class="example-content" id="proof-content">
+<p>Chez les êtres humains, la distribution de la taille est approximativement Gaussienne.
+Proposez une explication intuitive de cette observation basées sur le TCL.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>La taille d’une personne est le résultat de plein de causes faibles qui ont toutes des effets aléatoires relativement indépendants. En effet, on peut raisonnablement écrire que la taille <span class="math notranslate nohighlight">\(X_i\)</span> d’un individu <span class="math notranslate nohighlight">\(i\)</span> peut s’écrire comme</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} X_i = \mu + \varepsilon_i, \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\mu\)</span> est une moyenne globale et <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> un écart à la moyenne. Ainsi, selon ce modèle, <span class="math notranslate nohighlight">\(\overline{X} \sim \mathcal{N}(\mu, \sigma^2)\)</span> si <span class="math notranslate nohighlight">\(\overline{\varepsilon} \sim \mathcal{N}(0, \sigma^2), \)</span> où <span class="math notranslate nohighlight">\(\overline{\varepsilon} =1/n \sum_i \varepsilon_i\)</span>. Cela peut être justifié si les <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> sont indépendants et identiquement distribués, ce qui est vraisemblable. On peut donc appliquer des variantes du TCL de manière raisonnable.</p>
+</div>
+</section>
+</div><div class="proof example admonition" id="ex_taille_tcl_dimorphisme">
+<p class="admonition-title"><span class="caption-number">Example 49 </span> (Taille, TCL, et dimorphisme sexuel)</p>
+<section class="example-content" id="proof-content">
+<p>Chez d’autres animaux, la distribution des tailles n’est pas Gaussienne car les individus mâles et femelles ont des tailles très différentes.  Pourquoi est-ce que l’explication précédente ne s’applique plus ici?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Dans des espèces avec un fort dimorphisme sexuel, le sexe d’un animal joue un role prépondérant sur sa taille. L’influence de cette variable est tellement important que le TCL ne s’applique plus. On aurait plutôt une distribution <em>bimodale</em> et où chacun des deux modes pourrait raisonnablement être approximé par une loi normale.</p>
+</div>
+</section>
+</div><div class="proof theorem admonition" id="theorem-9">
+<p class="admonition-title"><span class="caption-number">Theorem 9 </span> (TCL de Berry-Esseen)</p>
+<section class="theorem-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\( X_i \)</span> iid tels que <span class="math notranslate nohighlight">\( \E(X) = \mu \)</span>, <span class="math notranslate nohighlight">\( \var(X) = \sigma^2 \)</span> et <span class="math notranslate nohighlight">\( \E(|X-\mu|^3) = \kappa\)</span> et soit</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} Z_n = \sqrt{n} \frac{\overline{X} - \mu}{\sigma} = \frac{1}{\sigma \sqrt{n}} \sum_{i=1}^n (X_i-\mu).\end{gather*}\]</div>
+<p>Alors, l’erreur de l’approximation Gaussienne est bornée par:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} | \Pr(Z_n \leq z) - \Phi(z) | \leq \frac{0.5 \kappa}{\sigma^3 \sqrt{n}}.\end{gather*}\]</div>
+</section>
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cette borne est plutôt pessimiste, mais elle est très générale, car ne dépendant pas de la distribution des <span class="math notranslate nohighlight">\(X_i\)</span> et n’étant pas asymptotique.</p>
+</div>
+<div class="proof example admonition" id="ex_TCL_de_Berry-Esseen">
+<p class="admonition-title"><span class="caption-number">Example 50 </span> (TCL de Berry-Esseen)</p>
+<section class="example-content" id="proof-content">
+<p>Pour <span class="math notranslate nohighlight">\( \mu = 0, \sigma = 1, \kappa = 8, n = 10000\)</span>, trouvez un intervalle de la forme <span class="math notranslate nohighlight">\(]-\infty,a]\)</span> qui contient <span class="math notranslate nohighlight">\( 95\%\)</span> de la probabilité de <span class="math notranslate nohighlight">\( Z_n \)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} Z_n = \frac{\sum_{i=1}^n X_i}{\sqrt{n}} \end{gather*}\]</div>
+<p>Comparez à l’approximation Gaussienne naïve.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>L’approximation Gaussienne naïve nous donne:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        \Pr(Z_n \leq a) &amp;= \Phi(a) \\
+    \end{align*}\]</div>
+<p>L’approximation Gaussienne naïve nous dit donc de choisir <span class="math notranslate nohighlight">\( a \approx 1.60 \)</span>.
+Le TCL de Berry-Esseen nous donne à la place:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        \Pr(Z_n \leq a) &amp;\geq \Phi(a) - \frac{0.5\kappa}{\sigma^3\sqrt{n}} \\
+                &amp; \geq \Phi(a) - 0.04
+    \end{align*}\]</div>
+<p>La valeur naïve <span class="math notranslate nohighlight">\( a \approx 1.60 \)</span> garantie donc uniquement une probabilité de
+<span class="math notranslate nohighlight">\( 0.91 &lt; 0.95 \)</span>. Pour garantir une probabilité de 0.95, il faut utiliser <span class="math notranslate nohighlight">\( a^\star = 2.33 \)</span>.
+NB: cette borne est pessimiste, mais elle montre bien que le décalage entre l’application naïve du TCL et une application avec de bonnes garanties.</p>
+</div>
+</section>
+</div><div class="proof definition admonition" id="fct_repart_empirique">
+<p class="admonition-title"><span class="caption-number">Definition 46 </span> (Fonction de répartition empirique)</p>
+<section class="definition-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(X_1, \dots X_n \stackrel{idd}{\sim} F\)</span>, où <span class="math notranslate nohighlight">\(F\)</span> est certaine une fonction de répartition. On appelle
+<em>fonction de répartition empirique</em> la fonction</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} F_n(x) = \frac{1}{n} \sum_{i =1}^n \mathbf{1}_{X_i \leq x} = \frac{\text{nb de données $\leq$ x}}{n}.\end{gather*}\]</div>
+</section>
+</div><figure class="align-default" id="ecdf-exemple">
+<a class="reference internal image-reference" href="../_images/ECDF_exemple.svg"><img alt="../_images/ECDF_exemple.svg" src="../_images/ECDF_exemple.svg" width="95%" /></a>
+</figure>
+<p>Le théorème de Glivenko-Cantelli justifie le fait que l’on étudie une distribution à partir de réalisations indépendentes et identiquement distribuées.</p>
+<div class="proof theorem admonition" id="theorem-12">
+<p class="admonition-title"><span class="caption-number">Theorem 10 </span> (Théorème de Glivenko-Cantelli)</p>
+<section class="theorem-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(X_1, \dots, X_n, \dots \sim F\)</span> une suite de variables aléatoires réelles indépendantes et identiquement distribuées selon une fonction de répartition <span class="math notranslate nohighlight">\(F\)</span>, et soit <span class="math notranslate nohighlight">\(F_n(x)\)</span> la fonction de répartition empirique. Alors on a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\|F_n - F\|_\infty = \sup_{x \in \mathbb{R}} |F_n(x) - F(x)| \rightarrow 0, \end{gather*}\]</div>
+<p>presque sûrement.</p>
+</section>
+</div><p>Cette section sur le TCL conclut notre introduction à la probabilité.</p>
+<p>Nous avons vu:</p>
+<ul class="simple">
+<li><p>comment définir un modèle de probabilité:</p>
+<ul>
+<li><p>évènements élémentaires + fonction de probabilité;</p></li>
+<li><p>variables aléatoires discrètes ou continues, lois conjointes</p></li>
+</ul>
+</li>
+<li><p>comment calculer un certain nombre de probabilités complexes:</p>
+<ul>
+<li><p>probabilité conditionnelle, probabilités totales, Bayes;</p></li>
+<li><p>calcul de la loi marginale.</p></li>
+</ul>
+</li>
+<li><p>comment résumer une variable par quelques valeurs clés: espérance, variance;</p></li>
+<li><p>deux théorèmes sur des sommes de variables IID.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Probabilité"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="valeurs_caracteristiques.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Valeurs caractéristiques</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Statistique_inf%C3%A9rentielle/introduction.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

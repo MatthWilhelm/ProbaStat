@@ -1,0 +1,756 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Régréssion linéaire: cas général &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="3. Régréssion linéaire: tests" href="tests.html" />
+    <link rel="prev" title="1. Introduction" href="introduction.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   1. Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/graphiques.html">
+   2. Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   3. Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/boxplot.html">
+   4. Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/loi_normale.html">
+   5. Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   6. Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/concepts_de_base.html">
+   1. Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/arrangements_et_combinaisons.html">
+   2. Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/probabilite_conditionnelle_independance.html">
+   3. Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/probabilites_totales_et_theoreme_de_bayes.html">
+   4. Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_discretes.html">
+   5. Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_continues.html">
+   6. Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_conjointes.html">
+   7. Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/valeurs_caracteristiques.html">
+   8. Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/theoreme_fondamentaux.html">
+   9. Théorème fondamentaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/test_notebook.html">
+   10. Test live notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   2. Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   3. Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   4. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   5. Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   6. Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   7. Test du
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   8. Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tests.html">
+   3. Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hypotheses_et_diagnostics.html">
+   4. Régréssion linéaire: hypothèses et diagnostics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRégréssion_linéaire/cas_general.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/edit/main/Régréssion_linéaire/cas_general.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Régréssion_linéaire/cas_general.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Régréssion linéaire: cas général</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="regression-lineaire-cas-general">
+<h1><span class="section-number">2. </span>Régréssion linéaire: cas général<a class="headerlink" href="#regression-lineaire-cas-general" title="Lien permanent vers ce titre">#</a></h1>
+<div class="math notranslate nohighlight">
+\[\newcommand\corr{\text{Corr}}
+\newcommand\cov{\text{Cov}}
+\newcommand\var{\text{Var}}
+\newcommand\E{\mathbb{E}}\]</div>
+<p>Jusqu’à présent, on a essentiellement chercher à trouver une droite qui passait relativement proche des données, c’est-à-dire qui minimisait l’erreur carrée.</p>
+<p>Il s’agit d’un problème d’optimisation, il n’y a <em>a priori</em> pas de modèle probabiliste derrière.</p>
+<p>En fait, même si cela n’est pas évident, cela est complètement équivalent à un certain modèle probabiliste, le modèle Gaussien.</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Définition 2.7 </span> (Distribution normale multivarié)</p>
+<section class="definition-content" id="proof-content">
+<p>On dit que <span class="math notranslate nohighlight">\(\mathbf{X}\in \mathbb{R}^n\)</span> suit une loi normale multivariée d’espérance <span class="math notranslate nohighlight">\(\boldsymbol{\mu}\in\mathbb{R}^n\)</span> et de variance <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\in \mathbb{R}^{n\times n}\)</span> (où <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> est symétrique définie positive), notée <span class="math notranslate nohighlight">\(\mathbf{X} \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})\)</span> si la distribution de <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> s’écrit</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}f_{\mathbf{X}}(\mathbf{x}) = \left( 2\pi\right)^{-n/2} \det\left(\boldsymbol{\Sigma}\right)^{-1/2} \exp\left[-\frac{1}{2}(\mathbf{x} - \boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu})\right].\end{gather*}\]</div>
+</section>
+</div><div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remarque 2.1 </span></p>
+<section class="remark-content" id="proof-content">
+<ul class="simple">
+<li><p>Si on considère <span class="math notranslate nohighlight">\(n\)</span> réalisations indépendantes <span class="math notranslate nohighlight">\(X_1,\dots, X_n\stackrel{idd}{\sim} \mathcal{N}(\mu, \sigma^2)\)</span>, alors la loi jointe de <span class="math notranslate nohighlight">\(\mathbf{X} = (X_1,\dots, X_n)\)</span> est une loi normale multivariée d’espérance <span class="math notranslate nohighlight">\(\boldsymbol{\mu} = \mu \mathbf{1}\)</span> et de variance <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma} = \sigma^2  \mathbf{I}_n\)</span>.</p></li>
+<li><p>De manière équivalente, on peut définir une loi normale multivariée comme une transformation affine d’une loi normale standard multivariée:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;\mathbf{X}\in \mathbb{R}^n \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})\\
+&amp;  \Leftrightarrow \text{Il existe } \mathbf{Z}\in \mathbb{R}^k \sim\mathcal{N}(\mathbf{0}, \mathbf{I}_k),   \mathbf{A}\in \mathbb{R}^{n \times k}, \boldsymbol{\mu} \in \mathbb{R}^n \\
+&amp; \text{ tel que } \mathbf{X} = \mathbf{A}\mathbf{Z} + \boldsymbol{\mu}.
+\end{align*}\]</div>
+</section>
+</div><div class="proof property admonition" id="property-2">
+<p class="admonition-title"><span class="caption-number">Propriété 2.1 </span> (Matrice de variance-covariance)</p>
+<section class="property-content" id="proof-content">
+<p>La matrice <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> satisfait les propriétés suivantes:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\Sigma} = \mathbf{A}\mathbf{A}^\top\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}_{ij} = \cov(X_i, X_j)\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}_{ij} = 0 \Leftrightarrow X_i, X_j\)</span> sont indépendantes (vrai <strong>uniquement</strong> si <span class="math notranslate nohighlight">\(X_i, X_j\)</span> sont des VA Gaussiennes).</p></li>
+</ul>
+</section>
+</div><div class="admonition-loi-normal-multivariee admonition">
+<p class="admonition-title">Loi normal multivariée</p>
+<ul class="simple">
+<li><p>Les courbes de niveau d’une loi normale multivariée sont des ellipsoïdes. Les axes principaux de l’ellipse correspondent aux vecteurs propres de la matrice de variance.</p></li>
+<li><p>Soient <span class="math notranslate nohighlight">\(X,Y\)</span> variables aléatoires normales (potentiellement multivariée). Alors <span class="math notranslate nohighlight">\(X,Y\)</span> sont indépendantes si et seulement si <span class="math notranslate nohighlight">\(\cov(X,Y) = 0\)</span> (dans le cas multivarié, il s’agit d’une matrice). Dans ce cas, les axes des courbes de niveaux sont confondus avec les axes de l’ellipse.</p></li>
+</ul>
+</div>
+<figure class="align-default" id="normal-multi">
+<a class="reference internal image-reference" href="../_images/Normal_multi.svg"><img alt="../_images/Normal_multi.svg" src="../_images/Normal_multi.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.5 </span><span class="caption-text">Deux densités normales multivariées.</span><a class="headerlink" href="#normal-multi" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>Dans le graphiques précédent, les axes principaux sont <span class="math notranslate nohighlight">\((1,2)^\top\)</span> et <span class="math notranslate nohighlight">\((1,-2)^\top\)</span> respectivement, mais ils correspondent à des valeurs propres différentes, d’où l’orientation différentes des courbes de niveaux.
+L’espérance est l’origine dans les deux cas.</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Définition 2.8 </span> (Modèle linéaire Gaussien)</p>
+<section class="definition-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(\mathbf{y} = (y_1,\dots, y_n)^\top\)</span> et <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n\times p}\)</span>. On appelle modèle linéaire (Gaussien) le modèle suivant:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon},
+\end{equation*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\boldsymbol{\beta} \in \mathbb{R}^p\)</span> est un vecteur de paramètres, <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}\in \mathbb{R}^n \sim\mathcal{N}(\mathbf{0}, \sigma^2 \mathbf{I}_n)\)</span> et <span class="math notranslate nohighlight">\(\sigma^2 &gt;0\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y\)</span> est appelée la variable d’intérêt, variable de réponse ou variable observée.</p></li>
+<li><p><span class="math notranslate nohighlight">\((x_1, \dots, x_p)\)</span> sont appelés covariables ou variables explicatives, qu’on observe pour chaque occurrence de la variable de réponse. Les covariables sont supposées déterministes. La matrice <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> qui contient toutes les covariables est appelée matrice d’expérience ou matrice de design.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon\)</span> est appelé l’erreur ou le bruit.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> est appelé vecteur des coefficients de régression.</p></li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">Exemple 2.8 </span> (Constance d’élasticité)</p>
+<section class="example-content" id="proof-content">
+<p>Supposons que l’on cherche à estimer la constante d’élasticité d’un ressort. On rappelle que la force exercée par un ressort est approximativement une équation linéaire:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} F = - k \cdot x, \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(F\)</span> est la force, <span class="math notranslate nohighlight">\(x\)</span> l’élongation et <span class="math notranslate nohighlight">\(k\)</span> la constante d’élasticité. On observe les données suivantes:</p>
+<figure class="align-default" id="tab1-regr">
+<a class="reference internal image-reference" href="../_images/tab1_regr.svg"><img alt="../_images/tab1_regr.svg" src="../_images/tab1_regr.svg" width="95%" /></a>
+</figure>
+<figure class="align-default" id="ressort-data">
+<a class="reference internal image-reference" href="../_images/ressort_data.svg"><img alt="../_images/ressort_data.svg" src="../_images/ressort_data.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.6 </span><span class="caption-text">: Élongation de ressort [m], en fonction de la masse [kg].</span><a class="headerlink" href="#ressort-data" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>En utilisant la notation introduite précédemment, on a:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((y_1, y_2, \dots, y_6)^\top = (0.0, 0.021, 0.037, 0.056, 0.066, 0.075)^\top\)</span>;</p></li>
+<li><p>La matrice d’expérience</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \mathbf{X} = \begin{pmatrix}
+1 &amp; 0.0\\
+1 &amp; 0.159 \\
+1 &amp; 0.243 \\
+1 &amp; 0.357 \\
+1 &amp; 0.413 \\
+1 &amp; 0.456 \\
+\end{pmatrix};
+\end{gather*}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\beta} = (\beta_0, \beta_1)^\top \)</span>, qui est à estimer, où <span class="math notranslate nohighlight">\(\beta_0\)</span> est l’ordonnée à l’origine.</p></li>
+</ul>
+<p>On a vu que dans l’exemple précédent, on a supposé que le modèle était, M1:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} y_i = \beta_0 + x_i \beta_1 + \varepsilon_i. 
+\end{equation*}\]</div>
+<p>Cependant, l’équation physique décrivant le phénomène ne comprend pas d’ordonnée à l’origine. On pourrait donc plutôt estimer le modèle suivant, M2:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} y_i = x_i \beta + \varepsilon_i. 
+\end{equation*}\]</div>
+<p>On obtient les valeurs estimées suivantes:</p>
+<ul class="simple">
+<li><p>pour M1: <span class="math notranslate nohighlight">\(\beta_0 =-0.002, \beta_1 = 0.166\)</span> (droite en rouge);</p></li>
+<li><p>pour M2: <span class="math notranslate nohighlight">\(\beta= 0.158\)</span> (droite en noir).</p></li>
+</ul>
+<figure class="align-default" id="ressort-data-model-fit">
+<a class="reference internal image-reference" href="../_images/ressort_data_model_fit.svg"><img alt="../_images/ressort_data_model_fit.svg" src="../_images/ressort_data_model_fit.svg" width="95%" /></a>
+</figure>
+</section>
+</div><p>Si on suppose que nos observations sont engendrées par un modèle linéaire Gaussien, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon},\end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon} \sim\mathcal{N}(\mathbf{0}, \sigma^2 \mathbf{I}_n)\)</span>. En utilisant les propriétés de la loi normale, on obtient:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\mathbf{y}  \sim\mathcal{N}(\mathbf{X}\boldsymbol{\beta}, \sigma^2 \mathbf{I}_n).\end{gather*}\]</div>
+<p>Ainsi, on fait l’hypothèse que <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> suit un certain modèle probabiliste.</p>
+<p>Comme les paramètres <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> et <span class="math notranslate nohighlight">\(\sigma^2\)</span> sont à estimer, on souhaite utiliser notre méthode d’estimation préférée: le maximum de vraisemblance. La vraisemblance des paramètres <span class="math notranslate nohighlight">\((\boldsymbol{\beta}, \sigma^2)\)</span> s’écrit</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\ell(\boldsymbol{\beta}, \sigma^2; \mathbf{y})&amp; = \log\left\{ \left( 2\pi\sigma^2\right)^{-n/2} \exp\left[-\frac{1}{2\sigma^2}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\top  (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})\right]\right\}\\
+&amp; = -\frac{n}{2}\log\left( 2\pi\sigma^2\right) - \frac{1}{2\sigma^2}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\top  (\mathbf{y} - \mathbf{X}\boldsymbol{\beta}).
+\end{align*}\]</div>
+<p>Pour maximiser la vraisemblance, on cherche un point stationnaire et on vérifie qu’il s’agit d’un maximum.
+En effet, on a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{\partial \ell(\boldsymbol{\beta}, \sigma^2; \mathbf{y})}{\partial \boldsymbol{\beta}}&amp; =\frac{\partial}{\partial \boldsymbol{\beta}}\left[ - \frac{1}{2\sigma^2}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\top  (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})\right]\\
+&amp; = \frac{1}{2\sigma^2}\left( 2 \mathbf{X}^\top \mathbf{y} - 2 \mathbf{X}^\top\mathbf{X} \boldsymbol{\beta}\right).
+\end{align*}\]</div>
+<p>On vérifie aisément aussi que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\frac{\partial^2 \ell(\boldsymbol{\beta}, \sigma^2; \mathbf{y})}{\partial \boldsymbol{\beta}^2} = -\frac{1}{\sigma^2} \mathbf{X}^\top\mathbf{X},\end{gather*}\]</div>
+<p>qui est une matrice symétrique définie négative (si <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> est de plein rang). Donc la fonction de vraisemblance est une fonction concave de <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> et donc admet un  maximum unique, qui est le point stationnaire.</p>
+<p>En calculant le point stationnaire, on obtient donc aisément</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} 2 \mathbf{X}^\top \mathbf{y} - 2 \mathbf{X}^\top\mathbf{X} \hat{\boldsymbol{\beta}} = \mathbf{0} \Leftrightarrow \hat{\boldsymbol{\beta}}  =\left(\mathbf{X}^\top\mathbf{X}\right)^{-1}\mathbf{X}^\top \mathbf{y}. \end{gather*}\]</div>
+<p>On remarque que <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> ne dépend pas de <span class="math notranslate nohighlight">\(\sigma^2\)</span>. Ainsi, pour calculer <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span>, il n’est pas nécessaire d’estimer <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p>Le contraire n’est pas vrai: pour estimer <span class="math notranslate nohighlight">\(\sigma^2\)</span>, il est nécessaire d’estimer <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span>.</p>
+<p>Le maximum de vraisemblance maximise</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\hat{\boldsymbol{\beta}} = \arg\max_{\boldsymbol{\beta} \in \mathbb{R}^p}- \frac{1}{2\sigma^2}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\top  (\mathbf{y} - \mathbf{X}\boldsymbol{\beta}),\end{gather*}\]</div>
+<p>et donc</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\min_{\boldsymbol{\beta} \in \mathbb{R}^p}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\top  (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})
+= \sum_{i = 1}^n (y_i - \hat{y}_i)^2,
+\end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\hat{y}_i = \mathbf{x}_i^\top \hat{\boldsymbol{\beta}},\)</span> et où <span class="math notranslate nohighlight">\(\mathbf{x}_i^\top\)</span> est la ième ligne de la matrice <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</p>
+<p>Une fois que l’on a calculé <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span>, on peut calculer le vecteur de valeurs ajustées de <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, noté <span class="math notranslate nohighlight">\(\hat{\mathbf{y}},\)</span> c’est-à-dire les valeurs prédites par notre modèle pour les covariables observées:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol{\beta}} = \mathbf{X}\left(\mathbf{X}^\top\mathbf{X}\right)^{-1}\mathbf{X}^\top \mathbf{y} = \mathbf{H}\mathbf{y},\end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\mathbf{H} = \mathbf{X}\left(\mathbf{X}^\top\mathbf{X}\right)^{-1}\mathbf{X}^\top\)</span> est la « hat matrix» et est une matrice symétrique et de projection:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\mathbf{H} = \mathbf{H}^\top, \quad \mathbf{H}^2 = \mathbf{H}. \end{gather*}\]</div>
+<p>Par ailleurs, comme <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> est une transformation linéaire d’une variable Gaussienne, on obtient directement que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\hat{\boldsymbol{\beta}}\sim \mathcal{N}\left(\boldsymbol{\beta}, \sigma^2\left(\mathbf{X}^\top\mathbf{X}\right)^{-1}\right). \end{gather*}\]</div>
+<p>Ainsi, en utilisant la distribution normale multivariée, on peut construire des intervalles de confiance pour <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span>.</p>
+<p>On verra aussi que ce résultat général est une pièce essentielle pour construire des tests de type <span class="math notranslate nohighlight">\(\beta_i = 0\)</span>, ce qui correspond à tester si la <span class="math notranslate nohighlight">\(i-\)</span>ème variable est significativement différente de 0.</p>
+<p>On utilise en général l’estimateur non-biaisé suivant:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}S^2 = \frac{1}{n-p} \sum_{i = 1}^n (y_i - \hat{y}_i)^2 = \frac{1}{n-p} \|\mathbf{y} - \hat{\mathbf{y}}\|^2, \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(p\)</span> est le nombre de variables explicatives et <span class="math notranslate nohighlight">\(n\)</span> le nombre d’observations.</p>
+<p>La distribution de <span class="math notranslate nohighlight">\(S^2\)</span> est liée à la variance de la manière suivante:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\frac{n-p}{\sigma^2}  S^2 \sim \chi^2_{n-p} \end{gather*}\]</div>
+<p>Arrêtons-nous pour regarder ce que l’on a fait.</p>
+<ul class="simple">
+<li><p>On postule un modèle probabiliste pour nos observations <span class="math notranslate nohighlight">\(y\)</span> en fonction de variables explicatives <span class="math notranslate nohighlight">\(x\)</span>. Ce modèle est entièrement caractérisé par un nombre restreint de coefficients.</p></li>
+<li><p>On estime les coefficients caractérisant le modèle en question.</p></li>
+</ul>
+<p>Une fois l’estimation faite, on dispose alors d’une fonction <span class="math notranslate nohighlight">\(\hat{f}\)</span> de <span class="math notranslate nohighlight">\(x\)</span> qui fournit une approximation de <span class="math notranslate nohighlight">\(y\)</span>. Autrement dit, pour tout vecteur de covariables <span class="math notranslate nohighlight">\(\mathbf{x}^\top\)</span>, on peut en déduire une prédiction pour <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \hat{y} = \hat{f}(\mathbf{x}) =  \mathbf{x}^\top \hat{\boldsymbol{\beta}} \end{gather*}\]</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Régréssion_linéaire"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="introduction.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="tests.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Régréssion linéaire: tests</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

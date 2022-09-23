@@ -1,0 +1,886 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Variables aléatoires discrètes &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Variables aléatoires continues" href="variables_aleatoires_continues.html" />
+    <link rel="prev" title="Probabilités totales et théorème de Bayes" href="probabilites_totales_et_theoreme_de_bayes.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/graphiques.html">
+   Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/boxplot.html">
+   Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/loi_normale.html">
+   Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="concepts_de_base.html">
+   Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arrangements_et_combinaisons.html">
+   Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probabilite_conditionnelle_independance.html">
+   Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probabilites_totales_et_theoreme_de_bayes.html">
+   Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables_aleatoires_continues.html">
+   Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables_aleatoires_conjointes.html">
+   Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="valeurs_caracteristiques.html">
+   Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="theoreme_fondamentaux.html">
+   Théorème fondamentaux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   Test du Chi2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   Régréssion linéaire: hypothèses et diagnostics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FProbabilité/variables_aleatoires_discretes.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Probabilité/variables_aleatoires_discretes.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Variables aléatoires discrètes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="variables-aleatoires-discretes">
+<h1>Variables aléatoires discrètes<a class="headerlink" href="#variables-aleatoires-discretes" title="Permalink to this headline">#</a></h1>
+<p>Nous allons définir les <strong>variables aléatoires</strong>: concept clé de la probabilité.</p>
+<ul class="simple">
+<li><p>types de variables aléatoires: discrète, continue.</p></li>
+<li><p>variables discrètes usuelles: Bernouli, binomiale, Poisson.</p></li>
+<li><p>variables continues usuelles: Gaussienne, uniforme, exponentielle;</p></li>
+</ul>
+<p>Après avoir effectué une expérience aléatoire, on s’intéresse davantage à une <strong>fonction du résultat</strong>, plutôt qu’au résultat lui-même.</p>
+<div class="proof definition admonition" id="var_aleatoire">
+<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Variable aléatoire)</p>
+<section class="definition-content" id="proof-content">
+<p><strong>Une variable aléatoire</strong> définie sur un ensemble fondamental <span class="math notranslate nohighlight">\(\Omega\)</span> est une fonction de <span class="math notranslate nohighlight">\(\Omega\)</span> dans <span class="math notranslate nohighlight">\( \mathbb{R}\)</span> (ou dans un sous-ensemble de <span class="math notranslate nohighlight">\(H \subset \mathbb{R}\)</span> ):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        X : &amp;&amp; \Omega \longrightarrow \mathbb{R}\\
+        &amp;&amp; \omega \longrightarrow X(\omega),
+\end{align*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\omega \in \Omega\)</span>. Notez donc que <span class="math notranslate nohighlight">\(H\)</span> est l’image de <span class="math notranslate nohighlight">\(\Omega\)</span> par <span class="math notranslate nohighlight">\(X\)</span>.
+Une variable peut prendre des valeurs <strong>discrètes</strong> ou <strong>continues</strong>.    Plus généralement, pour <span class="math notranslate nohighlight">\(A\subset \mathbb{R}\)</span>, on écrit <span class="math notranslate nohighlight">\(\{X \subset A\}\)</span> l’événement</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+    \{\omega \in \Omega \ :\ X(\omega) \in A \}. 
+\end{gather*}\]</div>
+</section>
+</div><div class="proof example admonition" id="jeu_de_catanne">
+<p class="admonition-title"><span class="caption-number">Example 24 </span> (Le jeu de Catane)</p>
+<section class="example-content" id="proof-content">
+<p>Au jeu de Catane, on lance deux dés et on fait la <strong>somme</strong>. Ici, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} 
+    \Omega = \{(i,j) \  : \  i,j = 1,2,\dots, 6\}, 
+\end{gather*}\]</div>
+<p>et la variable aléatoire représentant le jeu de Catane est</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+    X: \Omega \rightarrow \mathbb{R}, \quad (i,j)\mapsto i + j.
+\end{gather*}\]</div>
+</section>
+</div><div class="proof example admonition" id="ex2_var_discrete">
+<p class="admonition-title"><span class="caption-number">Example 25 </span></p>
+<section class="example-content" id="proof-content">
+<p>Identifions l’ensemble <span class="math notranslate nohighlight">\(H\)</span> pour les variables suivantes:</p>
+<ul class="simple">
+<li><p>Nombre de buts dans un match de foot.</p></li>
+<li><p>Nombre de grammes de chocolat consommé en un an par Alice.</p></li>
+<li><p>Température en Celsius demain matin.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>Nombre de buts</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} H = \mathbb{N}^2.\end{gather*}\]</div>
+<p>Le maximum jamais atteint (match international) est de 31 buts Austalie - Samoa Américaines: 31 - 0;</p>
+<ul class="simple">
+<li><p>Nombre de grammes de chocolat:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} H = \mathbb{R}^+.\end{gather*}\]</div>
+<ul class="simple">
+<li><p>Témprature en Celsius:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} H = \mathbb{R},\end{gather*}\]</div>
+<p>ou</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} H = [-273.15,+\infty[ .\end{gather*}\]</div>
+</div>
+</section>
+</div><div class="proof definition admonition" id="var_discrete">
+<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Variable discrètes)</p>
+<section class="definition-content" id="proof-content">
+<p>Une variable aléatoire est <strong>discrète</strong> si elle prend un nombre <strong>fini</strong> ou <strong>dénombrable</strong> de valeurs.</p>
+</section>
+</div><div class="proof definition admonition" id="fct_masse_var_discrete">
+<p class="admonition-title"><span class="caption-number">Definition 23 </span> (Fonction de masse/fréquences)</p>
+<section class="definition-content" id="proof-content">
+<p>Pour une variable discrète <span class="math notranslate nohighlight">\( X \)</span>, la fonction:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} f_X (x_i) := \Pr ( X = x_i ) \end{gather*}\]</div>
+<p>est dite <strong>fonction de masse</strong> (ou fonction de fréquences).</p>
+</section>
+</div><p>Une variable <span class="math notranslate nohighlight">\( X \)</span> est complètement caractérisée par</p>
+<ul class="simple">
+<li><p>les valeurs que <span class="math notranslate nohighlight">\(X\)</span> peut prendre, c’est-à-dire <span class="math notranslate nohighlight">\(H = \{x_1, \dots,x_k, \dots \}\)</span>;</p></li>
+<li><p>la liste de probabilités de ces valeurs</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \Pr(X=x_1), \dots, \Pr(X=x_k), \dots \end{gather*}\]</div>
+<p><span class="math notranslate nohighlight">\(f_X\)</span> définit donc complètement une variable discrète.</p>
+<div class="proof property admonition" id="prop_fct_masse">
+<p class="admonition-title"><span class="caption-number">Property 3 </span> (Fonction de masse)</p>
+<section class="property-content" id="proof-content">
+<p>La fonction <span class="math notranslate nohighlight">\(f_X\)</span> satisfait:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0\leq f_X(x_i) \leq 1\)</span> pour tout <span class="math notranslate nohighlight">\(i = 1,\dots, n\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_X(x) = 0\)</span> pour toutes les autres valeurs de <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \sum_{x_i \in H} f_X (x_i) = 1 \)</span></p></li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="ex3_var_discrete">
+<p class="admonition-title"><span class="caption-number">Example 26 </span></p>
+<section class="example-content" id="proof-content">
+<p>Calculez la fonction de masse:</p>
+<ul class="simple">
+<li><p>de la somme de deux dés (jeu de Catane);</p></li>
+<li><p>du maximum.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+    \Omega = \left\{
+    \begin{array}{llllll}
+    \{1,1\} &amp; \{1,2\} &amp; \{1,3\} &amp; \{1,4\} &amp; \{1,5\} &amp; \{1,6\}\\
+    \{2,1\} &amp; \{2,2\} &amp; \{2,3\} &amp; \{2,4\}&amp;\{2,5\}&amp;\{2,6\}\\
+    \{3,1\} &amp; \{3,2\} &amp; \{3,3\} &amp; \{3,4\}&amp;\{3,5\}&amp;\{3,6\}\\
+    \{4,1\} &amp; \{4,2\} &amp; \{4,3\} &amp; \{4,4\}&amp;\{4,5\}&amp;\{4,6\}\\
+    \{5,1\} &amp; \{5,2\} &amp; \{5,3\} &amp; \{5,4\}&amp;\{5,5\}&amp;\{5,6\}\\
+    \{6,1\} &amp; \{6,2\} &amp; \{6,3\} &amp; \{6,4\} &amp; \{6,5\} &amp; \{6,6\}
+    \end{array}
+    \right\}
+\end{gather*}\]</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+La somme</div>
+<figure class="align-default" id="tab1-prob">
+<a class="reference internal image-reference" href="../_images/tab1_prob.svg"><img alt="../_images/tab1_prob.svg" src="../_images/tab1_prob.svg" width="95%" /></a>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Le maximum</div>
+<figure class="align-default" id="tab2-prob">
+<a class="reference internal image-reference" href="../_images/tab2_prob.svg"><img alt="../_images/tab2_prob.svg" src="../_images/tab2_prob.svg" width="95%" /></a>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div><div class="proof definition admonition" id="fct_répartition">
+<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Fonction de répartition)</p>
+<section class="definition-content" id="proof-content">
+<p>La <strong>fonction de répartition</strong> <span class="math notranslate nohighlight">\(F_x\)</span> d’une variable aléatoire <span class="math notranslate nohighlight">\( X \)</span> est définie par:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} F_X(x) = \Pr (X \leq x).\end{gather*}\]</div>
+</section>
+</div><div class="proof property admonition" id="prop_repartition">
+<p class="admonition-title"><span class="caption-number">Property 4 </span> (Fonction de répartition)</p>
+<section class="property-content" id="proof-content">
+<p>Toute fonction de répartition a les propriétés suivantes:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_X\)</span> prend ses valeurs dans <span class="math notranslate nohighlight">\( [0,1] \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_X\)</span> est monotone, croissante (pas nécessairement strictement).</p></li>
+<li><p>On a</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \lim_{x \rightarrow -\infty}F_X(x) = 0, \quad \lim_{x \rightarrow +\infty}F_X(x) = 1.\end{gather*}\]</div>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(X\)</span> est une variable aléatoire discrète, alors</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} F_X(x) = \sum_{i \text{ tq } x_i \leq x} \Pr (X = x_i);\end{gather*}\]</div>
+<ul class="simple">
+<li><p>On a <span class="math notranslate nohighlight">\(\Pr(a &lt; X \leq b) = F_X(b) - F_X(a).\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_X\)</span> est continue à droite en <span class="math notranslate nohighlight">\(x_i,\)</span> pour tout <span class="math notranslate nohighlight">\(x_i \in H\)</span>.</p></li>
+</ul>
+</section>
+</div><div class="proof definition admonition" id="fct_quantile">
+<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Fonction quantile)</p>
+<section class="definition-content" id="proof-content">
+<p>Soit la fonction quantile définie comme</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+F: ]0,1[ \rightarrow \mathbb{R}, \quad F^{-}(\alpha) = \inf \{t\in \mathbb{R}\ :\ F(t)\geq \alpha \}. 
+\end{gather*}\]</div>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(F_X\)</span> est strictement croissante et continue alors, il existe une fonction réciproque <span class="math notranslate nohighlight">\(F^{-1}\)</span> et elle coïncide avec <span class="math notranslate nohighlight">\(F^{-}\)</span>.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(F_X\)</span> est seulement continue à droite et croissante, alors la fonction <span class="math notranslate nohighlight">\(F^{-}\)</span> est bien définie.
+Pour <span class="math notranslate nohighlight">\(\alpha\in ]0,1[\)</span>, on appelle  <span class="math notranslate nohighlight">\(q_\alpha = F^{-}(\alpha)\)</span> le <span class="math notranslate nohighlight">\(\alpha-\)</span>quantile.
+Par commodité, on va utiliser la notation <span class="math notranslate nohighlight">\(F^{-1}\)</span> pour <span class="math notranslate nohighlight">\(F^{-}\)</span>, y compris lorsque <span class="math notranslate nohighlight">\(F\)</span> n’est pas strictement croissante et continue.</p></li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="ex3_quantile">
+<p class="admonition-title"><span class="caption-number">Example 27 </span></p>
+<section class="example-content" id="proof-content">
+<p>Supposons que <span class="math notranslate nohighlight">\(X\sim \text{Exp}(\lambda)\)</span>. On a alors</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} f_X(x) = \lambda e^{-\lambda x}, \quad x&gt;0.\end{gather*}\]</div>
+<p>Soit <span class="math notranslate nohighlight">\(\alpha \in ]0,1[\)</span>. Calculez le quantile <span class="math notranslate nohighlight">\(q_\alpha\)</span> correspondant.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>On a donc</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} f_X(x) = \lambda e^{-\lambda x }.\end{gather*}\]</div>
+<p>On a alors <span class="math notranslate nohighlight">\(F_X(x) =  1-e^{-\lambda x}\)</span> et on déduit fonction quantile en inversant cette fonction:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}y = 1-e^{-\lambda x} \Leftrightarrow x = - \frac{1}{\lambda}\ln(1-y).   \end{gather*}\]</div>
+<p>Ainsi,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}q_\alpha = - \frac{1}{\lambda}\ln(1-\alpha). \end{gather*}\]</div>
+</div>
+</section>
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Quelques notations</p>
+<ul class="simple">
+<li><p>Les majuscules <span class="math notranslate nohighlight">\( X,Y,Z,T\dots\)</span> désignent des variables aléatoires.</p></li>
+<li><p>Les minuscules <span class="math notranslate nohighlight">\(x,y\dots\)</span> désignent des valeurs possibles ou des réalisations de <span class="math notranslate nohighlight">\(X,Y\dots\)</span>.</p></li>
+<li><p>La majuscule <span class="math notranslate nohighlight">\(F_X\)</span> est la fonction de répartition de <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>La minuscule <span class="math notranslate nohighlight">\(f_x\)</span> dénote la fonction de masse ou la densité de <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>On écrit <span class="math notranslate nohighlight">\(f,F\)</span> (sans l’indice) s’il n’y a pas de risque de confusion.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X \sim F\)</span> veut dire: « la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> suit la loi <span class="math notranslate nohighlight">\(F\)</span> » .</p></li>
+<li><p><span class="math notranslate nohighlight">\(X \dot{\sim} F\)</span> (point au dessus du tilde) veut dire: « la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> suit <strong>approximativement</strong> la loi <span class="math notranslate nohighlight">\(F\)</span> ».</p></li>
+</ul>
+</div>
+<div class="proof definition admonition" id="var_bern">
+<p class="admonition-title"><span class="caption-number">Definition 26 </span> (Variable de Bernouilli)</p>
+<section class="definition-content" id="proof-content">
+<p>Une variable aléatoire de Bernoulli satisfait:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+X = \left\{ 
+        \begin{array}{cl}
+        
+            x_1 = 0 &amp; \text{ probabilité }1-p \\ 
+            x_2 = 1 &amp; \text{ probabilité } p 
+        
+        \end{array} \right.
+\end{gather*}\]</div>
+<p>On écrit <span class="math notranslate nohighlight">\( X \sim \mathcal{B}(p) \)</span>. Sa loi de probabilité est donnée par:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\begin{array}{c|c|c|c}
+            X = x_i &amp; 0 &amp; 1&amp;\mbox{Total}\\
+            \hline f_X(x_i) =\Pr(X=x_i)&amp; 1-p &amp; p &amp;1
+        \end{array}
+\end{gather*}\]</div>
+<p>Elle a un paramètre: la probabilité de succès <span class="math notranslate nohighlight">\(p\)</span>. On peut l’utiliser pour modéliser des expériences qui ont deux issues possibles.</p>
+</section>
+</div><div class="proof definition admonition" id="var_bin">
+<p class="admonition-title"><span class="caption-number">Definition 27 </span> (Variable binomiale)</p>
+<section class="definition-content" id="proof-content">
+<p>On jette une pièce de monnaie <span class="math notranslate nohighlight">\(n\)</span> fois indépendamment et <span class="math notranslate nohighlight">\(\Pr(\text{Pile}) = p\)</span> est fixée. Soit <span class="math notranslate nohighlight">\( X \)</span> le nombre total de piles obtenus. On dit alors que <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi binomiale</strong> <span class="math notranslate nohighlight">\(X \sim \mathcal{B}(n,p) \)</span>. Sa fonction de masse est donnée par</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+f_X(x) = \binom{n}{x} p^x (1-p)^{n-x} \hspace{1.5cm} x = 0,1 \dots n.
+\end{gather*}\]</div>
+<p>La loi binomiale a deux paramètres: le nombre d’essai <span class="math notranslate nohighlight">\(n\)</span> et la probabilité de succès <span class="math notranslate nohighlight">\(p\)</span>. Pour <span class="math notranslate nohighlight">\(n=1\)</span>, on retrouve une variable de Bernoulli.</p>
+</section>
+</div><div class="proof example admonition" id="ex4_bin">
+<p class="admonition-title"><span class="caption-number">Example 28 </span> (Anniversaires mensuels)</p>
+<section class="example-content" id="proof-content">
+<p>Calculons la loi du nombre de personnes <span class="math notranslate nohighlight">\(X\)</span> présentes à ce cours ayant leur anniversaire ce mois ci.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Pour une personne donnée, la probabilité que son anniversaire tombe un mois donné est <span class="math notranslate nohighlight">\( 1 / 12 \)</span>. De plus, pour deux personnes qui n’ont pas de lien de parenté, leurs dates d’anniversaires sont indépendantes.
+On peut donc utiliser un modèle Binomial <span class="math notranslate nohighlight">\( \mathcal{B}(n,1/12) \)</span> pour représenter le nombre d’anniversaires dans le mois d’un groupe de <span class="math notranslate nohighlight">\( n \)</span> personnes.</p>
+</div>
+</section>
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Est-ce bien une fonction de masse?
+Il faut vérifier les trois propriétés:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0\leq f_X(x_i) \leq 1\)</span> pour tout <span class="math notranslate nohighlight">\(i = 1,\dots, n\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_X(x) = 0\)</span> pour toutes les autres valeurs de <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \sum_{x_i \in H} f_X (x_i) = 1 \)</span>
+On a trivialement que les propriétés 1 et 2 sont satisfaites. On vérifie aisément la propriété 3:</p></li>
+</ul>
+<p>Il suffit de se souvenir de la formule du binôme de Newton et le résultat est immédiat:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\sum_{x =0}^n  \binom{n}{x} p^x (1-p)^{n-x} = [p + (1-p)]^n = 1.
+\end{gather*}\]</div>
+</div>
+<div class="proof definition admonition" id="var_poi">
+<p class="admonition-title"><span class="caption-number">Definition 28 </span> (Variable de Poisson)</p>
+<section class="definition-content" id="proof-content">
+<p>Une <strong>variable de Poisson</strong> a un paramètre <span class="math notranslate nohighlight">\(\lambda &gt; 0\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} f_X(x) = \frac{\lambda^x}{x!} e^{-\lambda} \hspace{1.4cm} x \in \mathbb{N}.\end{gather*}\]</div>
+<p>Toute les valeurs <span class="math notranslate nohighlight">\( x \in \mathbb{N} \)</span> sont possibles! On écrit <span class="math notranslate nohighlight">\( X \sim \text{Poiss}(\lambda).\)</span></p>
+</section>
+</div><p>Une variable de Poisson peut-être utilisé, par exemple, pour  modéliser:</p>
+<ul class="simple">
+<li><p>nombre d’appels téléphoniques par minute dans une centrale;</p></li>
+<li><p>nombre d’avalanches mortelles en Suisse en une année.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Est-ce bien une fonction de masse?
+Il suffit de se souvenir de la de la définition de l’exponentielle et le résultat est immédiat:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \sum_{x =0}^\infty  \frac{\lambda^x}{x!} e^{-\lambda} = e^{-\lambda}  \sum_{x =0}^\infty  \frac{\lambda^x}{x!} = e^{-\lambda} e^\lambda = 1. \end{gather*}\]</div>
+</div>
+<div class="proof example admonition" id="ex4_poi">
+<p class="admonition-title"><span class="caption-number">Example 29 </span> (E. Coli.)</p>
+<section class="example-content" id="proof-content">
+<p>Un échantillon d’eau saine contient 4 E. Coli en moyenne. Trouver la probabilité qu’il en contienne <span class="math notranslate nohighlight">\(0,1,2,3,4\)</span>. Si on trouve 10 bactéries dans l’échantillon, pensez vous que l’eau soit bonne?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Le calcul nous donne:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} f_X(0) = \frac{4^0}{0!}e^{-4} = 0.02, \quad f_X(1) = \frac{4^1}{1!}e^{-4} = 0.07, \text{etc.}
+\end{gather*}\]</div>
+<p>qui nous donne la fonction de masse:</p>
+<figure class="align-default" id="tab3-prob">
+<a class="reference internal image-reference" href="../_images/tab3_prob.svg"><img alt="../_images/tab3_prob.svg" src="../_images/tab3_prob.svg" width="95%" /></a>
+</figure>
+<p>Il est très improbable d’observer 10 bactéries ou plus: <span class="math notranslate nohighlight">\( \Pr(X\geq 10 ) \leq 0.01 \)</span>. Une telle observation nous fait donc penser que cette eau est contaminée.</p>
+</div>
+</section>
+</div><p>Si <span class="math notranslate nohighlight">\(X \sim \mathcal{B}(n,p) \)</span> avec <span class="math notranslate nohighlight">\(n\)</span> grand et <span class="math notranslate nohighlight">\(p\)</span> petit, alors on peut approximer par <span class="math notranslate nohighlight">\( X \dot{\sim}    \text{Poiss}(\lambda = np)\)</span>.
+Parfois, on appelle ce théorème <strong>la loi des petits nombres</strong>.</p>
+<div class="proof example admonition" id="ex5_poi">
+<p class="admonition-title"><span class="caption-number">Example 30 </span> (Les anniversaires)</p>
+<section class="example-content" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(X\)</span> le nombre de personnes qui ont leur anniversaire aujourd’hui.
+Calculez la probabilité que <span class="math notranslate nohighlight">\(X=0,1,2,3\)</span> et <span class="math notranslate nohighlight">\(X&gt;1\)</span> sous la loi binomiale et son approximation poissonienne.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>On suppose que <span class="math notranslate nohighlight">\(p =1/365\)</span> et on a <span class="math notranslate nohighlight">\(n=247\)</span>.
+Le calcul montre qu’on a effectivement des résultats quasi identiques.
+Si on arrondit à 0.01, on trouve dans les deux cas la fonction de masses suivante (pour <span class="math notranslate nohighlight">\( n = 247 \)</span>):</p>
+<figure class="align-default" id="tab4-prob">
+<a class="reference internal image-reference" href="Probabilité/latex/PDFSVG/tab4_prob.svg"><img alt="Probabilité/latex/PDFSVG/tab4_prob.svg" src="Probabilité/latex/PDFSVG/tab4_prob.svg" width="95%" /></a>
+</figure>
+<p>On a donc <span class="math notranslate nohighlight">\(49\% \)</span> de chances que quelqu’un ait son anniversaire aujourd’hui. Est-ce que c’est le cas?</p>
+</div>
+</section>
+</div></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Probabilité"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="probabilites_totales_et_theoreme_de_bayes.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Probabilités totales et théorème de Bayes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="variables_aleatoires_continues.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Variables aléatoires continues</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

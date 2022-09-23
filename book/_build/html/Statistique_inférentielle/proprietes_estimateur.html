@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Propriétés d’un estimateur &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="4. Estimation par intervalle" href="estimation_par_intervalle.html" />
+    <link rel="prev" title="2. Estimation de paramètres" href="estimation_de_parametres.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   1. Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/graphiques.html">
+   2. Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   3. Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/boxplot.html">
+   4. Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/loi_normale.html">
+   5. Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   6. Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/concepts_de_base.html">
+   1. Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/arrangements_et_combinaisons.html">
+   2. Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/probabilite_conditionnelle_independance.html">
+   3. Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/probabilites_totales_et_theoreme_de_bayes.html">
+   4. Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_discretes.html">
+   5. Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_continues.html">
+   6. Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_conjointes.html">
+   7. Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/valeurs_caracteristiques.html">
+   8. Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/theoreme_fondamentaux.html">
+   9. Théorème fondamentaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/test_notebook.html">
+   10. Test live notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="estimation_de_parametres.html">
+   2. Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="estimation_par_intervalle.html">
+   4. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tests_hypotheses_statistiques.html">
+   5. Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tests_et_ic.html">
+   6. Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="test_chi2.html">
+   7. Test du
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="puissance_test.html">
+   8. Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   2. Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   3. Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   4. Régréssion linéaire: hypothèses et diagnostics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FStatistique_inférentielle/proprietes_estimateur.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/edit/main/Statistique_inférentielle/proprietes_estimateur.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Statistique_inférentielle/proprietes_estimateur.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#biais">
+   3.1. Biais
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance">
+   3.2. Variance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#erreur-quadratique-moyenne">
+   3.3. Erreur quadratique moyenne
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Propriétés d’un estimateur</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#biais">
+   3.1. Biais
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance">
+   3.2. Variance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#erreur-quadratique-moyenne">
+   3.3. Erreur quadratique moyenne
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="proprietes-dun-estimateur">
+<h1><span class="section-number">3. </span>Propriétés d’un estimateur<a class="headerlink" href="#proprietes-dun-estimateur" title="Lien permanent vers ce titre">#</a></h1>
+<div class="math notranslate nohighlight">
+\[\newcommand\EQM{\text{EQM}}
+\newcommand\var{\text{Var}}
+\newcommand\E{\mathbb{E}}\]</div>
+<p>En général on fait l’hypothèse (parfois discutable au demeurant) que l’on observe des réalisations IID d’une distribution caractérisée par un <em>vrai</em> paramètre <span class="math notranslate nohighlight">\(\theta\)</span>. Notre estimateur <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> est une variable aléatoire (comme une fonction de variables aléatoires <span class="math notranslate nohighlight">\(X_1,\dots,X_n\)</span>). On s’intéresse donc à évidemment à la précision de cet estimateur. On va donc évoquer trois caractéristiques d’un estimateur:</p>
+<ul class="simple">
+<li><p>le biais;</p></li>
+<li><p>la variance;</p></li>
+<li><p>l’erreur quadratique moyenne.</p></li>
+</ul>
+<section id="biais">
+<h2><span class="section-number">3.1. </span>Biais<a class="headerlink" href="#biais" title="Lien permanent vers ce titre">#</a></h2>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Définition 3.10 </span> (Biais)</p>
+<section class="definition-content" id="proof-content">
+<p>Le <strong>biais</strong> d’un estimateur mesure s’il est centré sur la bonne valeur:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} b(\hat{\theta}) = \mathbb{E}( \hat{\theta} ) - \theta \end{gather*}\]</div>
+</section>
+</div><div class="admonition-interpretation admonition">
+<p class="admonition-title">Interprétation</p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\( b(\hat{\theta}) &lt; 0 \)</span> alors <span class="math notranslate nohighlight">\(\hat{\theta} \)</span> a tendance à sous-estimer <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\( b(\hat{\theta}) &gt; 0 \)</span> alors <span class="math notranslate nohighlight">\(\hat{\theta} \)</span> a tendance à sur-estimer</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\( b(\hat{\theta}) = 0 \)</span> alors <span class="math notranslate nohighlight">\(\hat{\theta} \)</span> est <strong>non-biaisé</strong>. C’est un indicateur de qualité.</p></li>
+</ul>
+</div>
+</section>
+<section id="variance">
+<h2><span class="section-number">3.2. </span>Variance<a class="headerlink" href="#variance" title="Lien permanent vers ce titre">#</a></h2>
+<p>Un estimateur étant une variable aléatoire, on a donc</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\var(\hat{\theta}) = \E[ (\hat{\theta} - \E[\hat{\theta} ])^2].\end{gather*}\]</div>
+<p>La variance d’un estimateur est une mesure de la dispersion de l’estimateur autour de son espérance.</p>
+<figure class="align-default" id="tab1-stat">
+<a class="reference internal image-reference" href="../_images/tab1_stat.svg"><img alt="../_images/tab1_stat.svg" src="../_images/tab1_stat.svg" width="95%" /></a>
+</figure>
+<ul class="simple">
+<li><p>le biais est représenté par le fait que la moyenne empirique diffère du but: le centre du nuage de points n’est pas le centre de la cible.</p></li>
+<li><p>la variance est représentée par la dispersion du nuage de points.</p></li>
+</ul>
+</section>
+<section id="erreur-quadratique-moyenne">
+<h2><span class="section-number">3.3. </span>Erreur quadratique moyenne<a class="headerlink" href="#erreur-quadratique-moyenne" title="Lien permanent vers ce titre">#</a></h2>
+<div class="proof definition admonition" id="EQM">
+<p class="admonition-title"><span class="caption-number">Définition 3.11 </span> (Erreur quadratique moyenne)</p>
+<section class="definition-content" id="proof-content">
+<p><strong>L’erreur quadratique moyenne</strong> d’un estimateur <span class="math notranslate nohighlight">\( \hat{\theta} \)</span> de <span class="math notranslate nohighlight">\(\theta\)</span> est la fonction:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \EQM(\hat{\theta}) = \mathbb{E} \left[ (\hat{\theta} - \theta)^2\right] = \var( \hat{\theta} ) + b(\hat{\theta})^2. \end{gather*}\]</div>
+</section>
+</div><p>On peut utiliser l’EQM ou la variance pour comparer des estimateurs afin d’utiliser seulement le plus efficace. Lorsque l’on considère deux estimateurs non-biaisés, notés <span class="math notranslate nohighlight">\(\theta_1\)</span> et <span class="math notranslate nohighlight">\(\theta_2\)</span>, comparer leurs variances revient à comparer leurs erreurs quadratiques moyennes. Si l’on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\var(\theta_1) \leq \var(\theta_2), \end{gather*}\]</div>
+<p>alors on dit que <span class="math notranslate nohighlight">\(\theta_1\)</span> <em>est plus efficace</em> que <span class="math notranslate nohighlight">\(\theta_2\)</span>.</p>
+<div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Exemple 3.5 </span> (Moyenne empirique et médiane empirique)</p>
+<section class="example-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\( X_1 \dots X_n \stackrel{idd}{\sim} \mathcal{N}(\mu,\sigma^2) \)</span>. On considère <span class="math notranslate nohighlight">\(\overline{X}_n\)</span> et <span class="math notranslate nohighlight">\(M_n\)</span>, la médiane empirique de <span class="math notranslate nohighlight">\(X_1,\dots, X_n\)</span>.</p>
+<p>La médiane <span class="math notranslate nohighlight">\( M_n \)</span> suit approximativement la loi: <span class="math notranslate nohighlight">\( \mathcal{N}\left( \mu , \frac{\pi}{2}\frac{\sigma^2}{n}\right) \)</span>.</p>
+<p>Vaut-il mieux utiliser la moyenne empirique ou la médiane pour estimer <span class="math notranslate nohighlight">\( \mu \)</span> ?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Rappelons que l’on a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \bar{X}_n \stackrel{\cdot}{\sim} \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right)\end{gather*}\]</div>
+<p>et que l’on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} M_n \stackrel{idd}{\sim}  \mathcal{N}\left( \mu , \frac{\pi}{2}\frac{\sigma^2}{n}\right).\end{gather*}\]</div>
+<p>Ainsi les deux estimateurs sont non-biaisés. Il suffit de comparer leurs variances. On a donc</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\frac{\EQM(\overline{X}_n)}{\EQM(M_n)} = \frac{\sigma^2}{n}\frac{2}{\pi}\frac{n}{\sigma^2} = \frac{2}{\pi}&lt; 1. \end{gather*}\]</div>
+<p>La médiane empirique a une variance et donc une erreur quadratique moyenne plus importante. Utiliser cet estimateur nous conduit donc <strong>dans cet exemple</strong> à être moins efficace: on va systématiquement commettre des erreurs plus grandes.</p>
+</div>
+</section>
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Statistique_inférentielle"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="estimation_de_parametres.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Estimation de paramètres</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="estimation_par_intervalle.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Estimation par intervalle</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

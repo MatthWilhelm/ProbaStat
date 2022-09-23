@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Régréssion linéaire: tests &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Régréssion linéaire: hypothèses et diagnostics" href="hypotheses_et_diagnostics.html" />
+    <link rel="prev" title="Régréssion linéaire: cas général" href="cas_general.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/graphiques.html">
+   Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/boxplot.html">
+   Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/loi_normale.html">
+   Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/concepts_de_base.html">
+   Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/arrangements_et_combinaisons.html">
+   Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/probabilite_conditionnelle_independance.html">
+   Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/probabilites_totales_et_theoreme_de_bayes.html">
+   Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_discretes.html">
+   Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_continues.html">
+   Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_conjointes.html">
+   Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/valeurs_caracteristiques.html">
+   Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/theoreme_fondamentaux.html">
+   Théorème fondamentaux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   Test du Chi2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cas_general.html">
+   Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hypotheses_et_diagnostics.html">
+   Régréssion linéaire: hypothèses et diagnostics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRégréssion_linéaire/tests.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Régréssion_linéaire/tests.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-de-student">
+   Test de Student
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intervalle-de-confiance-pour-boldsymbol-beta-i">
+     Intervalle de confiance pour
+     <span class="math notranslate nohighlight">
+      \(\boldsymbol{\beta}_i\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tester-beta-i-0">
+     Tester
+     <span class="math notranslate nohighlight">
+      \(\beta_i = 0\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modeles-emboites">
+   Modèles emboîtés
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Régréssion linéaire: tests</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-de-student">
+   Test de Student
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intervalle-de-confiance-pour-boldsymbol-beta-i">
+     Intervalle de confiance pour
+     <span class="math notranslate nohighlight">
+      \(\boldsymbol{\beta}_i\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tester-beta-i-0">
+     Tester
+     <span class="math notranslate nohighlight">
+      \(\beta_i = 0\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modeles-emboites">
+   Modèles emboîtés
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="regression-lineaire-tests">
+<h1>Régréssion linéaire: tests<a class="headerlink" href="#regression-lineaire-tests" title="Permalink to this headline">#</a></h1>
+<section id="test-de-student">
+<h2>Test de Student<a class="headerlink" href="#test-de-student" title="Permalink to this headline">#</a></h2>
+<p>On rappelle que l’on a:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \hat{\boldsymbol{\beta}}\sim \mathcal{N}\left(\boldsymbol{\beta}, \sigma^2\left(\mathbf{X}^\top\mathbf{X}\right)^{-1}\right);\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{n-p}{\sigma^2}  S^2 \sim \chi^2_{n-p} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> et <span class="math notranslate nohighlight">\(S^2\)</span> sont indépendants.</p></li>
+</ul>
+<section id="intervalle-de-confiance-pour-boldsymbol-beta-i">
+<h3>Intervalle de confiance pour  <span class="math notranslate nohighlight">\(\boldsymbol{\beta}_i\)</span><a class="headerlink" href="#intervalle-de-confiance-pour-boldsymbol-beta-i" title="Permalink to this headline">#</a></h3>
+<p>Ainsi, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}T = \frac{\hat{\boldsymbol{\beta}}_i - \boldsymbol{\beta}_i}{S\sqrt{v_{ii}}} \sim t_{n-p}, \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(t_{n-p}\)</span> est une variable de Student de <span class="math notranslate nohighlight">\(n-p\)</span> de degrés de libertés et où <span class="math notranslate nohighlight">\(v_{ii}\)</span> est le ième élément diagonal de la matrice <span class="math notranslate nohighlight">\(\mathbf{V} = (\mathbf{X}^\top \mathbf{X})^{-1}\)</span>.</p>
+<p>On peut construire un intervalle de confiance pour <span class="math notranslate nohighlight">\(\boldsymbol{\beta}_i\)</span>, basé sur la distribution de Student:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\left[\hat{\boldsymbol{\beta}}_i - s_\alpha S \sqrt{v_{ii}},\hat{\boldsymbol{\beta}}_i + s_\alpha S \sqrt{v_{ii}} \right], \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(s_\alpha\)</span> est le quantile à <span class="math notranslate nohighlight">\(1-\frac{\alpha}{2}\)</span> de la loi <span class="math notranslate nohighlight">\(t_{n-p}\)</span> et où le niveau de confiance est <span class="math notranslate nohighlight">\(1- \alpha \)</span>.</p>
+</section>
+<section id="tester-beta-i-0">
+<h3>Tester <span class="math notranslate nohighlight">\(\beta_i = 0\)</span><a class="headerlink" href="#tester-beta-i-0" title="Permalink to this headline">#</a></h3>
+<p>A l’aide de la distribution de Student, on peut facilement faire un test d’hypothèse
+<span class="math notranslate nohighlight">\(H_0: \beta_i = 0\)</span> contre <span class="math notranslate nohighlight">\(H_1: \beta_i \neq 0\)</span>. En effet, sous <span class="math notranslate nohighlight">\(H_0\)</span>, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} T = \frac{\hat{\boldsymbol{\beta}}_i}{S\sqrt{v_{ii}}} \sim t_{n-p}.\end{gather*}\]</div>
+<p>Ainsi, pour un niveau de signification fixé <span class="math notranslate nohighlight">\(\alpha\)</span>, on rejette <span class="math notranslate nohighlight">\(H_0\)</span> si</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\left|T\right|} = \left|\frac{\hat{\boldsymbol{\beta}}_i}{S\sqrt{v_{ii}}}\right| &gt; t_{n-p; 1-\alpha/2}, \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(t_{n-p; 1-\alpha/2}\)</span> est le quantile  à <span class="math notranslate nohighlight">\(1-\alpha/2\)</span> de la loi de Student à <span class="math notranslate nohighlight">\(n-p\)</span> degrés de liberté.</p>
+</section>
+</section>
+<section id="modeles-emboites">
+<h2>Modèles emboîtés<a class="headerlink" href="#modeles-emboites" title="Permalink to this headline">#</a></h2>
+<p>On suppose à présent que l’on dispose de <span class="math notranslate nohighlight">\(p\)</span> variables mais que l’on soupçonne que seules les <span class="math notranslate nohighlight">\(q\)</span> premières (à reparamétrisation près) variables ont réellement une influence sur la variable réponse.</p>
+<ul class="simple">
+<li><p>L’ajustement sera <em>toujours</em> meilleur pour le modèle plein.</p></li>
+<li><p>Est-il possible de tester si cet ajustement est <em>significativement</em> meilleur?</p></li>
+</ul>
+<p>Soient <span class="math notranslate nohighlight">\(\mathbf{y} = (y_1,\dots, y_n)^\top\)</span> et
+<span class="math notranslate nohighlight">\(\mathbf{X} = 
+\left[
+\mathbf{X}_1
+\left| \right. 
+\,
+\mathbf{X}_2
+\right] \in \mathbb{R}^{n\times p}\)</span> et où <span class="math notranslate nohighlight">\(\mathbf{X}_1\in \mathbb{R}^{n\times q} \)</span> et <span class="math notranslate nohighlight">\(\mathbf{X}_2\in \mathbb{R}^{n\times (p-q)} \)</span>.
+On partitionne le vecteur de coefficients de manière similaire
+<span class="math notranslate nohighlight">\(\boldsymbol{\beta} = 
+\left[
+\boldsymbol{\beta}_1
+\left| \right. 
+\,
+\boldsymbol{\beta}_2
+\right]\)</span>,
+où <span class="math notranslate nohighlight">\(\boldsymbol{\beta}_1\in \mathbb{R}^{q} \)</span> et <span class="math notranslate nohighlight">\(\boldsymbol{\beta}_1\in \mathbb{R}^{p-q}\)</span>.</p>
+<p>On considère alors les modèle suivants:</p>
+<div class="math notranslate nohighlight" id="equation-equ-big-model">
+<span class="eqno">(1)<a class="headerlink" href="#equation-equ-big-model" title="Permalink to this equation">#</a></span>\[\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon} = \mathbf{X}_1\boldsymbol{\beta}_1 +  \mathbf{X}_2\boldsymbol{\beta}_2 + \boldsymbol{\varepsilon}, \]</div>
+<p>et</p>
+<p>où <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}\in \mathbb{R}^n \sim\mathcal{N}(\mathbf{0}, \sigma^2 \mathbf{I}_n)\)</span> et <span class="math notranslate nohighlight">\(\sigma^2 &gt;0\)</span>.</p>
+<p>On voit immédiatement que le modèle <span class="xref myst">m</span> est un sous-modèle du modèle <a class="reference internal" href="#equation-equ-big-model">(1)</a> il correspond au cas où <span class="math notranslate nohighlight">\(\boldsymbol{\beta}_2 = \mathbf{0}_{p-q}\)</span>. On dit alors que ces modèles sont emboîtés.</p>
+<p>La question initiale peut donc à présent se reformuler de la manière suivante: est-ce que l’on peut tester
+|begin{gather*}H_0: \boldsymbol{\beta}<em>2 = \mathbf{0}</em>{p-q} \quad \text{ vs }H_1: \boldsymbol{\beta}<em>2 \neq \mathbf{0}</em>{p-q}.\end{gather*}
+La réponse est affirmative, et cela se fait en utilisant un test <span class="math notranslate nohighlight">\(F\)</span>.</p>
+<p>Soit <span class="math notranslate nohighlight">\(\mathbf{H}_1   =
+ \mathbf{X}_1\left(\mathbf{X}_1^\top\mathbf{X}_1\right)^{-1}\mathbf{X}_1^\top
+\)</span> et
+<span class="math notranslate nohighlight">\(\hat{\mathbf{y}}_1 =\mathbf{H}_1 \mathbf{y}.\)</span>
+Alors on note</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\text{SCR}(\hat{\boldsymbol{\beta}}_1) = \| \mathbf{y} -\hat{\mathbf{y}}_1\|^2, \quad \text{SCR}(\hat{\boldsymbol{\beta}}) = \| \mathbf{y} -\hat{\mathbf{y}}\|^2.\end{gather*}\]</div>
+<p>Alors sous <span class="math notranslate nohighlight">\(H_0: \boldsymbol{\beta}_2 = \mathbf{0}_{p-q}\)</span>, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} F =  \frac{\frac{\text{SCR}(\hat{\boldsymbol{\beta}}_1) - \text{SCR}(\hat{\boldsymbol{\beta}})}{p-q}}{\frac{\text{SCR}(\hat{\boldsymbol{\beta}})}{n-p}} \sim F_{p-q,n-p}.\end{gather*}\]</div>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 74 </span> (Les données d’Ozone)</p>
+<section class="example-content" id="proof-content">
+<p>Voici trois modèles:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y &amp;=&amp; \textcolor{green}{\alpha + \varepsilon},\\
+ y &amp;=&amp; \textcolor{red}{\alpha +\beta x + \varepsilon},\\
+y &amp;= &amp;\textcolor{blue}{\alpha + \beta x + \gamma x^2 + \delta x^3 + \varepsilon}
+\end{eqnarray*}\]</div>
+<p>Le rouge semble être  bien meilleur que le vert, mais que le rouge et le bleu
+semblent être similaires.  Comment tester ce constat?</p>
+<figure class="align-default" id="jungozone-fit">
+<a class="reference internal image-reference" href="../_images/JungOzone_fit.svg"><img alt="../_images/JungOzone_fit.svg" src="../_images/JungOzone_fit.svg" width="95%" /></a>
+</figure>
+<p>Comparons le modèle constant <span class="math notranslate nohighlight">\(y=\alpha + \varepsilon\)</span> et le modèle linéaire <span class="math notranslate nohighlight">\(y=\alpha + \beta x + \varepsilon\)</span>.</p>
+<p>Pour tester s’il vaut la peine d’ajouter <span class="math notranslate nohighlight">\(\beta x\)</span>, on calcule</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+F = \dfrac{({\rm SC_{green}} -{\rm SC_{red}}) /1}{ {\rm  SC_{red}}/(n-2)}.
+\end{gather*}\]</div>
+<p>Si l’hypothèse nulle <span class="math notranslate nohighlight">\(H_0:\beta = 0\)</span> (modèle constant) est vraie alors <span class="math notranslate nohighlight">\(F \sim F_{1,n-2}\)</span>.</p>
+<ul class="simple">
+<li><p>Données d’ozone: on trouve <span class="math notranslate nohighlight">\(F=204.32\)</span>, à comparer avec <span class="math notranslate nohighlight">\(F_{1,205;0.975}= 5.098\)</span>.</p></li>
+</ul>
+<p>Pour les données d’ozone, pour tester <span class="math notranslate nohighlight">\(\gamma=\delta=0\)</span> dans le modèle cubique</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+ y = \alpha + \beta x + \gamma x^2 + \delta x^3 + \varepsilon,
+\end{gather*}\]</div>
+<p>on calcule</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} F = \dfrac{({\rm SC_{red}} -{\rm SC_{blue}}) / (p-q)}{ {\rm  SC_{blue}}/(n-p)},
+\end{gather*}\]</div>
+<p>et avec <span class="math notranslate nohighlight">\(n=207\)</span>, <span class="math notranslate nohighlight">\(p=4\)</span>, <span class="math notranslate nohighlight">\(q=2\)</span>, on obtient</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+F=\dfrac{(5831.9-5712.2)/(4-2)}{ 5712/(207-4)} = 2.13 \,{{\stackrel{\,H_0\,}{\sim}}}\, F_{2,207-4} = F_{2,203},
+\end{gather*}\]</div>
+<p>dont le quantile <span class="math notranslate nohighlight">\(95\%\)</span> est <span class="math notranslate nohighlight">\(F_{2,203;0.975}= 3.756\)</span>.</p>
+</section>
+</div><div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 75 </span> (L’effet photoélectrique)</p>
+<section class="example-content" id="proof-content">
+<p>La loi de l’effet photoélectrique a marqué l’histoire de la physique comme étant une des premières incursion de la physique quantique. Lorsque l’on irradie (éclaire) un métal à une certaine fréquence, certains électrons quittent leur couche de valence. La loi de l’effet photoélectrique postule que la différence de potentiel qui engendre par cette émission d’électron satisfait:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} V = \frac{h}{e} f - \frac{W_0}{e}, \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(f\)</span> est la fréquence du rayon incident, <span class="math notranslate nohighlight">\(h\)</span> est la constante de Planck, <span class="math notranslate nohighlight">\(e\)</span> dénote la charge élémentaire d’un électron, <span class="math notranslate nohighlight">\(W_0\)</span> est le travail nécessaire pour permettre l’extraction de l’électron.
+La loi de l’effet photoélectrique a marqué l’histoire de la physique comme étant une des premières incursion de la physique quantique.</p>
+<ul class="simple">
+<li><p>observé expérimentalement dès la fin du 19<span class="math notranslate nohighlight">\(^{\text{ième}}\)</span> siècle (Hertz, 1887);</p></li>
+<li><p>décrit de manière théorique par Einstein en 1905;</p></li>
+<li><p>validé expérimentalement par Milikan (1915);</p></li>
+<li><p>prix de Nobel de physique pour Einstein (1921).</p></li>
+</ul>
+<p>Postule que la lumière se comporte en quanta.</p>
+<figure class="align-default" id="photo-electric-fit">
+<a class="reference internal image-reference" href="../_images/photo_electric_fit.svg"><img alt="../_images/photo_electric_fit.svg" src="../_images/photo_electric_fit.svg" width="95%" /></a>
+</figure>
+<p>D’après la relation</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}V = \frac{h}{e} f - \frac{W_0}{e}, \end{gather*}\]</div>
+<p>on peut déduire la constante de Planck, et on obtient</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\hat{h}_{\text{1er ordre}} = 6.41 \times 10^{-34},\quad \hat{h}_{\text{2ème ordre}} = 6.40 \times 10^{-34}.\end{gather*}\]</div>
+<p>On verra plus tard comment construire des intervalles de confiance pour ces valeurs.
+La valeur actuelle de <span class="math notranslate nohighlight">\(h\)</span> est</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}h = 6.62 \times 10^{-34},\end{gather*}\]</div>
+<p>et l’écart relatif entre les deux valeurs est de <span class="math notranslate nohighlight">\(\sim 3.1\%\)</span>.</p>
+</section>
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Régréssion_linéaire"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="cas_general.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Régréssion linéaire: cas général</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="hypotheses_et_diagnostics.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Régréssion linéaire: hypothèses et diagnostics</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

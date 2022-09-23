@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Régréssion linéaire: hypothèses et diagnostics &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="3. Régréssion linéaire: tests" href="tests.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   1. Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/graphiques.html">
+   2. Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   3. Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/boxplot.html">
+   4. Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/loi_normale.html">
+   5. Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   6. Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/concepts_de_base.html">
+   1. Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/arrangements_et_combinaisons.html">
+   2. Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/probabilite_conditionnelle_independance.html">
+   3. Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/probabilites_totales_et_theoreme_de_bayes.html">
+   4. Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_discretes.html">
+   5. Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_continues.html">
+   6. Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_conjointes.html">
+   7. Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/valeurs_caracteristiques.html">
+   8. Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/theoreme_fondamentaux.html">
+   9. Théorème fondamentaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/test_notebook.html">
+   10. Test live notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   2. Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   3. Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   4. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   5. Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   6. Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   7. Test du
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   8. Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cas_general.html">
+   2. Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tests.html">
+   3. Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Régréssion linéaire: hypothèses et diagnostics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRégréssion_linéaire/hypotheses_et_diagnostics.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/edit/main/Régréssion_linéaire/hypotheses_et_diagnostics.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Régréssion_linéaire/hypotheses_et_diagnostics.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagnostic-de-linearite">
+   4.1. Diagnostic de linéarité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#homoscedasticite-variance-constante">
+   4.2. Homoscédasticité (variance constante)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagnostics-dindependance">
+   4.3. Diagnostics d’indépendance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagnostic-de-normalite">
+   4.4. Diagnostic de normalité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypothese-de-rang-plein-et-r-2">
+   4.5. Hypothèse de rang plein et
+   <span class="math notranslate nohighlight">
+    \(R^2\)
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hypothese-de-rang-plein">
+     4.5.1. Hypothèse de rang plein
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#r-2">
+     4.5.2.
+     <span class="math notranslate nohighlight">
+      \(R^2\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#obsevations-influentes">
+   4.6. Obsevations influentes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valeurs-aberrantes">
+     4.6.1. Valeurs aberrantes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#points-leviers">
+     4.6.2. Points leviers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distance-de-cook">
+   4.7. Distance de Cook
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Régréssion linéaire: hypothèses et diagnostics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagnostic-de-linearite">
+   4.1. Diagnostic de linéarité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#homoscedasticite-variance-constante">
+   4.2. Homoscédasticité (variance constante)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagnostics-dindependance">
+   4.3. Diagnostics d’indépendance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagnostic-de-normalite">
+   4.4. Diagnostic de normalité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypothese-de-rang-plein-et-r-2">
+   4.5. Hypothèse de rang plein et
+   <span class="math notranslate nohighlight">
+    \(R^2\)
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hypothese-de-rang-plein">
+     4.5.1. Hypothèse de rang plein
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#r-2">
+     4.5.2.
+     <span class="math notranslate nohighlight">
+      \(R^2\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#obsevations-influentes">
+   4.6. Obsevations influentes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valeurs-aberrantes">
+     4.6.1. Valeurs aberrantes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#points-leviers">
+     4.6.2. Points leviers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distance-de-cook">
+   4.7. Distance de Cook
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="regression-lineaire-hypotheses-et-diagnostics">
+<h1><span class="section-number">4. </span>Régréssion linéaire: hypothèses et diagnostics<a class="headerlink" href="#regression-lineaire-hypotheses-et-diagnostics" title="Lien permanent vers ce titre">#</a></h1>
+<div class="math notranslate nohighlight">
+\[\newcommand\corr{\text{Corr}}
+\newcommand\cov{\text{Cov}}
+\newcommand\var{\text{Var}}
+\newcommand\E{\mathbb{E}}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon},
+\end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\boldsymbol{\beta} \in \mathbb{R}^p\)</span> est un vecteur de paramètres, <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon} \in \mathbb{R}^n \sim\mathcal{N}(\mathbf{0}, \sigma^2 \mathbf{I}_n)\)</span> et <span class="math notranslate nohighlight">\(\sigma^2 &gt;0\)</span>. Rappelons que si <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}= (\varepsilon_1, \dots, \varepsilon_n)\)</span>, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\boldsymbol{\varepsilon} \sim\mathcal{N}(\mathbf{0}, \sigma^2 \mathbf{I}_n) \Leftrightarrow \varepsilon_1, \dots, \varepsilon_n \stackrel{idd}{\sim} \mathcal{N}(0,\sigma^2).\end{gather*}\]</div>
+<p>D’une certaine manière, tout tient dans l’affirmation que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\varepsilon_1, \dots, \varepsilon_n \stackrel{idd}{\sim} \mathcal{N}(0,\sigma^2).\end{gather*}\]</div>
+<p>On détaille ces hypothèses:</p>
+<ul class="simple">
+<li><p><strong>linéarité</strong>: une relation linéaire lie la variable réponse et les covariables;</p></li>
+<li><p><strong>homoscedasticité</strong> (même variance): la variance des erreurs est constante;</p></li>
+<li><p><strong>indépendance</strong>: les erreurs sont indépendantes entre elles;</p></li>
+<li><p><strong>normalité</strong>: on suppose que la distribution des erreurs est normale.</p></li>
+</ul>
+<p>Au delà des hypothèses sur les erreurs, on fait une autre hypothèse, sur la structure des covariables:</p>
+<ul class="simple">
+<li><p><strong>plein rang</strong>: on suppose que les covariables sont indépendantes (au sens de l’algèbre linéaire), c’est-à-dire qu’aucune covariable n’est une combinaison linéaire des autres covariables. Mathématiquement, cela signifie que le rang de la matrice <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> est égal à son nombre de colonnes.</p></li>
+</ul>
+<p>Une fois le modèle ajusté, c’est-à-dire qu’on a calculé <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span>, on en déduit <strong>les résidus</strong></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} e_1 = y_1 - \hat{y}_1, \dots, e_n = y_n - \hat{y}_n.\end{gather*}\]</div>
+<p>Si les hypothèses du modèle linéaire Gaussien sont satisfaites, alors les résidus sont des estimateurs de la variable <span class="math notranslate nohighlight">\(\varepsilon \sim \mathcal{N}(0, \sigma^2)\)</span>.</p>
+<p>Sous forme vectorielle, on peut écrire <span class="math notranslate nohighlight">\(\mathbf{e} = (e_1, \dots, e_n)^\top\)</span> et on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\mathbf{e} = \mathbf{y} - \hat{\mathbf{y}} = \left(\mathbf{I}_n - \mathbf{X}\left(\mathbf{X}^\top\mathbf{X}\right)^{-1}\mathbf{X}^\top \right)\mathbf{y} =\left(\mathbf{I}_n - \mathbf{H}\ \right)\mathbf{y}. \end{gather*}\]</div>
+<p>On définit alors les résidus standardisés comme</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}r_i = \frac{y_i - \hat{y_i}}{s \sqrt{1 - h_{ii}}}. \end{gather*}\]</div>
+<p>Notons que l’on a <span class="math notranslate nohighlight">\(\mathbf{H}^2 = \mathbf{H}\)</span> d’où on déduit que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\var(\mathbf{e}) &amp;=  \var\left[\left(\mathbf{I}_n - \mathbf{H}\ \right)\boldsymbol{\varepsilon} \right]  = \left(\mathbf{I}_n - \mathbf{H}\ \right) \var(\boldsymbol{\varepsilon}) \left(\mathbf{I}_n - \mathbf{H}\ \right)^\top \\
+&amp;= \sigma^2\left(\mathbf{I}_n - \mathbf{H}\ \right).
+\end{align*}\]</div>
+<div class="proof property admonition" id="property-0">
+<p class="admonition-title"><span class="caption-number">Propriété 4.1 </span> (Résidus)</p>
+<section class="property-content" id="proof-content">
+<p>Les résidus satisfont plusieurs propriété.</p>
+<ul class="simple">
+<li><p>Ils sont orthogonaux à la matrice <span class="math notranslate nohighlight">\(\mathbf{X}\)</span></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\mathbf{X}^\top \mathbf{e} =\mathbf{X}^\top  (\mathbf{y} - \mathbf{X}\hat{\boldsymbol{\beta}}) = \mathbf{0}. \end{gather*}\]</div>
+<ul class="simple">
+<li><p>Ils sont orthogonaux aux valeurs ajustées</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\hat{\mathbf{y}}^\top \mathbf{e} = \mathbf{0}.\end{gather*}\]</div>
+</section>
+</div><p>On va donc voir des moyens graphiques d’examiner d’éventuelles violations de l’hypothèse sur les résidus:</p>
+<ul class="simple">
+<li><p>linéarité: nuage de points des résidus en fonction des covariables;</p></li>
+<li><p>homoscédasticité: nuage de points des résidus en fonction des valeurs ajustées;</p></li>
+<li><p>indépendance: nuage de point des résidus contre les covariables, graphiques d’auto-corrélation et d’auto-corrélation partielle;</p></li>
+<li><p>normalité: QQ-plot normal.</p></li>
+</ul>
+<section id="diagnostic-de-linearite">
+<h2><span class="section-number">4.1. </span>Diagnostic de linéarité<a class="headerlink" href="#diagnostic-de-linearite" title="Lien permanent vers ce titre">#</a></h2>
+<p>On peut distinguer deux aspects: que la relation entre la variable de réponse et les variables explicatives est bien linéaire et qu’elle ne soit que linéaire.</p>
+<ul class="simple">
+<li><p>Faire un nuage de points de la réponse en fonction de chacune des covariables;</p></li>
+<li><p>Faire un nuage de points des résidus en fonction de chacune des covariables.</p></li>
+</ul>
+<figure class="align-default" id="linearity-diagnostic-exemple">
+<a class="reference internal image-reference" href="../_images/linearity_diagnostic_exemple.svg"><img alt="../_images/linearity_diagnostic_exemple.svg" src="../_images/linearity_diagnostic_exemple.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.9 </span><span class="caption-text">: Diagnostic de linéarité: exemple</span><a class="headerlink" href="#linearity-diagnostic-exemple" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="linearity-diagnostic-contre-exemple">
+<a class="reference internal image-reference" href="../_images/linearity_diagnostic_contre_exemple.svg"><img alt="../_images/linearity_diagnostic_contre_exemple.svg" src="../_images/linearity_diagnostic_contre_exemple.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.10 </span><span class="caption-text">: Diagnostic de linéarité: contre-exemple</span><a class="headerlink" href="#linearity-diagnostic-contre-exemple" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="homoscedasticite-variance-constante">
+<h2><span class="section-number">4.2. </span>Homoscédasticité (variance constante)<a class="headerlink" href="#homoscedasticite-variance-constante" title="Lien permanent vers ce titre">#</a></h2>
+<p>L’hypothèse de l’homoscédasticité découle du fait que les erreurs sont identiquement distribuées.</p>
+<ul class="simple">
+<li><p>On peut s’en passer, mais il est alors nécessaire de connaître la structure de la variance;</p></li>
+<li><p>En cas d’hétéroscedasticité, les moindres carrés doivent être modifiés et on parle de moindres carrés <em>pondérés</em>.</p></li>
+</ul>
+<figure class="align-default" id="homoscedastic-diagnostic-homo">
+<a class="reference internal image-reference" href="../_images/homoscedastic_diagnostic_homo.svg"><img alt="../_images/homoscedastic_diagnostic_homo.svg" src="../_images/homoscedastic_diagnostic_homo.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.11 </span><span class="caption-text">: Homoscédastique</span><a class="headerlink" href="#homoscedastic-diagnostic-homo" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="homoscedastic-diagnostic-heteroo">
+<a class="reference internal image-reference" href="../_images/homoscedastic_diagnostic_hetero.svg"><img alt="../_images/homoscedastic_diagnostic_hetero.svg" src="../_images/homoscedastic_diagnostic_hetero.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.12 </span><span class="caption-text">: Hétéroscédastique</span><a class="headerlink" href="#homoscedastic-diagnostic-heteroo" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="diagnostics-dindependance">
+<h2><span class="section-number">4.3. </span>Diagnostics d’indépendance<a class="headerlink" href="#diagnostics-dindependance" title="Lien permanent vers ce titre">#</a></h2>
+<p>De manière générale, l’hypothèse d’indépendance des résidus est la plus difficile à évaluer. Et l’indépendance peut-être violée de différentes manières. On mentionne deux facteurs importants:</p>
+<ul class="simple">
+<li><p>autocovariance dans le terme d’erreur;</p></li>
+<li><p>une partie des résidus est une fonction non-linéaire des variables explicatives.</p></li>
+</ul>
+<p>On parle d’autocovariance lorsque, pour des variables aléatoires <span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span>, il existe une fonction <span class="math notranslate nohighlight">\(\gamma\)</span> telle que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\cov(X_i, X_j) = \gamma(\left|i-j\right|), \quad \forall i,j = 1, \dots, n. \end{gather*}\]</div>
+<p>En général, cette définition est traitée dans le cadre des « série temporelles ». Intuitivement, cela signifie qu’il y a une dépendance entre les observations qui est liée aux indices (ou à leur éloignement), ce qui est typiquement le cas dans les séries temporelles.</p>
+<p>L’autocovariance empirique d’un échantillon <span class="math notranslate nohighlight">\(x_1, \dots, x_n\)</span> d’observations se calcule de la manière suivante:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \hat{\gamma}(h) = \frac{1}{n} \sum_{t = 1}^{n-h}(x_{t + h} - \overline{x}) (x_{t}- \overline{x}). \end{gather*}\]</div>
+<p>L’autocorrélation est définie comme:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \rho(h) = \frac{\gamma(h)}{\gamma(0)} \in ]-1,1[.\end{gather*}\]</div>
+<p>L’autocorrélation partielle est une notion plus complexe à définir mais permet de mettre en évidence une dépendance entre des observations.</p>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Exemple 4.7 </span> (Erreurs autocorrélées)</p>
+<section class="example-content" id="proof-content">
+<p>Considérons deux modèles presque identiques:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f2bcd8fa-3bff-43dc-b56b-956218ac8924">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-f2bcd8fa-3bff-43dc-b56b-956218ac8924" title="Lien permanent vers cette équation">#</a></span>\[\begin{align}
+Y^{(1)} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}^{(1)}, \tag{M1}\\
+Y^{(2)} = \mathbf{X}\beta + \boldsymbol{\varepsilon}^{(2)},  \tag{M2}
+\end{align}\]</div>
+<p>où on a
+<span class="math notranslate nohighlight">\( \varepsilon^{(1)}_1, \dots, \varepsilon^{(1)}_n \stackrel{idd}{\sim} \mathcal{N}(0,\sigma^2)\)</span>, alors que
+<span class="math notranslate nohighlight">\( \varepsilon^{(2)}_1, \dots, \varepsilon^{(2)}_n \sim \mathcal{N}(0,\sigma^2)\)</span> mais <strong>ne sont pas indépendantes</strong>.
+Par ailleurs, on a <span class="math notranslate nohighlight">\(\boldsymbol{\beta} = (5, -1, 2)^\top\)</span> et <span class="math notranslate nohighlight">\(5\)</span> est la valeur de l’ordonnée à l’origine.</p>
+<figure class="align-default" id="independance-diagnostic-autocorrelation">
+<a class="reference internal image-reference" href="../_images/independance_diagnostic_autocorrelation.svg"><img alt="../_images/independance_diagnostic_autocorrelation.svg" src="../_images/independance_diagnostic_autocorrelation.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.13 </span><span class="caption-text">: Exemple de diagnostic d’indépendance</span><a class="headerlink" href="#independance-diagnostic-autocorrelation" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>ACF et PACF des résidus standardisés d’une réalisation du modèle (M1).</p>
+<figure class="align-default" id="ar1-diagnostic-autocorrelation">
+<a class="reference internal image-reference" href="../_images/ar1_diagnostic_autocorrelation.svg"><img alt="../_images/ar1_diagnostic_autocorrelation.svg" src="../_images/ar1_diagnostic_autocorrelation.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.14 </span><span class="caption-text">: Contre-exemple de diagnostic d’indépendance</span><a class="headerlink" href="#ar1-diagnostic-autocorrelation" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>ACF et PACF des résidus standardisés d’une réalisation du modèle (M2)</p>
+</section>
+</div></section>
+<section id="diagnostic-de-normalite">
+<h2><span class="section-number">4.4. </span>Diagnostic de normalité<a class="headerlink" href="#diagnostic-de-normalite" title="Lien permanent vers ce titre">#</a></h2>
+<p>On utilise très souvent le QQ-plot (graphique quantile/quantile) pour comparer une distribution empirique par rapport à une distribution théorique <span class="math notranslate nohighlight">\(F\)</span> (continue). Soient <span class="math notranslate nohighlight">\(x_{(1)}, \dots, x_{(n)}\)</span> un échantillon ordonné et soit <span class="math notranslate nohighlight">\(F^{-1}\)</span> le fonction réciproque de <span class="math notranslate nohighlight">\(F\)</span>, appelée aussi fonction quantile. Alors un QQplot est un nuage de points dont les coordonnées sont</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}(F^{-1}(c_1), x_{(1)}),\dots, (F^{-1}(c_n), x_{(n)}),\end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(c_1, \dots, c_n\)</span> sont donnés par</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}c_k =  \frac{k - c_0}{n + 1 - 2 c_0 }\approx \frac{k}{n}, \quad c_0 = \frac{3}{8} \text{ si $n$ &lt; 10}, \quad c_0 = \frac{1}{2}, \text{ sinon.} \end{gather*}\]</div>
+<p>Dans le cas où la distribution théorique à laquelle on souhaite comparer notre écahntillon est la loi normale, on a <span class="math notranslate nohighlight">\(F^{-1} = \Phi^{-1}, \)</span> la loi quantile de la loi normale standard.</p>
+<p>La suite <span class="math notranslate nohighlight">\(c_1, \dots, c_n\)</span> peut sembler un peu étonnante. Elle correspond à une approximation de l’espérance  des statistiques d’ordre de la loi normale standard.</p>
+<p>Dans ce qui suit, on montre des QQ-plots normaux pour plusieurs échantillons de lois différentes.</p>
+<figure class="align-default" id="qqplot-normal">
+<a class="reference internal image-reference" href="../_images/QQplot_normal.svg"><img alt="../_images/QQplot_normal.svg" src="../_images/QQplot_normal.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.15 </span><span class="caption-text">: QQplot d’une réalisation d’une loi normale standard, de taille <span class="math notranslate nohighlight">\(n = 50\)</span>.</span><a class="headerlink" href="#qqplot-normal" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="qqplot-student">
+<a class="reference internal image-reference" href="../_images/QQplot_student.svg"><img alt="../_images/QQplot_student.svg" src="../_images/QQplot_student.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.16 </span><span class="caption-text">: QQplot d’une réalisation d’une loi de Student à <span class="math notranslate nohighlight">\(\nu = 1\)</span> degré de liberté, de taille <span class="math notranslate nohighlight">\(n = 50\)</span>.</span><a class="headerlink" href="#qqplot-student" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="qqplot-cauchy">
+<a class="reference internal image-reference" href="../_images/QQplot_Cauchy.svg"><img alt="../_images/QQplot_Cauchy.svg" src="../_images/QQplot_Cauchy.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.17 </span><span class="caption-text">: QQplot d’une réalisation d’une loi de Cauchy de paramètre de localisation 0 et de localisation <span class="math notranslate nohighlight">\(0\)</span>, de taille <span class="math notranslate nohighlight">\(n = 50\)</span>.</span><a class="headerlink" href="#qqplot-cauchy" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="qqplot-gammaq">
+<a class="reference internal image-reference" href="../_images/QQplot_Gamma.svg"><img alt="../_images/QQplot_Gamma.svg" src="../_images/QQplot_Gamma.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.18 </span><span class="caption-text">: QQplot d’une réalisation d’une loi Gamma de paramètre de forme <span class="math notranslate nohighlight">\(k = 3\)</span> et d’échelle  <span class="math notranslate nohighlight">\(\theta = 1\)</span>, de taille <span class="math notranslate nohighlight">\(n = 50\)</span>.</span><a class="headerlink" href="#qqplot-gammaq" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="hypothese-de-rang-plein-et-r-2">
+<h2><span class="section-number">4.5. </span>Hypothèse de rang plein et <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#hypothese-de-rang-plein-et-r-2" title="Lien permanent vers ce titre">#</a></h2>
+<section id="hypothese-de-rang-plein">
+<h3><span class="section-number">4.5.1. </span>Hypothèse de rang plein<a class="headerlink" href="#hypothese-de-rang-plein" title="Lien permanent vers ce titre">#</a></h3>
+<p>Pour vérifier l’hypothèse de plein rang, on peut facilement calculer le déterminant de la matrice</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\det\left(\mathbf{X}^\top \mathbf{X}\right) \neq 0 \Leftrightarrow  \text{rang}(\mathbf{X} ) = p.\end{gather*}\]</div>
+<p>De manière plus pratique, vérifier que le conditionnement de la matrice <span class="math notranslate nohighlight">\(\mathbf{X}^\top \mathbf{X}\)</span> est raisonnablement bas permet de s’assurer que le problème n’est pas mal-posé.</p>
+</section>
+<section id="r-2">
+<h3><span class="section-number">4.5.2. </span><span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#r-2" title="Lien permanent vers ce titre">#</a></h3>
+<p>On rappelle la deuxième propriété des résidus, à savoir l’orthogonalité de <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span> et de <span class="math notranslate nohighlight">\(\mathbf{e}\)</span>. Ainsi, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\|\mathbf{y} \|^2 =\mathbf{y}^\top \mathbf{y} = (\mathbf{e} + \hat{\mathbf{y}} )^\top (\mathbf{e} + \hat{\mathbf{y}}) = \mathbf{e}^\top\mathbf{e} +  \hat{\mathbf{y}}^\top \hat{\mathbf{y}}. \end{gather*}\]</div>
+<p>Ainsi, on peut décomposer la norme de <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> en deux composantes orthogonales, le vecteur de valeurs  ajustées <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span> et le vecteur des résidus <span class="math notranslate nohighlight">\(\mathbf{e}\)</span>.</p>
+<p>L’orthogonalité des résidus et du vecteur de valeurs ajustées mets en lumière qu’il y a une certaine géométrie du problème. De fait, on a:</p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> est de plein rang, alors <span class="math notranslate nohighlight">\((\mathbf{X}^\top \mathbf{X} )^{-1}\mathbf{X}\)</span> est une pseudo-inverse de <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> (inverse de Moore-Penrose);</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{H}\)</span> est la matrice de projection orthogonale sur l’espace engendré par les colonnes de <span class="math notranslate nohighlight">\(\mathbf{X}.\)</span></p></li>
+</ul>
+<figure class="align-default" id="tab2-regr">
+<a class="reference internal image-reference" href="../_images/tab2_regr.svg"><img alt="../_images/tab2_regr.svg" src="../_images/tab2_regr.svg" width="95%" /></a>
+</figure>
+<p>A partir de la décomposition de la norme de <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, on peut déterminer le <em>coefficient de détermination</em> <span class="math notranslate nohighlight">\(R^2\)</span>, défini comme</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}R^2 = 1 - \frac{\mathbf{e}^\top \mathbf{e}}{(\mathbf{y} - \overline{\mathbf{y}})^\top(\mathbf{y} - \overline{\mathbf{y}}) } =\frac{ \sum_{i = 1}^n (y_i - \hat{y}_i)^2}{\sum_{i = 1}^n (y_i - \overline{y}_i)^2}, \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\overline{\mathbf{y}} = \overline{y}\ \mathbf{1}_n\in \mathbb{R}^n\)</span> est le vecteur dont toutes les composantes sont <span class="math notranslate nohighlight">\(\overline{y}\)</span>.</p>
+<div class="proof property admonition" id="R^2">
+<p class="admonition-title"><span class="caption-number">Propriété 4.2 </span> (<span class="math notranslate nohighlight">\(R^2\)</span>)</p>
+<section class="property-content" id="proof-content">
+<ul class="simple">
+<li><p>le coefficient de détermination est le rapport entre la variance expliquée et la variance observée;</p></li>
+<li><p>il s’agit d’une mesure courante pour évaluer la qualité de l’ajustement du modèle linéaire;</p></li>
+<li><p>il souffre de nombreux défauts: monotone dans le nombre de variables (y compris si ces dernières sont absurdes), parfois inférieur à 1 (dans des cas très particulier et seulement si aucune ordonnée à l’origine n’est incluse dans le modèle), etc.</p></li>
+</ul>
+</section>
+</div></section>
+</section>
+<section id="obsevations-influentes">
+<h2><span class="section-number">4.6. </span>Obsevations influentes<a class="headerlink" href="#obsevations-influentes" title="Lien permanent vers ce titre">#</a></h2>
+<p>Une idée essentielle de toute modélisation est la « robustesse  » (ou stabilité): si on change un petit peu les données, est-ce que cela change beaucoup les estimations?</p>
+<ul class="simple">
+<li><p>concept similaire à la stabilité en analyse numérique;</p></li>
+<li><p>essentiel pour comprendre à quel point les conclusions sont sensibles aux données.</p></li>
+</ul>
+<p>On distingue en général deux catégories distinctes:</p>
+<ul class="simple">
+<li><p>les valeurs aberrantes (outlier);</p></li>
+<li><p>les points leviers.</p></li>
+</ul>
+<section id="valeurs-aberrantes">
+<h3><span class="section-number">4.6.1. </span>Valeurs aberrantes<a class="headerlink" href="#valeurs-aberrantes" title="Lien permanent vers ce titre">#</a></h3>
+<p>Une valeur aberrante est une valeur qui se situe très loin des autres valeurs observées. Elles ont tendance à « attirer » la droite de régression vers elles.</p>
+<figure class="align-default" id="reg-line-outlier">
+<a class="reference internal image-reference" href="../_images/reg_line_outlier.svg"><img alt="../_images/reg_line_outlier.svg" src="../_images/reg_line_outlier.svg" width="95%" /></a>
+</figure>
+<p>Il y a plusieurs moyens de détecter les valeurs aberrantes:</p>
+<ul class="simple">
+<li><p>en utilisant les nuages de points: les valeurs étant très éloignées des autres sont de potentielles valeurs aberrantes;</p></li>
+<li><p>en utilisant les résidus standardisés: les valeurs dont les résidus standardisés sont en dehors de l’intervalle <span class="math notranslate nohighlight">\([-2,2]\)</span> sont de potentielles valeurs aberrantes.
+Les résidus standardisés offrent une manière plus méthodique car ils se trouvent sur l’échelle des valeurs d’une loi normale standard. Cependant, ils dépendent de notre modèle.</p></li>
+</ul>
+<p>Il y a plusieurs écoles concernant le traitement à réserver à des valeurs aberrantes. Sans entrer dans la question de savoir s’il est raisonnable de retirer une observation d’un jeu de données, on fera au moins deux remarques.</p>
+<ul class="simple">
+<li><p>La première chose à faire en présence d’une valeur aberrante est de l’examiner de plus près: s’agit-il d’une erreur de mesure? Est-ce que l’on peut confirmer qu’elle a bien été observée ou s’agit-il d’une erreur d’encodage? S’agit-il d’une valeur manquante étonnamment encodée?</p></li>
+<li><p>Les valeurs aberrantes peuvent cacher un aspect insoupçonné et très intéressant d’un phénomène. Il est important de s’y intéresser de plus près si elles ne sont pas le fruit d’une erreur.</p></li>
+</ul>
+</section>
+<section id="points-leviers">
+<h3><span class="section-number">4.6.2. </span>Points leviers<a class="headerlink" href="#points-leviers" title="Lien permanent vers ce titre">#</a></h3>
+<p>On distingue les <em>points leviers</em> des valeurs aberrantes.</p>
+<ul class="simple">
+<li><p>Les valeurs aberrantes sont en général éloignées du nuage de points dans la direction <span class="math notranslate nohighlight">\(y\)</span> (variable réponse).</p></li>
+<li><p>Les points leviers sont éloignés du nuage de points dans l’espace des variables explicatives.
+Les points leviers peuvent être difficiles à repérer visuellement.</p></li>
+</ul>
+<p>On rappelle que l’on a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\var(\mathbf{e}_i) = \sigma^2 (1 - h_{ii}),\end{gather*}\]</div>
+<p>où  <span class="math notranslate nohighlight">\(h_{ii}\)</span> est la <span class="math notranslate nohighlight">\(i-\)</span>ème composante de la diagonale de la matrice</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\mathbf{H} = \mathbf{X} \left(\mathbf{X}^\top\mathbf{X}  \right)^{-1}\mathbf{X}^\top.\end{gather*}\]</div>
+<p>Ainsi, si <span class="math notranslate nohighlight">\(h_{ii} = 1\)</span>, on a nécessairement que <span class="math notranslate nohighlight">\(\mathbf{e}_i = 0\)</span>. Autrement dit, plus <span class="math notranslate nohighlight">\(h_{ii}\)</span> est proche de <span class="math notranslate nohighlight">\(1\)</span>, plus la droite (ou le plan) de régression va être contrainte à passer proche du point <span class="math notranslate nohighlight">\((x_i, y_i).\)</span></p>
+<p>On a aussi que, <span class="math notranslate nohighlight">\(\sum_{i = 1}^n h_{ii} = p\)</span>.</p>
+<p>De manière générale, on utilise la règle suivante: si</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}h_{ii} &gt; \frac{2p}{n}, \end{gather*}\]</div>
+<p>alors il est important de prêter attention à cette observation particulière car elle a une forte influence sur la régression.</p>
+<figure class="align-default" id="reg-line-leverage-point">
+<a class="reference internal image-reference" href="../_images/reg_line_leverage_point.svg"><img alt="../_images/reg_line_leverage_point.svg" src="../_images/reg_line_leverage_point.svg" width="95%" /></a>
+</figure>
+</section>
+</section>
+<section id="distance-de-cook">
+<h2><span class="section-number">4.7. </span>Distance de Cook<a class="headerlink" href="#distance-de-cook" title="Lien permanent vers ce titre">#</a></h2>
+<p>L’influence d’une observation pourrait être évaluée de la manière suivante: comment changerait mon vecteur de paramètres estimés si j’enlevais cette observation? Cette idée est très profonde et conduit à plusieurs concepts:</p>
+<ul class="simple">
+<li><p>la distance de Cook;</p></li>
+<li><p>la validation croisée.</p></li>
+</ul>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Définition 4.4 </span> (Distance de Cook)</p>
+<section class="definition-content" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> le vecteur estimé d’un modèle linéaire et notons <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}_{-j}\)</span> le même vecteur mais estimé sur la base de toutes les observations <strong>sauf la <span class="math notranslate nohighlight">\(j-\)</span>ème.</strong> On note <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}_{-j} = \mathbf{X}\hat{\boldsymbol{\beta}}_{-j}.\)</span>
+On définit alors la distance de Cook de l’observation <span class="math notranslate nohighlight">\(j\)</span> comme</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}C_j = \frac{1}{p s^2} \| \hat{\mathbf{y}} - \hat{\mathbf{y}_{-j}} \|^2.\end{gather*}\]</div>
+<p>On peut montrer que l’on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}C_j = r_i^2 \frac{h_{ii}}{p(1-h_{ii})}, \end{gather*}\]</div>
+<p>donc <span class="math notranslate nohighlight">\(C_j\)</span> est grand si</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_i^2\)</span> est grand;</p></li>
+<li><p>si <span class="math notranslate nohighlight">\(h_{ii}\approx 1.\)</span></p></li>
+</ul>
+</section>
+</div><div class="tip admonition">
+<p class="admonition-title">Identifier les observations influentes</p>
+<p>Il est important de regarder avec une attention particulière les observations pour lesquelles une des propriétés ci-dessous est vérifiée:</p>
+<ul class="simple">
+<li><p>un résidu standardisé <span class="math notranslate nohighlight">\(\left|r_i\right|&gt; 2\)</span>;</p></li>
+<li><p>un levier <span class="math notranslate nohighlight">\(h_{ii}&gt;\frac{2p}{n}\)</span>; % See Davison, p. 394</p></li>
+<li><p>une distance de Cook <span class="math notranslate nohighlight">\(C_j &gt; \frac{8}{n-2p}\)</span>.</p></li>
+</ul>
+</div>
+<figure class="align-default" id="coook-distance-2">
+<a class="reference internal image-reference" href="../_images/cook_distance_2.svg"><img alt="../_images/cook_distance_2.svg" src="../_images/cook_distance_2.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.19 </span><span class="caption-text">Données et droite de régression (gauche) et distances de Cook correspondantes. La droite en rouge à droite correspond au niveau <span class="math notranslate nohighlight">\(y = \frac{8}{n-2p}\)</span>.</span><a class="headerlink" href="#coook-distance-2" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-que-faire-lorsque-l-on-a-une-observation-influente admonition">
+<p class="admonition-title">Que faire lorsque l’on a une observation influente</p>
+<ul class="simple">
+<li><p>Examinez les observations problématiques avec une attention particulière;</p></li>
+<li><p>Ajustez un modèle avec et sans les observations problématiques et voir si cela change sensiblement ou pas la conclusion;</p></li>
+<li><p>Éventuellement retirer les observations problématiques.</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Régréssion_linéaire"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="tests.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Régréssion linéaire: tests</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

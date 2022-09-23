@@ -1,0 +1,871 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Estimation par intervalle &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="5. Tests d’hypothèses statistiques" href="tests_hypotheses_statistiques.html" />
+    <link rel="prev" title="3. Propriétés d’un estimateur" href="proprietes_estimateur.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   1. Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/graphiques.html">
+   2. Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   3. Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/boxplot.html">
+   4. Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/loi_normale.html">
+   5. Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   6. Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/concepts_de_base.html">
+   1. Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/arrangements_et_combinaisons.html">
+   2. Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/probabilite_conditionnelle_independance.html">
+   3. Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/probabilites_totales_et_theoreme_de_bayes.html">
+   4. Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_discretes.html">
+   5. Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_continues.html">
+   6. Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/variables_aleatoires_conjointes.html">
+   7. Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/valeurs_caracteristiques.html">
+   8. Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/theoreme_fondamentaux.html">
+   9. Théorème fondamentaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/test_notebook.html">
+   10. Test live notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="estimation_de_parametres.html">
+   2. Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="proprietes_estimateur.html">
+   3. Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tests_hypotheses_statistiques.html">
+   5. Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tests_et_ic.html">
+   6. Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="test_chi2.html">
+   7. Test du
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="puissance_test.html">
+   8. Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   2. Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   3. Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   4. Régréssion linéaire: hypothèses et diagnostics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FStatistique_inférentielle/estimation_par_intervalle.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/edit/main/Statistique_inférentielle/estimation_par_intervalle.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Statistique_inférentielle/estimation_par_intervalle.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   4.1. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intervalle-de-confiance-de-wald">
+   4.2. Intervalle de confiance de Wald
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intervalle-de-student">
+   4.3. Intervalle de Student
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Estimation par intervalle</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   4.1. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intervalle-de-confiance-de-wald">
+   4.2. Intervalle de confiance de Wald
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intervalle-de-student">
+   4.3. Intervalle de Student
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="estimation-par-intervalle">
+<h1><span class="section-number">4. </span>Estimation par intervalle<a class="headerlink" href="#estimation-par-intervalle" title="Lien permanent vers ce titre">#</a></h1>
+<div class="math notranslate nohighlight">
+\[\newcommand\E{\mathbb{E}}\]</div>
+<p>On a vu qu’une des raisons d’utiliser le formalisme des probabilités était de traiter de manière systématique les données comme aléatoires. Cela permet non seulement de faire des estimations mais aussi et surtout de <strong>quantifier l’incertitude</strong> liée à ces estimations. On va donc voir l’estimation par intervalle.</p>
+<section id="id1">
+<h2><span class="section-number">4.1. </span>Estimation par intervalle<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h2>
+<p>L’estimation par intervalle essaye de donner une réponse plus complète que simplement un estimateur <span class="math notranslate nohighlight">\( \hat{\theta} \)</span>.</p>
+<ul class="simple">
+<li><p>définition de l’intervalle de confiance;</p></li>
+<li><p>intuition: « <strong>Intervalle compatible avec les données</strong> »;</p></li>
+<li><p>l’intervalle est aléatoire alors que <span class="math notranslate nohighlight">\( \theta \)</span> ne l’est pas;</p></li>
+<li><p>niveau de confiance, niveau de signification;</p></li>
+<li><p>intervalle de Wald, intervalle de Student.</p></li>
+</ul>
+<p>La notion <strong>d’intervalle de confiance</strong> est une notion d’<strong>intervalle compatible avec les données</strong>. Attention: la définition précise n’est pas nécessairement intuitive.</p>
+<p>Au lieu d’estimer le paramètre <span class="math notranslate nohighlight">\(\theta\)</span> seulement par un nombre <span class="math notranslate nohighlight">\(\hat\theta\)</span>, on préfère donner un intervalle aléatoire qui couvre <span class="math notranslate nohighlight">\(\theta\)</span> avec une grande probabilité.</p>
+<div class="proof definition admonition" id="est_int">
+<p class="admonition-title"><span class="caption-number">Définition 4.1 </span> (Estimation par intervalle)</p>
+<section class="definition-content" id="proof-content">
+<p>Mathématiquement, un intervalle de confiance est tel que dans <span class="math notranslate nohighlight">\( (1 - \alpha) \% \)</span> du temps, il contient la vraie valeur du paramètre inconnu <span class="math notranslate nohighlight">\( \theta \)</span>. <span class="math notranslate nohighlight">\(1- \alpha \)</span> est appelé le <strong>niveau de confiance</strong> de l’intervalle.</p>
+<p>Plus précisément, un intervalle est défini par deux statistiques <span class="math notranslate nohighlight">\( I, S \)</span> qui donnent les bornes de l’intervalle. <span class="math notranslate nohighlight">\( I, S\)</span> définissent <strong>un intervalle de confiance à <span class="math notranslate nohighlight">\( (1-\alpha)\% \)</span></strong> si:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\mathbb{P}( I \leq \theta \leq S ) = 1 - \alpha, \end{gather*}\]</div>
+<p>pour tout <span class="math notranslate nohighlight">\(\theta \in \Theta\)</span>.</p>
+</section>
+</div><p>Considérons un estimateur <span class="math notranslate nohighlight">\(\hat{\theta} \)</span> de <span class="math notranslate nohighlight">\(\theta\)</span>, et supposons qu’il existe une fonction <span class="math notranslate nohighlight">\(T=q(\hat\theta,\theta)\)</span> dont la loi est connue et ne dépend pas de <span class="math notranslate nohighlight">\(\theta\)</span> (s’appelle un <strong>pivot</strong>).</p>
+<p>Soient <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> tels que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\alpha_1 = \mathbb{P}(T&lt; a),\quad \alpha_2 = \Pr(T &gt; b),
+\end{gather*}\]</div>
+<p>avec <span class="math notranslate nohighlight">\(\alpha_1 + \alpha_2 = \alpha\)</span> (souvent <span class="math notranslate nohighlight">\(\alpha_1=\alpha_2\)</span>).  On a alors</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\mathbb{P}(a \leq T \leq b) = \mathbb{P}(T\leq b) - \mathbb{P}(T&lt; a) = (1-\alpha_2)-\alpha_1= 1-\alpha, 
+\end{gather*}\]</div>
+<p>et si on peut isoler <span class="math notranslate nohighlight">\(\theta\)</span>, on peut trouver des variables aléatoires <span class="math notranslate nohighlight">\(I, S\)</span> telles que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\mathbb{P}(I \leq \theta \leq S) = 1-\alpha.
+\end{gather*}\]</div>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Exemple 4.3 </span> (Pivot: moyenne et espérance pour une loi normale)</p>
+<section class="example-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\( X_1 \dots X_n \stackrel{idd}{\sim} \mathcal{N}(\mu,\sigma^2) \)</span>, où <span class="math notranslate nohighlight">\(\sigma\)</span> est supposé connu. Trouvez un pivot pour l’espérance <span class="math notranslate nohighlight">\(\mu\)</span> en fonction de la moyenne empirique <span class="math notranslate nohighlight">\(\overline{X}\)</span> et en déduire un intervalle de confiance au niveau <span class="math notranslate nohighlight">\(1-\alpha,\)</span> pour <span class="math notranslate nohighlight">\(\alpha\in ]0,1[\)</span>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>On sait que <span class="math notranslate nohighlight">\(\overline{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n}).\)</span> Ainsi, en utilisant les propriétés de la loi normale, on a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}q(\overline{X}, \mu) := \sqrt{n} \frac{\overline{X} - \mu}{\sigma} \sim \mathcal{N}(0,1),\end{gather*}\]</div>
+<p>qui est donc un pivot. Ainsi, on peut construire un intervalle au niveau <span class="math notranslate nohighlight">\(1-\alpha\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\mathbb{P}\left(-z_{1-\alpha/2} \leq \frac{\bar X-\mu}{\sigma/\sqrt{n}} \leq z_{1-\alpha/2}\right) = 1-\alpha,
+\end{gather*}\]</div>
+<p>que l’on peut réécrire comme</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\mathbb{P}\left(\underbrace{\overline{X}-z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}}_{=I} \leq \mu\leq
+\underbrace{\overline{X} + z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}}_{=S}\right) = 1-\alpha.
+\end{gather*}\]</div>
+<p>Ainsi l’intervalle de confiance symétrique à <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> pour <span class="math notranslate nohighlight">\(\mu\)</span> (avec <span class="math notranslate nohighlight">\(\sigma^2\)</span> connu) est</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+[I,S] = \left[\overline{X} -z_{1-\alpha/2},\frac{\sigma}{\sqrt{n}},\mbox{ } \overline{X} + z_{1-\alpha/2},\frac{\sigma}{\sqrt{n}}\right].
+\end{gather*}\]</div>
+</div>
+</section>
+</div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( [I,S] \)</span> est un intervalle aléatoire car <span class="math notranslate nohighlight">\( I,S \)</span> sont des VA.</p></li>
+<li><p>La probabilité dans la définition est donc par rapport à la position aléatoire des bornes de l’IC.</p></li>
+<li><p>La position de <span class="math notranslate nohighlight">\( \theta \)</span> <strong>n’est pas aléatoire</strong>.</p></li>
+<li><p><strong>Attention</strong> Dire que <span class="math notranslate nohighlight">\(\theta \in [I,S]\)</span>, avec une probabilité <span class="math notranslate nohighlight">\(1-\alpha\)</span>, est <strong>incorrect</strong> car ce sont les valeurs <span class="math notranslate nohighlight">\(I\)</span> et <span class="math notranslate nohighlight">\(S\)</span> qui sont aléatoires.</p></li>
+</ul>
+<figure class="align-default" id="tab2-stat">
+<a class="reference internal image-reference" href="../_images/tab2_stat.svg"><img alt="../_images/tab2_stat.svg" src="../_images/tab2_stat.svg" width="30%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.7 </span><span class="caption-text">: Différents IC pour la même valeur de <span class="math notranslate nohighlight">\(\theta\)</span> (ligne rouge)</span><a class="headerlink" href="#tab2-stat" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="intervalle-de-confiance-de-wald">
+<h2><span class="section-number">4.2. </span>Intervalle de confiance de Wald<a class="headerlink" href="#intervalle-de-confiance-de-wald" title="Lien permanent vers ce titre">#</a></h2>
+<p>Dans le cas d’un intervalle de Wald, on fait implicitement l’hypothèse d’un intervalle symétrique autour de <span class="math notranslate nohighlight">\(\hat{\theta} \)</span>. Ainsi, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}s_\alpha = z_{1 - \alpha/2}, \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(z_p\)</span> désigne le quantile d’ordre <span class="math notranslate nohighlight">\(p\)</span>. Par exemple, on a:</p>
+<figure class="align-default" id="tab3-stat">
+<a class="reference internal image-reference" href="../_images/tab3_stat.svg"><img alt="../_images/tab3_stat.svg" src="../_images/tab3_stat.svg" width="95%" /></a>
+</figure>
+<p>L’intervalle de confiance de Wald est exact dans le cas où <span class="math notranslate nohighlight">\(\hat{\theta} \sim \mathcal{N}(\theta, v)\)</span>. En pratique, cette condition est rarement satisfaite, mais elle est parfois justifiée en vertu du TCL ou de la convergence de l’estimateur du maximum de vraisemblance. En particulier deux aspects sont à souligner:</p>
+<ul class="simple">
+<li><p>la taille d’échantillon qui justifie l’usage de résultats asymptotiques est rarement atteinte;</p></li>
+<li><p>sauf exception, la variance est elle-même une estimation, et la distribution n’est alors pas nécessairement normale.</p></li>
+</ul>
+<p>Malgré ces mises en garde, l’IC de Wald peut être une approximation très raisonnable de la réalité.</p>
+<div class="admonition-recette-generale admonition">
+<p class="admonition-title">Recette générale</p>
+<p>On rappelle le résultat suivant:</p>
+<p><strong>Distribution asymptotique de <span class="math notranslate nohighlight">\(\hat{\theta}_{ML} \)</span></strong><br />
+Sous des hypothèses de régularité, l’estimateur <span class="math notranslate nohighlight">\(\hat{\theta}_{ML} \)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \hat{\theta}_{ML} \stackrel{\cdot}{\sim} \mathcal{N} \left(\theta, \frac{1}{J(\hat{\theta}_{ML})} \right), \quad J(\theta) = - \frac{\partial^2}{\partial \theta^2} \left[  \ell(\theta) \right]. \end{gather*}\]</div>
+<p><span class="math notranslate nohighlight">\(J(\theta)\)</span> est appelé l’<em>information observée</em>. Donc
+l’IC pour <span class="math notranslate nohighlight">\(\theta\)</span> de niveau <span class="math notranslate nohighlight">\(1-\alpha\)</span> a des limites
+<span class="math notranslate nohighlight">\(\hat\theta_{ML}\pm z_{1-\alpha/2}J(\hat\theta_{ML})^{-1/2}\)</span>.</p>
+</div>
+<div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Exemple 4.4 </span> (Estimateur <span class="math notranslate nohighlight">\(\hat{\lambda}_{ML}\)</span> pour un modèle exponentiel)</p>
+<section class="example-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(X_1,\ldots, X_n \stackrel{idd}{\sim}\exp(\lambda)\)</span>, trouver un intervalle de confiance à <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> pour <span class="math notranslate nohighlight">\(\lambda\)</span>. Pour des données avec <span class="math notranslate nohighlight">\(n=25\)</span> et <span class="math notranslate nohighlight">\(\overline{X}=40\)</span>, trouver un IC à 95%.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>La vraisemblance est</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+L(\lambda) = \lambda e^{-\lambda X_1}\cdots \lambda  e^{-\lambda X_2}= 
+\lambda^n e^{-\lambda(X_1+\cdots + X_n)},
+\end{gather*}\]</div>
+<p>donc la log vraisemblance est</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\ell(\lambda) = \log L(\lambda)  = n\log\lambda - \lambda (X_1+\cdots + X_n).
+\end{gather*}\]</div>
+<p>Ainsi
+<span class="math notranslate nohighlight">\(\ell'(\lambda) = \frac{n}{ \lambda}- \sum^n_{i=1}X_i\)</span> et on trouve</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\ell'(\hat\lambda_{ML}) =0 \Leftrightarrow \hat\lambda_{ML}=\frac{1}{\overline{X}}.\end{gather*}\]</div>
+<p>On vérifie la seconde dérivée</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \ell''(\hat\lambda_{ML}) =- \frac{n}{\hat\lambda_{ML}^2}  = - n\overline{X}^2 &lt; 0,\end{gather*}\]</div>
+<p>ainsi <span class="math notranslate nohighlight">\(\hat\lambda_{ML}\)</span> est bien un maximum global de <span class="math notranslate nohighlight">\(\ell\)</span>.
+Ainsi <span class="math notranslate nohighlight">\(J(\hat\lambda_{ML})=-\ell''(\hat\lambda_{ML})=n\overline{X}^2\)</span>, et</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\hat{\lambda_{ML}}\stackrel{\cdot}{\sim} \mathcal{N}\left(\lambda,\frac{1}{n\overline{X}^2} \right).
+\end{gather*}\]</div>
+<p>Un IC de niveau <span class="math notranslate nohighlight">\(1-\alpha\)</span> pour <span class="math notranslate nohighlight">\(\lambda\)</span> a pour limites</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\hat\lambda_{ML}\pm z_{1-\alpha/2}\frac{1}{\sqrt{n}\overline{X}}.\end{gather*}\]</div>
+<p>Pour ces données, les bornes d’un IC à 95% sont <span class="math notranslate nohighlight">\(1/40 \pm 1.96(5\cdot 40)^{-1}\)</span>. L’intervalle est environ: <span class="math notranslate nohighlight">\([0.0152,0.0348]\)</span>.</p>
+</div>
+</section>
+</div><div class="proof example admonition" id="example-3">
+<p class="admonition-title"><span class="caption-number">Exemple 4.5 </span> (Estimateur <span class="math notranslate nohighlight">\(\hat{\lambda}_{ML}\)</span> pour un modèle Poisson)</p>
+<section class="example-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\( X_1 \dots X_n \stackrel{idd}{\sim} Poiss(\lambda) \)</span>. Construire un intervalle de confiance pour <span class="math notranslate nohighlight">\( \hat{\lambda} \)</span> ? Quelle est la forme de l’IC de Wald à <span class="math notranslate nohighlight">\(95\%\)</span> ?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>La log-vraisemblance est:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        \ell(\lambda) &amp;= \sum_{i=1}^n \left[ x_i \log(\lambda) - \log(x_i !) - \lambda \right] \\
+                    &amp;= \log(\lambda)  n \overline{X}_n - n \lambda - \sum_{i=1}^n \log(x_i !).
+    \end{align*}\]</div>
+<p>On calcule les dérivées:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        \ell'(\lambda) &amp;= \frac{n \overline{X}_n}{\lambda} - n \\
+        \ell''(\lambda) &amp;= - \frac{n \overline{X}_n}{\lambda^2} &lt;0.
+    \end{align*}\]</div>
+<p>De nouveau, la log-vraisemblance est systématiquement concave et le point stationnaire est nécessairement un maximum global. On a donc</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\ell(\hat{\lambda}) = 0  \Leftrightarrow \frac{\overline{X}_n}{\hat{\lambda}} = 1 \Leftrightarrow \hat{\lambda}_{ML} = \overline{X}_n.\end{gather*}\]</div>
+<p>On calcule</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} J \left( \hat{\lambda}_{ML} \right) = -\ell''(\hat{\lambda}),\end{gather*}\]</div>
+<p>d’où on déduit la variance asymptotique</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}      \frac{1}{J \left( \hat{\lambda}_{ML} \right)} = \frac{\overline{X}_n}{n}.\end{gather*}\]</div>
+<p>L’intervalle de confiance de Wald a donc pour limites</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\overline{X}_n \pm z_{1-\alpha/2} \sqrt{\frac{\overline{X}_n}{n}},\end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\( z_{1-\alpha/2} =  z_{0.975} = 1.96 \)</span>.</p>
+</div>
+</section>
+</div></section>
+<section id="intervalle-de-student">
+<h2><span class="section-number">4.3. </span>Intervalle de Student<a class="headerlink" href="#intervalle-de-student" title="Lien permanent vers ce titre">#</a></h2>
+<p>La distribution <span class="math notranslate nohighlight">\(t\)</span> de «  Student » a été introduite à des fins de tests statistiques pour la première fois dans une publication par William S. Gosset. Ce dernier, travaillant pour la brasserie Guinness était interdit de publier autrement que sous un pseudonyme. Il publia donc ses résultats sous le pseudonyme de Student. Il finit sa carrière comme brasseur en chef de Guinness mais décéda 1 mois après, à l’âge de 61 ans.
+<a class="reference external" href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.22.4.199">référence:</a> Ziliak, S. T. (2008), <em>Guinnessometrics: The Economic Foundation of “Student’s”t</em>, Journal of Economic Perspectives.</p>
+<div class="proof definition admonition" id="stat_student">
+<p class="admonition-title"><span class="caption-number">Définition 4.2 </span> (Statistique de Student)</p>
+<section class="definition-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\( X_1 \dots X_n \stackrel{idd}{\sim} \mathcal{N}(\mu, \sigma^2) \)</span> avec <strong>variance inconnue</strong>.</p>
+<p>On peut estimer <span class="math notranslate nohighlight">\( \mu, \sigma^2 \)</span> avec:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}  
+\begin{array}{cccl}
+            \mu &amp; \approx \hat{\mu} &amp;= \overline{X} &amp; =  \displaystyle{ \frac{1}{n} \sum_{i=1}^n X_i }, \\
+            \sigma^2 &amp; \approx \hat{v}  &amp;= S^2     &amp; = \displaystyle{ \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2 }. \\
+        \end{array} \end{equation*}\]</div>
+<p>Soit la <strong>statistique-T de Student</strong>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} T = \frac{\overline{X} - \mu}{ S / \sqrt{n}} \sim t_{n-1}.\end{gather*}\]</div>
+<p>Elle suit une <strong>loi de Student</strong> de <span class="math notranslate nohighlight">\( n-1 \)</span> degrés de liberté.</p>
+</section>
+</div><div class="proof definition admonition" id="int_student">
+<p class="admonition-title"><span class="caption-number">Définition 4.3 </span> (Intervalle de Student)</p>
+<section class="definition-content" id="proof-content">
+<p>Dans le formulaire, on trouve les seuils <span class="math notranslate nohighlight">\(s_\alpha\)</span> tels que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \mathbb{P}( -s_\alpha \leq T \leq s_\alpha) = 1 - \alpha, \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(s_\alpha\)</span> est le quantile à <span class="math notranslate nohighlight">\(1-\frac{\alpha}{2}\)</span> de la loi <span class="math notranslate nohighlight">\(t_{n-1}\)</span>.
+À l’aide de ces valeurs, on peut construire des intervalles de confiance pour <span class="math notranslate nohighlight">\( \mu \)</span> quand la <strong>variance est inconnue</strong>. Ces IC sont de la forme:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \left[ \overline{X} - s_\alpha \frac{S}{\sqrt{n}} ,  \overline{X} + s_\alpha \frac{S}{\sqrt{n}}  \right], \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\( \alpha \)</span> est la valeur choisie pour le niveau que le niveau de confiance soit <span class="math notranslate nohighlight">\(1- \alpha \)</span>.</p>
+</section>
+</div><div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Exemple 4.6 </span> (Intervalle de confiance pour les résistances)</p>
+<section class="example-content" id="proof-content">
+<p>On suppose que la résistance <span class="math notranslate nohighlight">\(X\)</span> d’un certain type d’équipements électriques est distribuée approximativement suivant une loi normale.</p>
+<p>Un échantillon de taille <span class="math notranslate nohighlight">\(n = 64\)</span> a donné comme moyenne et écart-type empiriques les valeur <span class="math notranslate nohighlight">\(\bar x = 5.34\ \Omega \)</span> (ohm) et <span class="math notranslate nohighlight">\(S = 0.12\ \Omega\)</span> . Trouver un intervalle de confiance pour <span class="math notranslate nohighlight">\(\mu = \E[X]\)</span> au niveau de confiance de 95%.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>On utilise le fait que la statistique de test <span class="math notranslate nohighlight">\(T = \frac{\overline{X} - \mu}{ S / \sqrt{n}} \sim t_{n-1}. \)</span> Ici, on prend <span class="math notranslate nohighlight">\(\bar{x} = 5.34,\)</span> <span class="math notranslate nohighlight">\(n = 64\)</span> et  <span class="math notranslate nohighlight">\(S = 0.12\)</span>. En utilisant l’outil informatique, on trouve que le quantile
+<span class="math notranslate nohighlight">\(t_{n-1; 1-\alpha/2}= t_{63; 0.975} = 2\)</span>. On a évidemment <span class="math notranslate nohighlight">\(\sqrt{64} = 8\)</span> et l’intervalle de confiance pour <span class="math notranslate nohighlight">\(\mu\)</span> est</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\left[ 5.34 - 2 \cdot \frac{0.12}{8}, 5.34 + 2\cdot \frac{0.12}{8}\right] = \left[5.31,5.37\right].
+\end{gather*}\]</div>
+</div>
+</section>
+</div><div class="proof remark admonition" id="remark-7">
+<p class="admonition-title"><span class="caption-number">Remarque 4.1 </span></p>
+<section class="remark-content" id="proof-content">
+<ul class="simple">
+<li><p>Pour augmenter la probabilité que l’intervalle contienne <span class="math notranslate nohighlight">\( \theta \)</span>, il faut le rendre plus large. On est alors plus conservatif.</p></li>
+<li><p>Pour obtenir un intervalle plus court, on peut soit être moins conservatif, soit augmenter <span class="math notranslate nohighlight">\( n \)</span>.</p></li>
+<li><p>La notion d’IC a quelques variantes:</p>
+<ul>
+<li><p>IC unilatéraux de la forme <span class="math notranslate nohighlight">\( ]-\infty, S] \)</span> (<strong>intervalle unilatéral à gauche</strong>);</p></li>
+<li><p>IC approximatifs: <span class="math notranslate nohighlight">\( \mathbb{P}(I \leq \theta \leq S) \approx 1 - \alpha \)</span>, souvent construits avec le TCL.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</div><figure class="align-default" id="tdensity-ic">
+<a class="reference internal image-reference" href="../_images/tdensity_IC.svg"><img alt="../_images/tdensity_IC.svg" src="../_images/tdensity_IC.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.8 </span><span class="caption-text">: Distributions <span class="math notranslate nohighlight">\(t_\nu\)</span>, pour <span class="math notranslate nohighlight">\(\nu= 2,5,10\)</span> et distribution normale standard. Les segments représentés en bas sont les « intervalles de confiance » à 95%.  Les queues de la loi de Student sont plus lourdes que celles de la loi <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span> et la loi <span class="math notranslate nohighlight">\(t_\nu\)</span> converge vers une <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span> pour <span class="math notranslate nohighlight">\(\nu\rightarrow\infty\)</span>.</span><a class="headerlink" href="#tdensity-ic" title="Lien permanent vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Statistique_inférentielle"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="proprietes_estimateur.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Propriétés d’un estimateur</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="tests_hypotheses_statistiques.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Tests d’hypothèses statistiques</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>7. Variables aléatoires conjointes &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="8. Valeurs caractéristiques" href="valeurs_caracteristiques.html" />
+    <link rel="prev" title="6. Variables aléatoires continues" href="variables_aleatoires_continues.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   1. Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/graphiques.html">
+   2. Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   3. Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/boxplot.html">
+   4. Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/loi_normale.html">
+   5. Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   6. Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="concepts_de_base.html">
+   1. Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arrangements_et_combinaisons.html">
+   2. Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probabilite_conditionnelle_independance.html">
+   3. Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probabilites_totales_et_theoreme_de_bayes.html">
+   4. Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables_aleatoires_discretes.html">
+   5. Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables_aleatoires_continues.html">
+   6. Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="valeurs_caracteristiques.html">
+   8. Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="theoreme_fondamentaux.html">
+   9. Théorème fondamentaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="test_notebook.html">
+   10. Test live notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   2. Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   3. Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   4. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   5. Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   6. Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   7. Test du
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   8. Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   2. Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   3. Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   4. Régréssion linéaire: hypothèses et diagnostics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FProbabilité/variables_aleatoires_conjointes.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/edit/main/Probabilité/variables_aleatoires_conjointes.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Probabilité/variables_aleatoires_conjointes.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Variables aléatoires conjointes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="variables-aleatoires-conjointes">
+<h1><span class="section-number">7. </span>Variables aléatoires conjointes<a class="headerlink" href="#variables-aleatoires-conjointes" title="Lien permanent vers ce titre">#</a></h1>
+<div class="proof definition admonition" id="var_conjointes">
+<p class="admonition-title"><span class="caption-number">Définition 7.1 </span> (Variables aléatoires conjointes)</p>
+<section class="definition-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(X,Y\)</span> deux variables définies sur le même ensemble fondamental. La fonction:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} F_{X,Y}(x,y) = \mathbb{P}(X \leq x, Y \leq y) \end{gather*}\]</div>
+<p>est la <strong>fonction de répartition conjointe (ou jointe ou simultanée)</strong> de <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>.
+On peut aussi considérer que <span class="math notranslate nohighlight">\((X,Y)^\top\)</span> est un vecteur aléatoire, c’est-à-dire une variable aléatoire à deux dimensions.</p>
+</section>
+</div><div class="proof definition admonition" id="fct_masse_dens_conj">
+<p class="admonition-title"><span class="caption-number">Définition 7.2 </span> (Fonction de masse et densité conjointes)</p>
+<section class="definition-content" id="proof-content">
+<p>On différencie les cas discret et continu.</p>
+<ul class="simple">
+<li><p><strong>Cas discret</strong>: La loi de probabilité conjointe est complètement caractérisée si on connait les valeurs de la fonction de masse conjointe <span class="math notranslate nohighlight">\(f_{X,Y}(x_i,y_j) = \mathbb{P}(X=x_i \text{ et } Y=y_j),\)</span> pour tous les couples possibles.</p></li>
+<li><p><strong>Cas continu</strong>: il suffit de connaitre la densité conjointe <span class="math notranslate nohighlight">\(f_{X,Y}(x,y)\)</span> de <span class="math notranslate nohighlight">\(X,Y\)</span> qui est la fonction qui satisfait:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}\mathbb{P}(X \in A) = \iint_{A} f_{X,Y}(x,y)\ dxdy, \quad \text{ pour tout } A\subset \mathbb{R}^2 \end{gather*}\]</div>
+</section>
+</div><div class="proof theorem admonition" id="fct_vec_aléatoire">
+<p class="admonition-title"><span class="caption-number">Théorème 7.1 </span> (Fonction d’un vecteur aléatoire)</p>
+<section class="theorem-content" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(\mathbf{X}= (X_1, \dots, X_m)\)</span> un vecteur aléatoire avec densité jointe <span class="math notranslate nohighlight">\(f_{X}(x_1, \dots,x_m) = f_{X}(\mathbf{x})\)</span> et soit <span class="math notranslate nohighlight">\(g: \mathbb{R}^m \rightarrow \mathbb{R}^m\)</span> une fonction bijective continûment différentiable, admettant pour fonction réciproque <span class="math notranslate nohighlight">\(g^{-1} = h\)</span>. Soit <span class="math notranslate nohighlight">\(\mathbf{Y} = g(\mathbf{X})\)</span>. Alors on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} f_Y(\mathbf{y}) = f_X\left(h(\mathbf{y})\right) J_h(\mathbf{y}),  \end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(J_h(\mathbf{y}) \)</span> est le <strong>déterminant</strong> de la matrice jacobienne de <span class="math notranslate nohighlight">\(h\)</span>, c’est-à-dire</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}J_h(\mathbf{y}) =\left|\begin{pmatrix}
+\frac{\partial h_1}{\partial y_1} &amp; \dots &amp; \frac{\partial h_1}{\partial y_m}\\
+\vdots &amp; &amp;\vdots \\
+\frac{\partial h_m}{\partial y_1} &amp; \dots &amp; \frac{\partial h_m}{\partial y_m}
+\end{pmatrix}\right|. \end{gather*}\]</div>
+</section>
+</div><p>En fait, la démonstration de cette formule se fait à l’aide de la formule classique de changement de variable. Comme la probabilité est l’intégrale sur un certain domaine de la fonction de densité, on obtient le résultat immédiatement. Pour plus de détails, voir par <a class="reference external" href="https://swisscovery.slsp.ch/permalink/41SLSP_NETWORK/19n6r1g/alma991026360829705501">exemple</a>:
+Dalang, R. C. et Conus, D. (2015), <em>Introduction à la théorie des probabilités</em>, Lausanne, Suisse: PPUR.</p>
+<div class="proof definition admonition" id="fct_repartition_marginale">
+<p class="admonition-title"><span class="caption-number">Définition 7.3 </span> (Lois marginales: fonction de répartition)</p>
+<section class="definition-content" id="proof-content">
+<p>On appelle <strong>fonction de répartition marginale</strong> les fonctions suivantes:</p>
+<ul class="simple">
+<li><p><strong>cas discret</strong> <span class="math notranslate nohighlight">\(F_X(x) = \sum_{i,x_i \leq x} f_X(x_i) \)</span>;</p></li>
+<li><p><strong>cas continu</strong> <span class="math notranslate nohighlight">\(F_X(x) = \int_{-\infty}^x f_X(u) du \)</span>.</p></li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="ex1_var_aleatoire_conj">
+<p class="admonition-title"><span class="caption-number">Exemple 7.1 </span> (Loi marginale)</p>
+<section class="example-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(X,Y\)</span> des variables aléatoire qui prennent les 5 valeurs <span class="math notranslate nohighlight">\((1,2)\)</span>, <span class="math notranslate nohighlight">\((1,4)\)</span>, <span class="math notranslate nohighlight">\((2,3), \)</span>(3,2)<span class="math notranslate nohighlight">\(, (3,4)\)</span> avec probabilités égales. Trouver les lois marginales de <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+</section>
+</div><div class="proof definition admonition" id="fct_masse_dens_marginale">
+<p class="admonition-title"><span class="caption-number">Définition 7.4 </span> (Fonction de masse et densité marginales)</p>
+<section class="definition-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\((X,Y)\)</span> deux variables aléatoires avec densité (ou fonction de masse) conjointe <span class="math notranslate nohighlight">\(f_{X,Y}(x,y)\)</span>.
+On appelle :</p>
+<ul class="simple">
+<li><p><strong>cas discret</strong>: <em>fonction de masse marginale</em> <span class="math notranslate nohighlight">\( f_X(x_i) = \sum_j f_{X,Y}(x_i,y_j)  = \mathbb{P}(X = x_i)\)</span>;</p></li>
+<li><p><strong>cas continu</strong>: <em>densité marginale</em> de <span class="math notranslate nohighlight">\(X\)</span> la fonction <span class="math notranslate nohighlight">\( f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dy \)</span>.</p></li>
+</ul>
+</section>
+</div><div class="proof definition admonition" id="independance_var_alea">
+<p class="admonition-title"><span class="caption-number">Définition 7.5 </span> (Indépendance de variables aléatoires)</p>
+<section class="definition-content" id="proof-content">
+<p>On peut généraliser la notion d’indépendance d’événements à des variables conjointes.
+<span class="math notranslate nohighlight">\(X,Y\)</span> sont dite <strong>indépendantes</strong> si:</p>
+<ul>
+<li><p><strong>cas discret</strong> <span class="math notranslate nohighlight">\( \mathbb{P}(X=x_i, Y=y_j) = \mathbb{P}(X=x_i) \mathbb{P}(Y=y_j) \)</span>;</p></li>
+<li><p><strong>cas continu</strong> <span class="math notranslate nohighlight">\( f_{X,Y}(x,y) = f_X(x) f_Y(y). \)</span>
+Dans les deux cas, on a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} F_{X,Y}(x,y) = F_X(x) F_Y(y). \end{gather*}\]</div>
+</li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="ex2_independance">
+<p class="admonition-title"><span class="caption-number">Exemple 7.2 </span> (Somme de Bernouilli indépendantes)</p>
+<section class="example-content" id="proof-content">
+<p>Considérons <span class="math notranslate nohighlight">\(n\)</span> variables de Bernoulli indépendantes <span class="math notranslate nohighlight">\(I_1,\dots, I_n,\)</span> avec même probabilité de succès <span class="math notranslate nohighlight">\(p\)</span>. Quelle est la distribution de la somme de ces variables?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>L’expérience que l’on a décrit pour définir une loi binomiale <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span> consiste en fait exactement à considérer la somme de <span class="math notranslate nohighlight">\(n\)</span> variables de Bernoulli \textit{indépendantes} avec chacune probabilité <span class="math notranslate nohighlight">\(p\)</span> de succès. Cette somme suit donc une loi binomiale.
+Soient <span class="math notranslate nohighlight">\(I_1,\dots, I_n \stackrel{iid}{\sim}\mathcal{B}(p).\)</span> Alors</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} X = \sum_{i = 1}^n I_i \sim \mathcal{B}(n,p). \end{gather*}\]</div>
+</div>
+</section>
+</div><div class="proof theorem admonition" id="fct_var_ind">
+<p class="admonition-title"><span class="caption-number">Théorème 7.2 </span> (Fonctions de variables aléatoires indépendantes)</p>
+<section class="theorem-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span> des variables indépendantes (pas nécessairement identiquement distribuées) et <span class="math notranslate nohighlight">\(g_1, \dots, g_n\)</span> des fonctions continues. Alors les variables aléatoires <span class="math notranslate nohighlight">\(g_1(X_1), \dots, g_n(X_n)\)</span> sont aussi indépendantes.</p>
+</section>
+</div><p>Il existe un résultat plus fort, l’hypothèse de continuité étant trop forte.</p>
+<p>De manière générale, les lois marginales <strong>ne suffisent pas</strong> à caractériser la loi jointe.
+Par contre, si <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> sont indépendantes, les lois marginales suffisent à caractériser la loi jointe.</p>
+<p><strong>Notation:</strong> On écrit <span class="math notranslate nohighlight">\(X_1 \dots X_n \stackrel{iid}{\sim} f\)</span> pour dire que <span class="math notranslate nohighlight">\(X_1 \dots X_n\)</span> sont des variables <strong>indépendantes et identiquement distribuées</strong> de densité marginale <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<div class="proof remark admonition" id="remarque_1">
+<p class="admonition-title"><span class="caption-number">Remarque 7.1 </span> (Précisions pour les conjointes continues)</p>
+<section class="remark-content" id="proof-content">
+<p>La loi jointe de variables aléatoires <span class="math notranslate nohighlight">\(X,Y\)</span> continues peut être caractérisée par <span class="math notranslate nohighlight">\(f_{X,Y}(x,y) \)</span> ou <span class="math notranslate nohighlight">\(F_{X,Y}(x,y)\)</span>. On a la relation suivante:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} F_{X,Y}(x,y) = \mathbb{P}(X\leq x, Y \leq y) = \int_{-\infty}^x  \int_{-\infty}^y f_{X,Y}(u,v)\ du dv. \end{gather*}\]</div>
+</section>
+</div><div class="proof property admonition" id="propriete_loi_conjointe">
+<p class="admonition-title"><span class="caption-number">Propriété 7.1 </span> (Lois conjointes)</p>
+<section class="property-content" id="proof-content">
+<p>On a les propriétés suivantes pour deux variables aléatoires <span class="math notranslate nohighlight">\(X,Y\)</span> continues:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\displaystyle f_{X,Y}(x,y) \geq 0\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\displaystyle \int_{-\infty}^\infty \int_{-\infty}^\infty f_{X,Y}(u,v)dudv = 1\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\displaystyle f_{X,Y}(x,y) = \frac{\partial^2} { \partial x \partial y} F_{X,Y}(x,y) \)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\displaystyle \mathbb{P}(a_1 \leq X \leq a_2, b_1 \leq Y \leq b_2) = \int_{a_1}^{a_2} \int_{b_1}^{b_2} f_{X,Y}(u,v) du dv \)</span>.</p></li>
+<li><p>Plus généralement, pour tout <span class="math notranslate nohighlight">\(A\subset \mathbb{R}^2\)</span>, on a</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \mathbb{P}\left( (X,Y) \in A\right) = \iint_{A} f_{X,Y}(u,v)\  du dv .\end{gather*}\]</div>
+</section>
+</div><div class="proof example admonition" id="ex4">
+<p class="admonition-title"><span class="caption-number">Exemple 7.3 </span></p>
+<section class="example-content" id="proof-content">
+<p>Considérons <span class="math notranslate nohighlight">\(X_1,X_2 \stackrel{iid}{\sim} \mathcal{N}(\mu,\sigma^2) \)</span>. Trouver leur densité conjointe.<br />
+Supposons que <span class="math notranslate nohighlight">\(\mu=3, \sigma^2 = 4\)</span>. Calculer:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \mathbb{P} (X_1 \leq 1 \text{ et } -1 \leq X_2 \leq 5) = \dots \end{gather*}\]</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Leur densité conjointe est le produit des densités marginales (indépendance):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} f(x_1, x_2) = \frac{1}{2\pi} \frac{1}{\sigma^2} \exp \left( - \frac{(x_1-\mu)^2 + (x_2 - \mu)^2}{2 \sigma^2} \right).\end{gather*}\]</div>
+<p>On calcule la probabilité en utilisant l’indépendance puis en standardisant:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        \mathbb{P} (X_1 \leq 1\text{ et }-1\leq X_2 \leq 5) = \mathbb{P} (X_1 \leq -1) \mathbb{P} (-1 \leq X_2 \leq 5).
+\end{align*}\]</div>
+<p>On a d’une part</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \mathbb{P} (X_1 \leq 1) = \mathbb{P} \left(\frac{X_1-3}{2} \leq -1 \right) = \Phi(-1) = 0.159, \end{gather*}\]</div>
+<p>et par ailleurs</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}      \mathbb{P} (-1 \leq X_2 \leq 5) = \Phi(1) - \Phi(-2) = 0.82. \end{gather*}\]</div>
+<p>Et donc <span class="math notranslate nohighlight">\(\mathbb{P} (X_1 \leq 1\text{ et }-1\leq X_2 \leq 5)  \approx 0.13.\)</span></p>
+</div>
+</section>
+</div><div class="proof definition admonition" id="dens_conditionnelle">
+<p class="admonition-title"><span class="caption-number">Définition 7.6 </span> (Densité et fonction de masse conditionnelle)</p>
+<section class="definition-content" id="proof-content">
+<p>La densité (ou fonction de masse) conditionnelle de <span class="math notranslate nohighlight">\(X\)</span> étant donné <span class="math notranslate nohighlight">\(Y=y\)</span> est définie par:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}. \end{gather*}\]</div>
+<p>Si <span class="math notranslate nohighlight">\( X, Y\)</span> sont indépendantes, alors la densité conditionnelle est égale à la densité marginale <span class="math notranslate nohighlight">\( f_{X|Y}(x,y) = f_X(x). \)</span> Ceci est vrai pour des variables discrètes ou continues.</p>
+</section>
+</div><div class="proof example admonition" id="ex5">
+<p class="admonition-title"><span class="caption-number">Exemple 7.4 </span></p>
+<section class="example-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(X,Y\)</span> ont pour densité conjointe:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} f_{X,Y}(x,y) = \left\{ \begin{array}{cl} x+y &amp; \text{si } 0&lt;x&lt;1, 0&lt;y&lt;1, \\ 0 &amp; \text{sinon.}    \end{array} \right. \end{gather*}\]</div>
+<p>Calculer les densités marginales de <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>. Est-ce que <span class="math notranslate nohighlight">\(X,Y\)</span> sont indépendantes?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Les densités marginales sont:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        f_X(x) &amp;= \int_0^1 (x+y) dy = x + 1/2,          \\
+        f_Y(y) &amp;=  y + 1/2.
+    \end{align*}\]</div>
+<p>Ces variables ne sont pas indépendantes. En effet, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        f_X(x)f_Y(y) = (x+1/2)(y+1/2) \neq (x+y) = f_{X,Y}(x,y).
+    \end{align*}\]</div>
+</div>
+</section>
+</div></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Probabilité"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="variables_aleatoires_continues.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Variables aléatoires continues</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="valeurs_caracteristiques.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Valeurs caractéristiques</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

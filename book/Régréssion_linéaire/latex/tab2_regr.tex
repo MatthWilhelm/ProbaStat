@@ -1,0 +1,113 @@
+
+\documentclass{standalone}
+
+\usepackage{pgf}
+\usepackage{pgfpages}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+%\usefonttheme{professionalfonts} % using non standard fonts for beamer
+%\usepackage{fontspec}
+%\setmainfont{Source Sans Pro}
+
+% everyone:
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+
+
+
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\definecolor{ggorange}{RGB}{237,116,108} % trouvé les couleurs dans colorimètre numérique, avec sRVB
+\definecolor{ggblue}{RGB}{88,192,197} 
+\newcommand{\dred}[1]{\begin{color}{red}{#1}\end{color}}
+\newcommand{\dblue}[1]{\begin{color}{blue}{#1}\end{color}}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,backgrounds,decorations}
+\usepackage{tikzsymbols}
+
+\usepackage{environ} % useful for the "scaletikzpicturetowidth" commands
+
+
+
+\newcommand{\target}[1]{%
+	\foreach \r/\col in {2.5/blue!10!white, 2/blue!20!white, 1.5/white, 1/red!10!white, 0.5/red!30!white, 0.05/red!50!white} {
+		\draw [
+		fill = \col%,
+		% fill opacity = 0.15
+		] (0, 0) circle (\r cm);
+	}
+}%
+
+\newcommand{\points}[3]{%
+	\foreach \i in {1, 2, ..., 20} {
+		\pgfmathsetmacro{\xcoord}{#1 + rand * #3}
+		\pgfmathsetmacro{\ycoord}{#2 + rand * #3}
+		\draw[fill = red] (\xcoord, \ycoord) circle (2pt);
+	}
+}%
+
+
+\newcommand{\circlevar}[3]{%
+	\draw[color = green] (#1, #2) circle (#3 cm);
+	\node[text = green] at (#1, #2) {$\bullet$};
+}%
+
+\def\border{
+	\draw (-2.65, -2.75) -- ++(5.25, 0);
+	\draw (2.75, 2.65) -- ++(0, -5.25);
+}
+\usepackage{3dplot}
+
+
+\begin{document}
+\tdplotsetmaincoords{60}{110}
+
+%define polar coordinates for some vector
+%TODO: look into using 3d spherical coordinate system
+\pgfmathsetmacro{\rvec}{.8}
+\pgfmathsetmacro{\thetavec}{30}
+\pgfmathsetmacro{\phivec}{60}
+
+
+	\begin{tikzpicture}[scale=5,tdplot_main_coords]
+		
+		%set up some coordinates 
+		%-----------------------
+		\coordinate (O) at (0,0,0);
+		
+		%determine a coordinate (P) using (r,\theta,\phi) coordinates.  This command
+		%also determines (Pxy), (Pxz), and (Pyz): the xy-, xz-, and yz-projections
+		%of the point (P).
+		%syntax: \tdplotsetcoord{Coordinate name without parentheses}{r}{\theta}{\phi}
+		\tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+		
+		%draw figure contents
+		%--------------------
+		
+		%draw the main coordinate system axes
+		\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{};
+		\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{};
+		\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$\text{span}(\mathbf{X}^{\perp})$};
+		
+		%draw a vector from origin to point (P) 
+		\draw[-stealth,color=black] (O) -- (P)node[right]{$\mathbf{y}$};
+		
+		%draw projection on xy plane, and a connecting line
+		\draw[fill = gray, opacity = 0.3] (0,0,0)--(1,0,0)--(1,1,0)--(0,1,0)--cycle;
+		\draw (0.7,0.7, 0) node {$\text{span}(\mathbf{X})$};
+		\draw[dashed, color=black] (O) -- (Pxy)node[right]{$\hat{\mathbf{y}}$};
+		\draw[dashed, color=black] (P) -- (Pxy)node[midway, right]{$\mathbf{e}$};
+	\end{tikzpicture}
+\end{document}

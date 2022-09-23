@@ -1,0 +1,908 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Concepts de base &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Arrangements et combinaisons" href="arrangements_et_combinaisons.html" />
+    <link rel="prev" title="Quelques principes généraux" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/graphiques.html">
+   Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/boxplot.html">
+   Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/loi_normale.html">
+   Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arrangements_et_combinaisons.html">
+   Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probabilite_conditionnelle_independance.html">
+   Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probabilites_totales_et_theoreme_de_bayes.html">
+   Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables_aleatoires_discretes.html">
+   Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables_aleatoires_continues.html">
+   Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variables_aleatoires_conjointes.html">
+   Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="valeurs_caracteristiques.html">
+   Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="theoreme_fondamentaux.html">
+   Théorème fondamentaux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   Test du Chi2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   Régréssion linéaire: hypothèses et diagnostics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FProbabilité/concepts_de_base.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Probabilité/concepts_de_base.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experience-aleatoire">
+   Expérience aléatoire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagrammes-de-venn">
+   Diagrammes de Venn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fonction-indicatrice">
+   Fonction indicatrice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fonction-de-probabilite">
+   Fonction de probabilité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evenements-equiprobables">
+   Evénements équiprobables
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Concepts de base</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experience-aleatoire">
+   Expérience aléatoire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagrammes-de-venn">
+   Diagrammes de Venn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fonction-indicatrice">
+   Fonction indicatrice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fonction-de-probabilite">
+   Fonction de probabilité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evenements-equiprobables">
+   Evénements équiprobables
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p>Nous allons présenter une introduction à <strong>la théorie des probabilités</strong>.</p>
+<p>C’est le domaine des mathématiques qui concerne l’étude des propriétés des systèmes aléatoires.</p>
+<p>La plus grande difficulté consiste à réconcilier les notions mathématiques sur l’aléatoire avec les notions intuitives que vous avez déjà.</p>
+<p>Les intuitions dans ce domaine s’avèrent  <strong>souvent fausses</strong> donc méfiez-vous.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="concepts-de-base">
+<h1>Concepts de base<a class="headerlink" href="#concepts-de-base" title="Permalink to this headline">#</a></h1>
+<p>Nous allons présenter les bases de la probabilité et discuter les sujets suivants:</p>
+<ul class="simple">
+<li><p>expérience aléatoire;</p></li>
+<li><p>ensemble fondamental, événements, événements élémentaires;</p></li>
+<li><p>opérations sur les événements: union, intersection, négation;</p></li>
+<li><p>fonction de probabilité;</p></li>
+<li><p>indépendance;</p></li>
+<li><p>quelques formules: probabilité conditionnelle, probabilités totales, théorème de Bayes.</p></li>
+</ul>
+<p>Une partie de ce qui suit est tiré de la référence <a class="reference external" href="https://swisscovery.slsp.ch/permalink/41SLSP_NETWORK/19n6r1g/alma991026360829705501">suivante</a>:Dalang, R. C. et Conus, D. (2015), <em>Introduction à la théorie des probabilités</em>, Lausanne, Suisse: PPUR.</p>
+<section id="experience-aleatoire">
+<h2>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Permalink to this headline">#</a></h2>
+<p>La théorie des probabilités permet de décrire et de modéliser des <strong>phénomènes aléatoires</strong>.</p>
+<p>Une <strong>expérience aléatoire</strong> est toute action dont il est impossible de prévoir le résultat avec certitude. On admet généralement qu’une expérience aléatoire peut être répétée indéfiniment dans des conditions identiques: le résultat peut varier d’une réalisation à l’autre.</p>
+<ul class="simple">
+<li><p>jet d’un dé, d’une pièce de monnaie;</p></li>
+<li><p>tirage d’une carte;</p></li>
+<li><p>service au tennis.</p></li>
+</ul>
+<div class="proof definition admonition" id="modele_probabiliste">
+<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Modèles probabilistes)</p>
+<section class="definition-content" id="proof-content">
+<p><strong>L’ensemble fondamental</strong> <span class="math notranslate nohighlight">\( \Omega \)</span> est l’ensemble de tous les résultats possibles d’une expérience aléatoire.
+Lorsque l’ensemble fondamental est dénombrable, on a <span class="math notranslate nohighlight">\(\Omega= \{\omega_1, \dots,\}\)</span> et  <span class="math notranslate nohighlight">\(\omega_1, \omega_2, \dots\)</span> sont appellés <strong>événements élémentaires</strong>.
+On appelle « événement » tout sous-ensemble de <span class="math notranslate nohighlight">\(\Omega\)</span>. Un événement peut réunir plusieurs événements élémentaires.</p>
+</section>
+</div><div class="proof example admonition" id="ex1_prob">
+<p class="admonition-title"><span class="caption-number">Example 9 </span> (Exemples d’ensemble fondamentaux)</p>
+<section class="example-content" id="proof-content">
+<ul class="simple">
+<li><p>Une expérience consiste à tirer une boule dans une urne contenant 12 boules: <span class="math notranslate nohighlight">\(\Omega = \{ 1,\dots, 12\}.\)</span></p></li>
+<li><p>Une expérience consiste à choisir aléatoirement un nombre dans l’intervalle <span class="math notranslate nohighlight">\([0,1]\)</span>. <span class="math notranslate nohighlight">\(\Omega = [0,1].\)</span></p></li>
+<li><p>Une expérience vise à lancer une pièce de monnaie jusqu’à obtenir « Face »:
+<span class="math notranslate nohighlight">\(\Omega = \{\)</span> F, PF, PPF, PPPF,<span class="math notranslate nohighlight">\(\dots,\}.\)</span></p></li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="ex2_piece_monaie">
+<p class="admonition-title"><span class="caption-number">Example 11 </span> (Lancer d’une pièce de monnaie)</p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}        
+         \Omega &amp;= \{P,F\} \\ 
+            A &amp;= \{P \} \text{ est un événement et un événement élémentaire}
+\end{align*}\]</div>
+</section>
+</div><div class="proof example admonition" id="ex2_piece_monaie">
+<p class="admonition-title"><span class="caption-number">Example 11 </span> (Lancer d’un dé à six faces)</p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}        
+         \Omega &amp;= \{1,2,3,4,5,6\} \\ 
+            A &amp;= \{1 \} \text{ est l'événement « obtenir 1»} \\
+            B &amp;= \{2,4,6 \} \text{ est l'événement « obtenir un pair » }
+\end{align*}\]</div>
+</section>
+</div><div class="proof definition admonition" id="intersection_evenement">
+<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Intersection d’évènements)</p>
+<section class="definition-content" id="proof-content">
+<p>L’événement « <span class="math notranslate nohighlight">\(A\)</span> <strong>et</strong> <span class="math notranslate nohighlight">\(B\)</span> » sera noté: <span class="math notranslate nohighlight">\( A \cap B \)</span> (intersection d’ensembles). On a les propriétés suivantes:</p>
+<ul class="simple">
+<li><p>l’intersection de <span class="math notranslate nohighlight">\(A\)</span> et <span class="math notranslate nohighlight">\(B\)</span> contient tous les événements qui sont contenus dans <span class="math notranslate nohighlight">\(A\)</span> et dans <span class="math notranslate nohighlight">\(B\)</span>;</p></li>
+<li><p>s’il n’y a aucun événement commun, alors l’intersection est l’événement vide: <span class="math notranslate nohighlight">\( \emptyset \)</span>;</p></li>
+<li><p>l’intersection est une opération symétrique: <span class="math notranslate nohighlight">\( A \cap B = B \cap A. \)</span></p></li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="ex3_intersection_evenement_jet_dé">
+<p class="admonition-title"><span class="caption-number">Example 12 </span></p>
+<section class="example-content" id="proof-content">
+<p>Lors d’un jet de dé, l’intersection des événements</p>
+<ul>
+<li><p>« obtenir un chiffre pair »  <strong>et</strong> « obtenir un chiffre premier »   donne</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \{2,4,6\} \cap \{2,3,5\} = \{2\}.\end{gather*}\]</div>
+</li>
+<li><p>« Obtenir un chiffre pair »  <strong>et</strong> « obtenir 3 » est vide:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \{2,4,6\} \cap \{3\} = \emptyset.\end{gather*}\]</div>
+</li>
+</ul>
+</section>
+</div><div class="proof definition admonition" id="union_evenement">
+<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Union d’évènements)</p>
+<section class="definition-content" id="proof-content">
+<p>L’événement « <span class="math notranslate nohighlight">\(A\)</span> <strong>ou</strong> <span class="math notranslate nohighlight">\(B\)</span> »  sera noté: <span class="math notranslate nohighlight">\( A \cup B \)</span> (union d’ensembles). On a les propriétés suivantes:</p>
+<ul class="simple">
+<li><p>l’union contient tous les événements qui sont contenus dans <span class="math notranslate nohighlight">\(A\)</span> et de tous ceux qui sont contenus dans <span class="math notranslate nohighlight">\(B\)</span>;</p></li>
+<li><p>l’union est vide <span class="math notranslate nohighlight">\( \emptyset \)</span> seulement si les deux événements <span class="math notranslate nohighlight">\( A, B\)</span> sont vides aussi;</p></li>
+<li><p>l’union est une opération symétrique: <span class="math notranslate nohighlight">\( A \cup B = B \cup A\)</span>.</p></li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="ex4_union_evenement_jet_dé">
+<p class="admonition-title"><span class="caption-number">Example 13 </span></p>
+<section class="example-content" id="proof-content">
+<p>Lors d’un jet de dé, l’union des événements «Obtenir un chiffre pair»  <strong>ou</strong> « obtenir un chiffre premier » donne</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \{2,4,6\} \cup \{2,3,5\} = \{2,3,4,5,6\}.\end{gather*}\]</div>
+</section>
+</div><div class="proof definition admonition" id="complement_evenement">
+<p class="admonition-title"><span class="caption-number">Definition 12 </span> (Complément d’évènement)</p>
+<section class="definition-content" id="proof-content">
+<p>L’événement « <strong>non</strong> <span class="math notranslate nohighlight">\(A\)</span> »  sera noté: <span class="math notranslate nohighlight">\( A^c \)</span> (complémentaire de l’ensemble). On a les propriétés suivantes:</p>
+<ul class="simple">
+<li><p>l’événement complémentaire de <span class="math notranslate nohighlight">\(A\)</span> contient tous les événements élémentaires qui ne sont pas contenus dans <span class="math notranslate nohighlight">\(A\)</span>;</p></li>
+<li><p>l’événement complémentaire est vide seulement si <span class="math notranslate nohighlight">\( A = \Omega \)</span>;</p></li>
+<li><p>inversément, on a <span class="math notranslate nohighlight">\( A \cup A^c = \Omega \)</span> et <span class="math notranslate nohighlight">\( A \cap A^c = \emptyset \)</span>.</p></li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="ex5_complement_evenement_jet_dé">
+<p class="admonition-title"><span class="caption-number">Example 14 </span></p>
+<section class="example-content" id="proof-content">
+<p>Lors d’un jet de dé, le complémentaire de l’événement«Obtenir un chiffre pair»  <strong>ou</strong> « obtenir un chiffre premier » donne</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \{2,4,6\}^c = \{1,3,5\}.\end{gather*}\]</div>
+</section>
+</div><div class="proof definition admonition" id="dif_evenement">
+<p class="admonition-title"><span class="caption-number">Definition 13 </span> (Différences d’évènements)</p>
+<section class="definition-content" id="proof-content">
+<p>L’événement « <span class="math notranslate nohighlight">\(A\)</span> <strong>mais pas</strong> <span class="math notranslate nohighlight">\(B\)</span> »  noté <span class="math notranslate nohighlight">\( A \setminus B = A \cap B^c \)</span> (différence des événements)</p>
+<ul class="simple">
+<li><p>la différence contient tous les événements de <span class="math notranslate nohighlight">\(A\)</span> qui ne sont pas dans <span class="math notranslate nohighlight">\(B\)</span>;</p></li>
+<li><p><font color="red">ATTENTION</font>: la différence n’est pas symétrique;</p></li>
+<li><p><span class="math notranslate nohighlight">\( A \setminus B = \emptyset \)</span> seulement si <span class="math notranslate nohighlight">\( A \)</span> est contenu dans <span class="math notranslate nohighlight">\( B \)</span>.</p></li>
+</ul>
+</section>
+</div><div class="proof example admonition" id="ex6_dif_evenement_jet_dé">
+<p class="admonition-title"><span class="caption-number">Example 15 </span></p>
+<section class="example-content" id="proof-content">
+<p>lors d’un jet de dé, la différence de l’événement « Obtenir un chiffre pair »  avec l’événement « obtenir un nombre premier » donn</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \{2,4,6\} \setminus \{2,3,5\} = \{4,6\}.\end{gather*}\]</div>
+</section>
+</div></section>
+<section id="diagrammes-de-venn">
+<h2>Diagrammes de Venn<a class="headerlink" href="#diagrammes-de-venn" title="Permalink to this headline">#</a></h2>
+<p>Le diagramme de Venn est un outil simple pour visualiser les événements et les opérations entre événements.</p>
+<ul class="simple">
+<li><p>L’ensemble fondamental est représenté comme un rectangle.</p></li>
+<li><p>Les événements sont des disques contenus dans le rectangle.</p></li>
+</ul>
+<figure class="align-default" id="venn1">
+<a class="reference internal image-reference" href="../_images/venn1.svg"><img alt="../_images/venn1.svg" src="../_images/venn1.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">: intersection <span class="math notranslate nohighlight">\(A \cap B\)</span></span><a class="headerlink" href="#venn1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="venn2">
+<a class="reference internal image-reference" href="../_images/venn2.svg"><img alt="../_images/venn2.svg" src="../_images/venn2.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">: union <span class="math notranslate nohighlight">\(A \cup B\)</span></span><a class="headerlink" href="#venn2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="venn3">
+<a class="reference internal image-reference" href="../_images/venn3.svg"><img alt="../_images/venn3.svg" src="../_images/venn3.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">: différence <span class="math notranslate nohighlight">\(A \setminus B\)</span></span><a class="headerlink" href="#venn3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="venn4">
+<a class="reference internal image-reference" href="../_images/venn4.svg"><img alt="../_images/venn4.svg" src="../_images/venn4.svg" width="95%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">: complément <span class="math notranslate nohighlight">\(A^c\)</span></span><a class="headerlink" href="#venn4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="fonction-indicatrice">
+<h2>Fonction indicatrice<a class="headerlink" href="#fonction-indicatrice" title="Permalink to this headline">#</a></h2>
+<div class="proof definition admonition" id="fct_indic">
+<p class="admonition-title"><span class="caption-number">Definition 14 </span> (Fonction indicatrice)</p>
+<section class="definition-content" id="proof-content">
+<p>On appelle <em>fonction indicatrice</em> de l’événement <span class="math notranslate nohighlight">\(A\)</span>, notée <span class="math notranslate nohighlight">\(\mathbf{1}_A\)</span> la fonction définie comme</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \mathbf{1}_A(x) = \left\{
+    \renewcommand{\arraystretch}{1.5}
+            \begin{array}{ll}
+            1 &amp; \text{ si }x\in A,\\
+            0 &amp; \text{ sinon.}
+            \end{array} \right. \end{gather*}\]</div>
+</section>
+</div><div class="proof property admonition" id="propriete1_fct_indicatrice">
+<p class="admonition-title"><span class="caption-number">Property 1 </span> (Fonction indicatrice)</p>
+<section class="property-content" id="proof-content">
+<p>Soient deux ensembles <span class="math notranslate nohighlight">\(A, B \subset \Omega\)</span>, dont on note les fonctions indicatrices <span class="math notranslate nohighlight">\(\mathbf{1}_A\)</span> et <span class="math notranslate nohighlight">\(\mathbf{1}_B\)</span> respectivement. On a alors:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{1}_{A^c} = 1 -\mathbf{1}_{A}; \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{1}_{A\cap B} = \mathbf{1}_A \mathbf{1}_B; \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{1}_{A\cup B} =\mathbf{1}_A + \mathbf{1}_B - \mathbf{1}_A \mathbf{1}_B. \)</span></p></li>
+</ul>
+</section>
+</div><p>On peut ainsi facilement montrer les lois de De Morgan:</p>
+<div class="proof theorem admonition" id="loi_morgan">
+<p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Lois de Morgan)</p>
+<section class="theorem-content" id="proof-content">
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((A\cup B)^c = A^c \cap B^c\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\((A\cap B)^c = A^c \cup B^c\)</span>.</p></li>
+</ul>
+</section>
+</div></section>
+<section id="fonction-de-probabilite">
+<h2>Fonction de probabilité<a class="headerlink" href="#fonction-de-probabilite" title="Permalink to this headline">#</a></h2>
+<div class="proof axiom admonition" id="axiom1_fct_prob">
+<p class="admonition-title"><span class="caption-number">Axiom 1 </span> (Fonction de probabilité)</p>
+<section class="axiom-content" id="proof-content">
+<p>On appelle fonction de probabilité toute fonction <span class="math notranslate nohighlight">\( \Pr \)</span> qui vérifie:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0\leq \Pr(A)\leq 1,\)</span> pour tout <span class="math notranslate nohighlight">\(A\subset \Omega\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Pr(\Omega) = 1 \)</span>;</p></li>
+<li><p>Pour toute famille d’événements <span class="math notranslate nohighlight">\(\{A_n\}_{n=0}^\infty\)</span> deux à deux disjoints, on a</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} 
+\Pr\left(\bigcup_{n=0}^\infty A_n\right) = \sum_{n = 0}^\infty \Pr(A_n) 
+\end{gather*}\]</div>
+<p>En réalité, la fonction <span class="math notranslate nohighlight">\(\Pr\)</span> n’est pas uniquement définie sur tous les sous-ensembles mais seulement sur les sous-ensemble <strong>mesurables</strong>. Mais il s’agit d’une subtilité mathématique.</p>
+</section>
+</div><div class="proof property admonition" id="propriete2_fct_prob">
+<p class="admonition-title"><span class="caption-number">Property 2 </span> (Fonction de probabilité)</p>
+<section class="property-content" id="proof-content">
+<p>Une fonction de probabilité satisfait les propriétés suivantes:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\( \Pr(\emptyset) = 0 \)</span> : la probabilité de l’événement impossible est nulle;</p></li>
+<li><p>pour toute famille finie de <span class="math notranslate nohighlight">\(N\)</span> événements <span class="math notranslate nohighlight">\(\{A_n\}_{n=0}^N\)</span> deux à deux disjoints, on a</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} 
+    \Pr\left(\bigcup_{n=0}^N A_n\right) = \sum_{n = 0}^N \Pr(A_n). 
+\end{gather*}\]</div>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\( \Pr(A^c) = 1 - \Pr(A) \)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A\cap B) \)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\( A \subset B \)</span> implique <span class="math notranslate nohighlight">\( \Pr(A) \leq \Pr(B) \)</span></p></li>
+</ol>
+</section>
+</div><p>La propriété 4 est un cas particulier du plus général
+<a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_d%27inclusion-exclusion">d’inclusion-exclusion</a> principe .
+Les propriétés 4 et 5 seront montrées aux exercices.</p>
+</section>
+<section id="evenements-equiprobables">
+<h2>Evénements équiprobables<a class="headerlink" href="#evenements-equiprobables" title="Permalink to this headline">#</a></h2>
+<div class="proof definition admonition" id="evenement_equiprobable">
+<p class="admonition-title"><span class="caption-number">Definition 15 </span></p>
+<section class="definition-content" id="proof-content">
+<p>Lorsque <span class="math notranslate nohighlight">\(\Omega = \{\omega_1, \dots,\omega_N\}\)</span> est un ensemble fini et sous l’hypothèse <strong>d’équiprobabilité</strong>, tous les événements élémentaires ont la même probabilité. On a alors:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \Pr(A) = \frac{ \text{nombre total d'événements élémentaires dans A} }{ \text{nombre total d'événements élémentaires} }.\end{gather*}\]</div>
+</section>
+</div><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Attention à ne pas confondre évènements élémentaires et composés!</p>
+</div>
+<div class="proof example admonition" id="ex7_deux_lancers_de_piece">
+<p class="admonition-title"><span class="caption-number">Example 16 </span> (Deux lancers de pièces)</p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \Omega = \{PP, PF, FP, FF\} \end{gather*}\]</div>
+<p>Donner les événements <span class="math notranslate nohighlight">\(A =\)</span>« au moins un P » , et <span class="math notranslate nohighlight">\(B=\)</span>« Au moins un F » , <span class="math notranslate nohighlight">\( A \cap B\)</span> et <span class="math notranslate nohighlight">\( A \cup B\)</span>.
+Trouver les probabilités de ces événements si la pièce est équilibrée, c’est-à-dire si <span class="math notranslate nohighlight">\( \Pr(\{PP\}) = \dots = \Pr(\{FF\}) = 1/4 \)</span></p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Calcul des évènements:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*} 
+    A             &amp;= \{PP, PF, FP\}       \\
+    B             &amp;= \{PF, FP, FF\}       \\
+                                        \\
+    A \cap B     &amp;= \{PF, FP\}         \\
+    A \cup B     &amp;= \{PP, PF, FP, FF\} \\
+\end{align*}\]</div>
+</div>
+</section>
+</div><div class="proof example admonition" id="ex8_evenement_equi">
+<p class="admonition-title"><span class="caption-number">Example 17 </span> (Événement équiprobables)</p>
+<section class="example-content" id="proof-content">
+<p><strong>jet de deux dés</strong>:  Quelle est la probabilité d’obtenir un 7 avec la somme de deux dés?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Sous l’hypothèse, d’équiprobabilité, il faut compter le <strong>nombre de cas favorables</strong> et le <strong>nombre de cas total</strong>. En s’aidant d’un petit tableau, cela devient (encore plus) facile.
+On a 36 cas au total, et 6 cas favorables, donc:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \Pr( \text{Somme}=7 ) = 6/36 = 1/6 \end{gather*}\]</div>
+</div>
+</section>
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Probabilité"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Quelques principes généraux</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="arrangements_et_combinaisons.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Arrangements et combinaisons</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

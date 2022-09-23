@@ -1,0 +1,47 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
+parts:
+  - caption: À propos du cours
+    chapters:
+    - file: Introduction
+  - caption: Statistique Exploratoire
+    chapters:
+    - file: Statistiques_exploratoire/types_de_données
+    - file: Statistiques_exploratoire/graphiques
+    - file: Statistiques_exploratoire/synthèses_numériques
+    - file: Statistiques_exploratoire/boxplot
+    - file: Statistiques_exploratoire/loi_normale
+    - file: Statistiques_exploratoire/quelques_principes_généraux
+  - caption: Probabilité
+    chapters:
+    - file: Probabilité/concepts_de_base
+    - file: Probabilité/arrangements_et_combinaisons
+    - file: Probabilité/probabilite_conditionnelle_independance
+    - file: Probabilité/probabilites_totales_et_theoreme_de_bayes
+    - file: Probabilité/variables_aleatoires_discretes
+    - file: Probabilité/variables_aleatoires_continues
+    - file: Probabilité/variables_aleatoires_conjointes
+    - file: Probabilité/valeurs_caracteristiques
+    - file: Probabilité/theoreme_fondamentaux
+  - caption: Statistique inférentielle
+    chapters:
+    - file: Statistique_inférentielle/introduction
+    - file: Statistique_inférentielle/estimation_de_parametres
+    - file: Statistique_inférentielle/proprietes_estimateur
+    - file: Statistique_inférentielle/estimation_par_intervalle
+    - file: Statistique_inférentielle/tests_hypotheses_statistiques
+    - file: Statistique_inférentielle/tests_et_ic
+    - file: Statistique_inférentielle/test_chi2
+    - file: Statistique_inférentielle/puissance_test
+  - caption: Régréssion linéaire
+    chapters:
+    - file: Régréssion_linéaire/introduction
+    - file: Régréssion_linéaire/cas_general
+    - file: Régréssion_linéaire/tests
+    - file: Régréssion_linéaire/hypotheses_et_diagnostics
+    
