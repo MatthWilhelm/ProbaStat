@@ -42,6 +42,7 @@ html:
   use_repository_button: true
   use_multitoc_numbering: false
   baseurl: https://KieranVaudaux.github.io/test-deployement-
+  google_analytics_id: 242603302
   
 
 # Information about where the book exists on the web
