@@ -48,8 +48,7 @@ parts:
     - file: Régréssion_linéaire/cas_general
     - file: Régréssion_linéaire/tests
     - file: Régréssion_linéaire/hypotheses_et_diagnostics
-- caption: Série
-    numbered: True
+  - caption: Série
     chapters:
     - file: Série/Série1R
     - file: Série/Série1Python
