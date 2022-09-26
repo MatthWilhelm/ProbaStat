@@ -21,7 +21,7 @@ data = pd.DataFrame(np.array([147 , 59 , 152 , 155 , 157 , 160 , 64 , 165 , 168 
                      columns=["Taille"])
 
 
-# 1) Calculer la moyenne et la médiane des tailles observées, puis faire un boxplot et un histogramme de ces tailles. Sur chacun de ces graphiques faire apparaître la moyenne et la médiane.
+# 1\) Calculer la moyenne et la médiane des tailles observées, puis faire un boxplot et un histogramme de ces tailles. Sur chacun de ces graphiques faire apparaître la moyenne et la médiane.
 
 # In[ ]:
 
@@ -34,16 +34,16 @@ median = ...
 ...
 
 
-# 2) Entre la moyenne et la médiane, laquelle de ces deux caractéristiques représente le mieux la tendance centrale de la 
+# 2\) Entre la moyenne et la médiane, laquelle de ces deux caractéristiques représente le mieux la tendance centrale de la 
 # distribution des tailles? Justifiez votre réponse.
 # 
 # **Solution**:  
 #   
-# 3) Si l'on considère seulement les tailles supérieures à $ 140 $ cm,  on obtient une moyenne de $ 166.4 $ cm et une médiane de $ 168 $ cm.  Commentez la phrase suivante : *“La médiane est plus robuste que la moyenne.”*
+# 3\) Si l'on considère seulement les tailles supérieures à $ 140 $ cm,  on obtient une moyenne de $ 166.4 $ cm et une médiane de $ 168 $ cm.  Commentez la phrase suivante : *“La médiane est plus robuste que la moyenne.”*
 # 
 # **Solution**:  
 #   
-# 4) Calculer l'écart-type et l'écart inter-quartile pour l'ensemble des tailles et pour les tailles supérieure à $140$ cm. Laquelle de ces deux caractéristiques vous semble la plus robuste?
+# 4\) Calculer l'écart-type et l'écart inter-quartile pour l'ensemble des tailles et pour les tailles supérieure à $140$ cm. Laquelle de ces deux caractéristiques vous semble la plus robuste?
 # 
 # **Solution**:  
 #   
@@ -90,11 +90,11 @@ datas = pd.DataFrame(np.array([[147 , 150 , 152 , 155 , 157 , 160 , 163 , 165 , 
                      columns=["Taille","Poids"])
 
 
-# 1) Est-ce que la taille est une variable quantitative, qualitative nominale ou qualitative ordinale ?
+# 1\) Est-ce que la taille est une variable quantitative, qualitative nominale ou qualitative ordinale ?
 # 
 # **Solution**:  
 #   
-# 2) Calculez la moyenne et l'écart-type des tailles observées.
+# 2\) Calculez la moyenne et l'écart-type des tailles observées.
 
 # In[ ]:
 
@@ -112,7 +112,7 @@ std = ...
 ...
 
 
-# 3) Pour les tailles observées, calculez le minimum, le maximum, la médiane, le quartile inférieur, le quartile supérieur et le quartile d'ordre 30%. Qu'est-ce que représentent ces quantités ?
+# 3\) Pour les tailles observées, calculez le minimum, le maximum, la médiane, le quartile inférieur, le quartile supérieur et le quartile d'ordre 30%. Qu'est-ce que représentent ces quantités ?
 # 
 # **Solution**:  
 #   
@@ -129,7 +129,7 @@ q_ = ...
 ...
 
 
-# 4) Calculez l'écart inter-quartile des tailles observées
+# 4\) Calculez l'écart inter-quartile des tailles observées
 
 # In[ ]:
 
@@ -140,7 +140,7 @@ EIQ = ...
 ...
 
 
-# 5) Construisez le boxplot des tailles observées. Quels aspects des données cette représentation graphique nous permet-elle de visualiser?
+# 5\) Construisez le boxplot des tailles observées. Quels aspects des données cette représentation graphique nous permet-elle de visualiser?
 # 
 # **Solution**:  
 #   
@@ -152,7 +152,7 @@ EIQ = ...
 # Faire un boxplot des tailles observées
 
 
-# 6) Divisez les tailles observées en 5 groupes :  
+# 6\) Divisez les tailles observées en 5 groupes :  
 # $ < 150 $, $ 150 - 159 $, $ 160 - 169 $, $ 170 - 179 $, $ > 179 $ cm.  
 # Construisez un histogramme en utilisant une ligne par groupe. Quels aspects des données cette représentation graphique nous permet-elle de visualiser?
 # 
@@ -166,7 +166,7 @@ EIQ = ...
 # Faire un histogramme avec les groupes mentionnés ci-dessus
 
 
-# 7) Pensez-vous qu'il existe une relation entre la taille et le poids des femmes ayant participé à l'enquête? Justifiez votre réponse à l'aide d'un graphique adéquat.
+# 7\) Pensez-vous qu'il existe une relation entre la taille et le poids des femmes ayant participé à l'enquête? Justifiez votre réponse à l'aide d'un graphique adéquat.
 # 
 # **Solution**:  
 #   
@@ -201,7 +201,7 @@ data = pd.DataFrame(np.array([[68, 20, 15, 5], [119, 84, 54, 29], [26, 17, 14,14
                      columns=["Brun","Bleu", "Hazel", "Vert"],index=["Noir","Brun","Roux","Blond"])
 
 
-# 1) Combien d'étudiants ont participé à cette enquête ?
+# 1\) Combien d'étudiants ont participé à cette enquête ?
 
 # In[ ]:
 
@@ -209,12 +209,12 @@ data = pd.DataFrame(np.array([[68, 20, 15, 5], [119, 84, 54, 29], [26, 17, 14,14
 # Calculer et affficher le nombre total d'étudiants qui ont participé à cette enquête
 
 
-# 2) Est-ce que la couleur des cheveux est une variable quantitative, qualitative nominale ou qualitative
+# 2\) Est-ce que la couleur des cheveux est une variable quantitative, qualitative nominale ou qualitative
 # ordinale ?
 # 
 # **Solution**:  
 #   
-# 3) Résumez ce que vous pouvez dire sur la couleur des cheveux des étudiants à l’aide de quelques chiffres et graphiques adéquats.
+# 3\) Résumez ce que vous pouvez dire sur la couleur des cheveux des étudiants à l’aide de quelques chiffres et graphiques adéquats.
 # 
 # **Solution**:  
 #   
@@ -237,7 +237,7 @@ import matplotlib.pyplot as plt
 ...
 
 
-# 4) Pensez-vous que la couleur des cheveux et la couleur des yeux des étudiants ayant participé à l’enquête sont liées ? Justifiez votre réponse.
+# 4\) Pensez-vous que la couleur des cheveux et la couleur des yeux des étudiants ayant participé à l’enquête sont liées ? Justifiez votre réponse.
 # 
 # 
 # **Solution**:  
@@ -261,7 +261,7 @@ import pandas as pd
 data = pd.read_csv('Precipitations_journalieres_Changins.csv',sep=',',names= ["Date","Précipitation"])
 
 
-# 1) Calculer la moyenne et la médiane de ces données. Puis, faire un boxplot et un histogramme de ces données et faire apparaitre la moyenne et la médiane sur chacunes de ces figures.
+# 1\) Calculer la moyenne et la médiane de ces données. Puis, faire un boxplot et un histogramme de ces données et faire apparaitre la moyenne et la médiane sur chacunes de ces figures.
 
 # In[ ]:
 
@@ -275,7 +275,7 @@ median = ...
 ...
 
 
-# 2) Laquelle de ces deux caractéristiques représente le mieux la tendance centrale de la 
+# 2\) Laquelle de ces deux caractéristiques représente le mieux la tendance centrale de la 
 # distribution? Justifiez votre réponse.
 # 
 # **Solution**:  
