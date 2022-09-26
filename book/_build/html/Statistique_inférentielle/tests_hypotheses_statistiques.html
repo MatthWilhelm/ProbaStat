@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://KieranVaudaux.github.io/test-deployement-/Statistique_inférentielle/tests_hypotheses_statistiques.html" />
+    <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Statistique_inférentielle/tests_hypotheses_statistiques.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="6. Tests et IC" href="tests_et_ic.html" />
@@ -375,7 +375,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-"
+        <a href="https://github.com/MatthWilhelm/ProbaStat"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -392,7 +392,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-/issues/new?title=Issue%20on%20page%20%2FStatistique_inférentielle/tests_hypotheses_statistiques.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/MatthWilhelm/ProbaStat/issues/new?title=Issue%20on%20page%20%2FStatistique_inférentielle/tests_hypotheses_statistiques.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -409,7 +409,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-/edit/master/book/Statistique_inférentielle/tests_hypotheses_statistiques.md"
+        <a href="https://github.com/MatthWilhelm/ProbaStat/edit/master/book/Statistique_inférentielle/tests_hypotheses_statistiques.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -637,7 +637,7 @@ Par exemple</p>
 Ce sont des hypothèses concernant le paramètre <span class="math notranslate nohighlight">\( \theta \)</span>. On a nécessairement <span class="math notranslate nohighlight">\(H_0 \cap H_1 = \emptyset\)</span>. Par contre, il est possible que <span class="math notranslate nohighlight">\(H_0 \cup H_1 \neq \Theta.\)</span></p></li>
 </ul>
 </section>
-</div><div class="proof example admonition" id="example-1">
+</div><div class="proof example admonition" id="ex_test_hyp1">
 <p class="admonition-title"><span class="caption-number">Exemple 5.10 </span></p>
 <section class="example-content" id="proof-content">
 <p>On fait passer à 14 sujets un test de dextérité avant et après qu’ils aient consommé 100ml de vin. Leur temps de réaction au test avant et après leur absorption de vin sont présentés dans le tableau suivant. Un score élevé signifie un ralentissement dans les réflexes.</p>
@@ -692,7 +692,7 @@ Ces <span class="math notranslate nohighlight">\(n=14\)</span> observations ont 
 </section>
 <section id="type-de-tests">
 <h2><span class="section-number">5.2. </span>Type de tests<a class="headerlink" href="#type-de-tests" title="Lien permanent vers ce titre">#</a></h2>
-<div class="proof definition admonition" id="definition-2">
+<div class="proof definition admonition" id="type_tests">
 <p class="admonition-title"><span class="caption-number">Définition 5.11 </span> (Types de tests)</p>
 <section class="definition-content" id="proof-content">
 <p>Dans ce cours, nous allons essentiellement considérer le cas bilatéral:</p>
@@ -703,7 +703,7 @@ Ces <span class="math notranslate nohighlight">\(n=14\)</span> observations ont 
 \[\begin{gather*} \quad\underset{\mbox{paires unilatérales}}{\underbrace{\left\{\begin{array}{c}H_0:\mu=\mu_0 \\H_1:\mu&gt; \mu_0\end{array}\right\}\quad\mbox{ou}\quad\left\{\begin{array}{c}H_0:\mu=\mu_0 \\H_1:\mu&lt; \mu_0\end{array}\right\}}}.
  \end{gather*}\]</div>
 </section>
-</div><div class="proof example admonition" id="example-3">
+</div><div class="proof example admonition" id="ex_test_bilateral">
 <p class="admonition-title"><span class="caption-number">Exemple 5.11 </span> (Test bilatéral)</p>
 <section class="example-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(X_1,...,X_n\stackrel{idd}{\sim}\mathcal{N}(\mu,\sigma^2) \)</span> un échantillon aléatoire, et considérons la paire:</p>
@@ -718,7 +718,7 @@ Considérons la statistique de test: <span class="math notranslate nohighlight">
 On appelle ce test le test de Student.</p></li>
 </ul>
 </section>
-</div><div class="proof example admonition" id="example-4">
+</div><div class="proof example admonition" id="ex_test_unilateral">
 <p class="admonition-title"><span class="caption-number">Exemple 5.12 </span> (Test unilatéral)</p>
 <section class="example-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(X_1,...,X_n \stackrel{idd}{\sim} \mathcal{N}(\mu,\sigma^2) \)</span> un échantillon aléatoire, et considérons la paire:</p>
@@ -821,7 +821,7 @@ Des valeurs <span class="math notranslate nohighlight">\(p_{\rm obs}\)</span> «
 <li><p>Le choix de <span class="math notranslate nohighlight">\(T\)</span> dépend de l’<strong>hypothèse alternative</strong> <span class="math notranslate nohighlight">\(H_1\)</span> — ce que l’on imagine possible, si <span class="math notranslate nohighlight">\(H_0\)</span> est fausse.</p></li>
 <li><p>Plus <span class="math notranslate nohighlight">\(H_1\)</span> est précise, plus on peut choisir une statistique <span class="math notranslate nohighlight">\(T\)</span> appropriée.</p></li>
 </ul>
-<div class="proof example admonition" id="example-5">
+<div class="proof example admonition" id="ex_test_hyp2">
 <p class="admonition-title"><span class="caption-number">Exemple 5.13 </span></p>
 <section class="example-content" id="proof-content">
 <p>Supposons que l’on lance une pièce <span class="math notranslate nohighlight">\(n\)</span> fois indépendamment et que l’on considère que si on obtient « pile », cela vaut 1, et 0 sinon. On observe <span class="math notranslate nohighlight">\(k\)</span> piles. Quelle est la probabilité que la pièce soit effectivement équilibrée? Comparons différentes hypothèses alternatives.</p>
@@ -871,7 +871,7 @@ p_{\rm obs} &amp;= \mathbb{P}(\left|T\right|&gt; t_{\rm obs}|H_0)   =1 - \mathbb
 
 \end{align*}\]</div>
 </section>
-</div><div class="proof remark admonition" id="remark-6">
+</div><div class="proof remark admonition" id="test_hyp_remarque1">
 <p class="admonition-title"><span class="caption-number">Remarque 5.1 </span></p>
 <section class="remark-content" id="proof-content">
 <p>On a donc une <span class="math notranslate nohighlight">\(p-\)</span>valeur inférieure au seuil de 5% dans le cas où on teste l’hypothèse <span class="math notranslate nohighlight">\(H_1: p &gt; 1/2\)</span> mais pas dans le cas <span class="math notranslate nohighlight">\(H_1: p \neq 1/2\)</span>.</p>
@@ -899,7 +899,7 @@ p_{\rm obs} &amp;= \mathbb{P}(\left|T\right|&gt; t_{\rm obs}|H_0)   =1 - \mathbb
     {
         requestKernel: true,
         binderOptions: {
-            repo: "KieranVaudaux/test-deployement-",
+            repo: "MatthWilhelm/ProbaStat",
             ref: "master",
         },
         codeMirrorConfig: {

@@ -79,6 +79,7 @@ Alors sous $H_0: \boldsymbol{\beta}_2 = \mathbf{0}_{p-q}$, on a
 \begin{gather*} F =  \frac{\frac{\text{SCR}(\hat{\boldsymbol{\beta}}_1) - \text{SCR}(\hat{\boldsymbol{\beta}})}{p-q}}{\frac{\text{SCR}(\hat{\boldsymbol{\beta}})}{n-p}} \sim F_{p-q,n-p}.\end{gather*}
 
 ````{prf:example} Les données d'Ozone
+:label: ex_donnee_ozone
 Voici trois modèles:
 \begin{eqnarray*}
 y &=& \textcolor{green}{\alpha + \varepsilon},\\
@@ -119,6 +120,7 @@ dont le quantile $95\%$ est $F_{2,203;0.975}= 3.756$.
 ````
 
 ````{prf:example} L'effet photoélectrique
+:label: ex_effet_photoelectrique
 La loi de l'effet photoélectrique a marqué l'histoire de la physique comme étant une des premières incursion de la physique quantique. Lorsque l'on irradie (éclaire) un métal à une certaine fréquence, certains électrons quittent leur couche de valence. La loi de l'effet photoélectrique postule que la différence de potentiel qui engendre par cette émission d'électron satisfait:
 \begin{gather*} V = \frac{h}{e} f - \frac{W_0}{e}, \end{gather*}
 où $f$ est la fréquence du rayon incident, $h$ est la constante de Planck, $e$ dénote la charge élémentaire d'un électron, $W_0$ est le travail nécessaire pour permettre l'extraction de l'électron.

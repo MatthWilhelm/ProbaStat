@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://KieranVaudaux.github.io/test-deployement-/Statistique_inférentielle/introduction.html" />
+    <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Statistique_inférentielle/introduction.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="2. Estimation de paramètres" href="estimation_de_parametres.html" />
@@ -375,7 +375,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-"
+        <a href="https://github.com/MatthWilhelm/ProbaStat"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -392,7 +392,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-/issues/new?title=Issue%20on%20page%20%2FStatistique_inférentielle/introduction.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/MatthWilhelm/ProbaStat/issues/new?title=Issue%20on%20page%20%2FStatistique_inférentielle/introduction.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -409,7 +409,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-/edit/master/book/Statistique_inférentielle/introduction.md"
+        <a href="https://github.com/MatthWilhelm/ProbaStat/edit/master/book/Statistique_inférentielle/introduction.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -548,7 +548,16 @@ qui modélisent les observations. Notez que</p>
 <li><p>Parfois, on se contente de caractériser la moyenne et variance de <span class="math notranslate nohighlight">\( T \)</span> car la distribution exacte est trop complexe (n’a pas de forme close). Dans ces cas, on utilise des approximations, en appliquant le TCL.</p></li>
 </ul>
 </div>
-<p>Une fois qu’on a proposé un modèle, on peut répondre à différentes questions.</p>
+<div class="proof example admonition" id="ex_dist_moyenne">
+<p class="admonition-title"><span class="caption-number">Exemple 1.12 </span> (Distribution de la moyenne)</p>
+<section class="example-content" id="proof-content">
+<p>Alice veut déterminer empiriquement la moyenne d’un lancer d’un dé.
+Pour cela, elle se propose de lancer <span class="math notranslate nohighlight">\( n = 10 \)</span> fois le dé, et d’enregistrer la valeur moyenne obtenue dans ces 10 lancers.</p>
+<p>Bob décide de faire la même procédure avec le même dé.</p>
+<p>Les moyennes obtenues par Alice et Bob sont des <strong>variables aléatoires</strong> car leurs lancers sont aléatoires. Elles vont être centrées sur la vraie valeur, et environ Gaussiennes (TCL).</p>
+<p>Si on répétait un grand nombre de fois la procédure: « Lancer 10 fois le dé et calculer la moyenne empirique <span class="math notranslate nohighlight">\( \overline{X} \)</span>», on pourrait calculer l’histogramme et voir qu’il est approximativement Gaussien.</p>
+</section>
+</div><p>Une fois qu’on a proposé un modèle, on peut répondre à différentes questions.</p>
 <ul class="simple">
 <li><p><strong>Estimation</strong>: essayer de deviner la valeur de <span class="math notranslate nohighlight">\( \theta \)</span>.</p></li>
 <li><p><strong>Tests</strong>: on s’attend à avoir <span class="math notranslate nohighlight">\(\theta = \theta_0 \)</span>. Est ce que cette valeur est raisonnable compte tenu des observations?</p></li>
@@ -560,7 +569,7 @@ qui modélisent les observations. Notez que</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "KieranVaudaux/test-deployement-",
+            repo: "MatthWilhelm/ProbaStat",
             ref: "master",
         },
         codeMirrorConfig: {

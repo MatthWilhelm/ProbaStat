@@ -309,7 +309,7 @@ width: 95%
 ```
 ### Corélation et causalité
 
-<font color="red"></font>rrélation n'implique pas la causalité !! (Messerli, 2012 NEJM)}
+<font color="red">Corrélation n'implique pas la causalité !! (Messerli, 2012 NEJM)</font>
 
 ```{figure} PDFSVG/chocolate_consumption.png
 --- 

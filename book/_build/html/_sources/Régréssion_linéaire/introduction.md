@@ -11,6 +11,7 @@ On s'intéresse entre autres à :
 - la **prédiction** des valeurs futures de $y$ sachant les $x_j$ correspondantes.
 
 ````{prf:example} Réaction chimique
+:label: ex_react_chimique
 Prof. Christophe Holliger (SIE): on essaye de d\'eterminer les paramètres cinétiques d'une « reductive dehalogenase dechlorinating tetrachloroethene (PCE) ».  Ceci dépend de la concentration du substrat, et la vitesse de la réaction peut être exprimée par l'équation de Michaelis--Menten
 \begin{gather*}
 y = \dfrac{ \gamma_0 x}{ \gamma_1 + x},
@@ -25,6 +26,7 @@ width: 95%
 ````
 
 ````{prf:example} Ozone atmosphérique
+:label: ex-ozone_atmospherique
 Prof. Isabelle Bey (SIE): observations de la concentration de l'ozone au Jungfraujoch,
 de janvier 1987 à décembre 2005 (qqs valeurs manquantes), et résultats d'une 
 modélisation.
@@ -94,6 +96,7 @@ width: 95%
 ```
 
 ```{prf:theorem} Estimateur des moindres carrés
+:label: est_moindre_carree
 Soient $(x_1,y_1),\ldots, (x_n,y_n)$ issues d'un rélation $y=\alpha+ \beta x$ et telles que au moins deux des $x_j$ soient différents.  Alors les **estimateurs de moindres carrés** de $\alpha$ et $\beta$ sont 
 \begin{gather*}
 \hat\alpha = \overline y - \hat\beta\overline x, \quad \hat\beta = \dfrac{\sum^n_{j=1}(x_j-\overline x)y_j}{ \sum^n_{i=1}(x_j-\overline x)^2}.
@@ -101,6 +104,7 @@ Soient $(x_1,y_1),\ldots, (x_n,y_n)$ issues d'un rélation $y=\alpha+ \beta x$ e
 ```
 
 ```{prf:definition} Droite des moindres carrés et résidus
+:label: droite_moindre_carres_residus
 La droite $\hat\alpha + \hat\beta x$ s'appelle la **droite des moindres carrés**, la **valeur ajustée** qui correspond à $(x_j,y_j)$ est $\hat y_j= \hat\alpha + \hat \beta x_j$, et la différence 
 \begin{gather*}
 r_j = y_j-\hat y_j = y_j-(\hat\alpha + \hat\beta x_j)
@@ -109,6 +113,7 @@ r_j = y_j-\hat y_j = y_j-(\hat\alpha + \hat\beta x_j)
 ```
 
 ````{prf:example} Ozone atmosphérique
+:label: ex_oozone_atmospherqiue2
 - Il y a $n=207$ paires (observation, modèle) = $(y_j,x_j)$, et 21 valeurs de $x$ sans valeur observée
 - A partir des $n$ paires complètes on trouve la droite des moindres carrés
 \begin{gather*}

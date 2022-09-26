@@ -29,6 +29,7 @@ Ce sont des hypothèses concernant le paramètre $ \theta $. On a nécessairemen
 ```
 
 ````{prf:example} 
+:label: ex_test_hyp1
 On fait passer à 14 sujets un test de dextérité avant et après qu'ils aient consommé 100ml de vin. Leur temps de réaction au test avant et après leur absorption de vin sont présentés dans le tableau suivant. Un score élevé signifie un ralentissement dans les réflexes.
 ```{figure} latex/PDFSVG/tab4_stat.svg
 ---
@@ -89,6 +90,7 @@ Il y a une asymétrie entre ces deux types d'erreurs. Par exemple, si votre filt
 ## Type de tests
 
 ```{prf:definition} Types de tests
+:label: type_tests
 Dans ce cours, nous allons essentiellement considérer le cas bilatéral:
 \begin{gather*} H_0: \theta = \theta_0  \text{ versus }H_1: \theta \neq \theta_0. \end{gather*}
 Il existe aussi des paires unilatérales:
@@ -97,6 +99,7 @@ Il existe aussi des paires unilatérales:
  ```
 
 ````{prf:example} Test bilatéral
+:label:  ex_test_bilateral
 Soit $X_1,...,X_n\stackrel{idd}{\sim}\mathcal{N}(\mu,\sigma^2) $ un échantillon aléatoire, et considérons la paire:
 \begin{gather*} \left\{\begin{array}{c}H_0:\mu=\mu_0 \\H_1:\mu\neq \mu_0\end{array}\right\}.\end{gather*}
 Cette paire est donc bilatérale. 
@@ -109,6 +112,7 @@ Considérons la statistique de test: $T=\dfrac{\overline{X}-\mu_0}{S/\sqrt{n}}$
 ````
 
 ````{prf:example} Test unilatéral
+:label: ex_test_unilateral
 Soit $X_1,...,X_n \stackrel{idd}{\sim} \mathcal{N}(\mu,\sigma^2) $ un échantillon aléatoire, et considérons la paire:
 \begin{gather*} \left\{\begin{array}{c}H_0:\mu=\mu_0 \\H_1:\mu< \mu_0\end{array}\right\}.\end{gather*}
 Considérons la statistique de test: $T=\dfrac{\overline{X}-\mu_0}{S/\sqrt{n}}$
@@ -196,6 +200,7 @@ width: 95%
 -  Plus $H_1$ est précise, plus on peut choisir une statistique $T$ appropriée.
 
 ```{prf:example} 
+:label: ex_test_hyp2
 Supposons que l'on lance une pièce $n$ fois indépendamment et que l'on considère que si on obtient « pile », cela vaut 1, et 0 sinon. On observe $k$ piles. Quelle est la probabilité que la pièce soit effectivement équilibrée? Comparons différentes hypothèses alternatives.
 
 Soient $X_1, \dots, X_{n}$ les variables modélisant le lancer.    
@@ -246,6 +251,7 @@ p_{\rm obs} &= \mathbb{P}(\left|T\right|> t_{\rm obs}|H_0)   =1 - \mathbb{P}\lef
 ```
 
 ```{prf:remark}
+:label: test_hyp_remarque1
 On a donc une $p-$valeur inférieure au seuil de 5\% dans le cas où on teste l'hypothèse $H_1: p > 1/2$ mais pas dans le cas $H_1: p \neq 1/2$.
 - L'hypothèse alternative conditionne donc notre rejet ou pas de l'hypothèse nulle.
 - On pourrait en conclure que choisir $H_1: p > 1/2$ est plus judicieux. Mais il s'agirait **d'une faute scientifique grave!**

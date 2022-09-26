@@ -14,11 +14,13 @@ Il s'agit d'un problème d'optimisation, il n'y a *a priori* pas de modèle prob
 En fait, même si cela n'est pas évident, cela est complètement équivalent à un certain modèle probabiliste, le modèle Gaussien.
 
 ```{prf:definition} Distribution normale multivarié
+:label: dist_norm_mult
 On dit que $\mathbf{X}\in \mathbb{R}^n$ suit une loi normale multivariée d'espérance $\boldsymbol{\mu}\in\mathbb{R}^n$ et de variance $\boldsymbol{\Sigma}\in \mathbb{R}^{n\times n}$ (où $\boldsymbol{\Sigma}$ est symétrique définie positive), notée $\mathbf{X} \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ si la distribution de $\mathbf{X}$ s'écrit
 \begin{gather*}f_{\mathbf{X}}(\mathbf{x}) = \left( 2\pi\right)^{-n/2} \det\left(\boldsymbol{\Sigma}\right)^{-1/2} \exp\left[-\frac{1}{2}(\mathbf{x} - \boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu})\right].\end{gather*}
 ```
 
 ```{prf:remark}
+:label: remarque_cas_general1
 - Si on considère $n$ réalisations indépendantes $X_1,\dots, X_n\stackrel{idd}{\sim} \mathcal{N}(\mu, \sigma^2)$, alors la loi jointe de $\mathbf{X} = (X_1,\dots, X_n)$ est une loi normale multivariée d'espérance $\boldsymbol{\mu} = \mu \mathbf{1}$ et de variance $\boldsymbol{\Sigma} = \sigma^2  \mathbf{I}_n$.
 - De manière équivalente, on peut définir une loi normale multivariée comme une transformation affine d'une loi normale standard multivariée:
 \begin{align*}
@@ -29,6 +31,7 @@ On dit que $\mathbf{X}\in \mathbb{R}^n$ suit une loi normale multivariée d'esp�
 ```
 
 ```{prf:property} Matrice de variance-covariance
+:label: mat_var_cov
 La matrice $\boldsymbol{\Sigma}$ satisfait les propriétés suivantes:
 -  $\boldsymbol{\Sigma} = \mathbf{A}\mathbf{A}^\top$;
 -  $\boldsymbol{\Sigma}_{ij} = \cov(X_i, X_j)$;
@@ -52,6 +55,7 @@ Dans le graphiques précédent, les axes principaux sont $(1,2)^\top$ et $(1,-2)
 L'espérance est l'origine dans les deux cas.
 
 ```{prf:definition} Modèle linéaire Gaussien
+:label: mod_lin_gaus
 Soient $\mathbf{y} = (y_1,\dots, y_n)^\top$ et $\mathbf{X} \in \mathbb{R}^{n\times p}$. On appelle modèle linéaire (Gaussien) le modèle suivant:
 \begin{equation*}
 \mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon},
@@ -65,6 +69,7 @@ où $\boldsymbol{\beta} \in \mathbb{R}^p$ est un vecteur de paramètres, $\bolds
 ```
 
 ````{prf:example} Constance d'élasticité
+:label: ex_regr_general1
 Supposons que l'on cherche à estimer la constante d'élasticité d'un ressort. On rappelle que la force exercée par un ressort est approximativement une équation linéaire:
 \begin{gather*} F = - k \cdot x, \end{gather*}
 où $F$ est la force, $x$ l'élongation et $k$ la constante d'élasticité. On observe les données suivantes:

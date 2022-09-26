@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://KieranVaudaux.github.io/test-deployement-/Régréssion_linéaire/cas_general.html" />
+    <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Régréssion_linéaire/cas_general.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="3. Régréssion linéaire: tests" href="tests.html" />
@@ -375,7 +375,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-"
+        <a href="https://github.com/MatthWilhelm/ProbaStat"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -392,7 +392,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-/issues/new?title=Issue%20on%20page%20%2FRégréssion_linéaire/cas_general.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/MatthWilhelm/ProbaStat/issues/new?title=Issue%20on%20page%20%2FRégréssion_linéaire/cas_general.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -409,7 +409,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-/edit/master/book/Régréssion_linéaire/cas_general.md"
+        <a href="https://github.com/MatthWilhelm/ProbaStat/edit/master/book/Régréssion_linéaire/cas_general.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -508,14 +508,14 @@ title="Print to PDF"
 <p>Jusqu’à présent, on a essentiellement chercher à trouver une droite qui passait relativement proche des données, c’est-à-dire qui minimisait l’erreur carrée.</p>
 <p>Il s’agit d’un problème d’optimisation, il n’y a <em>a priori</em> pas de modèle probabiliste derrière.</p>
 <p>En fait, même si cela n’est pas évident, cela est complètement équivalent à un certain modèle probabiliste, le modèle Gaussien.</p>
-<div class="proof definition admonition" id="definition-0">
+<div class="proof definition admonition" id="dist_norm_mult">
 <p class="admonition-title"><span class="caption-number">Définition 2.7 </span> (Distribution normale multivarié)</p>
 <section class="definition-content" id="proof-content">
 <p>On dit que <span class="math notranslate nohighlight">\(\mathbf{X}\in \mathbb{R}^n\)</span> suit une loi normale multivariée d’espérance <span class="math notranslate nohighlight">\(\boldsymbol{\mu}\in\mathbb{R}^n\)</span> et de variance <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\in \mathbb{R}^{n\times n}\)</span> (où <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> est symétrique définie positive), notée <span class="math notranslate nohighlight">\(\mathbf{X} \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})\)</span> si la distribution de <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> s’écrit</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*}f_{\mathbf{X}}(\mathbf{x}) = \left( 2\pi\right)^{-n/2} \det\left(\boldsymbol{\Sigma}\right)^{-1/2} \exp\left[-\frac{1}{2}(\mathbf{x} - \boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu})\right].\end{gather*}\]</div>
 </section>
-</div><div class="proof remark admonition" id="remark-1">
+</div><div class="proof remark admonition" id="remarque_cas_general1">
 <p class="admonition-title"><span class="caption-number">Remarque 2.1 </span></p>
 <section class="remark-content" id="proof-content">
 <ul class="simple">
@@ -529,7 +529,7 @@ title="Print to PDF"
 &amp; \text{ tel que } \mathbf{X} = \mathbf{A}\mathbf{Z} + \boldsymbol{\mu}.
 \end{align*}\]</div>
 </section>
-</div><div class="proof property admonition" id="property-2">
+</div><div class="proof property admonition" id="mat_var_cov">
 <p class="admonition-title"><span class="caption-number">Propriété 2.1 </span> (Matrice de variance-covariance)</p>
 <section class="property-content" id="proof-content">
 <p>La matrice <span class="math notranslate nohighlight">\(\boldsymbol{\Sigma}\)</span> satisfait les propriétés suivantes:</p>
@@ -554,7 +554,7 @@ title="Print to PDF"
 </figure>
 <p>Dans le graphiques précédent, les axes principaux sont <span class="math notranslate nohighlight">\((1,2)^\top\)</span> et <span class="math notranslate nohighlight">\((1,-2)^\top\)</span> respectivement, mais ils correspondent à des valeurs propres différentes, d’où l’orientation différentes des courbes de niveaux.
 L’espérance est l’origine dans les deux cas.</p>
-<div class="proof definition admonition" id="definition-3">
+<div class="proof definition admonition" id="mod_lin_gaus">
 <p class="admonition-title"><span class="caption-number">Définition 2.8 </span> (Modèle linéaire Gaussien)</p>
 <section class="definition-content" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(\mathbf{y} = (y_1,\dots, y_n)^\top\)</span> et <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n\times p}\)</span>. On appelle modèle linéaire (Gaussien) le modèle suivant:</p>
@@ -570,7 +570,7 @@ L’espérance est l’origine dans les deux cas.</p>
 <li><p><span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> est appelé vecteur des coefficients de régression.</p></li>
 </ul>
 </section>
-</div><div class="proof example admonition" id="example-4">
+</div><div class="proof example admonition" id="ex_regr_general1">
 <p class="admonition-title"><span class="caption-number">Exemple 2.8 </span> (Constance d’élasticité)</p>
 <section class="example-content" id="proof-content">
 <p>Supposons que l’on cherche à estimer la constante d’élasticité d’un ressort. On rappelle que la force exercée par un ressort est approximativement une équation linéaire:</p>
@@ -692,7 +692,7 @@ En effet, on a:</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "KieranVaudaux/test-deployement-",
+            repo: "MatthWilhelm/ProbaStat",
             ref: "master",
         },
         codeMirrorConfig: {

@@ -39,6 +39,7 @@ width: 95%
 ```
 
 ```{prf:property} Loi $\chi^2$
+:label: prop_loi_chi2
 Soient $Z_1,\ldots,Z_\nu \stackrel{idd}{\sim} \mathcal{N}(0,1)$. Alors on définit la loi de $Z_1^2+\cdots + Z_\nu^2 \sim \chi^2_\nu$.
 On a les propriétés suivantes:
 - Si $X\sim \chi^2_\nu$, alors $X$ prends des valeurs dans $[0,\infty)$. 
@@ -62,6 +63,7 @@ $H_0$, sinon on ne la rejette pas.
 ```
 
 `````{prf:example} Equilibre du dé
+:label: ex_equilibre_dé
 $n=60$ jets d'un d\'e ont donn\'e la r\'epartition suivante:
 ```{figure} latex/PDFSVG/tab5_stat.svg
 ---
@@ -89,6 +91,7 @@ et $T\stackrel{H_0}{\stackrel{\cdot}{\sim}} \chi^2_r$ avec $r = k-1 = 6 - 1 = 5$
 `````
 
 `````{prf:example}
+:label: ex_test_chi2_1
 On a mesuré le QI de $ n = 1000 $ personnes. Le QI est fait pour être distribué quasi comme une Gaussienne $ \mathcal{N}(100, 15^2) $.
 ```{figure} latex/PDFSVG/tab6_stat.svg
 ---
@@ -122,6 +125,7 @@ Le seuil est: $ \chi^2_{5 ,0.95}= 11.07 < 13.12 $. On rejette donc l'hypothèse 
 `````
 
 ```{prf:definition} Tableau de contingence
+:label: ex_tab_contingence
 L'utilité principale du test $\chi^2$ est de tester l'indépendance de deux variables discrètes $ A, B$. Soit $ h $ le nombre de classes de $ A $ et $ k $ celui de $ B $.
 On appelle **tableau de contingence** d'un jeu de données le tableau qui répertorie les fréquences d'observation de chaque paire $ A,B $.
 \begin{gather*}
@@ -141,6 +145,7 @@ On appelle **tableau de contingence** d'un jeu de données le tableau qui réper
 ```
 
 ```{prf:definition} Test d'indépendance
+:label: test_indep
 
 On considère l'hypothèse nulle suivante $H_0$: les variables sont indépendantes. Ainsi $H_0$ est équivalente à  
 \begin{gather*} \mathbb{P}(A=i, B = j) = \mathbb{P}(A=i) \mathbb{P}(B=j) \end{gather*}
@@ -166,6 +171,7 @@ En fait, sous l'hypothèse d'indépendance les lois marginales caractérisent co
 - on compare la réalisation de la loi jointe (le tableau de contingence) avec la loi théorique dérivée des lois marginales et de l'hypothèse d'indépendance.
 
 `````{prf:example} 
+:label: ex_test_chi2_2
 On a relevé parmi 95 personnes la couleur de leurs yeux (caractère $A$) et celle de leurs cheveux (caractère $B$) et on a obtenu les r\'esultats suivants: 
 ```{figure} latex/PDFSVG/tab7_stat.svg
 ---

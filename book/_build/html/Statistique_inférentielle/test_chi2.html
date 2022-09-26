@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://KieranVaudaux.github.io/test-deployement-/Statistique_inférentielle/test_chi2.html" />
+    <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Statistique_inférentielle/test_chi2.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="8. Puissance d’un test" href="puissance_test.html" />
@@ -375,7 +375,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-"
+        <a href="https://github.com/MatthWilhelm/ProbaStat"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -392,7 +392,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-/issues/new?title=Issue%20on%20page%20%2FStatistique_inférentielle/test_chi2.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/MatthWilhelm/ProbaStat/issues/new?title=Issue%20on%20page%20%2FStatistique_inférentielle/test_chi2.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -409,7 +409,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/KieranVaudaux/test-deployement-/edit/master/book/Statistique_inférentielle/test_chi2.md"
+        <a href="https://github.com/MatthWilhelm/ProbaStat/edit/master/book/Statistique_inférentielle/test_chi2.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -537,7 +537,7 @@ après avoir estimé <span class="math notranslate nohighlight">\(c\)</span> par
 <p><span class="caption-number">Fig. 7.1 </span><span class="caption-text">: Densité de la loi <span class="math notranslate nohighlight">\(\chi^2_\nu\)</span> pour <span class="math notranslate nohighlight">\(\nu=1,2,5,10\)</span> (noir, rouge, violet, bleu).</span><a class="headerlink" href="#chisqdensity" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
-<div class="proof property admonition" id="property-1">
+<div class="proof property admonition" id="prop_loi_chi2">
 <p class="admonition-title"><span class="caption-number">Propriété 7.2 </span> (Loi <span class="math notranslate nohighlight">\(\chi^2\)</span>)</p>
 <section class="property-content" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(Z_1,\ldots,Z_\nu \stackrel{idd}{\sim} \mathcal{N}(0,1)\)</span>. Alors on définit la loi de <span class="math notranslate nohighlight">\(Z_1^2+\cdots + Z_\nu^2 \sim \chi^2_\nu\)</span>.
@@ -566,7 +566,7 @@ t_{\rm obs} =  \sum^k_{i=1}\dfrac{(o_i-e_i)^2}{ e_i}
 <p>Si <span class="math notranslate nohighlight">\(t_{\rm obs}&gt;\chi^2_{\nu ;1-\alpha}\)</span> on rejette
 <span class="math notranslate nohighlight">\(H_0\)</span>, sinon on ne la rejette pas.</p>
 </div>
-<div class="proof example admonition" id="example-2">
+<div class="proof example admonition" id="ex_equilibre_dé">
 <p class="admonition-title"><span class="caption-number">Exemple 7.5 </span> (Equilibre du dé)</p>
 <section class="example-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(n=60\)</span> jets d’un d’e ont donn’e la r’epartition suivante:</p>
@@ -588,7 +588,7 @@ t_{\rm obs} = \sum^6_{i=1}\dfrac{(o_i-e_i)^2}{e_i} = 8.6
 <p>et <span class="math notranslate nohighlight">\(T\stackrel{H_0}{\stackrel{\cdot}{\sim}} \chi^2_r\)</span> avec <span class="math notranslate nohighlight">\(r = k-1 = 6 - 1 = 5\)</span> où <span class="math notranslate nohighlight">\(k\)</span> = 6 classes (faces). On a <span class="math notranslate nohighlight">\(\chi^2_{5 ,0.95} = 11.07 &gt; 8.6 = t_{\rm obs}\)</span> donc on ne rejette pas <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 </div>
 </section>
-</div><div class="proof example admonition" id="example-3">
+</div><div class="proof example admonition" id="ex_test_chi2_1">
 <p class="admonition-title"><span class="caption-number">Exemple 7.6 </span></p>
 <section class="example-content" id="proof-content">
 <p>On a mesuré le QI de <span class="math notranslate nohighlight">\( n = 1000 \)</span> personnes. Le QI est fait pour être distribué quasi comme une Gaussienne <span class="math notranslate nohighlight">\( \mathcal{N}(100, 15^2) \)</span>.</p>
@@ -613,7 +613,7 @@ t_{\rm obs} = \sum^6_{i=1}\dfrac{(o_i-e_i)^2}{e_i} = 8.6
 Le seuil est: <span class="math notranslate nohighlight">\( \chi^2_{5 ,0.95}= 11.07 &lt; 13.12 \)</span>. On rejette donc l’hypothèse nulle  à <span class="math notranslate nohighlight">\(5\%\)</span>.</p>
 </div>
 </section>
-</div><div class="proof definition admonition" id="definition-4">
+</div><div class="proof definition admonition" id="ex_tab_contingence">
 <p class="admonition-title"><span class="caption-number">Définition 7.8 </span> (Tableau de contingence)</p>
 <section class="definition-content" id="proof-content">
 <p>L’utilité principale du test <span class="math notranslate nohighlight">\(\chi^2\)</span> est de tester l’indépendance de deux variables discrètes <span class="math notranslate nohighlight">\( A, B\)</span>. Soit <span class="math notranslate nohighlight">\( h \)</span> le nombre de classes de <span class="math notranslate nohighlight">\( A \)</span> et <span class="math notranslate nohighlight">\( k \)</span> celui de <span class="math notranslate nohighlight">\( B \)</span>.
@@ -634,7 +634,7 @@ On appelle <strong>tableau de contingence</strong> d’un jeu de données le tab
 \end{array}
 \end{gather*}\]</div>
 </section>
-</div><div class="proof definition admonition" id="definition-5">
+</div><div class="proof definition admonition" id="test_indep">
 <p class="admonition-title"><span class="caption-number">Définition 7.9 </span> (Test d’indépendance)</p>
 <section class="definition-content" id="proof-content">
 <p>On considère l’hypothèse nulle suivante <span class="math notranslate nohighlight">\(H_0\)</span>: les variables sont indépendantes. Ainsi <span class="math notranslate nohighlight">\(H_0\)</span> est équivalente à</p>
@@ -665,7 +665,7 @@ On appelle <strong>tableau de contingence</strong> d’un jeu de données le tab
 <li><p>on estime les lois marginales;</p></li>
 <li><p>on compare la réalisation de la loi jointe (le tableau de contingence) avec la loi théorique dérivée des lois marginales et de l’hypothèse d’indépendance.</p></li>
 </ul>
-<div class="proof example admonition" id="example-6">
+<div class="proof example admonition" id="ex_test_chi2_2">
 <p class="admonition-title"><span class="caption-number">Exemple 7.7 </span></p>
 <section class="example-content" id="proof-content">
 <p>On a relevé parmi 95 personnes la couleur de leurs yeux (caractère <span class="math notranslate nohighlight">\(A\)</span>) et celle de leurs cheveux (caractère <span class="math notranslate nohighlight">\(B\)</span>) et on a obtenu les r’esultats suivants:</p>
@@ -693,7 +693,7 @@ indépendante de celle des yeux.</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "KieranVaudaux/test-deployement-",
+            repo: "MatthWilhelm/ProbaStat",
             ref: "master",
         },
         codeMirrorConfig: {

@@ -109,6 +109,7 @@ width: 95%
 ```
 
 ````{prf:example}
+:label: ex_thm_fond1
 Soit $ X \sim \mathcal{B}(n,p) $, donner une approximation pour $ \mathbb{P}( X \leq r)$.
 ```{admonition} Solution
 :class: dropdown
@@ -126,6 +127,7 @@ On calcule la probabilité demandée par standardisation
 
 
 ````{prf:example}
+:label: ex_thm_fond2
 Soit $ X_1 \dots X_n \stackrel{idd}{\sim} \exp(\lambda) $. Donner une approximation pour:
         
 \begin{gather*} \mathbb{P}(X_1 + \dots + X_n \leq r) \end{gather*}

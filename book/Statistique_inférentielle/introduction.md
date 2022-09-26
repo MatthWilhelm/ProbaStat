@@ -42,7 +42,8 @@ pour une certaine fonction $h$. Très souvent, on ne mentionne même plus les ob
 - Parfois, on se contente de caractériser la moyenne et variance de $ T $ car la distribution exacte est trop complexe (n'a pas de forme close). Dans ces cas, on utilise des approximations, en appliquant le TCL.
 ```
 
-```{prf:exemple} Distribution de la moyenne
+```{prf:example} Distribution de la moyenne
+:label: ex_dist_moyenne
 Alice veut déterminer empiriquement la moyenne d'un lancer d'un dé.
                 Pour cela, elle se propose de lancer $ n = 10 $ fois le dé, et d'enregistrer la valeur moyenne obtenue dans ces 10 lancers.
         

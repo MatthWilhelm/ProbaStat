@@ -44,6 +44,7 @@ et si on peut isoler $\theta$, on peut trouver des variables aléatoires $I, S$ 
 \end{gather*}
 
 ````{prf:example} Pivot: moyenne et espérance pour une loi normale
+:label: ex_pivot_loi_normale
 
 Soient $ X_1 \dots X_n \stackrel{idd}{\sim} \mathcal{N}(\mu,\sigma^2) $, où $\sigma$ est supposé connu. Trouvez un pivot pour l'espérance $\mu$ en fonction de la moyenne empirique $\overline{X}$ et en déduire un intervalle de confiance au niveau $1-\alpha,$ pour $\alpha\in ]0,1[$.
 ```{admonition} Solution
@@ -82,7 +83,7 @@ width: 30%
 ## Intervalle de confiance de Wald
 
 ```{prf:definition} IC de Wald
-:laebl: ic_wald
+:label: ic_wald
 Soit $ \hat{\theta} $ un estimateur non-biaisé de $ \theta $, et soit $ v $ sa variance (ou un estimateur de sa variance). Si, asymptotiquement, $ \hat{\theta} $ est approximativement Gaussien, c'est-à-dire si
     \begin{gather*} \hat{\theta} \dotsim \mathcal{N}(\theta, v),\end{gather*}
     alors, on peut construire un IC \textbf{de Wald}:
@@ -121,6 +122,7 @@ $\hat\theta_{ML}\pm z_{1-\alpha/2}J(\hat\theta_{ML})^{-1/2}$.
 ```
 
 ````{prf:example} Estimateur $\hat{\lambda}_{ML}$ pour un modèle exponentiel
+:label: ex_estimateur_mod_exp
 
 Soient $X_1,\ldots, X_n \stackrel{idd}{\sim}\exp(\lambda)$, trouver un intervalle de confiance à $100(1-\alpha)\%$ pour $\lambda$. Pour des données avec $n=25$ et $\overline{X}=40$, trouver un IC à 95\%.
 ```{admonition} Solution
@@ -152,6 +154,7 @@ Pour ces données, les bornes d'un IC à 95\% sont $1/40 \pm 1.96(5\cdot 40)^{-1
 ````
 
 ````{prf:example} Estimateur $\hat{\lambda}_{ML}$ pour un modèle Poisson
+:label: ex_est_mod_poisson
 
 Soient $ X_1 \dots X_n \stackrel{idd}{\sim} Poiss(\lambda) $. Construire un intervalle de confiance pour $ \hat{\lambda} $ ? Quelle est la forme de l'IC de Wald à $95\%$ ?
 ```{admonition} Solution
@@ -211,6 +214,7 @@ où $ \alpha $ est la valeur choisie pour le niveau que le niveau de confiance s
 ```
 
 ````{prf:example} Intervalle de confiance pour les résistances
+:label:  ex_IC_resistance
 
 On suppose que la résistance $X$ d'un certain type d'équipements électriques est distribuée approximativement suivant une loi normale.
 
@@ -226,6 +230,7 @@ $t_{n-1; 1-\alpha/2}= t_{63; 0.975} = 2$. On a évidemment $\sqrt{64} = 8$ et l'
 ````
 
 ```{prf:remark} 
+:label: est_ic_remark1
 - Pour augmenter la probabilité que l'intervalle contienne $ \theta $, il faut le rendre plus large. On est alors plus conservatif.
 - Pour obtenir un intervalle plus court, on peut soit être moins conservatif, soit augmenter $ n $.
 - La notion d'IC a quelques variantes: 
