@@ -30,8 +30,6 @@ parts:
     - file: Probabilité/variables_aleatoires_conjointes
     - file: Probabilité/valeurs_caracteristiques
     - file: Probabilité/theoreme_fondamentaux
-    - file: Probabilité/test_notebook
-    - file: Probabilité/testR
   - caption: Statistique inférentielle
     numbered: True
     chapters:
@@ -50,4 +48,11 @@ parts:
     - file: Régréssion_linéaire/cas_general
     - file: Régréssion_linéaire/tests
     - file: Régréssion_linéaire/hypotheses_et_diagnostics
-    
+    - caption: Série
+    numbered: True
+    chapters:
+    - file: Série/Série1R
+    - file: Série/Série1Python
+#- caption: Correction Série
+ #   numbered: True
+  #  chapters:
