@@ -48,11 +48,14 @@ parts:
     - file: Régréssion_linéaire/cas_general
     - file: Régréssion_linéaire/tests
     - file: Régréssion_linéaire/hypotheses_et_diagnostics
-  - caption: Série
+  - caption: Série Python
     numbered:  False
     chapters:
-    - file: Série/Série1R
-    - file: Série/Série1Python
+    - file: Série/Python/Série1Python
+  - caption: Série R
+    numbered:  False
+    chapters:
+    - file: Série/R/Série1R
 #- caption: Correction Série
  #   numbered: True
   #  chapters:
