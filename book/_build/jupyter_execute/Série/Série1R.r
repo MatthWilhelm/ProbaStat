@@ -16,90 +16,99 @@ median <- ...
 
 
 # Calcul de l'écart inter-quartiles
-#C3
-quantile <- quantile(data$Taille,c(0.25,0.75), type =1)#C3_
-#C3
-EIQ <- as.double(quantile[2]-quantile[1])#C3_
+quantile <- ...
+EIQ <- ...
 
 # Calcul de l'écart-type
-#C3
-std <- sd(data$Taille)#C3_
+std <- ...
 
 # Sélection des tailles supérieures à 140cm
-data_140 <- data %>% filter(Taille > 140)
+data_140 <- ... 
 
 # Calcul de l'écart inter-quartile et de l'écart-type pour les tailles supérieures à 140cm
-#C3
-quantile_140 <- quantile(data_140$Taille,c(0.25,0.75), type =1)#C3_
-#C3
-EIQ_140 <- as.double(quantile_140[2]-quantile_140[1])#C3_
-#C3
-std_140 <- sd(data_140$Taille)#C3_
+quantile_140 <- ...
+EIQ_140 <- ...
+std_140 <- ...
 
-# Affichage des valeures obtenues#C2
-print(paste0("Sur l'ensemble des tailles observées, l'écart inter-quartile est EIQ = ",
-             toString(trunc(EIQ*10^2)/10^2),"cm et l'écart-type est de ",toString(trunc(std*10^2,4)/10^2),"cm"))
-print(paste0("Sur l'ensemble des tailles supérieures à 140cm, l'écart inter-quartile est EIQ = ",
-             toString(trunc(EIQ_140*10^2)/10^2),"cm et l'écart-type est de ",toString(trunc(std_140*10^2,4)/10^2),"cm"))
-#C2_
+# Affichage des valeures obtenues
+...
 
-data = read.csv('Precipitations_journalieres_Changins.csv',sep=",",header = FALSE)
-colnames(data) = c("Date","Précipitation")
 
 library(ggplot2)
-library(patchwork)
-# Calculer la moyenne et la médiane des tailles observées
-mean <- ... 
-median <- ... 
 
-# Faire un boxplot et un histogramme
+datas <- matrix(c(147 , 150 , 152 , 155 , 157 , 160 , 163 , 165 , 168 , 170 , 173 , 175 , 178 , 180 , 183,
+                  52 , 53 , 54 , 56 , 57 , 59 , 60 , 61 , 63 , 64 , 66 , 68 , 70 , 72 , 74), nrow=15, 
+                ncol=2, byrow=FALSE)
+datas <- data.frame(datas,stringsAsFactors = TRUE)
+colnames(datas) <- c("Taille","Poids")
+
+
+# Calculer la moyenne des tailles
+mean <- ... 
+# Afficher cette moyenne
+...
+
+
+# Calculer l'écart-type des tailles
+std <- sd(datas$Taille)
+# Afficher cet écart-type
+...
+
+
+min <- ... 
+max <- ... 
+med <- ... 
+q_ <- ... 
+
+# Afficher les résultats caclulés
+...
+
+
+# Calcul de l'écart inter-quartile
+EIQ <- ... 
+# Afficher ce résultat
+...
+
+
+# Faire un boxplot des tailles observées
+...
+
+
+# Faire un histogramme avec les groupes mentionnés ci-dessus
+...
+
+
+# Faire un graphique permettant de mettre en évidence la relation entre la taille 
+# et le poids des femmes ayant participer à l'enquête
+...
+
+
+data <- matrix(c(68,119,26,7,20,84,17,94,15,54,14,10,5,29,14,16), nrow=4, 
+                ncol=4, byrow=FALSE)
+data <- data.frame(data,stringsAsFactors = TRUE)
+colnames(data) <- c("Brun","Bleu", "Hazel", "Vert")
+rownames(data) <- c("Noir","Brun","Roux","Blond")
+
+# Calculer et affficher le nombre total d'étudiants qui ont participé à cette enquête
 ...
 
 
 library(ggplot2)
 library(dplyr)
-library(patchwork)
 
-data <- matrix(c(147 , 59 , 152 , 155 , 157 , 160 , 64 , 165 , 168 , 170 , 173 , 175 , 178 , 180 , 183), nrow=15, 
-                ncol=1, byrow=FALSE)
-data <- data.frame(data,stringsAsFactors = TRUE)
-colnames(data) <- c("Taille")
-
-# Calculer la moyenne et la médiane des tailles observées
-mean <- ... 
-median <- ... 
-
-# Faire un boxplot et un histogramme
+# Calculer la fréquence absolue et relative des cheveux des étudiants
 ...
 
 
-# Calcul de l'écart inter-quartiles
-#C3
-quantile <- quantile(data$Taille,c(0.25,0.75), type =1)#C3_
-#C3
-EIQ <- as.double(quantile[2]-quantile[1])#C3_
+# Faire un plot en camembert de la fréquence absolue des couleurs des cheveux
+...
 
-# Calcul de l'écart-type
-#C3
-std <- sd(data$Taille)#C3_
 
-# Sélection des tailles supérieures à 140cm
-data_140 <- data %>% filter(Taille > 140)
+# Faire un bar plot de la fréquence absolue des couleurs de cheveux
+...
 
-# Calcul de l'écart inter-quartile et de l'écart-type pour les tailles supérieures à 140cm
-#C3
-quantile_140 <- quantile(data_140$Taille,c(0.25,0.75), type =1)#C3_
-#C3
-EIQ_140 <- as.double(quantile_140[2]-quantile_140[1])#C3_
-#C3
-std_140 <- sd(data_140$Taille)#C3_
 
-# Affichage des valeures obtenues#C2
-print(paste0("Sur l'ensemble des tailles observées, l'écart inter-quartile est EIQ = ",
-             toString(trunc(EIQ*10^2)/10^2),"cm et l'écart-type est de ",toString(trunc(std*10^2,4)/10^2),"cm"))
-print(paste0("Sur l'ensemble des tailles supérieures à 140cm, l'écart inter-quartile est EIQ = ",
-             toString(trunc(EIQ_140*10^2)/10^2),"cm et l'écart-type est de ",toString(trunc(std_140*10^2,4)/10^2),"cm"))
-#C2_
+# Place your answer here
 
 data = read.csv('Precipitations_journalieres_Changins.csv',sep=",",header = FALSE)
 colnames(data) = c("Date","Précipitation")
