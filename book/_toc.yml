@@ -51,11 +51,11 @@ parts:
   - caption: Série Python
     numbered:  False
     chapters:
-    - file: Série/Python/Série1Python
+    - file: Série/Python/Série1/Série1Python
   - caption: Série R
     numbered:  False
     chapters:
-    - file: Série/R/Série1R
+    - file: Série/R/Série1/Série1R
 #- caption: Correction Série
  #   numbered: True
   #  chapters:
