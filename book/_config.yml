@@ -66,4 +66,4 @@ sphinx_proof:
     language: fr
     
 launch_buttons:
-  jupyterhub_url: "https://noto.epfl.ch/lab"
+  jupyterhub_url: "https://noto.epfl.ch/"
