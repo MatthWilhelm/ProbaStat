@@ -66,5 +66,4 @@ sphinx_proof:
     language: fr
     
 launch_buttons:
-  notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
   jupyterhub_url: "https://noto.epfl.ch/"
