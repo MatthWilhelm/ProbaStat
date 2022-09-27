@@ -51,9 +51,9 @@ parts:
   - caption: Série Python
     chapters:
     - file: Série/Python/Série1/Série1Python
-  - caption: Série R
-    chapters:
-    - file: Série/R/Série1/Série1R
+  #- caption: Série R
+   # chapters:
+   # - file: Série/R/Série1/Série1R
 #- caption: Correction Série
  #   numbered: True
   #  chapters:
