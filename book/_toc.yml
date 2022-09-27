@@ -52,6 +52,7 @@ parts:
     numbered:  False
     chapters:
     - file: Série/Python/Série1/Série1Python
+    - file: Série/Python/Série2/Série2Python
   - caption: Série R
     numbered:  False
     chapters:
