@@ -9,6 +9,7 @@ def main():
     
     #subprocess.run("python convertion.py --html",shell = True)
     
+    subprocess.run(f"jupyter-book clean book/ --all",shell = True)
     subprocess.run(f"jb build book/",shell = True)
     subprocess.run("python convertion.py ",shell = True)
 
@@ -17,3 +18,4 @@ def main():
 ################################################################
 if __name__ == "__main__":
     main()
+
