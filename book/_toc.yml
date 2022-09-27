@@ -49,12 +49,10 @@ parts:
     - file: Régréssion_linéaire/tests
     - file: Régréssion_linéaire/hypotheses_et_diagnostics
   - caption: Série Python
-    numbered:  False
     chapters:
     - file: Série/Python/Série1/Série1Python
     - file: Série/Python/Série2/Série2Python
   - caption: Série R
-    numbered:  False
     chapters:
     - file: Série/R/Série1/Série1R
 #- caption: Correction Série
