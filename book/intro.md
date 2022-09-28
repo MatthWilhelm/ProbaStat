@@ -1,4 +1,4 @@
 # Probabilités et Statistique
 
-%```{tableofcontents}
-%```
+```{tableofcontents}
+```
