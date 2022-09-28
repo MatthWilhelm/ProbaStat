@@ -8,7 +8,7 @@ Concepts clés:
 - notation $ x_{(i)} $ pour variables ordonnées;
 - principes d'une bonne représentation graphique.
 
-## Étude d'une variable quantitative
+## Étude d'une variable quantitative Test
 
 ````{prf:example}
 :label: example1_etude_quantitative
