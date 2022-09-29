@@ -9,7 +9,7 @@ La probabilité que l'événement $A$ se réalise peut être modifiée si on sai
 A noter que si $B$ s'est réalisé, on a nécessairement $\mathbb{P}(B) >0$.
 ````
 
-````{prf:definition} Indépendance
+````{prf:definition} Indépendance conditionnelle
 :label: independance
 
 Si le fait que $ B $ ait eu lieu ne change pas la probabilité de l'événement $A$, alors $ A $ et $ B $ sont dits **indépendants**. Dans ce cas, on a:
