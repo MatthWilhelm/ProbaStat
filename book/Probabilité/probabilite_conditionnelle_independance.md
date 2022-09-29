@@ -30,7 +30,7 @@ Si on modélise les deux lancers de la pièce comme indépendants, et chaque lan
 \begin{align*}
         \mathbb{P}( \text{Pile au 2ème} | \text{Pile au 1er}) &= \mathbb{P} ( \text{Pile au 2ème} ) \\
     &= 1/2
-\end{align*} 
+\end{align*}  
 ```
 ````
 
