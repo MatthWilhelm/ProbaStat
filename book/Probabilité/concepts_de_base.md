@@ -15,6 +15,7 @@ Nous allons présenter les bases de la probabilité et discuter les sujets suiva
 - fonction de probabilité;
 - indépendance;
 - quelques formules: probabilité conditionnelle, probabilités totales, théorème de Bayes.
+- test notebook
 
 Une partie de ce qui suit est tiré de la référence [suivante](https://swisscovery.slsp.ch/permalink/41SLSP_NETWORK/19n6r1g/alma991026360829705501): Dalang, R. C. et Conus, D. (2015), *Introduction à la théorie des probabilités*, Lausanne, Suisse: PPUR.
 
