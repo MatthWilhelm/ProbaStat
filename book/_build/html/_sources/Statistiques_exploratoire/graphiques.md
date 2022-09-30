@@ -84,7 +84,7 @@ Pour certaines données, il est parfois intéressant de les **transformer** avan
 
 ```{figure} PDFSVG/Pop_mondiale.svg
 ---
-name: Pop_mondiale
+name: Pop_mondiale_
 width: 95%
 ---
 : Population mondiale entre l'an 0 et 2000. L'échelle logarithmique permet de visualiser clairement le taux de croissance. La population en 1200 était de 360 millions. Celle en 1600 de 545 millions.
