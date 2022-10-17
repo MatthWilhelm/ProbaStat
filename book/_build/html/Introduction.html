@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Introduction &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -36,6 +36,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -309,6 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série1
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -319,6 +325,35 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
    Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/Python/Serie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
   </a>
  </li>
 </ul>
@@ -595,14 +630,14 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">#</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="statistiques-une-definition">
-<h2>Statistiques: une définition ?<a class="headerlink" href="#statistiques-une-definition" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Statistiques: une définition ?<a class="headerlink" href="#statistiques-une-definition" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Les mathématiques (du grec <em>Mathema</em> <span class="math notranslate nohighlight">\(\approx\)</span> apprendre) sont une manière:</p>
 <ul class="simple">
 <li><p>d’exprimer une grande variété de notions complexes avec précision et cohérence.</p></li>
 <li><p>de « <em>légitimer les conquêtes de notre intuition</em> » (Jacques Hadamard)
-<a class="footnote-reference brackets" href="#citationhadamard" id="id1">1</a>
+<a class="footnote-reference brackets" href="#citationhadamard" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
 : raisonner rigoureusement à partir d’hypothèses, tirer les conclusions correctes d’une observation, d’une expérience, etc.</p></li>
 </ul>
 <p>La statistique souffre d’un problème de nomenclature. On a deux « statistiques » (définitions <a class="reference external" href="http://stella.atilf.fr/Dendien/scripts/tlfiv5/visusel.exe?12%3Bs=467953305%3Br=1%3Bnat=%3Bsol=1%3B">TLF</a>):</p>
@@ -622,7 +657,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="et-les-probabilites">
-<h2>Et les probabilités ?<a class="headerlink" href="#et-les-probabilites" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Et les probabilités ?<a class="headerlink" href="#et-les-probabilites" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Les probabilités nous aident à appréhender <strong>l’incertitude</strong>; elles permettent de la transcrire en un formalisme mathématique.</p>
 <ul class="simple">
 <li><p>C’est la discipline qui étudie les phénomènes aléatoires (ou <em>stochastiques</em>).</p></li>
@@ -631,7 +666,7 @@ title="Print to PDF"
 <p>Les probabilités nous donnent <strong>le formalisme</strong> dans lequel on peut comprendre et quantifier l’effet que la présence d’incertitude dans les données a sur notre analyse de ces données.</p>
 </section>
 <section id="le-but-de-la-statistique">
-<h2>Le but de la statistique<a class="headerlink" href="#le-but-de-la-statistique" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Le but de la statistique<a class="headerlink" href="#le-but-de-la-statistique" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>L’expérience montre que de nombreuses expériences sont <em>intrinsèquement</em> aléatoire: jet de dé, un tirage au sort, une campagne de vaccination.<br />
 D’autres ne le sont peut-être pas intrinsèquement, mais il s’avère impossible de les reproduire exactement: tir au panier, mesure physique etc. Ainsi, <em>le hasard est une composante essentielle de bien des expériences</em>.<br />
 La plupart du temps, le but de la statistique est de <strong>comprendre ce hasard</strong>.</p>
@@ -665,7 +700,7 @@ Je conseille fortement la référence <a class="reference external" href="https:
 </figure>
 </section>
 <section id="les-statistiques-dans-le-monde-moderne">
-<h2>Les statistiques dans le monde moderne<a class="headerlink" href="#les-statistiques-dans-le-monde-moderne" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Les statistiques dans le monde moderne<a class="headerlink" href="#les-statistiques-dans-le-monde-moderne" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Les statistiques sont très présentes autour de nous.</p>
 <ul class="simple">
 <li><p>En science, la statistique est l’outil clé pour obtenir des conclusions scientifiques rigoureuses.</p></li>
@@ -674,7 +709,7 @@ Je conseille fortement la référence <a class="reference external" href="https:
 </ul>
 </section>
 <section id="structure-du-cours">
-<h2>Structure du cours<a class="headerlink" href="#structure-du-cours" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Structure du cours<a class="headerlink" href="#structure-du-cours" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Ce cours a pour objectifs formels:
 - d’introduire les bases de la théorie des probabilités;
 - d’introduire les bases de la théorie statistiques.</p>
@@ -707,11 +742,10 @@ Le <font color="red">fil rouge</font> de ce cours consiste à comprendre des don
 </ul>
 </div>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="citationhadamard"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>La citation exacte est <a class="reference external" href="http://idm-old.math.cnrs.fr/Jacques-Hadamard-passeur.html">« La rigueur n’a d’autre objet que de sanctionner et de légitimer les conquêtes de l’intuition »</a>.</p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="citationhadamard" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>La citation exacte est <a class="reference external" href="http://idm-old.math.cnrs.fr/Jacques-Hadamard-passeur.html">« La rigueur n’a d’autre objet que de sanctionner et de légitimer les conquêtes de l’intuition »</a>.</p>
+</aside>
 </section>
 </section>
 

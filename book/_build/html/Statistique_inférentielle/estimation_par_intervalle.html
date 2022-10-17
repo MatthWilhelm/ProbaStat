@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>4. Estimation par intervalle &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -36,6 +36,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -309,6 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série1
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -319,6 +325,35 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
    Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/Python/Serie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
   </a>
  </li>
 </ul>
@@ -575,12 +610,12 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="estimation-par-intervalle">
-<h1><span class="section-number">4. </span>Estimation par intervalle<a class="headerlink" href="#estimation-par-intervalle" title="Lien permanent vers ce titre">#</a></h1>
+<h1><span class="section-number">4. </span>Estimation par intervalle<a class="headerlink" href="#estimation-par-intervalle" title="Lien permanent vers cette rubrique">#</a></h1>
 <div class="math notranslate nohighlight">
 \[\newcommand\E{\mathbb{E}}\]</div>
 <p>On a vu qu’une des raisons d’utiliser le formalisme des probabilités était de traiter de manière systématique les données comme aléatoires. Cela permet non seulement de faire des estimations mais aussi et surtout de <strong>quantifier l’incertitude</strong> liée à ces estimations. On va donc voir l’estimation par intervalle.</p>
 <section id="id1">
-<h2><span class="section-number">4.1. </span>Estimation par intervalle<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">4.1. </span>Estimation par intervalle<a class="headerlink" href="#id1" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>L’estimation par intervalle essaye de donner une réponse plus complète que simplement un estimateur <span class="math notranslate nohighlight">\( \hat{\theta} \)</span>.</p>
 <ul class="simple">
 <li><p>définition de l’intervalle de confiance;</p></li>
@@ -657,7 +692,7 @@ title="Print to PDF"
 </figure>
 </section>
 <section id="intervalle-de-confiance-de-wald">
-<h2><span class="section-number">4.2. </span>Intervalle de confiance de Wald<a class="headerlink" href="#intervalle-de-confiance-de-wald" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">4.2. </span>Intervalle de confiance de Wald<a class="headerlink" href="#intervalle-de-confiance-de-wald" title="Lien permanent vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="ic_wald">
 <p class="admonition-title"><span class="caption-number">Définition 4.2 </span> (IC de Wald)</p>
 <section class="definition-content" id="proof-content">
@@ -764,7 +799,7 @@ Ainsi <span class="math notranslate nohighlight">\(J(\hat\lambda_{ML})=-\ell''(\
 </section>
 </div></section>
 <section id="intervalle-de-student">
-<h2><span class="section-number">4.3. </span>Intervalle de Student<a class="headerlink" href="#intervalle-de-student" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">4.3. </span>Intervalle de Student<a class="headerlink" href="#intervalle-de-student" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La distribution <span class="math notranslate nohighlight">\(t\)</span> de «  Student » a été introduite à des fins de tests statistiques pour la première fois dans une publication par William S. Gosset. Ce dernier, travaillant pour la brasserie Guinness était interdit de publier autrement que sous un pseudonyme. Il publia donc ses résultats sous le pseudonyme de Student. Il finit sa carrière comme brasseur en chef de Guinness mais décéda 1 mois après, à l’âge de 61 ans.
 <a class="reference external" href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.22.4.199">référence:</a> Ziliak, S. T. (2008), <em>Guinnessometrics: The Economic Foundation of “Student’s”t</em>, Journal of Economic Perspectives.</p>
 <div class="proof definition admonition" id="stat_student">

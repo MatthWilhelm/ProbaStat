@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>1. Concepts de base &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -36,6 +36,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -309,6 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série1
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -319,6 +325,35 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
    Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/Python/Serie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
   </a>
  </li>
 </ul>
@@ -599,7 +634,7 @@ title="Print to PDF"
 <p>La plus grande difficulté consiste à réconcilier les notions mathématiques sur l’aléatoire avec les notions intuitives que vous avez déjà.</p>
 <p>Les intuitions dans ce domaine s’avèrent  <strong>souvent fausses</strong> donc méfiez-vous.</p>
 <section class="tex2jax_ignore mathjax_ignore" id="concepts-de-base">
-<h1><span class="section-number">1. </span>Concepts de base<a class="headerlink" href="#concepts-de-base" title="Lien permanent vers ce titre">#</a></h1>
+<h1><span class="section-number">1. </span>Concepts de base<a class="headerlink" href="#concepts-de-base" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Nous allons présenter les bases de la probabilité et discuter les sujets suivants:</p>
 <ul class="simple">
 <li><p>expérience aléatoire;</p></li>
@@ -612,7 +647,7 @@ title="Print to PDF"
 </ul>
 <p>Une partie de ce qui suit est tiré de la référence <a class="reference external" href="https://swisscovery.slsp.ch/permalink/41SLSP_NETWORK/19n6r1g/alma991026360829705501">suivante</a>: Dalang, R. C. et Conus, D. (2015), <em>Introduction à la théorie des probabilités</em>, Lausanne, Suisse: PPUR.</p>
 <section id="experience-aleatoire">
-<h2><span class="section-number">1.1. </span>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">1.1. </span>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>La théorie des probabilités permet de décrire et de modéliser des <strong>phénomènes aléatoires</strong>.</p>
 <p>Une <strong>expérience aléatoire</strong> est toute action dont il est impossible de prévoir le résultat avec certitude. On admet généralement qu’une expérience aléatoire peut être répétée indéfiniment dans des conditions identiques: le résultat peut varier d’une réalisation à l’autre.</p>
 <ul class="simple">
@@ -734,7 +769,7 @@ On appelle « événement » tout sous-ensemble de <span class="math notranslate
 </section>
 </div></section>
 <section id="diagrammes-de-venn">
-<h2><span class="section-number">1.2. </span>Diagrammes de Venn<a class="headerlink" href="#diagrammes-de-venn" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">1.2. </span>Diagrammes de Venn<a class="headerlink" href="#diagrammes-de-venn" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Le diagramme de Venn est un outil simple pour visualiser les événements et les opérations entre événements.</p>
 <ul class="simple">
 <li><p>L’ensemble fondamental est représenté comme un rectangle.</p></li>
@@ -766,7 +801,7 @@ On appelle « événement » tout sous-ensemble de <span class="math notranslate
 </figure>
 </section>
 <section id="fonction-indicatrice">
-<h2><span class="section-number">1.3. </span>Fonction indicatrice<a class="headerlink" href="#fonction-indicatrice" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">1.3. </span>Fonction indicatrice<a class="headerlink" href="#fonction-indicatrice" title="Lien permanent vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="fct_indic">
 <p class="admonition-title"><span class="caption-number">Définition 1.7 </span> (Fonction indicatrice)</p>
 <section class="definition-content" id="proof-content">
@@ -800,7 +835,7 @@ On appelle « événement » tout sous-ensemble de <span class="math notranslate
 </section>
 </div></section>
 <section id="fonction-de-probabilite">
-<h2><span class="section-number">1.4. </span>Fonction de probabilité<a class="headerlink" href="#fonction-de-probabilite" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">1.4. </span>Fonction de probabilité<a class="headerlink" href="#fonction-de-probabilite" title="Lien permanent vers cette rubrique">#</a></h2>
 <div class="proof axiom admonition" id="axiom1_fct_prob">
 <p class="admonition-title"><span class="caption-number">Axiome 1.1 </span> (Fonction de probabilité)</p>
 <section class="axiom-content" id="proof-content">
@@ -861,7 +896,7 @@ d’où le résultat.</p></li>
 Les propriétés 4 et 5 seront montrées aux exercices.</p>
 </section>
 <section id="evenements-equiprobables">
-<h2><span class="section-number">1.5. </span>Evénements équiprobables<a class="headerlink" href="#evenements-equiprobables" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">1.5. </span>Evénements équiprobables<a class="headerlink" href="#evenements-equiprobables" title="Lien permanent vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="evenement_equiprobable">
 <p class="admonition-title"><span class="caption-number">Définition 1.8 </span></p>
 <section class="definition-content" id="proof-content">

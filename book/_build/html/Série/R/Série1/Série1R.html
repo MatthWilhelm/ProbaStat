@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Série1 &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -36,6 +36,7 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
@@ -59,7 +60,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Série/R/Série1/Série1R.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Recherche" href="../../../search.html" />
-    <link rel="prev" title="Série1" href="../../Python/S%C3%A9rie1/S%C3%A9rie1Python.html" />
+    <link rel="next" title="Série2" href="../S%C3%A9rie2/S%C3%A9rie2R.html" />
+    <link rel="prev" title="Série2" href="../../Python/S%C3%A9rie2/S%C3%A9rie2Python.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -308,6 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série1
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -318,6 +325,35 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Correction/Python/Serie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Correction/R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
   </a>
  </li>
 </ul>
@@ -631,28 +667,28 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="serie1">
-<h1>Série1<a class="headerlink" href="#serie1" title="Lien permanent vers ce titre">#</a></h1>
+<h1>Série1<a class="headerlink" href="#serie1" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="exercice-1">
-<h2>Exercice 1:<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Exercice 1:<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On a observé la taille de 15 femmes. Le boxplot et l’histogramme ci-dessous ont été construits avec ces données:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
+<tr class="row-odd"><th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
 </tr>
 </thead>
 <tbody>
@@ -734,26 +770,26 @@ distribution des tailles? Justifiez votre réponse.</p>
 </div>
 </section>
 <section id="exercice-2">
-<h2>Exercice 2:<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Exercice 2:<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On a observé la taille et le poids de quelques femmes. Les résultats sont présentés dans le tableau suivant (la taille en centimètres, le poids en kilogrammes):</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p></p></th>
+<tr class="row-odd"><th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
 </tr>
 </thead>
 <tbody>
@@ -886,16 +922,16 @@ Construisez un histogramme en utilisant une ligne par groupe. Quels aspects des 
 </div>
 </section>
 <section id="exercice-3">
-<h2>Exercice 3:<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Exercice 3:<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On a observé la couleur des cheveux et des yeux de certains étudiants de l’Université du Delaware.
 Les résultats sont présentés dans le tableau suivant :</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Cheveux / Yeux</p></th>
-<th class="text-align:center head"><p>Brun</p></th>
-<th class="text-align:center head"><p>Bleu</p></th>
-<th class="text-align:center head"><p>“Hazel”</p></th>
-<th class="text-align:center head"><p>Vert</p></th>
+<tr class="row-odd"><th class="head text-align:center"><p>Cheveux / Yeux</p></th>
+<th class="head text-align:center"><p>Brun</p></th>
+<th class="head text-align:center"><p>Bleu</p></th>
+<th class="head text-align:center"><p>“Hazel”</p></th>
+<th class="head text-align:center"><p>Vert</p></th>
 </tr>
 </thead>
 <tbody>
@@ -980,7 +1016,7 @@ ordinale ?</p>
 </div>
 </section>
 <section id="exercice-4">
-<h2>Exercice 4:<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h2>
+<h2>Exercice 4:<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On a observé les précipitations journalières 01.01.2000 - 10.07.2022 de la station météo Suisse de Changrins.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1038,12 +1074,19 @@ distribution? Justifiez votre réponse.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../../Python/S%C3%A9rie1/S%C3%A9rie1Python.html" title="précédent page">
+    <a class='left-prev' id="prev-link" href="../../Python/S%C3%A9rie2/S%C3%A9rie2Python.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Série1</p>
+            <p class="prev-next-title">Série2</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../S%C3%A9rie2/S%C3%A9rie2R.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Série2</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

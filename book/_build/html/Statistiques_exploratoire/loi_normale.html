@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>5. Loi normale &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -36,6 +36,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -309,6 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série1
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -319,6 +325,35 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
    Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/Python/Serie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
   </a>
  </li>
 </ul>
@@ -585,9 +620,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="loi-normale">
-<h1><span class="section-number">5. </span>Loi normale<a class="headerlink" href="#loi-normale" title="Lien permanent vers ce titre">#</a></h1>
+<h1><span class="section-number">5. </span>Loi normale<a class="headerlink" href="#loi-normale" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="variable-aleatoire">
-<h2><span class="section-number">5.1. </span>Variable aléatoire<a class="headerlink" href="#variable-aleatoire" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">5.1. </span>Variable aléatoire<a class="headerlink" href="#variable-aleatoire" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Une <em>variable aléatoire</em> <span class="math notranslate nohighlight">\(X\)</span> peut être vue comme le résultat d’une expérience aléatoire. On en verra la définition formelle plus tard. Lorsque l’expérience aléatoire en question peut prendre des valeurs dans <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, on parle variable continue et on y associe une fonction de densité <span class="math notranslate nohighlight">\(f_X:\mathbb{R} \rightarrow\mathbb{R}\)</span> qui satisfait:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*}
@@ -613,7 +648,7 @@ On peut voir la densité comme une version <em>normalisée</em> d’un histogram
 </section>
 </div></section>
 <section id="loi-normale-ou-loi-gaussienne">
-<h2><span class="section-number">5.2. </span>Loi normale ou loi Gaussienne<a class="headerlink" href="#loi-normale-ou-loi-gaussienne" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">5.2. </span>Loi normale ou loi Gaussienne<a class="headerlink" href="#loi-normale-ou-loi-gaussienne" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>En guise de première rencontre avec une <strong>variable aléatoire</strong>, on va commencer par présenter l’une des plus commune: la loi Gaussienne (ou de Gauss ou loi normale). On va voir les aspects suivants:</p>
 <ul class="simple">
 <li><p>la densité Gaussienne;</p></li>
@@ -650,7 +685,7 @@ On peut voir la densité comme une version <em>normalisée</em> d’un histogram
 </section>
 </div></section>
 <section id="proprietes-de-la-loi-normale">
-<h2><span class="section-number">5.3. </span>Propriétés de la loi normale<a class="headerlink" href="#proprietes-de-la-loi-normale" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">5.3. </span>Propriétés de la loi normale<a class="headerlink" href="#proprietes-de-la-loi-normale" title="Lien permanent vers cette rubrique">#</a></h2>
 <ul class="simple">
 <li><p>La majorité des observations d’une « population Gaussienne » est proche du centre <span class="math notranslate nohighlight">\(\mu\)</span></p></li>
 <li><p>Plus précisément, on a la règle « 68-95-99.7 »:</p></li>
@@ -673,7 +708,7 @@ On peut voir la densité comme une version <em>normalisée</em> d’un histogram
 \end{equation*}\]</div>
 </section>
 <section id="standardisarion">
-<h2><span class="section-number">5.4. </span>Standardisarion<a class="headerlink" href="#standardisarion" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">5.4. </span>Standardisarion<a class="headerlink" href="#standardisarion" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Pour pouvoir comparer les lois normales, on a recours à la <strong>standardisation</strong>.
 Si <span class="math notranslate nohighlight">\( x \)</span> est une observation issue d’une densité de moyenne <span class="math notranslate nohighlight">\( \mu \)</span> et d’écart-type <span class="math notranslate nohighlight">\( \sigma \)</span>, alors la valeur standardisée de <span class="math notranslate nohighlight">\( x \)</span> est:</p>
 <div class="amsmath math notranslate nohighlight">

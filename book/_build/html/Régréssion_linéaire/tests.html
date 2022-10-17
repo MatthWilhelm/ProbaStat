@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>3. Régréssion linéaire: tests &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -36,6 +36,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -309,6 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série1
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -319,6 +325,35 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
    Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/Python/Serie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
   </a>
  </li>
 </ul>
@@ -601,9 +636,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="regression-lineaire-tests">
-<h1><span class="section-number">3. </span>Régréssion linéaire: tests<a class="headerlink" href="#regression-lineaire-tests" title="Lien permanent vers ce titre">#</a></h1>
+<h1><span class="section-number">3. </span>Régréssion linéaire: tests<a class="headerlink" href="#regression-lineaire-tests" title="Lien permanent vers cette rubrique">#</a></h1>
 <section id="test-de-student">
-<h2><span class="section-number">3.1. </span>Test de Student<a class="headerlink" href="#test-de-student" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">3.1. </span>Test de Student<a class="headerlink" href="#test-de-student" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On rappelle que l’on a:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\( \hat{\boldsymbol{\beta}}\sim \mathcal{N}\left(\boldsymbol{\beta}, \sigma^2\left(\mathbf{X}^\top\mathbf{X}\right)^{-1}\right);\)</span></p></li>
@@ -611,7 +646,7 @@ title="Print to PDF"
 <li><p><span class="math notranslate nohighlight">\(\hat{\boldsymbol{\beta}}\)</span> et <span class="math notranslate nohighlight">\(S^2\)</span> sont indépendants.</p></li>
 </ul>
 <section id="intervalle-de-confiance-pour-boldsymbol-beta-i">
-<h3><span class="section-number">3.1.1. </span>Intervalle de confiance pour  <span class="math notranslate nohighlight">\(\boldsymbol{\beta}_i\)</span><a class="headerlink" href="#intervalle-de-confiance-pour-boldsymbol-beta-i" title="Lien permanent vers ce titre">#</a></h3>
+<h3><span class="section-number">3.1.1. </span>Intervalle de confiance pour  <span class="math notranslate nohighlight">\(\boldsymbol{\beta}_i\)</span><a class="headerlink" href="#intervalle-de-confiance-pour-boldsymbol-beta-i" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Ainsi, on a</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*}T = \frac{\hat{\boldsymbol{\beta}}_i - \boldsymbol{\beta}_i}{S\sqrt{v_{ii}}} \sim t_{n-p}, \end{gather*}\]</div>
@@ -622,7 +657,7 @@ title="Print to PDF"
 <p>où <span class="math notranslate nohighlight">\(s_\alpha\)</span> est le quantile à <span class="math notranslate nohighlight">\(1-\frac{\alpha}{2}\)</span> de la loi <span class="math notranslate nohighlight">\(t_{n-p}\)</span> et où le niveau de confiance est <span class="math notranslate nohighlight">\(1- \alpha \)</span>.</p>
 </section>
 <section id="tester-beta-i-0">
-<h3><span class="section-number">3.1.2. </span>Tester <span class="math notranslate nohighlight">\(\beta_i = 0\)</span><a class="headerlink" href="#tester-beta-i-0" title="Lien permanent vers ce titre">#</a></h3>
+<h3><span class="section-number">3.1.2. </span>Tester <span class="math notranslate nohighlight">\(\beta_i = 0\)</span><a class="headerlink" href="#tester-beta-i-0" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>A l’aide de la distribution de Student, on peut facilement faire un test d’hypothèse
 <span class="math notranslate nohighlight">\(H_0: \beta_i = 0\)</span> contre <span class="math notranslate nohighlight">\(H_1: \beta_i \neq 0\)</span>. En effet, sous <span class="math notranslate nohighlight">\(H_0\)</span>, on a</p>
 <div class="amsmath math notranslate nohighlight">
@@ -634,7 +669,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="modeles-emboites">
-<h2><span class="section-number">3.2. </span>Modèles emboîtés<a class="headerlink" href="#modeles-emboites" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">3.2. </span>Modèles emboîtés<a class="headerlink" href="#modeles-emboites" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On suppose à présent que l’on dispose de <span class="math notranslate nohighlight">\(p\)</span> variables mais que l’on soupçonne que seules les <span class="math notranslate nohighlight">\(q\)</span> premières (à reparamétrisation près) variables ont réellement une influence sur la variable réponse.</p>
 <ul class="simple">
 <li><p>L’ajustement sera <em>toujours</em> meilleur pour le modèle plein.</p></li>

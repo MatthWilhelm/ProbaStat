@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>5. Tests d’hypothèses statistiques &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -36,6 +36,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -309,6 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série1
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -319,6 +325,35 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
    Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/Python/Serie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
   </a>
  </li>
 </ul>
@@ -621,7 +656,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="tests-dhypotheses-statistiques">
-<h1><span class="section-number">5. </span>Tests d’hypothèses statistiques<a class="headerlink" href="#tests-dhypotheses-statistiques" title="Lien permanent vers ce titre">#</a></h1>
+<h1><span class="section-number">5. </span>Tests d’hypothèses statistiques<a class="headerlink" href="#tests-dhypotheses-statistiques" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>On peut résumer une approche scientifique selon le schéma suivant:</p>
 <ul class="simple">
 <li><p>théorie: énoncé d’une hypothèse.</p></li>
@@ -645,7 +680,7 @@ Par exemple</p>
 </ul>
 </div>
 <section id="hypothese-nulle-et-hypothese-alternative">
-<h2><span class="section-number">5.1. </span>Hypothèse nulle et hypothèse alternative<a class="headerlink" href="#hypothese-nulle-et-hypothese-alternative" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">5.1. </span>Hypothèse nulle et hypothèse alternative<a class="headerlink" href="#hypothese-nulle-et-hypothese-alternative" title="Lien permanent vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="hyp_nulle_alt">
 <p class="admonition-title"><span class="caption-number">Définition 5.10 </span> (Hypothèse nulle et hypothèse alternative)</p>
 <section class="definition-content" id="proof-content">
@@ -710,7 +745,7 @@ Ces <span class="math notranslate nohighlight">\(n=14\)</span> observations ont 
 <p>Il y a une asymétrie entre ces deux types d’erreurs. Par exemple, si votre filtre de spam jette à la poubelle un email important, c’est une catastrophe.</p>
 </section>
 <section id="type-de-tests">
-<h2><span class="section-number">5.2. </span>Type de tests<a class="headerlink" href="#type-de-tests" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">5.2. </span>Type de tests<a class="headerlink" href="#type-de-tests" title="Lien permanent vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="type_tests">
 <p class="admonition-title"><span class="caption-number">Définition 5.11 </span> (Types de tests)</p>
 <section class="definition-content" id="proof-content">
@@ -756,9 +791,9 @@ On appelle ce test le test de Student.</p></li>
 </figure>
 </section>
 <section id="cadre-statistique">
-<h2><span class="section-number">5.3. </span>Cadre Statistique<a class="headerlink" href="#cadre-statistique" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">5.3. </span>Cadre Statistique<a class="headerlink" href="#cadre-statistique" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="signification-statistique">
-<h3><span class="section-number">5.3.1. </span>Signification statistique<a class="headerlink" href="#signification-statistique" title="Lien permanent vers ce titre">#</a></h3>
+<h3><span class="section-number">5.3.1. </span>Signification statistique<a class="headerlink" href="#signification-statistique" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Nous voulons choisir une règle de décision de telle sorte à limiter la probabilité d’erreur de type I, c’est à dire:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*} \mathbb{P}[\mbox{Rejet de }H_0|H_0\mbox{ est vraie}]\leq \alpha,\end{gather*}\]</div>
@@ -786,7 +821,7 @@ v^*=t_{n-1;1-\alpha/2},
 <p>où <span class="math notranslate nohighlight">\(t_{n-1;1-\alpha/2}\)</span> est le quantile <span class="math notranslate nohighlight">\((1-\alpha/2)\%\)</span> de la loi de Student <span class="math notranslate nohighlight">\(t_{n-1}\)</span>.</p>
 </section>
 <section id="la-valeur-p-obs">
-<h3><span class="section-number">5.3.2. </span>La valeur <span class="math notranslate nohighlight">\(p_{obs}\)</span><a class="headerlink" href="#la-valeur-p-obs" title="Lien permanent vers ce titre">#</a></h3>
+<h3><span class="section-number">5.3.2. </span>La valeur <span class="math notranslate nohighlight">\(p_{obs}\)</span><a class="headerlink" href="#la-valeur-p-obs" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Au lieu d’utiliser des valeurs critiques pour décider entre <span class="math notranslate nohighlight">\(H_0\)</span> et <span class="math notranslate nohighlight">\(H_1\)</span>, nous pouvons utiliser une autre approche, basée sur la notion de <strong>la valeur <span class="math notranslate nohighlight">\(p_{\rm obs}\)</span></strong> (appelée <strong><span class="math notranslate nohighlight">\(p\)</span>-valeur</strong>).</p>
 <ul class="simple">
 <li><p>La valeur <span class="math notranslate nohighlight">\(p_{\rm obs}\)</span> est la probabilité d’obtenir une valeur de la statistique de test, aussi extrême ou plus extrême encore que celle que nous avons observé (dans la direction de l’alternative) si <span class="math notranslate nohighlight">\(H_0\)</span> était vraie.</p></li>
@@ -834,7 +869,7 @@ Des valeurs <span class="math notranslate nohighlight">\(p_{\rm obs}\)</span> «
 </section>
 </section>
 <section id="la-statistique-de-test-t">
-<h2><span class="section-number">5.4. </span>La statistique de test <span class="math notranslate nohighlight">\(T\)</span><a class="headerlink" href="#la-statistique-de-test-t" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">5.4. </span>La statistique de test <span class="math notranslate nohighlight">\(T\)</span><a class="headerlink" href="#la-statistique-de-test-t" title="Lien permanent vers cette rubrique">#</a></h2>
 <ul class="simple">
 <li><p>On est libre de choisir <span class="math notranslate nohighlight">\(T\)</span>, de telle sorte que plus sa valeur est grande,  plus l’indication contre <span class="math notranslate nohighlight">\(H_0\)</span> est forte.</p></li>
 <li><p>Le choix de <span class="math notranslate nohighlight">\(T\)</span> dépend de l’<strong>hypothèse alternative</strong> <span class="math notranslate nohighlight">\(H_1\)</span> — ce que l’on imagine possible, si <span class="math notranslate nohighlight">\(H_0\)</span> est fausse.</p></li>

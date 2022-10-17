@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>4. Régréssion linéaire: hypothèses et diagnostics &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -36,6 +36,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -309,6 +310,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série1
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -319,6 +325,35 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
    Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/Python/Serie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
   </a>
  </li>
 </ul>
@@ -675,7 +710,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="regression-lineaire-hypotheses-et-diagnostics">
-<h1><span class="section-number">4. </span>Régréssion linéaire: hypothèses et diagnostics<a class="headerlink" href="#regression-lineaire-hypotheses-et-diagnostics" title="Lien permanent vers ce titre">#</a></h1>
+<h1><span class="section-number">4. </span>Régréssion linéaire: hypothèses et diagnostics<a class="headerlink" href="#regression-lineaire-hypotheses-et-diagnostics" title="Lien permanent vers cette rubrique">#</a></h1>
 <div class="math notranslate nohighlight">
 \[\newcommand\corr{\text{Corr}}
 \newcommand\cov{\text{Cov}}
@@ -740,7 +775,7 @@ title="Print to PDF"
 <li><p>normalité: QQ-plot normal.</p></li>
 </ul>
 <section id="diagnostic-de-linearite">
-<h2><span class="section-number">4.1. </span>Diagnostic de linéarité<a class="headerlink" href="#diagnostic-de-linearite" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">4.1. </span>Diagnostic de linéarité<a class="headerlink" href="#diagnostic-de-linearite" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On peut distinguer deux aspects: que la relation entre la variable de réponse et les variables explicatives est bien linéaire et qu’elle ne soit que linéaire.</p>
 <ul class="simple">
 <li><p>Faire un nuage de points de la réponse en fonction de chacune des covariables;</p></li>
@@ -760,7 +795,7 @@ title="Print to PDF"
 </figure>
 </section>
 <section id="homoscedasticite-variance-constante">
-<h2><span class="section-number">4.2. </span>Homoscédasticité (variance constante)<a class="headerlink" href="#homoscedasticite-variance-constante" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">4.2. </span>Homoscédasticité (variance constante)<a class="headerlink" href="#homoscedasticite-variance-constante" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>L’hypothèse de l’homoscédasticité découle du fait que les erreurs sont identiquement distribuées.</p>
 <ul class="simple">
 <li><p>On peut s’en passer, mais il est alors nécessaire de connaître la structure de la variance;</p></li>
@@ -780,7 +815,7 @@ title="Print to PDF"
 </figure>
 </section>
 <section id="diagnostics-dindependance">
-<h2><span class="section-number">4.3. </span>Diagnostics d’indépendance<a class="headerlink" href="#diagnostics-dindependance" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">4.3. </span>Diagnostics d’indépendance<a class="headerlink" href="#diagnostics-dindependance" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>De manière générale, l’hypothèse d’indépendance des résidus est la plus difficile à évaluer. Et l’indépendance peut-être violée de différentes manières. On mentionne deux facteurs importants:</p>
 <ul class="simple">
 <li><p>autocovariance dans le terme d’erreur;</p></li>
@@ -801,8 +836,8 @@ title="Print to PDF"
 <p class="admonition-title"><span class="caption-number">Exemple 4.7 </span> (Erreurs autocorrélées)</p>
 <section class="example-content" id="proof-content">
 <p>Considérons deux modèles presque identiques:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-91ad2416-5440-47af-8366-8ff67bc1bcda">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-91ad2416-5440-47af-8366-8ff67bc1bcda" title="Lien permanent vers cette équation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-88aa4215-4ec0-4ad0-89bc-eddb7ff34e4d">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-88aa4215-4ec0-4ad0-89bc-eddb7ff34e4d" title="Lien permanent vers cette équation">#</a></span>\[\begin{align}
 Y^{(1)} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}^{(1)}, \tag{M1}\\
 Y^{(2)} = \mathbf{X}\beta + \boldsymbol{\varepsilon}^{(2)},  \tag{M2}
 \end{align}\]</div>
@@ -827,7 +862,7 @@ Par ailleurs, on a <span class="math notranslate nohighlight">\(\boldsymbol{\bet
 </section>
 </div></section>
 <section id="diagnostic-de-normalite">
-<h2><span class="section-number">4.4. </span>Diagnostic de normalité<a class="headerlink" href="#diagnostic-de-normalite" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">4.4. </span>Diagnostic de normalité<a class="headerlink" href="#diagnostic-de-normalite" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On utilise très souvent le QQ-plot (graphique quantile/quantile) pour comparer une distribution empirique par rapport à une distribution théorique <span class="math notranslate nohighlight">\(F\)</span> (continue). Soient <span class="math notranslate nohighlight">\(x_{(1)}, \dots, x_{(n)}\)</span> un échantillon ordonné et soit <span class="math notranslate nohighlight">\(F^{-1}\)</span> le fonction réciproque de <span class="math notranslate nohighlight">\(F\)</span>, appelée aussi fonction quantile. Alors un QQplot est un nuage de points dont les coordonnées sont</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*}(F^{-1}(c_1), x_{(1)}),\dots, (F^{-1}(c_n), x_{(n)}),\end{gather*}\]</div>
@@ -863,16 +898,16 @@ Par ailleurs, on a <span class="math notranslate nohighlight">\(\boldsymbol{\bet
 </figure>
 </section>
 <section id="hypothese-de-rang-plein-et-r-2">
-<h2><span class="section-number">4.5. </span>Hypothèse de rang plein et <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#hypothese-de-rang-plein-et-r-2" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">4.5. </span>Hypothèse de rang plein et <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#hypothese-de-rang-plein-et-r-2" title="Lien permanent vers cette rubrique">#</a></h2>
 <section id="hypothese-de-rang-plein">
-<h3><span class="section-number">4.5.1. </span>Hypothèse de rang plein<a class="headerlink" href="#hypothese-de-rang-plein" title="Lien permanent vers ce titre">#</a></h3>
+<h3><span class="section-number">4.5.1. </span>Hypothèse de rang plein<a class="headerlink" href="#hypothese-de-rang-plein" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Pour vérifier l’hypothèse de plein rang, on peut facilement calculer le déterminant de la matrice</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*}\det\left(\mathbf{X}^\top \mathbf{X}\right) \neq 0 \Leftrightarrow  \text{rang}(\mathbf{X} ) = p.\end{gather*}\]</div>
 <p>De manière plus pratique, vérifier que le conditionnement de la matrice <span class="math notranslate nohighlight">\(\mathbf{X}^\top \mathbf{X}\)</span> est raisonnablement bas permet de s’assurer que le problème n’est pas mal-posé.</p>
 </section>
 <section id="r-2">
-<h3><span class="section-number">4.5.2. </span><span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#r-2" title="Lien permanent vers ce titre">#</a></h3>
+<h3><span class="section-number">4.5.2. </span><span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#r-2" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>On rappelle la deuxième propriété des résidus, à savoir l’orthogonalité de <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span> et de <span class="math notranslate nohighlight">\(\mathbf{e}\)</span>. Ainsi, on a</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*}\|\mathbf{y} \|^2 =\mathbf{y}^\top \mathbf{y} = (\mathbf{e} + \hat{\mathbf{y}} )^\top (\mathbf{e} + \hat{\mathbf{y}}) = \mathbf{e}^\top\mathbf{e} +  \hat{\mathbf{y}}^\top \hat{\mathbf{y}}. \end{gather*}\]</div>
@@ -901,7 +936,7 @@ Par ailleurs, on a <span class="math notranslate nohighlight">\(\boldsymbol{\bet
 </div></section>
 </section>
 <section id="obsevations-influentes">
-<h2><span class="section-number">4.6. </span>Obsevations influentes<a class="headerlink" href="#obsevations-influentes" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">4.6. </span>Obsevations influentes<a class="headerlink" href="#obsevations-influentes" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Une idée essentielle de toute modélisation est la « robustesse  » (ou stabilité): si on change un petit peu les données, est-ce que cela change beaucoup les estimations?</p>
 <ul class="simple">
 <li><p>concept similaire à la stabilité en analyse numérique;</p></li>
@@ -913,7 +948,7 @@ Par ailleurs, on a <span class="math notranslate nohighlight">\(\boldsymbol{\bet
 <li><p>les points leviers.</p></li>
 </ul>
 <section id="valeurs-aberrantes">
-<h3><span class="section-number">4.6.1. </span>Valeurs aberrantes<a class="headerlink" href="#valeurs-aberrantes" title="Lien permanent vers ce titre">#</a></h3>
+<h3><span class="section-number">4.6.1. </span>Valeurs aberrantes<a class="headerlink" href="#valeurs-aberrantes" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Une valeur aberrante est une valeur qui se situe très loin des autres valeurs observées. Elles ont tendance à « attirer » la droite de régression vers elles.</p>
 <figure class="align-default" id="reg-line-outlier">
 <a class="reference internal image-reference" href="../_images/reg_line_outlier.svg"><img alt="../_images/reg_line_outlier.svg" src="../_images/reg_line_outlier.svg" width="95%" /></a>
@@ -931,7 +966,7 @@ Les résidus standardisés offrent une manière plus méthodique car ils se trou
 </ul>
 </section>
 <section id="points-leviers">
-<h3><span class="section-number">4.6.2. </span>Points leviers<a class="headerlink" href="#points-leviers" title="Lien permanent vers ce titre">#</a></h3>
+<h3><span class="section-number">4.6.2. </span>Points leviers<a class="headerlink" href="#points-leviers" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>On distingue les <em>points leviers</em> des valeurs aberrantes.</p>
 <ul class="simple">
 <li><p>Les valeurs aberrantes sont en général éloignées du nuage de points dans la direction <span class="math notranslate nohighlight">\(y\)</span> (variable réponse).</p></li>
@@ -956,7 +991,7 @@ Les points leviers peuvent être difficiles à repérer visuellement.</p></li>
 </section>
 </section>
 <section id="distance-de-cook">
-<h2><span class="section-number">4.7. </span>Distance de Cook<a class="headerlink" href="#distance-de-cook" title="Lien permanent vers ce titre">#</a></h2>
+<h2><span class="section-number">4.7. </span>Distance de Cook<a class="headerlink" href="#distance-de-cook" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>L’influence d’une observation pourrait être évaluée de la manière suivante: comment changerait mon vecteur de paramètres estimés si j’enlevais cette observation? Cette idée est très profonde et conduit à plusieurs concepts:</p>
 <ul class="simple">
 <li><p>la distance de Cook;</p></li>
