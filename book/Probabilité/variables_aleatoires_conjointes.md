@@ -63,9 +63,10 @@ On peut généraliser la notion d'indépendance d'événements à des variables 
 $X,Y$ sont dite **indépendantes** si:
 - **cas discret** $ \mathbb{P}(X=x_i, Y=y_j) = \mathbb{P}(X=x_i) \mathbb{P}(Y=y_j) $;
 - **cas continu** $ f_{X,Y}(x,y) = f_X(x) f_Y(y). $
+
+
 Dans les deux cas, on a:  
-  
-    \begin{gather*} F_{X,Y}(x,y) = F_X(x) F_Y(y). \end{gather*}
+\begin{gather*} F_{X,Y}(x,y) = F_X(x) F_Y(y). \end{gather*}
 ````
 
 ````{prf:example} Somme de Bernouilli indépendantes
@@ -75,7 +76,7 @@ Considérons $n$ variables de Bernoulli indépendantes $I_1,\dots, I_n,$ avec m�
 
 ```{admonition} Solution
 :class: dropdown
-L'expérience que l'on a décrit pour définir une loi binomiale $\mathcal{B}(n,p)$ consiste en fait exactement à considérer la somme de $n$ variables de Bernoulli \textit{indépendantes} avec chacune probabilité $p$ de succès. Cette somme suit donc une loi binomiale.
+L'expérience que l'on a décrit pour définir une loi binomiale $\mathcal{B}(n,p)$ consiste en fait exactement à considérer la somme de $n$ variables de Bernoulli $ \textit{indépendantes} $ avec chacune probabilité $p$ de succès. Cette somme suit donc une loi binomiale.
     Soient $I_1,\dots, I_n \stackrel{iid}{\sim}\mathcal{B}(p).$ Alors 
 \begin{gather*} X = \sum_{i = 1}^n I_i \sim \mathcal{B}(n,p). \end{gather*}
 ```

@@ -116,7 +116,7 @@ L'événement « $A$ **mais pas** $B$ »  noté $ A \setminus B = A \cap B^c $ (
 ```
 ```{prf:example} 
 :label: ex6_dif_evenement_jet_dé
- lors d'un jet de dé, la différence de l'événement « Obtenir un chiffre pair »  avec l'événement « obtenir un nombre premier » donn    
+ Lors d'un jet de dé, la différence de l'événement « Obtenir un chiffre pair »  avec l'événement « obtenir un nombre premier » donne
 \begin{gather*} \{2,4,6\} \setminus \{2,3,5\} = \{4,6\}.\end{gather*}
 ```
 ## Diagrammes de Venn
@@ -207,9 +207,9 @@ En réalité, la fonction $\mathbb{P}$ n'est pas uniquement définie sur tous le
 Une fonction de probabilité satisfait les propriétés suivantes:
 1. $ \mathbb{P}(\emptyset) = 0 $ : la probabilité de l'événement impossible est nulle;
 1. pour toute famille finie de $N$ événements $\{A_n\}_{n=0}^N$ deux à deux disjoints, on a
-\begin{gather*} 
-    \mathbb{P}\left(\bigcup_{n=0}^N A_n\right) = \sum_{n = 0}^N \mathbb{P}(A_n). 
-\end{gather*}
+    \begin{gather*}
+        \mathbb{P}\left(\bigcup_{n=0}^N A_n\right) = \sum_{n = 0}^N \mathbb{P}(A_n).
+    \end{gather*}
 1. $ \mathbb{P}(A^c) = 1 - \mathbb{P}(A) $;
 1. $ \mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A\cap B) $;    
 1. $ A \subset B $ implique $ \mathbb{P}(A) \leq \mathbb{P}(B) $
@@ -232,7 +232,7 @@ d'où le résultat.
 ````
 
 La propriété 4 est un cas particulier du plus général
-[d'inclusion-exclusion](https://fr.wikipedia.org/wiki/Principe_d'inclusion-exclusion) principe .
+[principe d'inclusion-exclusion](https://fr.wikipedia.org/wiki/Principe_d'inclusion-exclusion).
 Les propriétés 4 et 5 seront montrées aux exercices.
 
 ## Evénements équiprobables

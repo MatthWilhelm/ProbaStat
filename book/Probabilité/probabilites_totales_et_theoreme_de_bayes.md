@@ -43,7 +43,7 @@ Les probabilités que la pièce vienne de la machine $ M_i $ sont respectivement
 On peut donc appliquer la formule de la probabilité totale:
 
 \begin{align*}
-    \mathbb{P}\left(\text{Pièce défectueuse}\rigth) &= 0.05 \cdot \frac{1}{2} + 0.04 \cdot \frac{1}{4} + 0.02 \cdot \frac{1}{4} \\
+    \mathbb{P}\left(\text{Pièce défectueuse}\right) &= 0.05 \cdot \frac{1}{2} + 0.04 \cdot \frac{1}{4} + 0.02 \cdot \frac{1}{4} \\
     &= 0.04
 \end{align*}
 ```
