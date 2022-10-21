@@ -102,7 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
         
       
       
-      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      <img src="../_static/EPFL_Logo.svg" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
@@ -619,14 +619,13 @@ On appelle :</p>
 <section class="definition-content" id="proof-content">
 <p>On peut généraliser la notion d’indépendance d’événements à des variables conjointes.
 <span class="math notranslate nohighlight">\(X,Y\)</span> sont dite <strong>indépendantes</strong> si:</p>
-<ul>
+<ul class="simple">
 <li><p><strong>cas discret</strong> <span class="math notranslate nohighlight">\( \mathbb{P}(X=x_i, Y=y_j) = \mathbb{P}(X=x_i) \mathbb{P}(Y=y_j) \)</span>;</p></li>
-<li><p><strong>cas continu</strong> <span class="math notranslate nohighlight">\( f_{X,Y}(x,y) = f_X(x) f_Y(y). \)</span>
-Dans les deux cas, on a:</p>
+<li><p><strong>cas continu</strong> <span class="math notranslate nohighlight">\( f_{X,Y}(x,y) = f_X(x) f_Y(y). \)</span></p></li>
+</ul>
+<p>Dans les deux cas, on a:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*} F_{X,Y}(x,y) = F_X(x) F_Y(y). \end{gather*}\]</div>
-</li>
-</ul>
 </section>
 </div><div class="proof example admonition" id="ex2_independance">
 <p class="admonition-title"><span class="caption-number">Exemple 7.2 </span> (Somme de Bernouilli indépendantes)</p>
@@ -634,7 +633,7 @@ Dans les deux cas, on a:</p>
 <p>Considérons <span class="math notranslate nohighlight">\(n\)</span> variables de Bernoulli indépendantes <span class="math notranslate nohighlight">\(I_1,\dots, I_n,\)</span> avec même probabilité de succès <span class="math notranslate nohighlight">\(p\)</span>. Quelle est la distribution de la somme de ces variables?</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>L’expérience que l’on a décrit pour définir une loi binomiale <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span> consiste en fait exactement à considérer la somme de <span class="math notranslate nohighlight">\(n\)</span> variables de Bernoulli \textit{indépendantes} avec chacune probabilité <span class="math notranslate nohighlight">\(p\)</span> de succès. Cette somme suit donc une loi binomiale.
+<p>L’expérience que l’on a décrit pour définir une loi binomiale <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span> consiste en fait exactement à considérer la somme de <span class="math notranslate nohighlight">\(n\)</span> variables de Bernoulli <span class="math notranslate nohighlight">\( \textit{indépendantes} \)</span> avec chacune probabilité <span class="math notranslate nohighlight">\(p\)</span> de succès. Cette somme suit donc une loi binomiale.
 Soient <span class="math notranslate nohighlight">\(I_1,\dots, I_n \stackrel{iid}{\sim}\mathcal{B}(p).\)</span> Alors</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*} X = \sum_{i = 1}^n I_i \sim \mathcal{B}(n,p). \end{gather*}\]</div>

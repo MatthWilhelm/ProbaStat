@@ -102,7 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
         
       
       
-      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      <img src="../_static/EPFL_Logo.svg" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
@@ -763,7 +763,7 @@ On appelle « événement » tout sous-ensemble de <span class="math notranslate
 </div><div class="proof example admonition" id="ex6_dif_evenement_jet_dé">
 <p class="admonition-title"><span class="caption-number">Exemple 1.9 </span></p>
 <section class="example-content" id="proof-content">
-<p>lors d’un jet de dé, la différence de l’événement « Obtenir un chiffre pair »  avec l’événement « obtenir un nombre premier » donn</p>
+<p>Lors d’un jet de dé, la différence de l’événement « Obtenir un chiffre pair »  avec l’événement « obtenir un nombre premier » donne</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*} \{2,4,6\} \setminus \{2,3,5\} = \{4,6\}.\end{gather*}\]</div>
 </section>
@@ -855,15 +855,14 @@ On appelle « événement » tout sous-ensemble de <span class="math notranslate
 <p class="admonition-title"><span class="caption-number">Propriété 1.2 </span> (Fonction de probabilité)</p>
 <section class="property-content" id="proof-content">
 <p>Une fonction de probabilité satisfait les propriétés suivantes:</p>
-<ol class="simple">
+<ol>
 <li><p><span class="math notranslate nohighlight">\( \mathbb{P}(\emptyset) = 0 \)</span> : la probabilité de l’événement impossible est nulle;</p></li>
-<li><p>pour toute famille finie de <span class="math notranslate nohighlight">\(N\)</span> événements <span class="math notranslate nohighlight">\(\{A_n\}_{n=0}^N\)</span> deux à deux disjoints, on a</p></li>
-</ol>
+<li><p>pour toute famille finie de <span class="math notranslate nohighlight">\(N\)</span> événements <span class="math notranslate nohighlight">\(\{A_n\}_{n=0}^N\)</span> deux à deux disjoints, on a</p>
 <div class="amsmath math notranslate nohighlight">
-\[\begin{gather*} 
-    \mathbb{P}\left(\bigcup_{n=0}^N A_n\right) = \sum_{n = 0}^N \mathbb{P}(A_n). 
-\end{gather*}\]</div>
-<ol class="simple">
+\[\begin{gather*}
+        \mathbb{P}\left(\bigcup_{n=0}^N A_n\right) = \sum_{n = 0}^N \mathbb{P}(A_n).
+    \end{gather*}\]</div>
+</li>
 <li><p><span class="math notranslate nohighlight">\( \mathbb{P}(A^c) = 1 - \mathbb{P}(A) \)</span>;</p></li>
 <li><p><span class="math notranslate nohighlight">\( \mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A\cap B) \)</span>;</p></li>
 <li><p><span class="math notranslate nohighlight">\( A \subset B \)</span> implique <span class="math notranslate nohighlight">\( \mathbb{P}(A) \leq \mathbb{P}(B) \)</span></p></li>
@@ -892,7 +891,7 @@ d’où le résultat.</p></li>
 </ol>
 </div>
 <p>La propriété 4 est un cas particulier du plus général
-<a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_d%27inclusion-exclusion">d’inclusion-exclusion</a> principe .
+<a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_d%27inclusion-exclusion">principe d’inclusion-exclusion</a>.
 Les propriétés 4 et 5 seront montrées aux exercices.</p>
 </section>
 <section id="evenements-equiprobables">

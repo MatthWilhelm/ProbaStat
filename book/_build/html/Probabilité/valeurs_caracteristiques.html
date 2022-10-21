@@ -102,7 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
         
       
       
-      <img src="../_static/EPFL_Logo.png" class="logo" alt="logo">
+      <img src="../_static/EPFL_Logo.svg" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
@@ -640,7 +640,7 @@ title="Print to PDF"
 \newcommand\var{\text{Var}}
 \newcommand\cov{\text{Cov}}
 \newcommand\corr{\text{Corr}}\]</div>
-<p>Une variable aléatoire est caractérisée par sa fonction de masse ou sa densité <span class="math notranslate nohighlight">\( f_X \)</span> mais cette dernière ne donne pas beaucoup d’intuition sur <span class="math notranslate nohighlight">\( X \)</span>. Quelques <strong>valeurs caractéristiques</strong> donnent une meilleure intuition. On va en particulier voir les notions suivantes.</p>
+<p>Une variable aléatoire est caractérisée par sa fonction de masse ou sa densité <span class="math notranslate nohighlight">\( f_X \)</span> mais cette dernière ne donne pas beaucoup d’intuition sur <span class="math notranslate nohighlight">\( X \)</span>. Quelques <strong>valeurs caractéristiques</strong> donnent une meilleure intuition. On va en particulier voir les notions suivantes :</p>
 <ul class="simple">
 <li><p>Espérance, espérance conditionnelle et loi de l’espérance totale.</p></li>
 <li><p>Variance.</p></li>
@@ -827,7 +827,7 @@ Pour toute fonction (raisonnable) <span class="math notranslate nohighlight">\(g
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
         \E(X^2) &amp;= \E[X (X-1) ] + \E[X] = \lambda^2 + \lambda                     \\ 
-       \text{var}(X)   &amp;= \E[X^2] - \E[X]^2 = \lambda.
+       \var(X)   &amp;= \E[X^2] - \E[X]^2 = \lambda.
     \end{align*}\]</div>
 </div>
 </section>
@@ -854,7 +854,7 @@ Pour toute fonction (raisonnable) <span class="math notranslate nohighlight">\(g
 <p>Pour la variance, on fait une intégration par parties:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-        \text{var}(X) &amp;= \int_{-\infty}^\infty \frac{(x-\mu)^2}{\sigma \sqrt{2\pi}} \exp\left(- \frac{(x-\mu)^2}{2\sigma^2} \right) dx \\ 
+        \var(X) &amp;= \int_{-\infty}^\infty \frac{(x-\mu)^2}{\sigma \sqrt{2\pi}} \exp\left(- \frac{(x-\mu)^2}{2\sigma^2} \right) dx \\
                 &amp;= \left[ (x-\mu) (-\sigma^2) \frac{1}{\sigma \sqrt{2\pi}} \exp\left(- \frac{(x-\mu)^2}{2\sigma^2} \right) \right]_{-\infty}^\infty \\ 
                 &amp;  - \int_{-\infty}^\infty (-\sigma^2) \frac{1}{\sigma \sqrt{2\pi}} \exp\left(- \frac{(x-\mu)^2}{2\sigma^2} \right) \\
                 &amp;= 0 + \sigma^2

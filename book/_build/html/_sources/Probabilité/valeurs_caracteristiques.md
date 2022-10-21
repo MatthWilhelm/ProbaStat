@@ -7,7 +7,7 @@
 \newcommand\corr{\text{Corr}}
 ```
 
-Une variable aléatoire est caractérisée par sa fonction de masse ou sa densité $ f_X $ mais cette dernière ne donne pas beaucoup d'intuition sur $ X $. Quelques **valeurs caractéristiques** donnent une meilleure intuition. On va en particulier voir les notions suivantes. 
+Une variable aléatoire est caractérisée par sa fonction de masse ou sa densité $ f_X $ mais cette dernière ne donne pas beaucoup d'intuition sur $ X $. Quelques **valeurs caractéristiques** donnent une meilleure intuition. On va en particulier voir les notions suivantes :
 - Espérance, espérance conditionnelle et loi de l'espérance totale.
 - Variance.
 - Covariance, corrélation.
@@ -174,7 +174,7 @@ On calcule (astuce!) $ \E[X (X-1) ],$ et on obtient:
 On en déduit:
 \begin{align*}
         \E(X^2) &= \E[X (X-1) ] + \E[X] = \lambda^2 + \lambda                     \\ 
-       \text{var}(X)   &= \E[X^2] - \E[X]^2 = \lambda.
+       \var(X)   &= \E[X^2] - \E[X]^2 = \lambda.
     \end{align*}
 ```
 ````
@@ -201,7 +201,7 @@ Si $ X \sim \mathcal{N}(\mu,\sigma^2) $, montrer que $ \var(X) = \sigma^2 $ à l
 Pour la variance, on fait une intégration par parties:
     
 \begin{align*}
-        \text{var}(X) &= \int_{-\infty}^\infty \frac{(x-\mu)^2}{\sigma \sqrt{2\pi}} \exp\left(- \frac{(x-\mu)^2}{2\sigma^2} \right) dx \\ 
+        \var(X) &= \int_{-\infty}^\infty \frac{(x-\mu)^2}{\sigma \sqrt{2\pi}} \exp\left(- \frac{(x-\mu)^2}{2\sigma^2} \right) dx \\
                 &= \left[ (x-\mu) (-\sigma^2) \frac{1}{\sigma \sqrt{2\pi}} \exp\left(- \frac{(x-\mu)^2}{2\sigma^2} \right) \right]_{-\infty}^\infty \\ 
                 &  - \int_{-\infty}^\infty (-\sigma^2) \frac{1}{\sigma \sqrt{2\pi}} \exp\left(- \frac{(x-\mu)^2}{2\sigma^2} \right) \\
                 &= 0 + \sigma^2
