@@ -66,12 +66,6 @@ L'analyse exploratoire suggère des hypothèses de travail et des modèles, qui 
 
 On distingue en général deux grands types d'études: expérimentales et observationnelles. La démarche est fondamentalement différente, ainsi que les conclusions que l'on peut en tirer.  
 
-- **L'analyse exploratoire des données**: consiste en l'utilisation de méthodes simples, intuitives, essentiellement graphiques. Son objectif est l'identification informelle de la structure d'un jeu de données (tendances, formes, observation atypiques). Elle permet donc de se familiariser avec les données.
-
-L'analyse exploratoire suggère des hypothèses de travail et des modèles, qui sont formalisés et vérifiés dans le second pôle: 
-- **L'analyse confirmatoire des données**: elle conduit à des conclusions statistiques à partir de données en utilisant des notions de la théorie des probabilités. Cette partie plus formelle concerne notamment des méthodes de test, d'estimation et de prévision.  
-
-On distingue en général deux grands types d'études: expérimentales et observationnelles. La démarche est fondamentalement différente, ainsi que les conclusions que l'on peut en tirer.
 ```{figure} table.svg
 ---
 name: directive-fi
