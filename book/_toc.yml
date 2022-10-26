@@ -8,6 +8,7 @@ defaults:  # The defaults key will be applied to all chapters and sub-sections
 parts:
   - caption: À propos du cours
     chapters:
+    - file: Tutoriel_Python
     - file: Introduction
   - caption: Statistique Exploratoire
     numbered: True
