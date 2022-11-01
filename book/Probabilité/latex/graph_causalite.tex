@@ -1,0 +1,308 @@
+\documentclass{standalone}
+  \usepackage{pgf}
+\usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+	\edef\pgfpageoptionheight{\the\paperheight} 
+	\edef\pgfpageoptionwidth{\the\paperwidth}
+	\edef\pgfpageoptionborder{0pt}
+}
+{
+	\pgfpagesphysicalpageoptions
+	{%
+		logical pages=4,%
+		physical height=\pgfpageoptionheight,%
+		physical width=\pgfpageoptionwidth%
+	}
+	\pgfpageslogicalpageoptions{1}
+	{%
+		border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+	}%
+	\pgfpageslogicalpageoptions{2}
+	{%
+		border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+	}%
+	\pgfpageslogicalpageoptions{3}
+	{%
+		border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+	}%
+	\pgfpageslogicalpageoptions{4}
+	{%
+		border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+	}%
+}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[french]{babel}
+
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+%\usefonttheme{professionalfonts} % using non standard fonts for beamer
+%\usepackage{fontspec}
+%\setmainfont{Source Sans Pro}
+
+% everyone:
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+%\usepackage{pgf}
+%\pgfdeclareimage[height=1cm]{myimage}{plots/EPFL_Logo.png}
+
+% These packages are needed for Latex to work well in french language
+
+\usepackage{hyperref}
+\hypersetup{
+pdftoolbar=true,        % show Acrobat’s toolbar?
+pdfmenubar=true,        % show Acrobat’s menu?
+pdffitwindow=false,     % window fit to page when opened
+pdfstartview={FitH},    % fits the width of the page to the window
+colorlinks=true,        % false: boxed links; true: colored links
+linkcolor=blue,        % color of internal links (change box color with linkbordercolor)
+citecolor=blue,         % color of links to bibliography
+filecolor=magenta,      % color of file links
+urlcolor=blue          % color of external links
+}
+%\usepackage{enumerate}
+%\usepackage{enumitem}
+%
+%\newtheoremstyle{break}% name
+%  {}%         Space above, empty = `usual value'
+%  {}%         Space below
+%  {\itshape}% Body font
+%  {}%         Indent amount (empty = no indent, \parindent = para indent)
+%  {\bfseries}% Thm head font
+%  {:}%        Punctuation after thm head
+%  {}% Space after thm head: \newline = linebreak
+%  {}%         Thm head spec
+%\theoremstyle{break}
+%\newtheorem{exemple}{Exemple}
+
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\definecolor{ggorange}{RGB}{237,116,108} % trouvé les couleurs dans colorimètre numérique, avec sRVB
+\definecolor{ggblue}{RGB}{88,192,197} 
+\newcommand{\dred}[1]{\begin{color}{red}{#1}\end{color}}
+\newcommand{\dblue}[1]{\begin{color}{blue}{#1}\end{color}}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows, arrows.meta,backgrounds,decorations, calc}
+\usepackage{tikzsymbols}
+
+%\usepackage{textcomp}
+%\usepackage{parskip}
+\usepackage{venndiagram}
+\usepackage{environ} % useful for the "scaletikzpicturetowidth" commands
+%\usepackage{etoolbox,refcount}
+\pgfplotsset{compat=newest}
+\usepackage{verbatim}
+\usepackage{soul} 
+\usepackage{comment}
+\usepackage{fourier-orns} % symbol "warning", week 1
+\usepackage{adjustbox}
+
+% The following lines are necessary to define the AutoMultiColItemize environment
+% which is used on the slide with the drawing of the boxplot
+\usepackage{multicol}
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+	\stepcounter{nextitemizecount}%
+	\setcounter{countitems}{0}%
+	\preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+	\edef\@currentlabel{\number\c@countitems}%
+	\label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\newcommand{\nextitemizecount}{%
+	\getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+\newcommand{\previtemizecount}{%
+	\getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother    
+\newenvironment{AutoMultiColItemize}{%
+	\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+		\setupcountitems\begin{itemize}}%
+		{\end{itemize}%
+		\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+% macros go here
+
+%\declaretheoremstyle[
+%notefont=\bfseries, notebraces={}{},
+%bodyfont=\normalfont\itshape,
+%postheadhook = {\hspace*{\parindent}},
+%postheadspace = \newline, 
+%spaceabove = 0.5cm, 
+%spacebelow = 0.5cm,
+%headformat=\NAME~(\NOTE)
+%]{nopar}
+%\declaretheorem[style=nopar, name = Theorem]{thm-ref}
+%\theoremstyle{nopar}
+%
+%\newtheorem{theorem}{Théorème}
+
+
+
+\newcommand{\target}[1]{%
+	\foreach \r/\col in {2.5/blue!10!white, 2/blue!20!white, 1.5/white, 1/red!10!white, 0.5/red!30!white, 0.05/red!50!white} {
+		\draw [
+		fill = \col%,
+		% fill opacity = 0.15
+		] (0, 0) circle (\r cm);
+	}
+}%
+
+\newcommand{\points}[3]{%
+	\foreach \i in {1, 2, ..., 20} {
+		\pgfmathsetmacro{\xcoord}{#1 + rand * #3}
+		\pgfmathsetmacro{\ycoord}{#2 + rand * #3}
+		\draw[fill = red] (\xcoord, \ycoord) circle (2pt);
+	}
+}%
+
+
+\newcommand{\circlevar}[3]{%
+	\draw[color = green] (#1, #2) circle (#3 cm);
+	\node[text = green] at (#1, #2) {$\bullet$};
+}%
+
+\def\border{
+	\draw (-2.65, -2.75) -- ++(5.25, 0);
+	\draw (2.75, 2.65) -- ++(0, -5.25);
+}%
+
+
+\newcommand{\dotsim}{\stackrel{.}{\sim}} 
+\newcommand{\iidsim}{\stackrel{\text{i.i.d.}}{\sim}} 
+\def\Pr{\text{Pr}}
+%\def\Pr{\mathbb{P}}
+\def\cov{\text{cov}}
+\def\corr{\text{corr}}
+\def\var{\text{var}}
+\def\E{\mathbb{E}}
+\def\med{\text{med}}
+\def\EQM{\text{EQM}}
+\newcommand\abs[1]{\left| #1\right|}
+\newcommand{\argmin}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{min}}\;}
+\newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
+% Commands for compatibility with Emeric's style
+\def\bi{\begin{itemize}}
+	\def\ei{\end{itemize}}
+\def\halfback{{\vspace{-0.1in}}}
+\def\back{{\vspace{-0.2in}}}
+\def\Ndist{\mathcal{N}}
+\def\N{\mathcal{N}}
+\def\s{s}
+\def\Real{\mathbb{R}}
+
+\newcommand{\shiftgauche}{(-6,-4)}
+\newcommand{\shiftdroite}{(6,-4)}
+
+\newcommand{\gauche}{(-2,0)}
+\newcommand{\droite}{(2,0)}
+
+\newcommand{\D}{(-1.1,-1.1) rectangle (1.1,1.1)}
+\newcommand{\A}{(0,0) circle (1)}
+\newcommand{\B}{(0,0)++(1.5,0) circle (1)}
+\newcommand{\C}{(0,0) circle(1)}
+
+\newcommand{\ggauche}{(0,0)++\shiftgauche++ \gauche}
+\newcommand{\gdroite}{(0,0)++\shiftgauche++ \droite}
+\newcommand{\dgauche}{(0,0)++\shiftdroite++ \gauche}
+\newcommand{\ddroite}{(0,0)++\shiftdroite++ \droite}
+
+\newcommand{\Abasgauche}{\ggauche circle (1)}
+\newcommand{\Abasdroite}{\gdroite circle (1)}
+
+\newcommand{\Abasdgauche}{\dgauche circle (1)}
+\newcommand{\Abasddroite}{\ddroite circle (1)}
+\newcommand{\Bbasdgauche}{\dgauche++(1.5,0) circle (1)}
+\newcommand{\Bbasddroite}{\ddroite++(1.5,0) circle (1)}
+
+\newcommand{\Bbasgauche}{\ggauche circle (1)}
+\newcommand{\Bbasdroite}{\gdroite circle (1)}
+\begin{document}
+
+\begin{tikzpicture}
+	
+	
+	
+	\coordinate (initarrowg) at (225:1.1);
+	\coordinate (shiftg) at (-6,-4);
+	\coordinate (initarrowd) at (-45:1.1);
+	\coordinate (shiftd) at (6,-4);
+	\coordinate (finarrowd) at ($(shiftd)+(0,1.5)$);
+	
+	\coordinate (finarrowg) at ($(shiftg)+(0,1.5)$);
+	
+	\draw[white] \D;
+	\fill[opacity = .5, blue]  \A;
+	\fill[white] \B;
+	
+	\begin{scope}
+		\clip \B;
+		\fill[opacity = .5, red] \A;
+	\end{scope}
+	
+	\fill[opacity = .5, blue]  \Abasgauche;
+	\fill[opacity = .5, red]  \Abasdroite;
+	
+	\draw (0,0)++\shiftgauche node {vs};
+	
+	%
+	\begin{scope}
+		\clip \Bbasddroite;
+		\fill[opacity = 0.5, red] \Abasddroite;
+	\end{scope}
+	%\draw \Abasddroite;
+	%
+	%
+	\fill[opacity = .5, blue] \Abasdgauche;
+	\fill[white] \Bbasdgauche;
+	
+	\draw \dgauche++(0,-2) node {$\text{E}[Y | A = 1]$};
+	\draw \ddroite++(0,-2) node {$\text{E}[Y | A = 0]$};
+	
+	\draw \ggauche++(0,-2) node {$\text{E}[Y^{a = 1}]$};
+	\draw \gdroite++(0,-2) node {$\text{E}[Y^{a = 0}]$};
+	
+	\begin{scope}
+		\clip \B;
+		\fill[opacity = .5, red] \A;
+	\end{scope}
+	\draw (0,0)++\shiftdroite node {vs};
+	\draw [ultra thick,-{Latex[round]}](initarrowg)--(finarrowg) node[below]{\text{Causalité}};
+	\draw [ultra thick,-{Latex[round]}](initarrowd)--(finarrowd) node[below]{\text{Association}};
+	\draw \gauche node {$\text{traités}$};
+	\draw \droite node {$\text{non-traités}$};
+	\draw (0,2) node {$\text{Population}$};
+	
+\end{tikzpicture}
+
+\end{document}

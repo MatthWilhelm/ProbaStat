@@ -337,4 +337,79 @@ De même, l'absence de corrélation n'indique pas l'absence de lien.
 De nombreux travaux (certains très récents) visent à développer des méthodes pour établir (ou rejeter) un lien entre deux variables aléatoires, c'est-à-dire pour tester l'hypothèse d'indépendance.
 - *(Brownian) Distance correlation*: G. Székely and M. Rizzo ([2007](https://projecteuclid.org/journals/annals-of-statistics/volume-35/issue-6/Measuring-and-testing-dependence-by-correlation-of-distances/10.1214/009053607000000505.full), [2009](https://projecteuclid.org/journals/annals-of-applied-statistics/volume-3/issue-4/Brownian-distance-covariance/10.1214/09-AOAS312.full));
 - *A new correlation coefficient*: S. Chatterjee ([+2021](https://www.tandfonline.com/doi/abs/10.1080/01621459.2020.1758115?journalCode=uasa20&));
-- voir Shi, Drton et Han ([+2021](https://doi.org/10.1093/biomet/asab028)) pour une discussion plus générale.
+- voir Shi, Drton et Han ([+2021](https://doi.org/10.1093/biomet/asab028)) pour une discussion plus générale.  
+  
+Supposons que pour une population finie connue notée $Y$, on cherche à étudier l'efficacité d'un traitement $A$. 
+\begin{gather*}
+    Y = \left\{ \begin{array}{cl} 1 & \text{si l'individu est malade}  \\ 0 & \text{sinon}    \end{array} \right. \
+\end{gather*}
+et 
+\begin{gather*}
+    A = \left\{ \begin{array}{cl} 1 & \text{si l'individu reçoit un traitement}  \\ 0 & \text{sinon}    \end{array} \right.
+\end{gather*}
+Alors $Y$ et $A$ sont \textit{associées} si
+\begin{gather*}
+    \Pr(Y = 1 | A = 1) \neq \Pr(Y = 1 | A = 0). 
+\end{gather*}  
+ 
+La question de la causalité peut se résumer par l'interrogation   
+« Et si ? » 
+Supposons qu'un individu, Bertrand, soit exposé à des produits émis par une usine pétro-chimique aujourd'hui démantelée et voisine de son domicile et développe une maladie grave. Supposons aussi que l'on ait accès à une réalité parallèle où Bertrand aurait exactement la même vie, à la différence près que l'usine n'aurait jamais été construite et que dans cette vie, Bertrand n'aurait pas développé de maladie.  
+Alors on peut conclure que la présence de l'usine *a causé* sa maladie grave.  
+
+Pour étudier à une relation causale entre deux facteurs (l'usine et le fait d'être malade) et pour un contexte fixé (la vie de Bertrand), on compare alors une situation réellement advenue (présence de l'usine) et une situation hypothétique (absence de l'usine) et l'effet sur la maladie.   
+
+La causalité s'exprime alors comme la différence entre la situation réelle et une situation inobservée, que l'on appelle *contre-factuelle*.  
+
+````{prf:example} 
+:label: ex_dieux_olympe
+
+Les dieux de l'Olympe sont tous atteints d'une maladie grave, l'orgueil. Esculape, le médecin de l'équipe, pense avoir trouvé un remède. Pour le tester, il propose à certains dieux de prendre ce traitement, qui devrait faire effet dans les 5 jours.
+
+
+- On note $A$ la variable indicatrice de la prise de traitement;
+- On note $Y$ la variable indicatrice de la guérison après 5 jours;
+- On note $Y^{A = a}$ pour signifier la variable indicatrice de guérison après avoir pris ou pas le traitement, i.e. $a \in \{0,1\}$.
+
+
+```{figure} latex/PDFSVG/tab5_prob.svg
+--- 
+name: tab5_prob
+width: 95%
+---
+```  
+
+Autrement dit ...  
+
+
+```{figure} latex/PDFSVG/tab6_prob.svg
+--- 
+name: tab6_prob
+width: 95%
+---
+```
+
+Esculape, conscient des limites de son plan d'expérience, décide de demander l'aide de Chronos (à ne pas confondre avec Cronos), qui gère le temps sur l'Olympe. Il revient dans le temps et assigne à chaque dieux l'exact contraire du traitement qu'ils avaient initialement choisi. 
+
+On obtient alors le tableau suivant.
+
+```{figure} latex/PDFSVG/tab7_prob.svg
+--- 
+name: tab7_prob
+width: 95%
+---
+```
+````
+
+Notons la différence:
+
+- $ \Pr(Y = 1| A = 1) = 7/13 \neq \Pr(Y = 1| A = 0) = 3/7$: association;
+- $ \Pr(Y^{A = 1} = 1) = 1/2 = \Pr(Y^{A = 0} = 1)$: pas de causalité!
+
+
+```{figure} latex/PDFSVG/graph_causalite.svg
+--- 
+name: graph_causalite
+width: 95%
+---
+```
