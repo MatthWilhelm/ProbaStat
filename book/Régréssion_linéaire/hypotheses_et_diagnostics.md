@@ -1,4 +1,4 @@
-# Régréssion linéaire: hypothèses et diagnostics
+# Régréssion linéaire: hypothèses et diagnostiques
 
 ```{math}
 \newcommand\corr{\text{Corr}}
@@ -70,7 +70,7 @@ width: 95%
 name: linearity_diagnostic_contre_exemple
 width: 95%
 ---
-: Diagnostic de linéarité: contre-exemple
+: Diagnostique de linéarité: contre-exemple
 ```
 
 ## Homoscédasticité (variance constante)
@@ -95,7 +95,7 @@ width: 95%
 : Hétéroscédastique
 ```
 
-## Diagnostics d'indépendance
+## Diagnostiques d'indépendance
 
 De manière générale, l'hypothèse d'indépendance des résidus est la plus difficile à évaluer. Et l'indépendance peut-être violée de différentes manières. On mentionne deux facteurs importants:
 - autocovariance dans le terme d'erreur;
@@ -127,7 +127,7 @@ Par ailleurs, on a $\boldsymbol{\beta} = (5, -1, 2)^\top$ et $5$ est la valeur d
 name: independance_diagnostic_autocorrelation
 width: 95%
 ---
-: Exemple de diagnostic d'indépendance
+: Exemple de diagnostique d'indépendance
 ```
 ACF et PACF des résidus standardisés d'une réalisation du modèle (M1).
 ```{figure} PDFSVG/ar1_diagnostic_autocorrelation.svg
@@ -135,13 +135,13 @@ ACF et PACF des résidus standardisés d'une réalisation du modèle (M1).
 name: ar1_diagnostic_autocorrelation
 width: 95%
 ---
-: Contre-exemple de diagnostic d'indépendance
+: Contre-exemple de diagnostique d'indépendance
 ```
 ACF et PACF des résidus standardisés d'une réalisation du modèle (M2)
 ````
 
 
-## Diagnostic de normalité
+## Diagnostique de normalité
 
 On utilise très souvent le QQ-plot (graphique quantile/quantile) pour comparer une distribution empirique par rapport à une distribution théorique $F$ (continue). Soient $x_{(1)}, \dots, x_{(n)}$ un échantillon ordonné et soit $F^{-1}$ le fonction réciproque de $F$, appelée aussi fonction quantile. Alors un QQplot est un nuage de points dont les coordonnées sont
 \begin{gather*}(F^{-1}(c_1), x_{(1)}),\dots, (F^{-1}(c_n), x_{(n)}),\end{gather*}
