@@ -1,0 +1,1318 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Série2 : Correction &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Correction/R/Série2/Sol2R.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="prev" title="Série1 : Correction" href="../S%C3%A9rie1/Sol1R.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/EPFL_Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Tutoriel_Python.html">
+   Tutoriel Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   1. Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/graphiques.html">
+   2. Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   3. Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/boxplot.html">
+   4. Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/loi_normale.html">
+   5. Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   6. Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/concepts_de_base.html">
+   1. Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/arrangements_et_combinaisons.html">
+   2. Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/probabilite_conditionnelle_independance.html">
+   3. Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/probabilites_totales_et_theoreme_de_bayes.html">
+   4. Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_discretes.html">
+   5. Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_continues.html">
+   6. Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_conjointes.html">
+   7. Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/valeurs_caracteristiques.html">
+   8. Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/theoreme_fondamentaux.html">
+   9. Théorème fondamentaux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   2. Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   3. Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   4. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   5. Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   6. Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   7. Test du
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   8. Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   2. Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   3. Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   4. Régréssion linéaire: hypothèses et diagnostiques
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rie1/S%C3%A9rie1Python.html">
+   Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rie3/S%C3%A9rie3Python.html">
+   Série3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
+   Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rie3/S%C3%A9rie3R.html">
+   Série3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Python/S%C3%A9rie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Python/S%C3%A9rie2/Sol2P.html">
+   Série2 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Série2 : Correction
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/MatthWilhelm/ProbaStat/master?urlpath=tree/book/Correction/R/Série2/Sol2R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://noto.epfl.ch/hub/user-redirect/git-pull?repo=https%3A//github.com/MatthWilhelm/ProbaStat&urlpath=tree/ProbaStat/book/Correction/R/S%C3%A9rie2/Sol2R.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat/issues/new?title=Issue%20on%20page%20%2FCorrection/R/Série2/Sol2R.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat/edit/master/book/Correction/R/Série2/Sol2R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/Correction/R/Série2/Sol2R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4-lien-entre-une-variable-de-bernoulli-et-une-variable-geometrique">
+   Exercice 4: Lien entre une variable de Bernoulli et une variable géométrique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-6">
+   Exercice 6:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Série2 : Correction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4-lien-entre-une-variable-de-bernoulli-et-une-variable-geometrique">
+   Exercice 4: Lien entre une variable de Bernoulli et une variable géométrique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-6">
+   Exercice 6:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="serie2-correction">
+<h1>Série2 : Correction<a class="headerlink" href="#serie2-correction" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="exercice-1">
+<h2>Exercice 1:<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Nous avons à notre disposition les données d’échec ou de réussite de l’examen de cette matière de 2020. Nous allons nous intérésser en particulier à deux variables binaires de ces données:</p>
+<ul class="simple">
+<li><p>La section: <strong>S</strong> <span class="math notranslate nohighlight">\(\in\{\text{GM},\text{EL}\}\)</span></p></li>
+<li><p>Le succes à l’examen: <strong>A</strong> <span class="math notranslate nohighlight">\(\in\{0,1\}\)</span></p></li>
+</ul>
+<p>Dans le cadre des probabilités conditionnelles, avec deux variables binaires, une erreur qui revient souvent est de penser que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{GM}\right) + \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{EL}\right) = 1 \end{equation*}\]</div>
+<p>Néanmoins, cela est généralement faux. Nous allons donc nous appliquer à montrer que cela est faux dans notre cas, ainsi que de voir quel serait la version correcte de cette équation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;Success_ProbaStat.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>1) Synthétiser ces données de façon à avoir le nombre d’échec ou de réussite par section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution R: ##########</span>
+
+<span class="n">Prop</span> <span class="o">&lt;-</span> <span class="n">data</span> <span class="o">%&gt;%</span> <span class="nf">count</span><span class="p">(</span><span class="n">Section</span><span class="p">,</span> <span class="n">Succes</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">prop</span> <span class="o">=</span> <span class="nf">prop.table</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">Prop</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 4 × 4</caption>
+<thead>
+	<tr><th scope=col>Section</th><th scope=col>Succes</th><th scope=col>n</th><th scope=col>prop</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>EL</td><td>0</td><td> 11</td><td>0.04526749</td></tr>
+	<tr><td>EL</td><td>1</td><td> 38</td><td>0.15637860</td></tr>
+	<tr><td>GM</td><td>0</td><td> 32</td><td>0.13168724</td></tr>
+	<tr><td>GM</td><td>1</td><td>162</td><td>0.66666667</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>2) Montrer expérimentalement que <span class="math notranslate nohighlight">\( \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{GM}\right) + \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{EL}\right) \neq 1 \)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution R: ##########</span>
+
+<span class="c1"># Probabilité empirique d&#39;être en GM ou en EL</span>
+<span class="n">prop_section</span> <span class="o">&lt;-</span> <span class="n">data</span> <span class="o">%&gt;%</span> <span class="nf">count</span><span class="p">(</span><span class="n">Section</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">prop</span> <span class="o">=</span> <span class="nf">prop.table</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="c1"># Probabilité empirique de réussir l&#39;examen en fonction de la section GM ou en EL</span>
+<span class="n">prop_succes</span> <span class="o">&lt;-</span> <span class="n">Prop</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">Succes</span> <span class="o">==</span> <span class="m">1</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="n">Section</span><span class="p">,</span><span class="n">prop</span><span class="p">)</span>
+<span class="c1"># Probabilité empirique de ne pas réussir l&#39;examen en fonction de la section GM ou en EL</span>
+<span class="n">prop_fail</span> <span class="o">&lt;-</span> <span class="n">Prop</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">Succes</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="n">Section</span><span class="p">,</span><span class="n">prop</span><span class="p">)</span>
+
+<span class="c1"># Calcul de cette somme de probabilité</span>
+<span class="n">prob_sum</span> <span class="o">&lt;-</span> <span class="n">prop_succes</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="n">prop_section</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">prop_succes</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="n">prop_section</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
+<span class="n">prob_sum</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1.61056175047339</div></div>
+</div>
+<p>3) Cette erreur est plutôt commune et vient d’une confusion avec une autre équation qui elle est correcte:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}\mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{s}\right) + \mathbb{P}\left(\textbf{A} = 0 | \textbf{S} = \text{s}\right) = 1, \forall s\in\{\text{GM},\text{EL}\}
+\end{equation*}\]</div>
+<p>Vérifier expérimentalement que cette équation est correcte.
+<strong>Solution</strong>:<br />
+Ce résultat est vrai de manière générale, il découle directement de la définition de la probabilité conditionnel. Sauriez-vous montrer rigoureusement pourquoi cela est vrai ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution R: ##########</span>
+
+<span class="n">EL</span> <span class="o">&lt;-</span> <span class="n">prop_succes</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="n">prop_section</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">prop_fail</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="n">prop_section</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
+<span class="n">GM</span> <span class="o">&lt;-</span> <span class="n">prop_succes</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="n">prop_section</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">prop_fail</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="n">prop_section</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
+
+<span class="n">EL</span>
+<span class="n">GM</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1</div><div class="output text_html">1</div></div>
+</div>
+</section>
+<section id="exercice-2">
+<h2>Exercice 2:<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Nous allons considérer quatre fonctions définies de l’ensemble <span class="math notranslate nohighlight">\(\left\{0, 1, 2, ..., 10\right\}\)</span> dans <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>. Le but de cet exercice est de vérifier lesquels de ces fonctions sont des fonctions de masses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;fonction.r&quot;</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">9</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+
+<span class="c1"># Vous pouvez accéder à ces quatres fonctions, f1,f2,f3,f4, de la manière suivante</span>
+<span class="nf">f1</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.25</div></div>
+</div>
+<p>1) La fonction <code class="docutils literal notranslate"><span class="pre">f1</span></code> est-elle une fonction de masse ?</p>
+<p><strong>Solution</strong>: Oui, la fonction de <code class="docutils literal notranslate"><span class="pre">f1</span></code> est une fonction de masse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution R: ##########</span>
+
+<span class="c1"># Vérifier si f1 est une fonction de masse</span>
+<span class="n">masse</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>
+<span class="n">sum_</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">x</span> <span class="n">in</span> <span class="n">X</span><span class="p">){</span>
+    <span class="n">sum_</span> <span class="o">&lt;-</span> <span class="n">sum_</span> <span class="o">+</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&lt;</span><span class="m">0</span><span class="p">){</span>
+        <span class="n">masse</span> <span class="o">=</span> <span class="kc">FALSE</span>
+        <span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;f1(%i) = %f &lt; 0&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span><span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">sum_</span><span class="m">-1</span><span class="p">)</span><span class="o">&gt;</span><span class="m">1e-06</span><span class="p">){</span>
+    <span class="n">masse</span> <span class="o">=</span> <span class="kc">FALSE</span>
+<span class="p">}</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="n">masse</span><span class="p">){</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;La fonction f1 est donc une fonction de masse&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">else</span><span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;La fonction f1 n&#39;est donc pas une fonction de masse&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;La fonction f1 est donc une fonction de masse&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>2) La fonction <code class="docutils literal notranslate"><span class="pre">f2</span></code> est-elle une fonction de masse ?</p>
+<p><strong>Solution</strong>: Non, la fonction de <code class="docutils literal notranslate"><span class="pre">f2</span></code> n’est pas une fonction de masse car elle ne respecte pas la condition <span class="math notranslate nohighlight">\(\sum_i f_2(x_i) = 1\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution R: ##########</span>
+
+<span class="c1"># Vérifier si f2 est une fonction de masse</span>
+<span class="n">masse</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>
+<span class="n">sum_</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">x</span> <span class="n">in</span> <span class="n">X</span><span class="p">){</span>
+    <span class="n">sum_</span> <span class="o">&lt;-</span> <span class="n">sum_</span> <span class="o">+</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&lt;</span><span class="m">0</span><span class="p">){</span>
+        <span class="n">masse</span> <span class="o">=</span> <span class="kc">FALSE</span>
+        <span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;f2(%i) = %f &lt; 0&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span><span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">sum_</span><span class="m">-1</span><span class="p">)</span><span class="o">&gt;</span><span class="m">1e-06</span><span class="p">){</span>
+    <span class="n">masse</span> <span class="o">=</span> <span class="kc">FALSE</span>
+<span class="p">}</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="n">masse</span><span class="p">){</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;La fonction f2 est donc une fonction de masse&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">else</span><span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;La fonction f2 n&#39;est donc pas une fonction de masse&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;La fonction f2 n&#39;est donc pas une fonction de masse&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>3) La fonction <code class="docutils literal notranslate"><span class="pre">f3</span></code> est-elle une fonction de masse ?</p>
+<p><strong>Solution</strong>: Oui, la fonction de <code class="docutils literal notranslate"><span class="pre">f3</span></code> est une fonction de masse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution R: ##########</span>
+
+<span class="c1"># Vérifier si f2 est une fonction de masse</span>
+<span class="n">masse</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>
+<span class="n">sum_</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">x</span> <span class="n">in</span> <span class="n">X</span><span class="p">){</span>
+    <span class="n">sum_</span> <span class="o">&lt;-</span> <span class="n">sum_</span> <span class="o">+</span> <span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&lt;</span><span class="m">0</span><span class="p">){</span>
+        <span class="n">masse</span> <span class="o">=</span> <span class="kc">FALSE</span>
+        <span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;f3(%i) = %f &lt; 0&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span><span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">sum_</span><span class="m">-1</span><span class="p">)</span><span class="o">&gt;</span><span class="m">1e-06</span><span class="p">){</span>
+    <span class="n">masse</span> <span class="o">=</span> <span class="kc">FALSE</span>
+<span class="p">}</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="n">masse</span><span class="p">){</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;La fonction f3 est donc une fonction de masse&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">else</span><span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;La fonction f3 n&#39;est donc pas une fonction de masse&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;La fonction f3 est donc une fonction de masse&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>4) La fonction <code class="docutils literal notranslate"><span class="pre">f4</span></code> est-elle une fonction de masse ?</p>
+<p><strong>Solution</strong>: Non, la fonction de <code class="docutils literal notranslate"><span class="pre">f4</span></code> n’est pas une fonction de masse car elle ne respecte pas la condition <span class="math notranslate nohighlight">\(\sum_i f_4(x_i) = 1\)</span> et on a que <span class="math notranslate nohighlight">\(f4(9) &lt; 0\)</span> ce qui n’est pas possible, par définition, pour une fonction de masse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution R: ##########</span>
+
+<span class="c1"># Vérifier si f4 est une fonction de masse</span>
+<span class="n">masse</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>
+<span class="n">sum_</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">x</span> <span class="n">in</span> <span class="n">X</span><span class="p">){</span>
+    <span class="n">sum_</span> <span class="o">&lt;-</span> <span class="n">sum_</span> <span class="o">+</span> <span class="nf">f4</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">f4</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&lt;</span><span class="m">0</span><span class="p">){</span>
+        <span class="n">masse</span> <span class="o">=</span> <span class="kc">FALSE</span>
+        <span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;f4(%i) = %f &lt; 0&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span><span class="nf">f4</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">sum_</span><span class="m">-1</span><span class="p">)</span><span class="o">&gt;</span><span class="m">1e-06</span><span class="p">){</span>
+    <span class="n">masse</span> <span class="o">=</span> <span class="kc">FALSE</span>
+<span class="p">}</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="n">masse</span><span class="p">){</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;La fonction f4 est donc une fonction de masse&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">else</span><span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;La fonction f4 n&#39;est donc pas une fonction de masse&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;La fonction f4 n&#39;est donc pas une fonction de masse&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-3">
+<h2>Exercice 3:<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Le but de cet exercice est de déterminer si les fonctions suivantes peuvent être des fonctions de répartitions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">patchwork</span><span class="p">)</span>
+
+<span class="n">data1</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">10</span><span class="n">.</span><span class="p">,</span><span class="m">10</span><span class="n">.</span><span class="p">,</span><span class="m">20</span><span class="n">.</span><span class="p">,</span><span class="m">20</span><span class="n">.</span><span class="p">,</span><span class="m">30</span><span class="n">.</span><span class="p">,</span><span class="m">30</span><span class="n">.</span><span class="p">,</span><span class="m">40</span><span class="n">.</span><span class="p">,</span><span class="m">40</span><span class="n">.</span><span class="p">,</span><span class="m">50</span><span class="n">.</span><span class="p">,</span><span class="m">50</span><span class="n">.</span><span class="p">,</span><span class="m">60</span><span class="n">.</span><span class="p">,</span><span class="m">60</span><span class="n">.</span><span class="p">,</span><span class="m">70</span><span class="n">.</span><span class="p">,</span><span class="m">70</span><span class="n">.</span><span class="p">,</span><span class="m">80</span><span class="n">.</span><span class="p">,</span><span class="m">80</span><span class="n">.</span><span class="p">,</span><span class="m">90</span><span class="n">.</span><span class="p">,</span><span class="m">90</span><span class="n">.</span><span class="p">,</span><span class="m">100</span><span class="n">.</span><span class="p">,</span><span class="m">100</span><span class="n">.</span><span class="p">,</span><span class="m">120</span><span class="n">.</span><span class="p">,</span><span class="m">120</span><span class="n">.</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0.1</span><span class="p">,</span><span class="m">0.1</span><span class="p">,</span><span class="m">0.19</span><span class="p">,</span><span class="m">0.19</span><span class="p">,</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.34</span><span class="p">,</span><span class="m">0.34</span><span class="p">,</span><span class="m">0.45</span><span class="p">,</span><span class="m">0.45</span><span class="p">,</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.57</span><span class="p">,</span><span class="m">0.57</span><span class="p">,</span><span class="m">0.61</span><span class="p">,</span><span class="m">0.61</span><span class="p">,</span><span class="m">0.63</span><span class="p">,</span><span class="m">0.63</span><span class="p">,</span><span class="m">0.65</span><span class="p">,</span><span class="m">0.65</span><span class="p">,</span><span class="m">0.67</span><span class="p">,</span><span class="m">0.67</span><span class="p">,</span><span class="m">0.67</span><span class="p">))</span>
+<span class="n">data2</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="m">0.1</span><span class="o">*</span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">10</span><span class="n">.</span><span class="p">,</span><span class="m">10</span><span class="n">.</span><span class="p">,</span><span class="m">20</span><span class="n">.</span><span class="p">,</span><span class="m">20</span><span class="n">.</span><span class="p">,</span><span class="m">30</span><span class="n">.</span><span class="p">,</span><span class="m">30</span><span class="n">.</span><span class="p">,</span><span class="m">35</span><span class="n">.</span><span class="p">,</span><span class="m">35</span><span class="n">.</span><span class="p">,</span><span class="m">50</span><span class="n">.</span><span class="p">,</span><span class="m">50</span><span class="n">.</span><span class="p">,</span><span class="m">54</span><span class="n">.</span><span class="p">,</span><span class="m">54</span><span class="n">.</span><span class="p">,</span><span class="m">70</span><span class="n">.</span><span class="p">,</span><span class="m">70</span><span class="n">.</span><span class="p">,</span><span class="m">83</span><span class="n">.</span><span class="p">,</span><span class="m">83</span><span class="n">.</span><span class="p">,</span><span class="m">90</span><span class="n">.</span><span class="p">,</span><span class="m">90</span><span class="n">.</span><span class="p">,</span><span class="m">115</span><span class="n">.</span><span class="p">,</span><span class="m">115</span><span class="n">.</span><span class="p">,</span><span class="m">120</span><span class="n">.</span><span class="p">,</span><span class="m">120</span><span class="n">.</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0.05</span><span class="p">,</span><span class="m">0.05</span><span class="p">,</span><span class="m">0.09</span><span class="p">,</span><span class="m">0.09</span><span class="p">,</span><span class="m">0.15</span><span class="p">,</span><span class="m">0.15</span><span class="p">,</span><span class="m">0.34</span><span class="p">,</span><span class="m">0.34</span><span class="p">,</span><span class="m">0.39</span><span class="p">,</span><span class="m">0.39</span><span class="p">,</span><span class="m">0.47</span><span class="p">,</span><span class="m">0.47</span><span class="p">,</span><span class="m">0.67</span><span class="p">,</span><span class="m">0.67</span><span class="p">,</span><span class="m">0.86</span><span class="p">,</span><span class="m">0.86</span><span class="p">,</span><span class="m">0.89</span><span class="p">,</span><span class="m">0.89</span><span class="p">,</span><span class="m">0.91</span><span class="p">,</span><span class="m">0.91</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">))</span>
+<span class="n">data3</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">10</span><span class="n">.</span><span class="p">,</span><span class="m">10</span><span class="n">.</span><span class="p">,</span><span class="m">20</span><span class="n">.</span><span class="p">,</span><span class="m">20</span><span class="n">.</span><span class="p">,</span><span class="m">30</span><span class="n">.</span><span class="p">,</span><span class="m">30</span><span class="n">.</span><span class="p">,</span><span class="m">35</span><span class="n">.</span><span class="p">,</span><span class="m">35</span><span class="n">.</span><span class="p">,</span><span class="m">50</span><span class="n">.</span><span class="p">,</span><span class="m">50</span><span class="n">.</span><span class="p">,</span><span class="m">54</span><span class="n">.</span><span class="p">,</span><span class="m">54</span><span class="n">.</span><span class="p">,</span><span class="m">70</span><span class="n">.</span><span class="p">,</span><span class="m">70</span><span class="n">.</span><span class="p">,</span><span class="m">83</span><span class="n">.</span><span class="p">,</span><span class="m">83</span><span class="n">.</span><span class="p">,</span><span class="m">90</span><span class="n">.</span><span class="p">,</span><span class="m">90</span><span class="n">.</span><span class="p">,</span><span class="m">115</span><span class="n">.</span><span class="p">,</span><span class="m">115</span><span class="n">.</span><span class="p">,</span><span class="m">120</span><span class="n">.</span><span class="p">,</span><span class="m">120</span><span class="n">.</span><span class="p">),</span>
+                   <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0.05</span><span class="p">,</span><span class="m">0.05</span><span class="p">,</span><span class="m">0.09</span><span class="p">,</span><span class="m">0.09</span><span class="p">,</span><span class="m">0.15</span><span class="p">,</span><span class="m">0.15</span><span class="p">,</span><span class="m">0.34</span><span class="p">,</span><span class="m">0.34</span><span class="p">,</span><span class="m">0.39</span><span class="p">,</span><span class="m">0.39</span><span class="p">,</span><span class="m">0.47</span><span class="p">,</span><span class="m">0.47</span><span class="p">,</span><span class="m">0.67</span><span class="p">,</span><span class="m">0.67</span><span class="p">,</span><span class="m">0.86</span><span class="p">,</span><span class="m">0.86</span><span class="p">,</span><span class="m">0.84</span><span class="p">,</span><span class="m">0.84</span><span class="p">,</span><span class="m">0.91</span><span class="p">,</span><span class="m">0.91</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">))</span>
+
+<span class="n">f1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="n">f2</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="n">f3</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data3</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+
+<span class="p">(</span><span class="n">f1</span> <span class="o">+</span> <span class="n">f2</span><span class="p">)</span> <span class="o">/</span> <span class="n">f3</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Sol2R_19_0.png" src="../../../_images/Sol2R_19_0.png" />
+</div>
+</div>
+<p>1) La Figue 1 est-elle le plot d’une fonction de répartition ?</p>
+<p><strong>Solution</strong>: Non, car <span class="math notranslate nohighlight">\( F(x) = \Pr (X \leq x) \)</span> implique que <span class="math notranslate nohighlight">\( \lim_{x\to\infty} F(x) = 1 \)</span>.</p>
+<p>2) La Figue 2 est-elle le plot d’une fonction de répartition ?</p>
+<p><strong>Solution</strong>: Oui.</p>
+<p>3) La Figue 3 est-elle le plot d’une fonction de répartition ?</p>
+<p><strong>Solution</strong>: Non, car la fonction doit être non décroissante.</p>
+</section>
+<section id="exercice-4-lien-entre-une-variable-de-bernoulli-et-une-variable-geometrique">
+<h2>Exercice 4: Lien entre une variable de Bernoulli et une variable géométrique<a class="headerlink" href="#exercice-4-lien-entre-une-variable-de-bernoulli-et-une-variable-geometrique" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Considérons un archer, qui vise le milieu de la cible. Il tire autant de flèche que nécessaire et s’arrête une fois qu’une d’entre elle frappe le centre de la cible. On suppose qu’il parvient à atteindre son but avec une probabilité <span class="math notranslate nohighlight">\(p\)</span> à chaque flèche et que chaque tir est indépendant des autres.</p>
+<ul class="simple">
+<li><p>Le fait que le <span class="math notranslate nohighlight">\(i^{ème}\)</span> tir atteigne le centre de la cible peut alors être modéliser par la variable aléatoire <span class="math notranslate nohighlight">\(X_i \sim Bern(p)\)</span>.</p></li>
+<li><p>De même, le nombre de flèches nécéssaires avant d’atteindre le centre de la cible peut être modéliser par la variable aléatoire <span class="math notranslate nohighlight">\( S = \min\left\{{i\in\mathbb{N} | X_i = 1}\right\}\)</span>, qui suit une loi géométrique de paramètre <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ul>
+<p>1) Dans question nous allons créer une fonction <code class="docutils literal notranslate"><span class="pre">bern</span></code> qui génère aléatoirement une variable de Bernouilli pour un paramètre <span class="math notranslate nohighlight">\(p\)</span> donné en argument.<br />
+a) En utilisant la fonction <code class="docutils literal notranslate"><span class="pre">runif</span></code> qui permet de générer des réalisations de variables aléatoires uniformes, et la fonction indicatrice <span class="math notranslate nohighlight">\(\mathbf{1}_{\{U&lt;p\}}\)</span> (où <span class="math notranslate nohighlight">\(U \sim Unif(0,1)\)</span>) écrire une fonction <code class="docutils literal notranslate"><span class="pre">bern</span></code> qui génère <span class="math notranslate nohighlight">\(n\)</span> réalisations de variables de Bernoulli <span class="math notranslate nohighlight">\(X\)</span> avec probabilité de succès <span class="math notranslate nohighlight">\(p\in[0,1]\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">bern</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">n</span><span class="p">){</span>
+    <span class="c1"># Générer une variable aléatoire de Bernouilli avec probabilité de succès p</span>
+    
+    <span class="n">X</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">*</span><span class="p">(</span><span class="nf">runif</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">X</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>b) En fixant <span class="math notranslate nohighlight">\(p = 0.3\)</span>, générer un grand nombre de variables de Bernoulli, disons <span class="math notranslate nohighlight">\(n = 10000\)</span> avec la fonction <code class="docutils literal notranslate"><span class="pre">bern</span></code> et à l’aide d’un plot vérifier expérimentalement que <span class="math notranslate nohighlight">\(\mathbb{P}(X = 1) = 0.3\)</span> et que <span class="math notranslate nohighlight">\(\mathbb{P}(X = 0) = 1-p = 0.7\)</span>.</p>
+<p><strong>Solution</strong>:
+Le plot ci-dessous nous permet de voir que la proportion de succès converge comme attendu vers <span class="math notranslate nohighlight">\(p = 0.3\)</span> et que, par dualité, la proportion de d’échec converge donc vers <span class="math notranslate nohighlight">\(1-p=0.7\)</span>, comme on aurait pu s’y attendre pour une varibale <span class="math notranslate nohighlight">\(Bern(0.3)\)</span>. De même, on observe que la moyenne empirique est relativement proche de <span class="math notranslate nohighlight">\(\mathbb{E}[X] = p = 0.3\)</span> et qu’elle se rapproche de plus en plus quand <span class="math notranslate nohighlight">\(n\)</span> augmente. On peut donc raisonnablement penser que la variable généré est bien une Bernoulli de paramètre <span class="math notranslate nohighlight">\(p\)</span>. Nous verrons plus tard des méthodes pour obtenir une quantification de notre certitude/incertitude quant-au fait que cette fonction génère bien une variable de Bernoulli.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">&lt;-</span> <span class="m">10000</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="m">0.3</span>
+
+<span class="c1"># Générer n variable de Bernoulli avec probabilité de succès p</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="nf">bern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="c1"># Calcul de la moyenne empirique </span>
+<span class="n">mean</span> <span class="o">&lt;-</span> <span class="nf">mean</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X</span><span class="p">)</span>
+<span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;La moyenne de la variable générée est %f&quot;</span><span class="p">,</span><span class="n">mean</span><span class="p">)</span>
+
+<span class="c1"># Plot pour vérifier expérimentalement que la fonction bern génère bien des variables de Bernoulli</span>
+<span class="n">df</span><span class="o">$</span><span class="n">cumulative_prop</span> <span class="o">&lt;-</span> <span class="nf">cumsum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">)</span>
+<span class="n">df</span><span class="o">$</span><span class="n">iter</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span>
+
+<span class="n">fig</span> <span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iter</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">cumulative_prop</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> 
+    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Plot de la proportion de succès pour un nombre\n croissant de varibales générées&quot;</span><span class="p">,</span> 
+         <span class="n">x</span> <span class="o">=</span> <span class="s">&#39;Nombre de variable générée&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">&quot;Proportion de succès&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">16</span><span class="p">))</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'La moyenne de la variable générée est 0.304700'</div><img alt="../../../_images/Sol2R_25_1.png" src="../../../_images/Sol2R_25_1.png" />
+</div>
+</div>
+<p>c) Pourriez-vous envisager d’autres fonctions indicatrices pour générer une variable de Bernoulli de paramètres <span class="math notranslate nohighlight">\(p\)</span>?</p>
+<p><strong>Solution</strong>:
+Oui, on pourrait par exemple envisager la fonction indicatrice suivante :</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}\mathbf{1}_{\{ \{U&lt;\frac{p}{3}\}\cup\{U&gt;1-\frac{2p}{3}\}\}}\end{equation*}\]</div>
+<p>On pourrait encore en envisager une infinité, le point important est la mesure (la taille) de l’intervalle sur lequel la fonction indicatrice vaut <span class="math notranslate nohighlight">\(1\)</span> soit égal à <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>2) En utilisant la fonction <code class="docutils literal notranslate"><span class="pre">bern</span></code>, écrire une fonction <code class="docutils literal notranslate"><span class="pre">geom</span></code> qui simule la génération d’une variable aléatoire <span class="math notranslate nohighlight">\(S = \min\left\{{i\in\mathbb{N} | X_i = 1}\right\}\)</span>, où <span class="math notranslate nohighlight">\(X_i \sim Bern(p)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">geom</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">p</span><span class="p">){</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">p</span><span class="o">&lt;</span><span class="m">1e-06</span><span class="p">){</span>
+        <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;La probabilité de succès doit être supérieure à zéro.&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    
+    <span class="n">S</span> <span class="o">&lt;-</span> <span class="m">1</span>
+    <span class="n">X</span> <span class="o">&lt;-</span> <span class="nf">bern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+    
+    <span class="nf">while </span><span class="p">(</span><span class="n">X</span> <span class="o">!=</span> <span class="m">1</span><span class="p">){</span>
+        <span class="n">S</span> <span class="o">&lt;-</span> <span class="n">S</span> <span class="o">+</span> <span class="m">1</span>
+        <span class="n">X</span> <span class="o">&lt;-</span> <span class="nf">bern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">S</span>
+    
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3) Nous allons maintenant estimer quelques probabilités liées à notre variable aléatoire <span class="math notranslate nohighlight">\(S\)</span>:<br />
+a) Grâce à un plot et une valeure numérique, estimer la valeure de <span class="math notranslate nohighlight">\(\mathbb{P}(S = 1)\)</span> (<span class="math notranslate nohighlight">\(n = 10000\)</span> devrait être suffisant pour une bonne estmination).</p>
+<p><strong>Solution</strong>:
+Observe que la probabilité que notre estimation semble converger vers <span class="math notranslate nohighlight">\(p = 0.3\)</span>, qui est justement la vrai valeur de <span class="math notranslate nohighlight">\(\mathbb{P}(S = 1)\)</span> (pour <span class="math notranslate nohighlight">\(p = 0.3\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">10000</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="m">0.3</span>
+
+<span class="c1"># Générer n observations de S</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">S</span> <span class="o">=</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">),</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">geom</span><span class="p">))</span>
+
+<span class="c1"># Proposer une estimation de P(S = 1)</span>
+<span class="n">prob1</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">==</span> <span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;On estime donc cette probabilité par : %f&quot;</span><span class="p">,</span><span class="n">prob1</span><span class="p">)</span>
+
+<span class="c1"># Faire un plot montrant la convergence de cette probabilité</span>
+<span class="n">df</span><span class="o">$</span><span class="n">prob</span> <span class="o">&lt;-</span> <span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">==</span> <span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">)</span>
+<span class="n">df</span><span class="o">$</span><span class="n">iter</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span>
+
+<span class="n">fig</span> <span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iter</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">prob</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> 
+    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Convergence de l&#39;estimation de P(S=1)&quot;</span><span class="p">,</span> 
+         <span class="n">x</span> <span class="o">=</span> <span class="s">&#39;Nombre de variable générée&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">&quot;Estimation de la probabilité&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">16</span><span class="p">))</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'On estime donc cette probabilité par : 0.291800'</div><img alt="../../../_images/Sol2R_30_1.png" src="../../../_images/Sol2R_30_1.png" />
+</div>
+</div>
+<p>b) De la même manière que la question précédente, estimer la probabilité <span class="math notranslate nohighlight">\(\mathbb{P}(S&gt;3)\)</span>.</p>
+<p><strong>Solution</strong>:
+Observe que la probabilité que notre estimation semble converger vers une valeure proche de <span class="math notranslate nohighlight">\(0.34\)</span>, qui est justement proche de la vrai valeur de <span class="math notranslate nohighlight">\(\mathbb{P}(S &gt; 3) = (1-p)^3 = 0.343\)</span> (pour <span class="math notranslate nohighlight">\(p = 0.3\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">10000</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="m">0.3</span>
+
+<span class="c1"># Générer n observations de S</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">S</span> <span class="o">=</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">),</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">geom</span><span class="p">))</span>
+
+<span class="c1"># Proposer une estimation de P(S = 1)</span>
+<span class="n">prob2</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">&gt;</span> <span class="m">3</span><span class="n">.</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;On estime donc cette probabilité par : %f&quot;</span><span class="p">,</span><span class="n">prob2</span><span class="p">)</span>
+
+<span class="c1"># Faire un plot montrant la convergence de cette probabilité</span>
+<span class="n">df</span><span class="o">$</span><span class="n">prob</span> <span class="o">&lt;-</span> <span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S</span> <span class="o">&gt;</span> <span class="m">3</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">)</span>
+<span class="n">df</span><span class="o">$</span><span class="n">iter</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span>
+
+<span class="n">fig</span> <span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iter</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">prob</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> 
+    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Convergence de l&#39;estimation de P(S&gt;1)&quot;</span><span class="p">,</span> 
+         <span class="n">x</span> <span class="o">=</span> <span class="s">&#39;Nombre de variable générée&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">&quot;Estimation de la probabilité&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">16</span><span class="p">))</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'On estime donc cette probabilité par : 0.346000'</div><img alt="../../../_images/Sol2R_32_1.png" src="../../../_images/Sol2R_32_1.png" />
+</div>
+</div>
+<p>c) Enfin, pour des valeures <span class="math notranslate nohighlight">\(m\)</span> et <span class="math notranslate nohighlight">\(t\)</span> fixées, vérifier que <span class="math notranslate nohighlight">\(\mathbb{P}(S &gt; t + m| S &gt; t) = \mathbb{P}(S &gt; m)\)</span>.</p>
+<p><strong>Solution</strong>:
+On observe donc ces deux valeurs convergent bien l’une vers l’autre, et que chacune convergent vers la valeurs <span class="math notranslate nohighlight">\(\mathbb{P}(S &gt; t + m| S &gt; t) = \mathbb{P}(S &gt; m) = (1-p)^m = 0.489\)</span> (pour <span class="math notranslate nohighlight">\(p = 0.3\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">10000</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="m">0.3</span>
+
+<span class="n">t</span> <span class="o">&lt;-</span> <span class="m">4</span>
+<span class="n">m</span> <span class="o">&lt;-</span> <span class="m">2</span>
+
+<span class="c1"># Générer deux ensemble de n observations de S pour estimer chacunes de ces </span>
+<span class="c1"># deux probabilités avec deux ensembles distinct</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">S1</span> <span class="o">=</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">),</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">geom</span><span class="p">),</span><span class="n">S2</span> <span class="o">=</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">),</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">geom</span><span class="p">))</span>
+
+<span class="c1"># Proposer une estimation de P(S = 1)</span>
+<span class="n">prob3_1</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S1</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="n">prob3_2</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S2</span> <span class="o">&gt;</span> <span class="n">t</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="n">prob3</span> <span class="o">&lt;-</span> <span class="n">prob3_1</span><span class="o">/</span><span class="n">prob3_2</span>
+<span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;On estime donc cette probabilité par : %f&quot;</span><span class="p">,</span><span class="n">prob3</span><span class="p">)</span>
+
+
+<span class="c1"># Faire un plot montrant la convergence de cette probabilité</span>
+<span class="n">df</span><span class="o">$</span><span class="n">diff</span> <span class="o">&lt;-</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S1</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">)))</span><span class="o">/</span><span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S1</span> <span class="o">&gt;</span> <span class="n">t</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="m">+1e-08</span><span class="p">)</span><span class="o">-</span><span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S2</span> <span class="o">&gt;</span> <span class="n">m</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">))</span>
+<span class="n">df</span><span class="o">$</span><span class="n">iter</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span>
+
+<span class="n">fig</span> <span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iter</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">diff</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> 
+    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Convergence de la différence entre les deux estimations&quot;</span><span class="p">,</span> 
+         <span class="n">x</span> <span class="o">=</span> <span class="s">&#39;Nombre de variable générée&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">&quot;Différence absolue en les deux estimations&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">16</span><span class="p">))</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'On estime donc cette probabilité par : 0.468954'</div><img alt="../../../_images/Sol2R_34_1.png" src="../../../_images/Sol2R_34_1.png" />
+</div>
+</div>
+</section>
+<section id="exercice-5">
+<h2>Exercice 5:<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>1) Laquelle des fonctions suivantes est la densité d’une variable continue ? Reconnaissez-vous cette loi ?</p>
+<p><strong>Solution</strong>:
+Seules les deux dernières sont des fonctions de densité d’une variable continue car les deux autres ne satisfont pas <span class="math notranslate nohighlight">\(\int_{\mathbb{R}} f(x) dx = 1\)</span>. La figure 1 représente la fonction de densité d’une loi uniforme <span class="math notranslate nohighlight">\(\mathcal{U}(0,1)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">patchwork</span><span class="p">)</span>
+
+<span class="n">data1</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">2</span><span class="n">.</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">2</span><span class="n">.</span><span class="p">,</span><span class="m">2</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">))</span>
+<span class="n">data2</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="n">.</span><span class="p">,</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.75</span><span class="p">,</span><span class="m">0.75</span><span class="p">,</span><span class="m">2</span><span class="n">.</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">))</span>
+<span class="n">data3</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">2</span><span class="n">.</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">))</span>
+<span class="n">data4</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="n">.</span><span class="p">,</span><span class="m">-0.5</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0.5</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1.5</span><span class="p">,</span><span class="m">2</span><span class="n">.</span><span class="p">,</span><span class="m">2.5</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">))</span>
+
+<span class="n">f1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="n">f2</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="n">f3</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data3</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="n">f4</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data4</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 4&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="p">(</span><span class="n">f1</span> <span class="o">+</span> <span class="n">f2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">f3</span> <span class="o">+</span> <span class="n">f4</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Sol2R_36_0.png" src="../../../_images/Sol2R_36_0.png" />
+</div>
+</div>
+</section>
+<section id="exercice-6">
+<h2>Exercice 6:<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>1) Est-ce que les fonctions suivantes sont des fonctions de répartition? Si oui, le sont-elles pour des variables continues ou discrètes ?</p>
+<p><strong>Solution</strong>:</p>
+<ul class="simple">
+<li><p>Le premier et le dernier graphique représentent des fonctions de répartition de lois discrètes.</p></li>
+<li><p>Le deuxième et le troisième représentent des fonctions de répartition de lois continues.</p></li>
+<li><p>Le quatrième graphique représente une fonction de répartition d’une loi qui est ni discrète, ni continue (c’est en fait une loi mixte).</p></li>
+<li><p>La fonction représentée sur le cinquième graphique n’est pas une fonction de répartition, car elle n’est pas croissante.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">patchwork</span><span class="p">)</span>
+
+<span class="n">data1</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">10</span><span class="n">.</span><span class="p">,</span><span class="m">10</span><span class="n">.</span><span class="p">,</span><span class="m">20</span><span class="n">.</span><span class="p">,</span><span class="m">20</span><span class="n">.</span><span class="p">,</span><span class="m">30</span><span class="n">.</span><span class="p">,</span><span class="m">30</span><span class="n">.</span><span class="p">,</span><span class="m">40</span><span class="n">.</span><span class="p">,</span><span class="m">40</span><span class="n">.</span><span class="p">,</span><span class="m">50</span><span class="n">.</span><span class="p">,</span><span class="m">50</span><span class="n">.</span><span class="p">,</span><span class="m">60</span><span class="n">.</span><span class="p">,</span><span class="m">60</span><span class="n">.</span><span class="p">,</span><span class="m">70</span><span class="n">.</span><span class="p">,</span><span class="m">70</span><span class="n">.</span><span class="p">,</span><span class="m">80</span><span class="n">.</span><span class="p">,</span><span class="m">80</span><span class="n">.</span><span class="p">,</span><span class="m">90</span><span class="n">.</span><span class="p">,</span><span class="m">90</span><span class="n">.</span><span class="p">,</span><span class="m">100</span><span class="n">.</span><span class="p">,</span><span class="m">100</span><span class="n">.</span><span class="p">,</span><span class="m">120</span><span class="n">.</span><span class="p">,</span><span class="m">120</span><span class="n">.</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0.1</span><span class="p">,</span><span class="m">0.1</span><span class="p">,</span><span class="m">0.19</span><span class="p">,</span><span class="m">0.19</span><span class="p">,</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.34</span><span class="p">,</span><span class="m">0.34</span><span class="p">,</span><span class="m">0.45</span><span class="p">,</span><span class="m">0.45</span><span class="p">,</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.5</span><span class="p">,</span><span class="m">0.57</span><span class="p">,</span><span class="m">0.57</span><span class="p">,</span><span class="m">0.61</span><span class="p">,</span><span class="m">0.61</span><span class="p">,</span><span class="m">0.63</span><span class="p">,</span><span class="m">0.63</span><span class="p">,</span><span class="m">0.65</span><span class="p">,</span><span class="m">0.65</span><span class="p">,</span><span class="m">0.67</span><span class="p">,</span><span class="m">0.67</span><span class="p">,</span><span class="m">0.67</span><span class="p">))</span><span class="o">/</span><span class="m">0.67</span>
+<span class="n">data2</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">100</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">exp</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">100</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="o">+</span><span class="nf">exp</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">100</span><span class="p">))))</span>
+<span class="n">data3</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">2</span><span class="n">.</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">))</span>
+<span class="n">data4</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0.4</span><span class="p">,</span><span class="m">0.4</span><span class="p">,</span><span class="m">0.6</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="n">data5</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0.4</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0.6</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="n">data6</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span>
+                    <span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="m">0.4</span><span class="p">,</span><span class="m">0.4</span><span class="p">,</span><span class="m">1</span><span class="n">.</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+
+<span class="n">f1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="n">f2</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="n">f3</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data3</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="n">f4</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data4</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 4&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="n">f5</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data5</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 5&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="n">f6</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data6</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Figure 6&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span>
+<span class="p">(</span><span class="n">f1</span> <span class="o">+</span> <span class="n">f2</span> <span class="o">+</span> <span class="n">f3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">f4</span> <span class="o">+</span> <span class="n">f5</span> <span class="o">+</span> <span class="n">f5</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Sol2R_38_0.png" src="../../../_images/Sol2R_38_0.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./Correction/R/Série2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../S%C3%A9rie1/Sol1R.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Série1 : Correction</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

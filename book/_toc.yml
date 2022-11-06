@@ -53,14 +53,18 @@ parts:
     chapters:
     - file: Série/Python/Série1/Série1Python
     - file: Série/Python/Série2/Série2Python
+    - file: Série/Python/Série3/Série3Python
   - caption: Série R
     chapters:
     - file: Série/R/Série1/Série1R
     - file: Série/R/Série2/Série2R
+    - file: Série/R/Série3/Série3R
   - caption: Correction Série Python
     chapters:
-    - file: Correction/Python/Serie1/Sol1P
+    - file: Correction/Python/Série1/Sol1P
+    - file: Correction/Python/Série2/Sol2P
   - caption: Correction Série R
     chapters:
     - file: Correction/R/Série1/Sol1R
+    - file: Correction/R/Série2/Sol2R
 

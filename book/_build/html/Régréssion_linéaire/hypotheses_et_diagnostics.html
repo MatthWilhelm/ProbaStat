@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4. Régréssion linéaire: hypothèses et diagnostics &#8212; Probabilité et statistique (MATH-234(d))</title>
+    <title>4. Régréssion linéaire: hypothèses et diagnostiques &#8212; Probabilité et statistique (MATH-234(d))</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -300,7 +300,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Régréssion linéaire: hypothèses et diagnostics
+   4. Régréssion linéaire: hypothèses et diagnostiques
   </a>
  </li>
 </ul>
@@ -320,6 +320,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série2
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/Python/S%C3%A9rie3/S%C3%A9rie3Python.html">
+   Série3
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -337,6 +342,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série2
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie/R/S%C3%A9rie3/S%C3%A9rie3R.html">
+   Série3
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -345,8 +355,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Correction/Python/Serie1/Sol1P.html">
+  <a class="reference internal" href="../Correction/Python/S%C3%A9rie1/Sol1P.html">
    Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/Python/S%C3%A9rie2/Sol2P.html">
+   Série2 : Correction
   </a>
  </li>
 </ul>
@@ -359,6 +374,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../Correction/R/S%C3%A9rie1/Sol1R.html">
    Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Correction/R/S%C3%A9rie2/Sol2R.html">
+   Série2 : Correction
   </a>
  </li>
 </ul>
@@ -566,13 +586,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diagnostics-dindependance">
-   4.3. Diagnostics d’indépendance
+  <a class="reference internal nav-link" href="#diagnostiques-dindependance">
+   4.3. Diagnostiques d’indépendance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diagnostic-de-normalite">
-   4.4. Diagnostic de normalité
+  <a class="reference internal nav-link" href="#diagnostique-de-normalite">
+   4.4. Diagnostique de normalité
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -629,7 +649,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Régréssion linéaire: hypothèses et diagnostics</h1>
+                <h1>Régréssion linéaire: hypothèses et diagnostiques</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -650,13 +670,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diagnostics-dindependance">
-   4.3. Diagnostics d’indépendance
+  <a class="reference internal nav-link" href="#diagnostiques-dindependance">
+   4.3. Diagnostiques d’indépendance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diagnostic-de-normalite">
-   4.4. Diagnostic de normalité
+  <a class="reference internal nav-link" href="#diagnostique-de-normalite">
+   4.4. Diagnostique de normalité
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -714,8 +734,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="regression-lineaire-hypotheses-et-diagnostics">
-<h1><span class="section-number">4. </span>Régréssion linéaire: hypothèses et diagnostics<a class="headerlink" href="#regression-lineaire-hypotheses-et-diagnostics" title="Lien permanent vers cette rubrique">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="regression-lineaire-hypotheses-et-diagnostiques">
+<h1><span class="section-number">4. </span>Régréssion linéaire: hypothèses et diagnostiques<a class="headerlink" href="#regression-lineaire-hypotheses-et-diagnostiques" title="Lien permanent vers cette rubrique">#</a></h1>
 <div class="math notranslate nohighlight">
 \[\newcommand\corr{\text{Corr}}
 \newcommand\cov{\text{Cov}}
@@ -795,7 +815,7 @@ title="Print to PDF"
 <figure class="align-default" id="linearity-diagnostic-contre-exemple">
 <a class="reference internal image-reference" href="../_images/linearity_diagnostic_contre_exemple.svg"><img alt="../_images/linearity_diagnostic_contre_exemple.svg" src="../_images/linearity_diagnostic_contre_exemple.svg" width="95%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.10 </span><span class="caption-text">: Diagnostic de linéarité: contre-exemple</span><a class="headerlink" href="#linearity-diagnostic-contre-exemple" title="Lien permanent vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 4.10 </span><span class="caption-text">: Diagnostique de linéarité: contre-exemple</span><a class="headerlink" href="#linearity-diagnostic-contre-exemple" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -819,8 +839,8 @@ title="Print to PDF"
 </figcaption>
 </figure>
 </section>
-<section id="diagnostics-dindependance">
-<h2><span class="section-number">4.3. </span>Diagnostics d’indépendance<a class="headerlink" href="#diagnostics-dindependance" title="Lien permanent vers cette rubrique">#</a></h2>
+<section id="diagnostiques-dindependance">
+<h2><span class="section-number">4.3. </span>Diagnostiques d’indépendance<a class="headerlink" href="#diagnostiques-dindependance" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>De manière générale, l’hypothèse d’indépendance des résidus est la plus difficile à évaluer. Et l’indépendance peut-être violée de différentes manières. On mentionne deux facteurs importants:</p>
 <ul class="simple">
 <li><p>autocovariance dans le terme d’erreur;</p></li>
@@ -841,8 +861,8 @@ title="Print to PDF"
 <p class="admonition-title"><span class="caption-number">Exemple 4.7 </span> (Erreurs autocorrélées)</p>
 <section class="example-content" id="proof-content">
 <p>Considérons deux modèles presque identiques:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78d85523-fa42-4c95-9bbc-23860e913087">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-78d85523-fa42-4c95-9bbc-23860e913087" title="Lien permanent vers cette équation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-315b1467-8b94-44f4-bc83-a1ef0e09be6d">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-315b1467-8b94-44f4-bc83-a1ef0e09be6d" title="Lien permanent vers cette équation">#</a></span>\[\begin{align}
 Y^{(1)} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}^{(1)}, \tag{M1}\\
 Y^{(2)} = \mathbf{X}\beta + \boldsymbol{\varepsilon}^{(2)},  \tag{M2}
 \end{align}\]</div>
@@ -853,21 +873,21 @@ Par ailleurs, on a <span class="math notranslate nohighlight">\(\boldsymbol{\bet
 <figure class="align-default" id="independance-diagnostic-autocorrelation">
 <a class="reference internal image-reference" href="../_images/independance_diagnostic_autocorrelation.svg"><img alt="../_images/independance_diagnostic_autocorrelation.svg" src="../_images/independance_diagnostic_autocorrelation.svg" width="95%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.13 </span><span class="caption-text">: Exemple de diagnostic d’indépendance</span><a class="headerlink" href="#independance-diagnostic-autocorrelation" title="Lien permanent vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 4.13 </span><span class="caption-text">: Exemple de diagnostique d’indépendance</span><a class="headerlink" href="#independance-diagnostic-autocorrelation" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>ACF et PACF des résidus standardisés d’une réalisation du modèle (M1).</p>
 <figure class="align-default" id="ar1-diagnostic-autocorrelation">
 <a class="reference internal image-reference" href="../_images/ar1_diagnostic_autocorrelation.svg"><img alt="../_images/ar1_diagnostic_autocorrelation.svg" src="../_images/ar1_diagnostic_autocorrelation.svg" width="95%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.14 </span><span class="caption-text">: Contre-exemple de diagnostic d’indépendance</span><a class="headerlink" href="#ar1-diagnostic-autocorrelation" title="Lien permanent vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 4.14 </span><span class="caption-text">: Contre-exemple de diagnostique d’indépendance</span><a class="headerlink" href="#ar1-diagnostic-autocorrelation" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>ACF et PACF des résidus standardisés d’une réalisation du modèle (M2)</p>
 </section>
 </div></section>
-<section id="diagnostic-de-normalite">
-<h2><span class="section-number">4.4. </span>Diagnostic de normalité<a class="headerlink" href="#diagnostic-de-normalite" title="Lien permanent vers cette rubrique">#</a></h2>
+<section id="diagnostique-de-normalite">
+<h2><span class="section-number">4.4. </span>Diagnostique de normalité<a class="headerlink" href="#diagnostique-de-normalite" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On utilise très souvent le QQ-plot (graphique quantile/quantile) pour comparer une distribution empirique par rapport à une distribution théorique <span class="math notranslate nohighlight">\(F\)</span> (continue). Soient <span class="math notranslate nohighlight">\(x_{(1)}, \dots, x_{(n)}\)</span> un échantillon ordonné et soit <span class="math notranslate nohighlight">\(F^{-1}\)</span> le fonction réciproque de <span class="math notranslate nohighlight">\(F\)</span>, appelée aussi fonction quantile. Alors un QQplot est un nuage de points dont les coordonnées sont</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*}(F^{-1}(c_1), x_{(1)}),\dots, (F^{-1}(c_n), x_{(n)}),\end{gather*}\]</div>
