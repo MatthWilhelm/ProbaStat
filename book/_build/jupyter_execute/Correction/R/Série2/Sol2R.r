@@ -229,7 +229,7 @@ fig <-ggplot(df,aes(x=iter,y=prob)) + geom_line() +
     theme(plot.title = element_text(hjust = 0.5, size = 16))
 fig
 
-n <- 10000
+n <- 20000
 p <- 0.3
 
 t <- 4
@@ -239,18 +239,24 @@ m <- 2
 # deux probabilités avec deux ensembles distinct
 df <- data.frame(S1 = sapply(p*rep(1,n), FUN = geom),S2 = sapply(p*rep(1,n), FUN = geom))
 
-# Proposer une estimation de P(S = 1)
+# Proposer une estimation de P(S > t + m | S > t)
 prob3_1 <- sum(df$S1 > (t+m)*rep(1,n))/n
 prob3_2 <- sum(df$S2 > t*rep(1,n))/n
 prob3 <- prob3_1/prob3_2
-sprintf("On estime donc cette probabilité par : %f",prob3)
+sprintf("On estime donc la probabilité P(S > t + m | S > t) par : %f",prob3)
 
+# Proposer une estimation de P(S > m)
+prob3_ <- sum(df$S2 > m*rep(1,n))/n
+sprintf("On estime donc la probabilité P(S > m) par : %f",prob3_)
 
 # Faire un plot montrant la convergence de cette probabilité
-df$diff <- abs(cumsum((df$S1 > (t+m)*rep(1,n)))/cumsum((df$S1 > t*rep(1,n))+1e-08)-cumsum((df$S2 > m*rep(1,n)))/(1:n))
-df$iter <- 1:n
+p_sup_t <- cumsum((df$S1 > t*rep(1,n)))
+ind <- (p_sup_t > 0)
 
-fig <-ggplot(df,aes(x=iter,y=diff)) + geom_line() + 
+df_ <- data.frame(iter = (1:n)[ind], 
+                 diff = abs(cumsum((df$S1 > (t+m)*rep(1,n)))[ind]/cumsum((df$S1 > t*rep(1,n)))[ind]-cumsum((df$S2 > m*rep(1,n)))[ind]/(1:n)[ind]))
+
+fig <-ggplot(df_,aes(x=iter,y=diff)) + geom_line() + 
     labs(title="Convergence de la différence entre les deux estimations", 
          x = 'Nombre de variable générée',y="Différence absolue en les deux estimations") +
     theme(plot.title = element_text(hjust = 0.5, size = 16))

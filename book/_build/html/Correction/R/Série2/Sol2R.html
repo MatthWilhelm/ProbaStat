@@ -1045,7 +1045,7 @@ Le plot ci-dessous nous permet de voir que la proportion de succès converge com
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'La moyenne de la variable générée est 0.304700'</div><img alt="../../../_images/Sol2R_25_1.png" src="../../../_images/Sol2R_25_1.png" />
+<div class="output text_html">'La moyenne de la variable générée est 0.293200'</div><img alt="../../../_images/Sol2R_25_1.png" src="../../../_images/Sol2R_25_1.png" />
 </div>
 </div>
 <p>c) Pourriez-vous envisager d’autres fonctions indicatrices pour générer une variable de Bernoulli de paramètres <span class="math notranslate nohighlight">\(p\)</span>?</p>
@@ -1106,7 +1106,7 @@ Observe que la probabilité que notre estimation semble converger vers <span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'On estime donc cette probabilité par : 0.291800'</div><img alt="../../../_images/Sol2R_30_1.png" src="../../../_images/Sol2R_30_1.png" />
+<div class="output text_html">'On estime donc cette probabilité par : 0.292500'</div><img alt="../../../_images/Sol2R_30_1.png" src="../../../_images/Sol2R_30_1.png" />
 </div>
 </div>
 <p>b) De la même manière que la question précédente, estimer la probabilité <span class="math notranslate nohighlight">\(\mathbb{P}(S&gt;3)\)</span>.</p>
@@ -1137,7 +1137,7 @@ Observe que la probabilité que notre estimation semble converger vers une valeu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'On estime donc cette probabilité par : 0.346000'</div><img alt="../../../_images/Sol2R_32_1.png" src="../../../_images/Sol2R_32_1.png" />
+<div class="output text_html">'On estime donc cette probabilité par : 0.338800'</div><img alt="../../../_images/Sol2R_32_1.png" src="../../../_images/Sol2R_32_1.png" />
 </div>
 </div>
 <p>c) Enfin, pour des valeures <span class="math notranslate nohighlight">\(m\)</span> et <span class="math notranslate nohighlight">\(t\)</span> fixées, vérifier que <span class="math notranslate nohighlight">\(\mathbb{P}(S &gt; t + m| S &gt; t) = \mathbb{P}(S &gt; m)\)</span>.</p>
@@ -1145,7 +1145,7 @@ Observe que la probabilité que notre estimation semble converger vers une valeu
 On observe donc ces deux valeurs convergent bien l’une vers l’autre, et que chacune convergent vers la valeurs <span class="math notranslate nohighlight">\(\mathbb{P}(S &gt; t + m| S &gt; t) = \mathbb{P}(S &gt; m) = (1-p)^m = 0.489\)</span> (pour <span class="math notranslate nohighlight">\(p = 0.3\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">10000</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">20000</span>
 <span class="n">p</span> <span class="o">&lt;-</span> <span class="m">0.3</span>
 
 <span class="n">t</span> <span class="o">&lt;-</span> <span class="m">4</span>
@@ -1155,18 +1155,24 @@ On observe donc ces deux valeurs convergent bien l’une vers l’autre, et que 
 <span class="c1"># deux probabilités avec deux ensembles distinct</span>
 <span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">S1</span> <span class="o">=</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">),</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">geom</span><span class="p">),</span><span class="n">S2</span> <span class="o">=</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">),</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">geom</span><span class="p">))</span>
 
-<span class="c1"># Proposer une estimation de P(S = 1)</span>
+<span class="c1"># Proposer une estimation de P(S &gt; t + m | S &gt; t)</span>
 <span class="n">prob3_1</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S1</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
 <span class="n">prob3_2</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S2</span> <span class="o">&gt;</span> <span class="n">t</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
 <span class="n">prob3</span> <span class="o">&lt;-</span> <span class="n">prob3_1</span><span class="o">/</span><span class="n">prob3_2</span>
-<span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;On estime donc cette probabilité par : %f&quot;</span><span class="p">,</span><span class="n">prob3</span><span class="p">)</span>
+<span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;On estime donc la probabilité P(S &gt; t + m | S &gt; t) par : %f&quot;</span><span class="p">,</span><span class="n">prob3</span><span class="p">)</span>
 
+<span class="c1"># Proposer une estimation de P(S &gt; m)</span>
+<span class="n">prob3_</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">S2</span> <span class="o">&gt;</span> <span class="n">m</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;On estime donc la probabilité P(S &gt; m) par : %f&quot;</span><span class="p">,</span><span class="n">prob3_</span><span class="p">)</span>
 
 <span class="c1"># Faire un plot montrant la convergence de cette probabilité</span>
-<span class="n">df</span><span class="o">$</span><span class="n">diff</span> <span class="o">&lt;-</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S1</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">)))</span><span class="o">/</span><span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S1</span> <span class="o">&gt;</span> <span class="n">t</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="m">+1e-08</span><span class="p">)</span><span class="o">-</span><span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S2</span> <span class="o">&gt;</span> <span class="n">m</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">))</span>
-<span class="n">df</span><span class="o">$</span><span class="n">iter</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span>
+<span class="n">p_sup_t</span> <span class="o">&lt;-</span> <span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S1</span> <span class="o">&gt;</span> <span class="n">t</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">)))</span>
+<span class="n">ind</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">p_sup_t</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span>
 
-<span class="n">fig</span> <span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iter</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">diff</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> 
+<span class="n">df_</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">iter</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">)[</span><span class="n">ind</span><span class="p">],</span> 
+                 <span class="n">diff</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S1</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">)))[</span><span class="n">ind</span><span class="p">]</span><span class="o">/</span><span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S1</span> <span class="o">&gt;</span> <span class="n">t</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">)))[</span><span class="n">ind</span><span class="p">]</span><span class="o">-</span><span class="nf">cumsum</span><span class="p">((</span><span class="n">df</span><span class="o">$</span><span class="n">S2</span> <span class="o">&gt;</span> <span class="n">m</span><span class="o">*</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">)))[</span><span class="n">ind</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">)[</span><span class="n">ind</span><span class="p">]))</span>
+
+<span class="n">fig</span> <span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df_</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iter</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">diff</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span> 
     <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Convergence de la différence entre les deux estimations&quot;</span><span class="p">,</span> 
          <span class="n">x</span> <span class="o">=</span> <span class="s">&#39;Nombre de variable générée&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">&quot;Différence absolue en les deux estimations&quot;</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">16</span><span class="p">))</span>
@@ -1175,7 +1181,7 @@ On observe donc ces deux valeurs convergent bien l’une vers l’autre, et que 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'On estime donc cette probabilité par : 0.468954'</div><img alt="../../../_images/Sol2R_34_1.png" src="../../../_images/Sol2R_34_1.png" />
+<div class="output text_html">'On estime donc la probabilité P(S &gt; t + m | S &gt; t) par : 0.493775'</div><div class="output text_html">'On estime donc la probabilité P(S &gt; m) par : 0.487300'</div><img alt="../../../_images/Sol2R_34_2.png" src="../../../_images/Sol2R_34_2.png" />
 </div>
 </div>
 </section>

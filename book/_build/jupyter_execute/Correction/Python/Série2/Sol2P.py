@@ -338,8 +338,8 @@ print(f"On estime donc cette probabilité par : {prob1}")
 fig = plt.figure(figsize = (6,4))
 plt.plot(np.arange(1,n+1),(S == np.ones(n)).cumsum()/np.arange(1,n+1))
 fig.suptitle("Convergence de l'estimation de P(S=1)")
-fig.supxlabel("Estimation de la probabilité")
-fig.supylabel("Nombre de variable générée")
+fig.supylabel("Estimation de la probabilité")
+fig.supxlabel("Nombre de variable générée")
 plt.show()
 
 
@@ -366,8 +366,8 @@ print(f"On estime donc cette probabilité par : {prob2}")
 fig = plt.figure(figsize = (6,4))
 plt.plot(np.arange(1,n+1),(S == np.ones(n)).cumsum()/np.arange(1,n+1))
 fig.suptitle("Convergence de l'estimation de P(S=1)")
-fig.supxlabel("Estimation de la probabilité")
-fig.supylabel("Nombre de variable générée")
+fig.supylabel("Estimation de la probabilité")
+fig.supxlabel("Nombre de variable générée")
 plt.show()
 
 
@@ -395,18 +395,20 @@ S2 = [geom(p) for i in range(n)]
 prob3_1 = (S1 > (t+m)*np.ones(n)).sum()/n
 prob3_2 = (S1 > t*np.ones(n)).sum()/n
 prob3 = prob3_1/prob3_2
-print(f"On estime donc cette probabilité par : {prob3}")
+print(f"On estime donc la probabilité P(S > t + m | S > t) par : {prob3}")
 
 # Proposer une estimation de P(S > m)
 prob3_ = (S2 > m*np.ones(n)).sum()/n
-print(f"On estime donc cette probabilité par : {prob3_}")
+print(f"On estime donc la probabilité P(S > m) par : {prob3_}")
 
 # Faire un plot montrant la convergence de la différence entre ces deux probabilités
 fig = plt.figure(figsize = (6,4))
-plt.plot(np.arange(1,n+1),abs((S1 > (t+m)*np.ones(n)).cumsum()/(S1 > t*np.ones(n)).cumsum()-(S2 > m*np.ones(n)).cumsum()/np.arange(1,n+1)))
+p_sup_t = (S1 > t*np.ones(n)).cumsum()
+ind = np.argwhere(p_sup_t)
+plt.plot(np.arange(1,n+1)[ind],abs((S1 > (t+m)*np.ones(n)).cumsum()[ind]/p_sup_t[ind] -(S2 > m*np.ones(n)).cumsum()[ind]/np.arange(1,n+1)[ind]))
 fig.suptitle("Convergence de la différence en valeur absolue entre ces deux estimations")
-fig.supxlabel("Estimation de la probabilité")
-fig.supylabel("Nombre de variable générée")
+fig.supylabel("Estimation de la probabilité")
+fig.supxlabel("Nombre de variable générée")
 plt.show()
 
 
