@@ -127,10 +127,13 @@ import numpy as np
 
 
 # Calculer l'estimation de la variance pour chacunes des m premières observations
-
+# Attention: Suivant la fonction utilisée pour estimer la déviation, la définition par défaut de cette fonction peut 
+# être différente de celle que nous utilisons (np.std par exemple, pour laquelle il faut utiliser le paramètre ddof = 1)
+...
 
 
 # Plot de l'évolution de l'estimation de la variance
+...
 
 
 # ## Exercice 3: Estimation de Monte-Carlo
