@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3. Propriétés d’un estimateur &#8212; Probabilité et statistique (MATH-234(d))</title>
+    <title>4. Propriétés d’un estimateur &#8212; Probabilité et statistique (MATH-234(d))</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -60,8 +60,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Statistique_inférentielle/proprietes_estimateur.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="4. Estimation par intervalle" href="estimation_par_intervalle.html" />
-    <link rel="prev" title="2. Estimation de paramètres" href="estimation_de_parametres.html" />
+    <link rel="next" title="5. Estimation par intervalle" href="estimation_par_intervalle.html" />
+    <link rel="prev" title="3. Illustration convergence de l’estimateur du maximum de vraisemblance" href="Simulation_est_max_vraisemblance.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -226,6 +226,11 @@ const thebe_selector_output = ".output, .cell_output"
    9. Théorème fondamentaux
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/Simulation_thm_fondamentaux.html">
+   10. Simulation théorème fondamentaux
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -243,29 +248,34 @@ const thebe_selector_output = ".output, .cell_output"
    2. Estimation de paramètres
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Simulation_est_max_vraisemblance.html">
+   3. Illustration convergence de l’estimateur du maximum de vraisemblance
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   3. Propriétés d’un estimateur
+   4. Propriétés d’un estimateur
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="estimation_par_intervalle.html">
-   4. Estimation par intervalle
+   5. Estimation par intervalle
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="tests_hypotheses_statistiques.html">
-   5. Tests d’hypothèses statistiques
+   6. Tests d’hypothèses statistiques
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="tests_et_ic.html">
-   6. Tests et IC
+   7. Tests et IC
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="test_chi2.html">
-   7. Test du
+   8. Test du
    <span class="math notranslate nohighlight">
     \(\chi^2\)
    </span>
@@ -273,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="puissance_test.html">
-   8. Puissance d’un test
+   9. Puissance d’un test
   </a>
  </li>
 </ul>
@@ -577,17 +587,17 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#biais">
-   3.1. Biais
+   4.1. Biais
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#variance">
-   3.2. Variance
+   4.2. Variance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#erreur-quadratique-moyenne">
-   3.3. Erreur quadratique moyenne
+   4.3. Erreur quadratique moyenne
   </a>
  </li>
 </ul>
@@ -611,17 +621,17 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#biais">
-   3.1. Biais
+   4.1. Biais
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#variance">
-   3.2. Variance
+   4.2. Variance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#erreur-quadratique-moyenne">
-   3.3. Erreur quadratique moyenne
+   4.3. Erreur quadratique moyenne
   </a>
  </li>
 </ul>
@@ -635,7 +645,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="proprietes-dun-estimateur">
-<h1><span class="section-number">3. </span>Propriétés d’un estimateur<a class="headerlink" href="#proprietes-dun-estimateur" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1><span class="section-number">4. </span>Propriétés d’un estimateur<a class="headerlink" href="#proprietes-dun-estimateur" title="Lien permanent vers cette rubrique">#</a></h1>
 <div class="math notranslate nohighlight">
 \[\newcommand\EQM{\text{EQM}}
 \newcommand\var{\text{Var}}
@@ -647,9 +657,9 @@ title="Print to PDF"
 <li><p>l’erreur quadratique moyenne.</p></li>
 </ul>
 <section id="biais">
-<h2><span class="section-number">3.1. </span>Biais<a class="headerlink" href="#biais" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2><span class="section-number">4.1. </span>Biais<a class="headerlink" href="#biais" title="Lien permanent vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Définition 3.10 </span> (Biais)</p>
+<p class="admonition-title"><span class="caption-number">Définition 4.1 </span> (Biais)</p>
 <section class="definition-content" id="proof-content">
 <p>Le <strong>biais</strong> d’un estimateur mesure s’il est centré sur la bonne valeur:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -665,7 +675,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="variance">
-<h2><span class="section-number">3.2. </span>Variance<a class="headerlink" href="#variance" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2><span class="section-number">4.2. </span>Variance<a class="headerlink" href="#variance" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Un estimateur étant une variable aléatoire, on a donc</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*}\var(\hat{\theta}) = \E[ (\hat{\theta} - \E[\hat{\theta} ])^2].\end{gather*}\]</div>
@@ -679,9 +689,9 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="erreur-quadratique-moyenne">
-<h2><span class="section-number">3.3. </span>Erreur quadratique moyenne<a class="headerlink" href="#erreur-quadratique-moyenne" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2><span class="section-number">4.3. </span>Erreur quadratique moyenne<a class="headerlink" href="#erreur-quadratique-moyenne" title="Lien permanent vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="EQM">
-<p class="admonition-title"><span class="caption-number">Définition 3.11 </span> (Erreur quadratique moyenne)</p>
+<p class="admonition-title"><span class="caption-number">Définition 4.2 </span> (Erreur quadratique moyenne)</p>
 <section class="definition-content" id="proof-content">
 <p><strong>L’erreur quadratique moyenne</strong> d’un estimateur <span class="math notranslate nohighlight">\( \hat{\theta} \)</span> de <span class="math notranslate nohighlight">\(\theta\)</span> est la fonction:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -692,7 +702,7 @@ title="Print to PDF"
 \[\begin{gather*}\var(\theta_1) \leq \var(\theta_2), \end{gather*}\]</div>
 <p>alors on dit que <span class="math notranslate nohighlight">\(\theta_1\)</span> <em>est plus efficace</em> que <span class="math notranslate nohighlight">\(\theta_2\)</span>.</p>
 <div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Exemple 3.5 </span> (Moyenne empirique et médiane empirique)</p>
+<p class="admonition-title"><span class="caption-number">Exemple 4.3 </span> (Moyenne empirique et médiane empirique)</p>
 <section class="example-content" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\( X_1 \dots X_n \stackrel{idd}{\sim} \mathcal{N}(\mu,\sigma^2) \)</span>. On considère <span class="math notranslate nohighlight">\(\overline{X}_n\)</span> et <span class="math notranslate nohighlight">\(M_n\)</span>, la médiane empirique de <span class="math notranslate nohighlight">\(X_1,\dots, X_n\)</span>.</p>
 <p>La médiane <span class="math notranslate nohighlight">\( M_n \)</span> suit approximativement la loi: <span class="math notranslate nohighlight">\( \mathcal{N}\left( \mu , \frac{\pi}{2}\frac{\sigma^2}{n}\right) \)</span>.</p>
@@ -741,17 +751,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="estimation_de_parametres.html" title="précédent page">
+    <a class='left-prev' id="prev-link" href="Simulation_est_max_vraisemblance.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title"><span class="section-number">2. </span>Estimation de paramètres</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Illustration convergence de l’estimateur du maximum de vraisemblance</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="estimation_par_intervalle.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Estimation par intervalle</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Estimation par intervalle</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

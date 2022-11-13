@@ -31,11 +31,13 @@ parts:
     - file: Probabilité/variables_aleatoires_conjointes
     - file: Probabilité/valeurs_caracteristiques
     - file: Probabilité/theoreme_fondamentaux
+    - file: Probabilité/Simulation_thm_fondamentaux
   - caption: Statistique inférentielle
     numbered: True
     chapters:
     - file: Statistique_inférentielle/introduction
     - file: Statistique_inférentielle/estimation_de_parametres
+    - file: Statistique_inférentielle/Simulation_est_max_vraisemblance
     - file: Statistique_inférentielle/proprietes_estimateur
     - file: Statistique_inférentielle/estimation_par_intervalle
     - file: Statistique_inférentielle/tests_hypotheses_statistiques

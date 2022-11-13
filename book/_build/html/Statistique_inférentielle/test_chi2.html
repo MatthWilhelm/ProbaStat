@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>7. Test du \(\chi^2\) &#8212; Probabilité et statistique (MATH-234(d))</title>
+    <title>8. Test du \(\chi^2\) &#8212; Probabilité et statistique (MATH-234(d))</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -60,8 +60,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Statistique_inférentielle/test_chi2.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="8. Puissance d’un test" href="puissance_test.html" />
-    <link rel="prev" title="6. Tests et IC" href="tests_et_ic.html" />
+    <link rel="next" title="9. Puissance d’un test" href="puissance_test.html" />
+    <link rel="prev" title="7. Tests et IC" href="tests_et_ic.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -226,6 +226,11 @@ const thebe_selector_output = ".output, .cell_output"
    9. Théorème fondamentaux
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Probabilit%C3%A9/Simulation_thm_fondamentaux.html">
+   10. Simulation théorème fondamentaux
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -244,28 +249,33 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="Simulation_est_max_vraisemblance.html">
+   3. Illustration convergence de l’estimateur du maximum de vraisemblance
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="proprietes_estimateur.html">
-   3. Propriétés d’un estimateur
+   4. Propriétés d’un estimateur
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="estimation_par_intervalle.html">
-   4. Estimation par intervalle
+   5. Estimation par intervalle
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="tests_hypotheses_statistiques.html">
-   5. Tests d’hypothèses statistiques
+   6. Tests d’hypothèses statistiques
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="tests_et_ic.html">
-   6. Tests et IC
+   7. Tests et IC
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. Test du
+   8. Test du
    <span class="math notranslate nohighlight">
     \(\chi^2\)
    </span>
@@ -273,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="puissance_test.html">
-   8. Puissance d’un test
+   9. Puissance d’un test
   </a>
  </li>
 </ul>
@@ -578,7 +588,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="test-du-chi-2">
-<h1><span class="section-number">7. </span>Test du <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#test-du-chi-2" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1><span class="section-number">8. </span>Test du <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#test-du-chi-2" title="Lien permanent vers cette rubrique">#</a></h1>
 <div class="math notranslate nohighlight">
 \[\newcommand\var{\text{Var}}
 \newcommand\E{\mathbb{E}}\]</div>
@@ -589,7 +599,7 @@ title="Print to PDF"
 <li><p>Test d’indépendance <span class="math notranslate nohighlight">\(\chi^2\)</span>.</p></li>
 </ul>
 <div class="proof definition admonition" id="test_chi2">
-<p class="admonition-title"><span class="caption-number">Définition 7.7 </span> (Test du <span class="math notranslate nohighlight">\(\chi^2\)</span>)</p>
+<p class="admonition-title"><span class="caption-number">Définition 8.6 </span> (Test du <span class="math notranslate nohighlight">\(\chi^2\)</span>)</p>
 <section class="definition-content" id="proof-content">
 <p>Supposons qu’on observe <span class="math notranslate nohighlight">\(n\)</span> valeurs dont les <strong>fréquences observées</strong> dans <span class="math notranslate nohighlight">\(k\)</span> classes disjointes
 sont notés <span class="math notranslate nohighlight">\(o_1,\ldots,o_k\)</span>. On note <span class="math notranslate nohighlight">\(e_1,\ldots,e_k\)</span> les <strong>fréquences théoriques</strong> correspondantes.
@@ -613,11 +623,11 @@ après avoir estimé <span class="math notranslate nohighlight">\(c\)</span> par
 </div><figure class="align-default" id="chisqdensity">
 <a class="reference internal image-reference" href="../_images/ChiSqdensity.svg"><img alt="../_images/ChiSqdensity.svg" src="../_images/ChiSqdensity.svg" width="95%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7.1 </span><span class="caption-text">: Densité de la loi <span class="math notranslate nohighlight">\(\chi^2_\nu\)</span> pour <span class="math notranslate nohighlight">\(\nu=1,2,5,10\)</span> (noir, rouge, violet, bleu).</span><a class="headerlink" href="#chisqdensity" title="Lien permanent vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 8.4 </span><span class="caption-text">: Densité de la loi <span class="math notranslate nohighlight">\(\chi^2_\nu\)</span> pour <span class="math notranslate nohighlight">\(\nu=1,2,5,10\)</span> (noir, rouge, violet, bleu).</span><a class="headerlink" href="#chisqdensity" title="Lien permanent vers cette image">#</a></p>
 </figcaption>
 </figure>
 <div class="proof property admonition" id="prop_loi_chi2">
-<p class="admonition-title"><span class="caption-number">Propriété 7.2 </span> (Loi <span class="math notranslate nohighlight">\(\chi^2\)</span>)</p>
+<p class="admonition-title"><span class="caption-number">Propriété 8.6 </span> (Loi <span class="math notranslate nohighlight">\(\chi^2\)</span>)</p>
 <section class="property-content" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(Z_1,\ldots,Z_\nu \stackrel{idd}{\sim} \mathcal{N}(0,1)\)</span>. Alors on définit la loi de <span class="math notranslate nohighlight">\(Z_1^2+\cdots + Z_\nu^2 \sim \chi^2_\nu\)</span>.
 On a les propriétés suivantes:</p>
@@ -646,7 +656,7 @@ t_{\rm obs} =  \sum^k_{i=1}\dfrac{(o_i-e_i)^2}{ e_i}
 <span class="math notranslate nohighlight">\(H_0\)</span>, sinon on ne la rejette pas.</p>
 </div>
 <div class="proof example admonition" id="ex_equilibre_dé">
-<p class="admonition-title"><span class="caption-number">Exemple 7.5 </span> (Equilibre du dé)</p>
+<p class="admonition-title"><span class="caption-number">Exemple 8.9 </span> (Equilibre du dé)</p>
 <section class="example-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(n=60\)</span> jets d’un d’e ont donn’e la r’epartition suivante:</p>
 <figure class="align-default" id="tab5-stat">
@@ -668,7 +678,7 @@ t_{\rm obs} = \sum^6_{i=1}\dfrac{(o_i-e_i)^2}{e_i} = 8.6
 </div>
 </section>
 </div><div class="proof example admonition" id="ex_test_chi2_1">
-<p class="admonition-title"><span class="caption-number">Exemple 7.6 </span></p>
+<p class="admonition-title"><span class="caption-number">Exemple 8.10 </span></p>
 <section class="example-content" id="proof-content">
 <p>On a mesuré le QI de <span class="math notranslate nohighlight">\( n = 1000 \)</span> personnes. Le QI est fait pour être distribué quasi comme une Gaussienne <span class="math notranslate nohighlight">\( \mathcal{N}(100, 15^2) \)</span>.</p>
 <figure class="align-default" id="tab6-stat">
@@ -693,7 +703,7 @@ Le seuil est: <span class="math notranslate nohighlight">\( \chi^2_{5 ,0.95}= 11
 </div>
 </section>
 </div><div class="proof definition admonition" id="ex_tab_contingence">
-<p class="admonition-title"><span class="caption-number">Définition 7.8 </span> (Tableau de contingence)</p>
+<p class="admonition-title"><span class="caption-number">Définition 8.7 </span> (Tableau de contingence)</p>
 <section class="definition-content" id="proof-content">
 <p>L’utilité principale du test <span class="math notranslate nohighlight">\(\chi^2\)</span> est de tester l’indépendance de deux variables discrètes <span class="math notranslate nohighlight">\( A, B\)</span>. Soit <span class="math notranslate nohighlight">\( h \)</span> le nombre de classes de <span class="math notranslate nohighlight">\( A \)</span> et <span class="math notranslate nohighlight">\( k \)</span> celui de <span class="math notranslate nohighlight">\( B \)</span>.
 On appelle <strong>tableau de contingence</strong> d’un jeu de données le tableau qui répertorie les fréquences d’observation de chaque paire <span class="math notranslate nohighlight">\( A,B \)</span>.</p>
@@ -714,7 +724,7 @@ On appelle <strong>tableau de contingence</strong> d’un jeu de données le tab
 \end{gather*}\]</div>
 </section>
 </div><div class="proof definition admonition" id="test_indep">
-<p class="admonition-title"><span class="caption-number">Définition 7.9 </span> (Test d’indépendance)</p>
+<p class="admonition-title"><span class="caption-number">Définition 8.8 </span> (Test d’indépendance)</p>
 <section class="definition-content" id="proof-content">
 <p>On considère l’hypothèse nulle suivante <span class="math notranslate nohighlight">\(H_0\)</span>: les variables sont indépendantes. Ainsi <span class="math notranslate nohighlight">\(H_0\)</span> est équivalente à</p>
 <div class="amsmath math notranslate nohighlight">
@@ -745,7 +755,7 @@ On appelle <strong>tableau de contingence</strong> d’un jeu de données le tab
 <li><p>on compare la réalisation de la loi jointe (le tableau de contingence) avec la loi théorique dérivée des lois marginales et de l’hypothèse d’indépendance.</p></li>
 </ul>
 <div class="proof example admonition" id="ex_test_chi2_2">
-<p class="admonition-title"><span class="caption-number">Exemple 7.7 </span></p>
+<p class="admonition-title"><span class="caption-number">Exemple 8.11 </span></p>
 <section class="example-content" id="proof-content">
 <p>On a relevé parmi 95 personnes la couleur de leurs yeux (caractère <span class="math notranslate nohighlight">\(A\)</span>) et celle de leurs cheveux (caractère <span class="math notranslate nohighlight">\(B\)</span>) et on a obtenu les r’esultats suivants:</p>
 <figure class="align-default" id="tabex38">
@@ -799,13 +809,13 @@ indépendante de celle des yeux.</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>Tests et IC</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Tests et IC</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="puissance_test.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Puissance d’un test</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Puissance d’un test</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

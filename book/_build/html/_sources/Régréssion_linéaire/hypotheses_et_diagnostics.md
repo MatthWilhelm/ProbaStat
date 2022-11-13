@@ -51,7 +51,7 @@ On va donc voir des moyens graphiques d'examiner d'éventuelles violations de l'
 - indépendance: nuage de point des résidus contre les covariables, graphiques d'auto-corrélation et d'auto-corrélation partielle; 
 - normalité: QQ-plot normal. 
 
-## Diagnostic de linéarité
+## Diagnostique de linéarité
 
 On peut distinguer deux aspects: que la relation entre la variable de réponse et les variables explicatives est bien linéaire et qu'elle ne soit que linéaire.
 - Faire un nuage de points de la réponse en fonction de chacune des covariables;
@@ -62,7 +62,7 @@ On peut distinguer deux aspects: que la relation entre la variable de réponse e
 name: linearity_diagnostic_exemple
 width: 95%
 ---
-: Diagnostic de linéarité: exemple
+: Diagnostique de linéarité: exemple
 ```
 
 ```{figure} PDFSVG/linearity_diagnostic_contre_exemple.svg
