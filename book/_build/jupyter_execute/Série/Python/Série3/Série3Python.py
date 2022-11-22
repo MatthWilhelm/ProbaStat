@@ -17,10 +17,10 @@ from scipy import stats as st
 import numpy as np
 
 mu = 176.6
-sigma = 63.84
+sigma_square = 63.84
 
 # Calculer cette probabilité en utilisant directement la fonction de répartition 
-# d'une loi normale de moyenne 176.6 et d'écart-type 63.84
+# d'une loi normale de moyenne 176.6 et de variance 63.84
 prob = ...
 
 # Calculer cette probabilité en normalisant notre observation et en utilisant la 
@@ -58,11 +58,7 @@ prob_ = ...
 # Place your answer here
 
 
-# 3\) Quel est la taille $x$ pour laquelle il y a $5%$ de chance d'observer plus grande que $x$, c'est-à-dire $x$ tel que $\mathbb{P}(X>x) = 0.05$ avec $X\sim\mathcal{N}(\mu,\sigma^2)$.
-# 
-# **Solution**:  
-#   
-# 
+# 3\) Quel est la taille $x$ pour laquelle il y a $5$% de chance d'observer plus grande que $x$, c'est-à-dire $x$ tel que $\mathbb{P}(X>x) = 0.05$ avec $X\sim\mathcal{N}(\mu,\sigma^2)$.
 
 # In[ ]:
 

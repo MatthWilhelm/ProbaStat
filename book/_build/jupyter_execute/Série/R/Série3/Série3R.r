@@ -1,5 +1,5 @@
 mu <- 176.6
-sigma <- 63.84
+sigma_square <- 63.84
 
 # Calculer cette probabilité en utilisant directement la fonction de répartition 
 # d'une loi normale de moyenne 176.6 et d'écart-type 63.84
