@@ -62,7 +62,7 @@ que l'on peut réécrire comme
 \end{gather*}
 Ainsi l'intervalle de confiance symétrique à $100(1-\alpha)\%$ pour $\mu$ (avec $\sigma^2$ connu) est 
 \begin{gather*}
-[I,S] = \left[\overline{X} -z_{1-\alpha/2},\frac{\sigma}{\sqrt{n}},\mbox{ } \overline{X} + z_{1-\alpha/2},\frac{\sigma}{\sqrt{n}}\right].
+[I,S] = \left[\overline{X} -z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}},\mbox{ } \overline{X} + z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\right].
 \end{gather*}
 ```
 ````
@@ -85,12 +85,12 @@ width: 30%
 ```{prf:definition} IC de Wald
 :label: ic_wald
 Soit $ \hat{\theta} $ un estimateur non-biaisé de $ \theta $, et soit $ v $ sa variance (ou un estimateur de sa variance). Si, asymptotiquement, $ \hat{\theta} $ est approximativement Gaussien, c'est-à-dire si
-    \begin{gather*} \hat{\theta} \dotsim \mathcal{N}(\theta, v),\end{gather*}
-    alors, on peut construire un IC \textbf{de Wald}:
-    \begin{gather*} \left[ \hat{\theta} - s_\alpha \sqrt{v} ,  \hat{\theta} + s_\alpha \sqrt{v}  \right], \end{gather*}
-    où le seuil $ s_\alpha $ est tel que:
-    \begin{gather*} \Pr( - s_\alpha \leq \eta \leq s_\alpha ) = 1 - \alpha \end{gather*}
-    pour $ \eta \sim \mathcal{N}(0,1) $.
+\begin{gather*} \hat{\theta} \stackrel{\cdot}{\sim} \mathcal{N}(\theta, v),\end{gather*}
+alors, on peut construire un IC \textbf{de Wald}:
+\begin{gather*} \left[ \hat{\theta} - s_\alpha \sqrt{v} ,  \hat{\theta} + s_\alpha \sqrt{v}  \right], \end{gather*}
+où le seuil $ s_\alpha $ est tel que:
+\begin{gather*} \Pr( - s_\alpha \leq \eta \leq s_\alpha ) = 1 - \alpha \end{gather*}
+pour $ \eta \sim \mathcal{N}(0,1) $.
 ```
 
 Dans le cas d'un intervalle de Wald, on fait implicitement l'hypothèse d'un intervalle symétrique autour de $\hat{\theta} $. Ainsi, on a

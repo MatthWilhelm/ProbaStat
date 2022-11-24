@@ -719,7 +719,7 @@ title="Print to PDF"
 <p>Ainsi l’intervalle de confiance symétrique à <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> pour <span class="math notranslate nohighlight">\(\mu\)</span> (avec <span class="math notranslate nohighlight">\(\sigma^2\)</span> connu) est</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{gather*}
-[I,S] = \left[\overline{X} -z_{1-\alpha/2},\frac{\sigma}{\sqrt{n}},\mbox{ } \overline{X} + z_{1-\alpha/2},\frac{\sigma}{\sqrt{n}}\right].
+[I,S] = \left[\overline{X} -z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}},\mbox{ } \overline{X} + z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\right].
 \end{gather*}\]</div>
 </div>
 </section>
@@ -741,13 +741,16 @@ title="Print to PDF"
 <div class="proof definition admonition" id="ic_wald">
 <p class="admonition-title"><span class="caption-number">Définition 5.11 </span> (IC de Wald)</p>
 <section class="definition-content" id="proof-content">
-<p>Soit <span class="math notranslate nohighlight">\( \hat{\theta} \)</span> un estimateur non-biaisé de <span class="math notranslate nohighlight">\( \theta \)</span>, et soit <span class="math notranslate nohighlight">\( v \)</span> sa variance (ou un estimateur de sa variance). Si, asymptotiquement, <span class="math notranslate nohighlight">\( \hat{\theta} \)</span> est approximativement Gaussien, c’est-à-dire si
-\begin{gather*} \hat{\theta} \dotsim \mathcal{N}(\theta, v),\end{gather*}
-alors, on peut construire un IC \textbf{de Wald}:
-\begin{gather*} \left[ \hat{\theta} - s_\alpha \sqrt{v} ,  \hat{\theta} + s_\alpha \sqrt{v}  \right], \end{gather*}
-où le seuil <span class="math notranslate nohighlight">\( s_\alpha \)</span> est tel que:
-\begin{gather*} \Pr( - s_\alpha \leq \eta \leq s_\alpha ) = 1 - \alpha \end{gather*}
-pour <span class="math notranslate nohighlight">\( \eta \sim \mathcal{N}(0,1) \)</span>.</p>
+<p>Soit <span class="math notranslate nohighlight">\( \hat{\theta} \)</span> un estimateur non-biaisé de <span class="math notranslate nohighlight">\( \theta \)</span>, et soit <span class="math notranslate nohighlight">\( v \)</span> sa variance (ou un estimateur de sa variance). Si, asymptotiquement, <span class="math notranslate nohighlight">\( \hat{\theta} \)</span> est approximativement Gaussien, c’est-à-dire si</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \hat{\theta} \stackrel{\cdot}{\sim} \mathcal{N}(\theta, v),\end{gather*}\]</div>
+<p>alors, on peut construire un IC \textbf{de Wald}:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \left[ \hat{\theta} - s_\alpha \sqrt{v} ,  \hat{\theta} + s_\alpha \sqrt{v}  \right], \end{gather*}\]</div>
+<p>où le seuil <span class="math notranslate nohighlight">\( s_\alpha \)</span> est tel que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*} \Pr( - s_\alpha \leq \eta \leq s_\alpha ) = 1 - \alpha \end{gather*}\]</div>
+<p>pour <span class="math notranslate nohighlight">\( \eta \sim \mathcal{N}(0,1) \)</span>.</p>
 </section>
 </div><p>Dans le cas d’un intervalle de Wald, on fait implicitement l’hypothèse d’un intervalle symétrique autour de <span class="math notranslate nohighlight">\(\hat{\theta} \)</span>. Ainsi, on a</p>
 <div class="amsmath math notranslate nohighlight">
