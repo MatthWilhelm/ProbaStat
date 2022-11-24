@@ -65,10 +65,10 @@ parts:
     chapters:
     - file: Correction/Python/Série1/Sol1P
     - file: Correction/Python/Série2/Sol2P
-    - file: Correction/Python/Série2/Sol3Python
+    - file: Correction/Python/Série3/Sol3Python
   - caption: Correction Série R
     chapters:
     - file: Correction/R/Série1/Sol1R
     - file: Correction/R/Série2/Sol2R
-    - file: Correction/R/Série2/Sol3R
+    - file: Correction/R/Série3/Sol3R
 

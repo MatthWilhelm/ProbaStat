@@ -1,0 +1,1275 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Série3 : Correction &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Correction/Python/Série3/Sol3Python.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="Série1 : Correction" href="../../R/S%C3%A9rie1/Sol1R.html" />
+    <link rel="prev" title="Série2 : Correction" href="../S%C3%A9rie2/Sol2P.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/EPFL_Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Tutoriel_Python.html">
+   Tutoriel Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   1. Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/graphiques.html">
+   2. Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   3. Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/boxplot.html">
+   4. Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/loi_normale.html">
+   5. Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   6. Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/concepts_de_base.html">
+   1. Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/arrangements_et_combinaisons.html">
+   2. Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/probabilite_conditionnelle_independance.html">
+   3. Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/probabilites_totales_et_theoreme_de_bayes.html">
+   4. Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_discretes.html">
+   5. Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_continues.html">
+   6. Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_conjointes.html">
+   7. Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/valeurs_caracteristiques.html">
+   8. Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/theoreme_fondamentaux.html">
+   9. Théorème fondamentaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/Simulation_thm_fondamentaux.html">
+   10. Simulation théorème fondamentaux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   2. Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/Simulation_est_max_vraisemblance.html">
+   3. Illustration convergence de l’estimateur du maximum de vraisemblance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   4. Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   5. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   6. Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   7. Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   8. Test du
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   9. Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   2. Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   3. Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   4. Régréssion linéaire: hypothèses et diagnostiques
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rie1/S%C3%A9rie1Python.html">
+   Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rie3/S%C3%A9rie3Python.html">
+   Série3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
+   Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rie3/S%C3%A9rie3R.html">
+   Série3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie2/Sol2P.html">
+   Série2 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Série3 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie2/Sol2R.html">
+   Série2 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie3/Sol3R.html">
+   Série3 : Correction
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/MatthWilhelm/ProbaStat/master?urlpath=tree/book/Correction/Python/Série3/Sol3Python.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://noto.epfl.ch/hub/user-redirect/git-pull?repo=https%3A//github.com/MatthWilhelm/ProbaStat&urlpath=tree/ProbaStat/book/Correction/Python/S%C3%A9rie3/Sol3Python.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat/issues/new?title=Issue%20on%20page%20%2FCorrection/Python/Série3/Sol3Python.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat/edit/master/book/Correction/Python/Série3/Sol3Python.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/Correction/Python/Série3/Sol3Python.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3-estimation-de-monte-carlo">
+   Exercice 3: Estimation de Monte-Carlo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Série3 : Correction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3-estimation-de-monte-carlo">
+   Exercice 3: Estimation de Monte-Carlo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="serie3-correction">
+<h1>Série3 : Correction<a class="headerlink" href="#serie3-correction" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="exercice-1">
+<h2>Exercice 1:<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>On suppose que la taille, en centimètres, d’un homme âgé de 25 ans est une variable aléatoire
+normale de paramètres <span class="math notranslate nohighlight">\(\mu= 176.6\)</span> et <span class="math notranslate nohighlight">\(\sigma^2=63.84\)</span>.</p>
+<p>1) Quelle est la probabilité que la taille d’un homme de 25 ans choisi au hasard soit supérieure à 170cm?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">176.6</span>
+<span class="n">sigma_square</span> <span class="o">=</span> <span class="mf">63.84</span>
+
+<span class="c1"># Calculer cette probabilité en utilisant directement la fonction de répartition </span>
+<span class="c1"># d&#39;une loi normale de moyenne 176.6 et de variance 63.84</span>
+
+<span class="n">prob</span> <span class="o">=</span>  <span class="mi">1</span> <span class="o">-</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">170</span><span class="p">,</span><span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma_square</span><span class="p">))</span>
+
+<span class="c1"># Calculer cette probabilité en normalisant notre observation et en utilisant la </span>
+<span class="c1"># fonction de répartition d&#39;une loi normale standardisé</span>
+<span class="n">normalisation</span> <span class="o">=</span> <span class="p">(</span><span class="mi">170</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma_square</span><span class="p">)</span>
+<span class="n">prob_</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">normalisation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>2) Sachant que l’homme choisi mesure plus de 180cm, quelle est la probabilité qu’il mesure plus de 192cm?<br />
+a) Calculer <span class="math notranslate nohighlight">\(\mathbb{P}(\{X &gt; 192\} \bigcap \{X &gt; 180\})\)</span>:</p>
+<p><strong>Solution</strong>:
+Comme <span class="math notranslate nohighlight">\(\{X &gt; 180\} \subset \{X &gt; 192\}\)</span>, on a <span class="math notranslate nohighlight">\(\mathbb{P}(\{X &gt; 192\} \bigcap \{X &gt; 180\}) = \mathbb{P}(X &gt; 192)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+<span class="n">prob_up</span> <span class="o">=</span>  <span class="mi">1</span> <span class="o">-</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma_square</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>b) Calculer <span class="math notranslate nohighlight">\(\mathbb{P}(X &gt; 180)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+<span class="n">prob_sub</span> <span class="o">=</span>  <span class="mi">1</span> <span class="o">-</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span><span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma_square</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>c) En déduire la valeur de la probabilité <span class="math notranslate nohighlight">\(\mathbb{P}(X &gt; 192 | X &gt; 180)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+<span class="n">prob_cond</span> <span class="o">=</span> <span class="n">prob_up</span><span class="o">/</span><span class="n">prob_sub</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3) Quel est la taille <span class="math notranslate nohighlight">\(x\)</span> pour laquelle il y a <span class="math notranslate nohighlight">\(5\)</span>% de chance d’observer plus grande que <span class="math notranslate nohighlight">\(x\)</span>, c’est-à-dire <span class="math notranslate nohighlight">\(x\)</span> tel que <span class="math notranslate nohighlight">\(\mathbb{P}(X&gt;x) = 0.05\)</span> avec <span class="math notranslate nohighlight">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+<span class="n">quantile</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma_square</span><span class="p">))</span>
+<span class="n">quantile</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>189.74237018613655
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-2">
+<h2>Exercice 2:<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>On considère une variable aléatoire réelle <span class="math notranslate nohighlight">\(X\)</span> avec espérance <span class="math notranslate nohighlight">\(\mu\)</span> et variance <span class="math notranslate nohighlight">\(\sigma^2 &lt; \infty\)</span>. Soit <span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span> un échantillon iid de <span class="math notranslate nohighlight">\(n\)</span> variables aléatoires avec la même loi que <span class="math notranslate nohighlight">\(X\)</span>.
+On définit <span class="math notranslate nohighlight">\(\overline{X}=  \frac{1}{n}\sum_i^n X_i \)</span> et <span class="math notranslate nohighlight">\(\hat{\sigma}^2 = \frac{1}{n}\sum_i (X_i - \overline{X})^2\)</span> des estimateurs empiriques des deux premiers moments de <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<ol class="simple">
+<li><p>a) Soit directement en markdown, soit à la main, calculer <span class="math notranslate nohighlight">\(\mathbb{E}[\overline{X}]\)</span> et <span class="math notranslate nohighlight">\(\mathbb{E}[\hat{\sigma}^2]\)</span>:</p></li>
+</ol>
+<p><strong>Solution</strong>:
+Calcul de <span class="math notranslate nohighlight">\(\mathbb{E}[\overline{X}]\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}\mathbb{E}[\overline{X}] &amp;= \mathbb{E}[\frac{1}{n}\sum_i^n X_i] \\
+&amp;= \frac{1}{n}\mathbb{E}[\sum_i^n X_i] \\
+&amp;= \frac{1}{n}\sum_i^n\mathbb{E}[ X_i] \\
+&amp;= \frac{1}{n}\sum_i^n \mu = \mu 
+\end{align*}\]</div>
+<p>Calcul de <span class="math notranslate nohighlight">\(\mathbb{E}[\hat{\sigma}^2]\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mathbb{E}[\hat{\sigma}^2] &amp;= \mathbb{E}[\frac{1}{n}\sum_i (X_i - \overline{X})^2] \\
+&amp;= \frac{1}{n}\mathbb{E}[\sum_i (X_i - \overline{X})^2] \\
+&amp;= \frac{1}{n}\mathbb{E}[\sum_i (X_i^2 - 2*X_i*\overline{X} + \overline{X}^2)] \\
+&amp;= \frac{1}{n}\left( \mathbb{E}[\sum_i X_i^2] - 2 \overline{X}\mathbb{E}[\sum_i X_i] + \mathbb{E}[\sum_i \overline{X}^2]\right) \\
+&amp;= \frac{1}{n}\left( \sum_i\mathbb{E}[ X_i^2] - 2\sum_i\mathbb{E}[ \overline{X} X_i] + \sum_i\mathbb{E}[\overline{X}^2]\right) \\
+&amp;= \mathbb{E}[X_i^2] - 2 \mathbb{E}[\overline{X}^2] + \mathbb{E}[\overline{X}^2]
+\end{align*}\]</div>
+<p>Ce qui nous donne:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{E}[\hat{\sigma}^2] = \mathbb{E}[X_i^2] -  \mathbb{E}[\overline{X}^2] =  (\sigma^2 + \mu^2) - (\mu^2 + \frac{\sigma^2}{n}) = \frac{n-1}{n}\sigma^2
+\end{equation*}\]</div>
+<p>b) En déduire un estimateur non-biaisé de <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p><strong>Solution</strong>:<br />
+Comme l’espérence est linéaire, on a que l’estimateur <span class="math notranslate nohighlight">\(\hat{\sigma}^2_{non-biaisé} = \frac{n}{n-1} \hat{\sigma}^2\)</span> est non-biaisé. Effectivement, on a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{E}[\hat{\sigma}^2_{non-biaisé}] = \frac{n}{n-1} \mathbb{E}[\hat{\sigma}^2] = \sigma^2 \end{equation*}\]</div>
+<ol class="simple">
+<li><p>Proposer une méthode pour estimer l’espérance et la variance si nous avions un échantillon <span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span> de grande taille.</p></li>
+</ol>
+<p><strong>Solution</strong>:</p>
+<p>Comme nous venons de le montrer dans les questions précédentes, l’estimateur <span class="math notranslate nohighlight">\(\overline{X}\)</span> est non-biaisé pour le paramètre <span class="math notranslate nohighlight">\(\mu\)</span>, donc une façon naturelle d’estimer <span class="math notranslate nohighlight">\(\mu\)</span> si nous avons à disposition un grand nombre d’observation est de poser <span class="math notranslate nohighlight">\(\hat{\mu} = \overline{X}\)</span>. De la même façon, nous avons deux estimateur du paramètre <span class="math notranslate nohighlight">\(\sigma^2\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\hat{\sigma}^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\sigma}^2_{non-biaisé}\)</span></p></li>
+</ul>
+<p>L’estimateur <span class="math notranslate nohighlight">\(\hat{\sigma}^2_{non-biaisé}\)</span> étant non-biaisé, nous préfèrerons celui-ci, dans le cadre de cet exercice, pour estimer <span class="math notranslate nohighlight">\(\sigma^2\)</span>. Avec un grand nombre d’observation à notre disposotion, nous estimerons donc <span class="math notranslate nohighlight">\(\sigma^2\)</span> par <span class="math notranslate nohighlight">\(\hat{\sigma}^2_{non-biaisé} = \frac{1}{n-1}\sum_i (X_i - \overline{X})^2\)</span>. Cependant, nous verrons plus tard qu’il n’est pas toujours préférable de choisir un estimateur non-biaisé. En effet, il sera des fois mieux de choisir un estimateur avec un peu de biais mais une variance moindre, ce compromis entre le biais et la variance sera étudié à travers l’erreur quadratique moyenne (EQM).</p>
+<ol class="simple">
+<li><p>Nous allons maintenant tester cela en générant un grand nombre de variables aléatoires pour une variable étudiée en cours (une variable suivant la loi Beta par exemple):<br />
+a) Générer <span class="math notranslate nohighlight">\(n = 10000\)</span> observations de la loi que vous avez choisi.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">5.5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">3.14</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>a) Calculer la moyenne et la variance de la loi que vous avez choisi pour les paramètres que vous avez fixé.</p>
+<p><strong>Solution</strong>:<br />
+On rappelle une variable aléatoire <span class="math notranslate nohighlight">\(X\sim\text{Beta}(a,b)\)</span>, on a <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \frac{a}{a +b}\)</span> et <span class="math notranslate nohighlight">\(\text{Var}[X] = \frac{a - 1}{a + b -2}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="n">a</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<span class="n">var</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">/</span><span class="p">((</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>1) Faire un plot de l’évolution de l’estimation de la moyenne en fonction du nombre <span class="math notranslate nohighlight">\(m = 1, \cdots, n\)</span> d’obervations utilisé dans l’estimation. Faire aussi apparaître la vrai valeur de la moyenne sur ce plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Plot de l&#39;évolution de l&#39;estimation de la moyenne</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">X</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Plot de l&#39;évolution de l&#39;estimation de la moyenne&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Nombre de variable utilisé dans l</span><span class="se">\&#39;</span><span class="s1">estimation&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Moyenne estimée&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Sol3Python_15_0.png" src="../../../_images/Sol3Python_15_0.png" />
+</div>
+</div>
+<p>2) Faire un plot de l’évolution de l’estimation de la variance en fonction du nombre <span class="math notranslate nohighlight">\(m = 1, \cdots, n\)</span> d’obervations utilisé dans l’estimation. Faire aussi apparaître la vrai valeur de la variance sur ce plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculer l&#39;estimation de la variance pour chacunes des m premières observations</span>
+<span class="c1"># Attention: Suivant la fonction utilisée pour estimer la déviation, la définition par défaut de cette fonction peut </span>
+<span class="c1"># être différente de celle que nous utilisons (np.std par exemple, pour laquelle il faut utiliser le paramètre ddof = 1)</span>
+<span class="n">var_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">var_hat</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+
+
+<span class="c1"># Plot de l&#39;évolution de l&#39;estimation de la variance</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">var_hat</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Plot de l&#39;évolution de l&#39;estimation de la variance&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Nombre de variable utilisé dans l</span><span class="se">\&#39;</span><span class="s1">estimation&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Variance estimée&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Sol3Python_17_0.png" src="../../../_images/Sol3Python_17_0.png" />
+</div>
+</div>
+</section>
+<section id="exercice-3-estimation-de-monte-carlo">
+<h2>Exercice 3: Estimation de Monte-Carlo<a class="headerlink" href="#exercice-3-estimation-de-monte-carlo" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Considérer un domaine quelconque (mesurable, de mesure non-nulle) <span class="math notranslate nohighlight">\(D\subset [0,1]^2\subset \mathbb{R}^2\)</span>. Soit <span class="math notranslate nohighlight">\(X\sim f_X\)</span> un variable aléatoire de densité <span class="math notranslate nohighlight">\(f_X\)</span> telle que <span class="math notranslate nohighlight">\(D\subset \text{supp}(f_X)\)</span> (le support de <span class="math notranslate nohighlight">\(f_X\)</span>, c’est-à-dire l’ensemble pour lequel <span class="math notranslate nohighlight">\(f_X &gt;0\)</span>) et soit <span class="math notranslate nohighlight">\(Y = \mathbf{1}_{\{X\in D\}}\)</span>.</p>
+<ol class="simple">
+<li><p>Donner la distribution de <span class="math notranslate nohighlight">\(Y\)</span> en fonction de <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+</ol>
+<p><strong>Solution</strong>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+Y = \left\{ \begin{array}{ll}
+1 &amp; \text{ si $X\in D$} \\
+0 &amp; \text{ sinon}.
+\end{array} \right. = 
+\left\{ \begin{array}{ll}
+1 &amp; \text{ avec probabilité }\Pr(X\in D) \\
+0 &amp; \text{ avec probabilité } 1 - \Pr(X\in D).
+\end{array} \right.
+\end{equation*}\]</div>
+<ol class="simple">
+<li><p>Calculer l’espérance de <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
+</ol>
+<p><strong>Solution</strong>:</p>
+<p>On a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{E}[Y]= \mathbb{E}\left[\mathbf{1}_{\{X\in D\}}\right] = \mathbb{P}\left( X\in D\right) 
+\end{equation*}\]</div>
+<ol class="simple">
+<li><p>Supposons à présent que <span class="math notranslate nohighlight">\(X \sim \mathcal{U}\left([-1,1]^2\right)\)</span> et considérons le disque <span class="math notranslate nohighlight">\(D = \{(x,y) \in \mathbb{R}^2: x^2 +y^2 \leq 1\}\)</span>.<br />
+a) Calculer <span class="math notranslate nohighlight">\(\mathbb{P}(X\in D)\)</span>.</p></li>
+</ol>
+<p><strong>Solution</strong>: On a:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{P}(X\in D) = \iint_{D} f_X(x,y) dx dy = \iint_{D} \frac{1}{4} dx dy = \frac{\pi}{4}
+\end{equation*}\]</div>
+<p>b) En supposant qu’on dispose d’un grand échantillon <span class="math notranslate nohighlight">\(X_1, \cdots, X_n \stackrel{idd}{\sim} \mathcal{U}\left([-1,1]^2\right)\)</span> proposer une procédure pour estimer la valeure de <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<p><strong>Solution</strong>: On a vu précédement qu’en définissant la variable aléatoire <span class="math notranslate nohighlight">\(Y = \mathbf{1}_{\{X\in D\}}\)</span>, on a que <span class="math notranslate nohighlight">\(\mathbb{E}[Y] = \mathbb{P}\left( X\in D\right) = \frac{\pi}{4}\)</span>. Avec un <span class="math notranslate nohighlight">\(n\)</span> observations de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>, on peut donc avoir <span class="math notranslate nohighlight">\(n\)</span> observations de la variable aléatoire <span class="math notranslate nohighlight">\(Y\)</span> et donc estimer <span class="math notranslate nohighlight">\(\mathbb{E}[Y]\)</span> avec plus ou moins de précision en fonction de <span class="math notranslate nohighlight">\(n\)</span>. On aura alors <span class="math notranslate nohighlight">\(\pi \approx 4\overline{Y}\)</span>.</p>
+<p>c) En déduire une estimation de <span class="math notranslate nohighlight">\(\pi\)</span> et montrer la convergence de l’estimation sur un plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5000</span>
+
+<span class="c1"># Générer un échantillon de n VA unif([-1,1])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">loc</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">2.</span><span class="p">)</span>
+
+<span class="c1"># Générer la variable aléatoire Y</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Évolution de l&#39;estimation de pi</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Plot de l&#39;évolution de l&#39;estimation de la moyenne&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Nombre de variable utilisé dans l</span><span class="se">\&#39;</span><span class="s1">estimation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Sol3Python_19_0.png" src="../../../_images/Sol3Python_19_0.png" />
+</div>
+</div>
+<ol class="simple">
+<li><p>Soit une fonction <span class="math notranslate nohighlight">\(h\in C^0([0,1]^2)\)</span>. À l’aide d’un échantillon de variables <span class="math notranslate nohighlight">\(X \sim \mathcal{U}\left([0,1]^2\right)\)</span>, en vous inspirant des questions précédentes, donner une estimation de</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\int_{[0,1]^2} h(x) \ dx.
+\end{equation*}\]</div>
+<p>De plus, on rappel la propriété suivante de l’espérance:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbb{E}[h(X)] = \int_{[0,1]^2} h(x,y) f_X(x,y)\ dxdy
+\end{equation*}\]</div>
+<p><strong>Solution</strong>:  En utilisant la propriété de l’espérance ci-dessus et en l’associant avec le fait que <span class="math notranslate nohighlight">\(f_X(x,y) = 1,\  \forall x,y \in[0,1]\)</span>, on obtient que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\int_{[0,1]^2} h(x) \ dx = \mathbb{E}[h(X)]
+\end{equation*}\]</div>
+<p>Une façon naturelle d’estimer <span class="math notranslate nohighlight">\(\int_{[0,1]^2} h(x) \ dx\)</span> est donc de calculer de transformer l’échantillon <span class="math notranslate nohighlight">\(X_1, \cdots, X_n \sim \mathcal{U}\left([0,1]^2\right)\)</span>  que nous avons en un échantillon <span class="math notranslate nohighlight">\(h(X_1,) \cdots, h(X_n)\)</span>, puis d’estimer l’espérance de la variable <span class="math notranslate nohighlight">\(h(X)\)</span> par l’estimateur non-biaisé <span class="math notranslate nohighlight">\(\overline{h(X)} = \frac{1}{n} \sum_{i=1}^{n}h(X_i)\)</span>.</p>
+<ol class="simple">
+<li><p>En considérant la fonction <span class="math notranslate nohighlight">\(h(x,y) = e^{x^2+y^2}\in C^0([0,1]^2)\)</span>, calculer une approximation de <span class="math notranslate nohighlight">\(\int_{[0,1]^2} h(x) \ dx\)</span> et comparé cette valeur à sa vrai valeur qui vaut <span class="math notranslate nohighlight">\(\int_{[0,1]^2} h(x) \ dx \approx 2.139350129\)</span>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">true_value</span> <span class="o">=</span> <span class="mf">2.139350129</span>
+
+<span class="c1"># Générer un échantillon de n VA unif([-1,1])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Écrire la fonction h</span>
+<span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    
+    <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">val</span>
+
+<span class="c1"># Générer la variable aléatoire Y</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Plot de l&#39;évolution de l&#39;estimation de la moyenne</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">true_value</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Évolution de l&#39;estimation de l&#39;intégrale&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Nombre de variable utilisé dans l</span><span class="se">\&#39;</span><span class="s1">estimation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Sol3Python_21_0.png" src="../../../_images/Sol3Python_21_0.png" />
+</div>
+</div>
+<ol class="simple">
+<li><p>Soient <span class="math notranslate nohighlight">\(X_1, \cdots, X_n\)</span> une suite variable aléatoire réelles indépendantes et identiquement distribuées de moyennes et de variances communes <span class="math notranslate nohighlight">\(\mu\)</span> et <span class="math notranslate nohighlight">\(\sigma^2\)</span> finies. On peut reformuler le théorème central limite de la façon suivante:</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\overline{X}_n - \mu \sim \frac{1}{\sqrt{n}}\mathcal{N}(0,\sigma^2),\ \text{pour $n$ assez grand}
+\end{equation*}\]</div>
+<p>On a donc que le taux de convergence de la <span class="math notranslate nohighlight">\(\text{RMSE} = \sqrt{\mathbb{E}\left[(\overline{X}_n-\mu)^2\right]}\)</span> est de <span class="math notranslate nohighlight">\(\sqrt{n} = n^{-\frac{1}{2}}\)</span>. En reprenant l’estimation de <span class="math notranslate nohighlight">\(\pi\)</span>, illustrer le taux de convergence de la RMSE en estimant la racine carrée de l’erreur quadratique moyenne pour plusieurs valeurs de <span class="math notranslate nohighlight">\(n\)</span> (par exemple <span class="math notranslate nohighlight">\(n\in\{10,20,50,100,200,500,1000\}\)</span>) et en générant à chaque fois <span class="math notranslate nohighlight">\(m = 100\)</span> échantilons, puis en faire un plot en échelle logarithmique sur l’axe des ordonée. La doite de régression devrait avoir une pente de <span class="math notranslate nohighlight">\(-\frac{1}{2}\)</span> car le taux de convergence est de <span class="math notranslate nohighlight">\(\sqrt{n}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2500</span><span class="p">,</span><span class="mi">5000</span><span class="p">]</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">RMSE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">échantillon_estimation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="c1"># Générer un échantillon de n VA unif([-1,1])</span>
+        
+        <span class="n">X</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">loc</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">2.</span><span class="p">)</span>
+        <span class="c1"># Estimation de pi</span>
+        
+        <span class="n">pi</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">4</span>
+        <span class="c1"># Calcul de la MSE de l&#39;échantillon</span>
+        
+        <span class="n">échantillon_estimation</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pi</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    
+    <span class="n">RMSE</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">échantillon_estimation</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="c1"># Plot du taux de convergence</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">RMSE</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Taux de convergence de la RMSE&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Sol3Python_23_0.png" src="../../../_images/Sol3Python_23_0.png" />
+</div>
+</div>
+<p>Les applications des méthodes de Monte-Carlo sont nombreuses, cependant elles sont particulièrement utilisées pour calculer des intégrales en dimensions plus grandes que 1 (en particulier, pour calculer des surfaces et des volumes). Elles sont également couramment utilisées en physique des particules, où des simulations probabilistes permettent d’estimer la forme d’un signal ou la sensibilité d’un détecteur. La comparaison des données mesurées à ces simulations peut permettre de mettre en évidence des caractéristiques inattendues, par exemple de nouvelles particules.</p>
+</section>
+<section id="exercice-4">
+<h2>Exercice 4:<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>On considère <span class="math notranslate nohighlight">\( 100 \)</span> lancers indépendants d’une pièce de monnaie dont la probabilité de tomber sur face est <span class="math notranslate nohighlight">\( 3/5 \)</span>.
+Soient <span class="math notranslate nohighlight">\( X_i \)</span>, <span class="math notranslate nohighlight">\( i \in \{ 1, \ldots, 100 \} \)</span>, les variables aléatoires telles que <span class="math notranslate nohighlight">\( X_i=1 \)</span> si on est tombé sur face au <span class="math notranslate nohighlight">\( i^{ème}\)</span> jet et <span class="math notranslate nohighlight">\( X_i=0 \)</span> sinon.</p>
+<p>1) Quelle est la loi de <span class="math notranslate nohighlight">\(X_i\)</span> pour <span class="math notranslate nohighlight">\(i\in\{1, \cdots, 100\}\)</span> ?</p>
+<p><strong>Solution</strong>: <span class="math notranslate nohighlight">\( X_i \sim \mathcal{B}(3/5) \)</span> pour <span class="math notranslate nohighlight">\( i \in \{ 1, \ldots, 100\} \)</span>, c’est-à-dire qu’il s’agit d’une variable de Bernoulli.</p>
+<p>2) Quelle est la loi de <span class="math notranslate nohighlight">\( S_{100} = \sum_{i=1}^{100} X_i \)</span>?</p>
+<p><strong>Solution</strong>: <span class="math notranslate nohighlight">\( S_{100} \sim \mathcal{B}(100, 3/5) \)</span>, c’est-à-dire qu’il s’agit d’une variable binomiale.</p>
+<p>3) Calculez <span class="math notranslate nohighlight">\( \mathbb{P}(S_{100} \leq 60) \)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">3.</span><span class="o">/</span><span class="mi">5</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+<span class="c1"># Afficher le résulat</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La probabilité de faire moins de 60 face est de </span><span class="si">{</span><span class="n">prob</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La probabilité de faire moins de 60 face est de 0.5379246591140352
+</pre></div>
+</div>
+</div>
+</div>
+<p>4) Écrire une fonction qui standardise <span class="math notranslate nohighlight">\(S_{100}\)</span> et donnez la loi approximative de la variable standardisée.</p>
+<p><strong>Solution</strong>: D’après le théorème central limite, la loi approximative de <span class="math notranslate nohighlight">\( Z_{100} \)</span> est <span class="math notranslate nohighlight">\( \mathcal{N}(0, 1) \)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+
+<span class="k">def</span> <span class="nf">standardise</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="n">S</span><span class="o">-</span><span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">))</span><span class="c1">#C1</span>
+    <span class="k">return</span> <span class="n">Z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>5) Approximez la valeur de <span class="math notranslate nohighlight">\(\mathbb{P}(S_{100} \leq 60)\)</span> grâce à la question précédente et comparez cette valeur approximative à la valeur exacte.</p>
+<p><strong>Solution</strong>:  En utilisant la loi approximative de <span class="math notranslate nohighlight">\( Z_{100} \)</span> on obtient
+$<span class="math notranslate nohighlight">\(
+\mathbb{P}(S_{100} \leq 60) = 
+\mathbb{P} \left( \frac{S_{100} - 60}{\sqrt{24}} \leq \frac{60 - 60}{\sqrt{24}}  \right)
+\approx
+\Phi(0) = 0.5,
+\)</span><span class="math notranslate nohighlight">\(
+ce qui est proche du résultat exact \)</span> \mathbb{P}(S_{100} \leq 60) = 0.5379$.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">standardise</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+<span class="n">prob_</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+<span class="c1"># Afficher le résulat</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;approximation via le TCL de la probabilité de faire moins de 60 face est de </span><span class="si">{</span><span class="n">prob_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L&#39;approximation via le TCL de la probabilité de faire moins de 60 face est de 0.5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-5">
+<h2>Exercice 5:<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Soit <span class="math notranslate nohighlight">\(X\)</span> le résultat du jet d’un dé équilibré.</p>
+<p>1) Calculez <span class="math notranslate nohighlight">\(\mathbb{E}[X]\)</span> et <span class="math notranslate nohighlight">\(\text{Var}(X)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">E_X</span><span class="p">,</span> <span class="n">V_X</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">randint</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="c1"># Afficher le résultat</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;espérance de X est: </span><span class="si">{</span><span class="n">E_X</span><span class="si">}</span><span class="se">\n</span><span class="s2">La variance de X est: </span><span class="si">{</span><span class="n">V_X</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L&#39;espérance de X est: 3.5
+La variance de X est: 2.9166666666666665
+</pre></div>
+</div>
+</div>
+</div>
+<p>2) On lance <span class="math notranslate nohighlight">\(100\)</span> dés équilibrés de façon indépendante. Calculez approximativement la probabilité la somme des <span class="math notranslate nohighlight">\(100\)</span> résultats soit comprise entre <span class="math notranslate nohighlight">\(340\)</span> et <span class="math notranslate nohighlight">\(360\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">upper_boundary</span> <span class="o">=</span> <span class="mi">360</span>
+<span class="n">lower_boundary</span> <span class="o">=</span> <span class="mi">340</span>
+
+<span class="k">def</span> <span class="nf">standardise</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma_square</span><span class="p">):</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="n">S</span><span class="o">-</span><span class="n">n</span><span class="o">*</span><span class="n">mu</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">sigma_square</span><span class="p">)</span><span class="c1">#C1</span>
+    <span class="k">return</span> <span class="n">Z</span>
+
+<span class="n">prob</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">standardise</span><span class="p">(</span><span class="n">upper_boundary</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">E_X</span><span class="p">,</span><span class="n">V_X</span><span class="p">))</span> <span class="o">-</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">standardise</span><span class="p">(</span><span class="n">lower_boundary</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">E_X</span><span class="p">,</span><span class="n">V_X</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La probabilité que la somme des 100 lancés soit comprise entre 340 et 360 est donc approximativement de </span><span class="si">{</span><span class="n">prob</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_328/2685489524.py:1: DeprecationWarning: Using or importing the ABCs from &#39;collections&#39; instead of from &#39;collections.abc&#39; is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Sized, KeysView, Sequence
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Correction/Python/Série3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../S%C3%A9rie2/Sol2P.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Série2 : Correction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../R/S%C3%A9rie1/Sol1R.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Série1 : Correction</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
