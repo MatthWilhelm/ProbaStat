@@ -838,8 +838,8 @@ la distribution des données.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_442/2685489524.py:1: DeprecationWarning: Using or importing the ABCs from &#39;collections&#39; instead of from &#39;collections.abc&#39; is deprecated since Python 3.3, and in 3.10 it will stop working
-  from collections import Sized, KeysView, Sequence
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sur l&#39;ensemble des tailles observées, l&#39;écart inter-quartile est EIQ = 23cm et l&#39;écart-type est de 38.41cm
+Sur l&#39;ensemble des tailles supérieures à 140cm, l&#39;écart inter-quartile est EIQ = 18cm et l&#39;écart-type est de 11.45cm
 </pre></div>
 </div>
 </div>
@@ -1209,36 +1209,6 @@ Blond  0.055118  0.740157  0.078740  0.125984
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Precipitations_journalieres_Changins.csv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">names</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span><span class="s2">&quot;Précipitation&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/usr/lib/python3.8/runpy.py&quot;, line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File &quot;/usr/lib/python3.8/runpy.py&quot;, line 87, in _run_code
-    exec(code, run_globals)
-  File &quot;/usr/local/lib/python3.8/dist-packages/ipykernel_launcher.py&quot;, line 17, in &lt;module&gt;
-    app.launch_new_instance()
-  File &quot;/usr/local/lib/python3.8/dist-packages/traitlets/config/application.py&quot;, line 975, in launch_instance
-    app.initialize(argv)
-  File &quot;/usr/local/lib/python3.8/dist-packages/traitlets/config/application.py&quot;, line 110, in inner
-    return method(app, *args, **kwargs)
-  File &quot;/usr/local/lib/python3.8/dist-packages/ipykernel/kernelapp.py&quot;, line 666, in initialize
-    self.init_sockets()
-  File &quot;/usr/local/lib/python3.8/dist-packages/ipykernel/kernelapp.py&quot;, line 307, in init_sockets
-    self.shell_port = self._bind_socket(self.shell_socket, self.shell_port)
-  File &quot;/usr/local/lib/python3.8/dist-packages/ipykernel/kernelapp.py&quot;, line 244, in _bind_socket
-    return self._try_bind_socket(s, port)
-  File &quot;/usr/local/lib/python3.8/dist-packages/ipykernel/kernelapp.py&quot;, line 220, in _try_bind_socket
-    s.bind(&quot;tcp://%s:%i&quot; % (self.ip, port))
-  File &quot;/usr/local/lib/python3.8/dist-packages/zmq/sugar/socket.py&quot;, line 230, in bind
-    super().bind(addr)
-  File &quot;zmq/backend/cython/socket.pyx&quot;, line 562, in zmq.backend.cython.socket.Socket.bind
-  File &quot;zmq/backend/cython/checkrc.pxd&quot;, line 28, in zmq.backend.cython.checkrc._check_rc
-zmq.error.ZMQError: Address already in use
-/tmp/ipykernel_965/2685489524.py:1: DeprecationWarning: Using or importing the ABCs from &#39;collections&#39; instead of from &#39;collections.abc&#39; is deprecated since Python 3.3, and in 3.10 it will stop working
-  from collections import Sized, KeysView, Sequence
 </pre></div>
 </div>
 </div>

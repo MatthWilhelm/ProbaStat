@@ -762,7 +762,7 @@ stats.ttest_ind(rvs1, rvs2) #test student
 # 
 # De la même manière que scipy.stats pour scipy, **matplotlib.pyplot** est un sous-module de Matplotlib pour générer des graphes comme avec Matlab.
 
-# In[ ]:
+# In[1]:
 
 
 import matplotlib.pyplot as plt 
@@ -835,8 +835,8 @@ plt.show()
 #help(np)  # et pas help(numpy) car on avait définit "numpy as np" pendant l'importation.
 
 
-# In[2]:
+# In[3]:
 
 
-help(plt)
+#help(plt)
 

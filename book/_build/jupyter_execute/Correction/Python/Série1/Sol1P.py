@@ -10,7 +10,7 @@
 # |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 # | **Taille** | 147 | 59 | 152 | 155 | 157 | 160 | 64 | 165 | 168 | 170 | 173 | 175 | 178 | 180 | 183 |
 
-# In[3]:
+# In[1]:
 
 
 import pandas as pd 
@@ -23,7 +23,7 @@ data = pd.DataFrame(np.array([147 , 59 , 152 , 155 , 157 , 160 , 64 , 165 , 168 
 
 # 1\) Calculer la moyenne et la médiane des tailles observées, puis faire un boxplot et un histogramme de ces tailles. Sur chacun de ces graphiques faire apparaître la moyenne et la médiane.
 
-# In[ ]:
+# In[2]:
 
 
 # Calculer la moyenne et la médiane des tailles observées
@@ -65,7 +65,7 @@ plt.show()
 # la distribution des données.
 # 
 
-# In[ ]:
+# In[3]:
 
 
 # Calcul de l'écart inter-quartiles
@@ -102,7 +102,7 @@ print(f"Sur l'ensemble des tailles supérieures à 140cm, l'écart inter-quartil
 # | **Taille** | 147 | 150 | 152 | 155 | 157 | 160 | 163 | 165 | 168 | 170 | 173 | 175 | 178 | 180 | 183 |
 # | **Poids** | 52 | 53 | 54 | 56 | 57 | 59 | 60 | 61 | 63 | 64 | 66 | 68 | 70 | 72 | 74 |
 
-# In[ ]:
+# In[4]:
 
 
 import pandas as pd 
@@ -119,7 +119,7 @@ datas = pd.DataFrame(np.array([[147 , 150 , 152 , 155 , 157 , 160 , 163 , 165 , 
 #   
 # 2\) Calculez la moyenne et l'écart-type des tailles observées.
 
-# In[ ]:
+# In[5]:
 
 
 # Calculer la moyenne des tailles
@@ -141,7 +141,7 @@ print("L'écart-type des tailles observées est (en cm):\n",std)
 # L’idée des quantiles est qu’ils partagent les données en deux parties d’une manière spéciale. Par exemple, le quantile d’ordre 30%, q(30 %), est une valeur telle qu’environ 30% des données sont inférieures à cette valeur et environ 70% des données sont supérieures à cette valeur.
 # 
 
-# In[ ]:
+# In[6]:
 
 
 min = datas.Taille.min()
@@ -158,7 +158,7 @@ print("Les quantiles inférieur, d'ordre 30% et supérieure des tailles sont:\n"
 
 # 4\) Calculez l'écart inter-quartile des tailles observées
 
-# In[ ]:
+# In[7]:
 
 
 # Calcul de l'écart inter-quartile
@@ -179,7 +179,7 @@ print("L'écart inter-quartile des tailles est EIQ = " + str(EIQ) + " cm.")
 # $$ \max \{x_i : x_i \le \hat{q}_x(75 \, \%) + C  \} = \max \{x_i : x_i \le 175 + 30  \} = x_{(15)} = 183.$$
 # 
 
-# In[ ]:
+# In[8]:
 
 
 # Faire un boxplot des tailles observées
@@ -197,7 +197,7 @@ plt.show()
 # Un histogramme est une représentation résumée de la distribution empirique des données, à changement d'échelle près (l'aire d'un histogramme n'est pas contrainte à valoir 1). De manière comparable à une représentation en "boîte à moustache", c'est une resumé d'une distribution univariée (à une dimension).
 # 
 
-# In[ ]:
+# In[9]:
 
 
 # Faire un histogramme avec les groupes mentionnés ci-dessus
@@ -216,7 +216,7 @@ plt.show()
 # Le poids des femmes ayant participé à l'enquête augmente avec la taille. Les deux caractéristiques semblent donc liées. Dans quelques semaines nous allons voir comment faire un test formel pour cela.
 # 
 
-# In[ ]:
+# In[10]:
 
 
 # Faire un graphique permettant de mettre en évidence la relation entre la taille 
@@ -241,7 +241,7 @@ plt.show()
 # | Roux  | 26 | 17 | 14 | 14 |
 # | Blond | 7 | 94 | 10 | 16|
 
-# In[ ]:
+# In[11]:
 
 
 import pandas as pd 
@@ -252,7 +252,7 @@ data = pd.DataFrame(np.array([[68, 20, 15, 5], [119, 84, 54, 29], [26, 17, 14,14
 
 # 1\) Combien d'étudiants ont participé à cette enquête ?
 
-# In[ ]:
+# In[12]:
 
 
 # Calculer et affficher le nombre total d'étudiants qui ont participé à cette enquête
@@ -275,7 +275,7 @@ print(n_student)
 #     
 # 
 
-# In[ ]:
+# In[13]:
 
 
 import matplotlib.pyplot as plt
@@ -311,7 +311,7 @@ plt.bar(x = résumé.index,height = résumé["Fréquence absolue"],color=["green
 # participé à l’enquête sont liées. Dans quelques semaines nous allons voir comment faire un test
 # formel pour cela. 
 
-# In[ ]:
+# In[14]:
 
 
 ########### Solution Python: ##########
@@ -325,7 +325,7 @@ print(fréquences_relatives)
 # 
 # On a observé les précipitations journalières 01.01.2000 - 10.07.2022 de la station météo Suisse de Changrins.
 
-# In[ ]:
+# In[18]:
 
 
 import pandas as pd
@@ -334,7 +334,7 @@ data = pd.read_csv('Precipitations_journalieres_Changins.csv',sep=',',names= ["D
 
 # 1\) Calculer la moyenne et la médiane de ces données. Puis, faire un boxplot et un histogramme de ces données et faire apparaitre la moyenne et la médiane sur chacunes de ces figures.
 
-# In[ ]:
+# In[19]:
 
 
 import matplotlib.pyplot as plt
@@ -367,3 +367,21 @@ plt.show()
 # sur les graphiques, on voit que la moyenne est décalée vers les observations
 # extrêmes, qui sont ici assez nombreuses. Par contre, dans ce cas-ci, il ne s'agit pas d'une erreur dans les données, il est tout à fait normal d'observer d'importantes averses au cours d'une année. Même si la tendance centrale des pluies journalières typiques est généralement mieux représentée par la médiane, la différence entre la moyenne et la médiane attire notre attention sur le fait qu'il y a plus de la moitié des jours où il ne pleut pas. En regardant l'histogramme, on peut aussi constater que les données à droite de la médiane sont plus dispersées que les données à gauche. La quantité d'information fournit par ces deux valeurs est donc limitée. La quantité de précipitation journalière  dépendant fortement de la saison ou encore du mois, il serait plus approprié d'étudier ces données sur des périodes différentes. Les tendances centrales de chaque période serait alors mieux représeneter par la médiane serait moins influencé par de potentielles observations extrêmes.
 # 
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
