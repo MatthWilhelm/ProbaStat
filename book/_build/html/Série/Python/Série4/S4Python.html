@@ -1,0 +1,1282 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Série4 &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Série/Python/Série4/S4Python.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="Série1" href="../../R/S%C3%A9rie1/S%C3%A9rie1R.html" />
+    <link rel="prev" title="Série3" href="../S%C3%A9rie3/S%C3%A9rie3Python.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/EPFL_Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Tutoriel_Python.html">
+   Tutoriel Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   1. Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/graphiques.html">
+   2. Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   3. Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/boxplot.html">
+   4. Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/loi_normale.html">
+   5. Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   6. Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/concepts_de_base.html">
+   1. Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/arrangements_et_combinaisons.html">
+   2. Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/probabilite_conditionnelle_independance.html">
+   3. Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/probabilites_totales_et_theoreme_de_bayes.html">
+   4. Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_discretes.html">
+   5. Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_continues.html">
+   6. Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_conjointes.html">
+   7. Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/valeurs_caracteristiques.html">
+   8. Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/theoreme_fondamentaux.html">
+   9. Théorème fondamentaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/Simulation_thm_fondamentaux.html">
+   10. Simulation théorème fondamentaux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   2. Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/Simulation_est_max_vraisemblance.html">
+   3. Illustration convergence de l’estimateur du maximum de vraisemblance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   4. Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   5. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   6. Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   7. Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   8. Test du
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   9. Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   2. Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   3. Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   4. Régréssion linéaire: hypothèses et diagnostiques
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Série Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie1/S%C3%A9rie1Python.html">
+   Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie3/S%C3%A9rie3Python.html">
+   Série3
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Série4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie1/S%C3%A9rie1R.html">
+   Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie3/S%C3%A9rie3R.html">
+   Série3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie4/S4R.html">
+   Série4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Correction/Python/S%C3%A9rie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Correction/Python/S%C3%A9rie2/Sol2P.html">
+   Série2 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Correction/Python/S%C3%A9rie3/Sol3Python.html">
+   Série3 : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Correction/R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Correction/R/S%C3%A9rie2/Sol2R.html">
+   Série2 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Correction/R/S%C3%A9rie3/Sol3R.html">
+   Série3 : Correction
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/MatthWilhelm/ProbaStat/master?urlpath=tree/book/Série/Python/Série4/S4Python.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://noto.epfl.ch/hub/user-redirect/git-pull?repo=https%3A//github.com/MatthWilhelm/ProbaStat&urlpath=tree/ProbaStat/book/S%C3%A9rie/Python/S%C3%A9rie4/S4Python.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat/issues/new?title=Issue%20on%20page%20%2FSérie/Python/Série4/S4Python.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat/edit/master/book/Série/Python/Série4/S4Python.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/Série/Python/Série4/S4Python.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-6">
+   Exercice 6:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Série4</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-6">
+   Exercice 6:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="serie4">
+<h1>Série4<a class="headerlink" href="#serie4" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="exercice-1">
+<h2>Exercice 1:<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Une entreprise d’automobiles veut publier des informations sur la consommation d’un nouveau modèle de voiture.
+Pour 12 voitures de ce modèle on mesure la consommation d’essence, en litres, pour parcourir 100 km, et on obtient
+les résultats suivants:
+$<span class="math notranslate nohighlight">\(
+14.60, 11.21, 11.56, 11.37, 13.68, 15.07, 11.06, 16.58, 13.37, 15.98,
+12.07, 13.22
+\)</span>$</p>
+<p>1) Supposez que la consommation d’essence pour une voiture de ce modèle est une variable aléatoire <span class="math notranslate nohighlight">\( X \sim \mathcal{N}(\mu , 3.5 ) \)</span> avec <span class="math notranslate nohighlight">\( \mu \)</span> inconnu, et que les données récoltées sont indépendantes.<br />
+a) Écrire une fonction qui retourne un intervalle de confiance symmétrique à <span class="math notranslate nohighlight">\( (1-\alpha)100\,\% \)</span>  pour <span class="math notranslate nohighlight">\( \mu \)</span> dans le cas où l’on connait la variance. (N’hésitez pas à faire des développements à la main ou en markdown avant de vous lancez dans l’implémentatioonde cette fonction)</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">IC_variance_connue</span><span class="p">(</span><span class="n">x_bar</span><span class="p">,</span><span class="n">sigma_square</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="n">quantile</span> <span class="o">=</span> <span class="o">...</span> 
+        <span class="n">IC</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="k">return</span> <span class="n">IC</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>b) Calculez cet intervalle de confiance pour le jeu de donnée fourni.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importation des données</span>
+<span class="n">data</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="c1"># Calcul de la moyenne empirique</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">n</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">sigma_square</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">IC</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="c1"># Afficher cet intervalle</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On va maintenant abandonner l’hypothèse de variance connue (ce qui est plus réaliste).  On considère toujours un modèle normal, mais cette fois on suppose que <span class="math notranslate nohighlight">\( X ~\sim \mathcal{N}(\mu , \sigma^2 ) \)</span> avec <span class="math notranslate nohighlight">\( \mu \)</span> et <span class="math notranslate nohighlight">\( \sigma^2 \)</span> inconnus. Les données récoltées sont toujours considérées indépendantes.</p>
+<p>2) Impémentez une fonction qui retourne un intervalle de confiance symmétrique à <span class="math notranslate nohighlight">\( (1-\alpha)100\,\% \)</span>  pour <span class="math notranslate nohighlight">\( \mu \)</span> dans le cas où la variance est inconnue. (N’hésitez pas à faire des développements à la main ou en markdown avant de vous lancez dans l’implémentatioonde cette fonction)</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Place your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3) a) Calculez un intervalle de confiance à <span class="math notranslate nohighlight">\(95\,\% \)</span> pour le jeu de donnée fourni.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Place your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>b) Calculez un intervalle de confiance à <span class="math notranslate nohighlight">\(90\,\% \)</span> pour le jeu de donnée fourni.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Place your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>c) Commentez la différence entre ces deux intervalles.</p>
+<p><strong>Solution</strong>:</p>
+<p>4) Que l’entreprise peut-elle faire pour obtenir un intervalle de confiance à <span class="math notranslate nohighlight">\( 95\,\% \)</span> plus étroit que celui obtenu?</p>
+<p><strong>Solution</strong>:</p>
+</section>
+<section id="exercice-2">
+<h2>Exercice 2:<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Une marque de friandises produit des bonbons au chocolat de six couleurs. Le responsable  de la communication affirme que les proportions des différentes couleurs sont de <span class="math notranslate nohighlight">\(30\,\%\)</span> pour le brun, <span class="math notranslate nohighlight">\(20\,\%\)</span> pour le jaune, <span class="math notranslate nohighlight">\(20\,\%\)</span> pour le rouge, <span class="math notranslate nohighlight">\(10\,\%\)</span> pour l’orange, <span class="math notranslate nohighlight">\(10\,\%\)</span> pour le vert et <span class="math notranslate nohighlight">\(10\,\%\)</span> pour le doré. Une expérience réalisée sur un total de <span class="math notranslate nohighlight">\(370\)</span> bonbons donne les nombres suivants :</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Couleur</p></th>
+<th class="head"><p>Brun</p></th>
+<th class="head"><p>Jaune</p></th>
+<th class="head"><p>Rouge</p></th>
+<th class="head"><p>Orange</p></th>
+<th class="head"><p>Vert</p></th>
+<th class="head"><p>Doré</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Nombre de bonbons</p></td>
+<td><p>84</p></td>
+<td><p>79</p></td>
+<td><p>75</p></td>
+<td><p>49</p></td>
+<td><p>36</p></td>
+<td><p>47</p></td>
+</tr>
+</tbody>
+</table>
+<p>Les données semblent-elles en accord avec l’affirmation du responsable de la communication? Faites un test à un niveau de signification de <span class="math notranslate nohighlight">\(5\%\)</span>.</p>
+<p>1) Proposer une hypothèse nulle et une hypothèse alternative qui permettront de tester l’affirmation du responsable de la communication.</p>
+<p><strong>Solution</strong>:</p>
+<p>2) Quel test allez-vous utiliser pour tester ces deux hypothèses ? Donnez la statistique <span class="math notranslate nohighlight">\(T\)</span> associé à ce test, ainsi que sa loi approximative sous <span class="math notranslate nohighlight">\(H_0\)</span>. De plus, y a-t-il une/des conditions pour que la convergence de <span class="math notranslate nohighlight">\(T\)</span> soit le moins déraisonnable possible ? Si oui, énoncé-la/les et vérifier la/les.</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Vérifier que la/les conditions sont remplies</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3) Tester l’hypothèse nulle <span class="math notranslate nohighlight">\(H_0\)</span> à un seuil de <span class="math notranslate nohighlight">\(5\,\%\)</span>. Les données semblent-elles en accord avec l’affirmation du responsable de communication ?</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="n">degree_of_freedom</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">valeur_critique</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">t_obs</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="c1"># Test pour savoir si on rejette ou non l&#39;hypothèse nulle</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-3">
+<h2>Exercice 3:<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Le tableau suivant donne le nombre de naissances dans un hôpital pour quatre trimestres consécutifs:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Trimestre</p></th>
+<th class="head"><p>Janv-Mars</p></th>
+<th class="head"><p>Avr-Juin</p></th>
+<th class="head"><p>Juil-Sept</p></th>
+<th class="head"><p>Oct-Déc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Nombre de naissances</p></td>
+<td><p>110</p></td>
+<td><p>57</p></td>
+<td><p>53</p></td>
+<td><p>80</p></td>
+</tr>
+</tbody>
+</table>
+<p>1) Nous voulons tester à un niveau de signification de <span class="math notranslate nohighlight">\( 1 \,\% \)</span>  si la natalité du premier trimestre est deux fois plus élevée que celle de chacun des autres trimestres, qui sont toutes égales.<br />
+a) Écrire explicitement les hypothèses nulle et alternative qui nous permettent de tester l’hypothèse ci-dessus. Sous <span class="math notranslate nohighlight">\(H_0\)</span>, connait-on la distribution exacte des naissances ou faut-il l’estimer ? Si elle est connue, donnez là.</p>
+<p><strong>Solution</strong>:</p>
+<p>b) Quel test allez-vous utiliser pour tester ces deux hypothèses ? Donnez la statistique <span class="math notranslate nohighlight">\(T\)</span> associé à ce test, ainsi que sa loi approximative sous <span class="math notranslate nohighlight">\(H_0\)</span>. De plus, y a-t-il une/des conditions pour que la convergence de <span class="math notranslate nohighlight">\(T\)</span> soit le moins déraisonnable possible ? Si oui, énoncé-la/les et vérifier la/les.</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Vérifier que la/les conditions sont remplies</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>c) Tester l’hypothèse nulle <span class="math notranslate nohighlight">\(H_0\)</span> à un seuil de <span class="math notranslate nohighlight">\(1\,\%\)</span>.</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="n">degree_of_freedom</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">valeur_critique</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">t_obs</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="c1"># Test pour savoir si on rejette ou non l&#39;hypothèse nulle</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>2) Nous voulon maintenant tester à un niveau de signification de <span class="math notranslate nohighlight">\( 1 \,\% \)</span> si la natalité du premier trimestre est égale à celle du quatrième trimestre, et celle du deuxième trimestre est égale à celle du troisième trimestre.<br />
+a) Écrire explicitement les hypothèses nulle et alternative qui nous permettent de tester l’hypothèse ci-dessus.</p>
+<p><strong>Solution</strong>:</p>
+<p>b)  Sous <span class="math notranslate nohighlight">\(H_0\)</span>, connait-on la distribution exacte des naissances ou faut-il l’estimer ? Si elle est connu donnez là, sinon estimez là.</p>
+<p><em>Indication:</em> Si on note par <span class="math notranslate nohighlight">\(p_j\)</span>, <span class="math notranslate nohighlight">\(j=1,\dots,4\)</span>, la probabilité d’être dans le <span class="math notranslate nohighlight">\(j\)</span>-ème trimestre, il faut tester <span class="math notranslate nohighlight">\(H_0\)</span>: <span class="math notranslate nohighlight">\(p_1=p_4\)</span>, <span class="math notranslate nohighlight">\(p_2=p_3\)</span> (c’est-à-dire, les <span class="math notranslate nohighlight">\(p_j\)</span> sont tels que <span class="math notranslate nohighlight">\(p_1=p_4\)</span> et <span class="math notranslate nohighlight">\(p_2=p_3\)</span>, mais autrement inconnus). Pour calculer les nombres attendus, on commence par estimer la valeur <span class="math notranslate nohighlight">\(p_{14}=\mathbb{P}(\text{né dans le 1er ou 4ème trimestre})\)</span> par la fréquence empirique et on utilise le fait que <span class="math notranslate nohighlight">\(p_1=p_4=p_{14}/2\)</span> sous <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p><strong>Solution</strong>:</p>
+<p>c) Quel test allez-vous utiliser pour tester ces deux hypothèses ? Donnez la statistique <span class="math notranslate nohighlight">\(T\)</span> associé à ce test, ainsi que sa loi approximative sous <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Semestre&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Janv-Mars&quot;</span> <span class="p">,</span> <span class="s2">&quot;Avr-Juin&quot;</span> <span class="p">,</span> <span class="s2">&quot;Juil-Sept&quot;</span> <span class="p">,</span> <span class="s2">&quot;Oct-Déc&quot;</span> <span class="p">],</span>
+                           <span class="s2">&quot;Nombre_observé&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">110</span>   <span class="p">,</span> <span class="mi">57</span>    <span class="p">,</span> <span class="mi">53</span>    <span class="p">,</span> <span class="mi">80</span>  <span class="p">]})</span>
+
+<span class="c1"># Estimation probabilité</span>
+<span class="o">...</span>
+
+
+<span class="c1"># Calculez les nombres attendus et vérifier que la condition est remplie</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>d) Tester l’hypothèse nulle <span class="math notranslate nohighlight">\(H_0\)</span> à un seuil de <span class="math notranslate nohighlight">\(1\,\%\)</span>.</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="n">degree_of_freedom</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">valeur_critique</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">t_obs</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="c1"># Test pour savoir si on rejette ou non l&#39;hypothèse nulle</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Dans cet exercice on n’a rejeté aucune hypothèse nulle. Évidemment, les deux hypothèses nulles sont incompatibles, donc cela peut paraître étrange. Mais rappelons-nous que « ne pas rejeter »  n’est pas « accepter » .</em></p>
+</section>
+<section id="exercice-4">
+<h2>Exercice 4:<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Les données ci-dessous représentent le taux d’oxygénation de cours d’eau ayant la même température dans une certaine région:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>taux d’oxygénation (par jour)</p></th>
+<th class="head"><p>fréquence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \le 0.1\)</span></p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\( (0.1,\ 0.15] \)</span></p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( (0.15,\ 0.20] \)</span></p></td>
+<td><p>23</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\( (0.20,\ 0.25] \)</span></p></td>
+<td><p>15</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( &gt;0.25\)</span></p></td>
+<td><p>13</p></td>
+</tr>
+</tbody>
+</table>
+<p>La moyenne et l’écart-type calculées pour cet échantillon de taille <span class="math notranslate nohighlight">\(83\)</span> sont <span class="math notranslate nohighlight">\(\overline{x} = 0.173\)</span> et <span class="math notranslate nohighlight">\(s_x = 0.066\)</span>, respectivement. Nous voulon tester à un niveau de signification de <span class="math notranslate nohighlight">\( 5\, \% \)</span> la qualité de l’ajustement d’une loi normale aux données ci-dessus.</p>
+<p>1) Écrire explicitement les hypothèses nulle et alternative qui nous permettent de tester l’hypothèse ci-dessus.</p>
+<p><strong>Solution</strong>:</p>
+<p>2) Quel test allez-vous utiliser pour tester ces deux hypothèses ? Donnez la statistique <span class="math notranslate nohighlight">\(T\)</span> associé à ce test, ainsi que sa loi approximative sous <span class="math notranslate nohighlight">\(H_0\)</span>.<br />
+<strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Oxygénation&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;&lt;0.1&quot;</span> <span class="p">,</span> <span class="s2">&quot;(0.1,0.15]&quot;</span> <span class="p">,</span> <span class="s2">&quot;(0.15,0.2],&quot;</span> <span class="p">,</span> <span class="s2">&quot;(0.2,0.25]&quot;</span><span class="p">,</span> <span class="s2">&quot;&gt;0.25&quot;</span> <span class="p">],</span>
+                           <span class="s2">&quot;Nombre_observé&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span>   <span class="p">,</span> <span class="mi">20</span>    <span class="p">,</span> <span class="mi">23</span>    <span class="p">,</span> <span class="mi">15</span><span class="p">,</span><span class="mi">13</span>  <span class="p">]})</span>
+
+<span class="n">x_bar</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">sigma</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="c1"># Estimation des probabilités</span>
+<span class="o">...</span>
+
+
+<span class="c1"># Calculez les nombres attendus et vérifier que la condition est remplie</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3) Tester l’hypothèse nulle <span class="math notranslate nohighlight">\(H_0\)</span> à un seuil de <span class="math notranslate nohighlight">\(5\,\%\)</span>.</p>
+<p><strong>Solution</strong>:</p>
+<p>On constate que <span class="math notranslate nohighlight">\(t_{\text{obs}}=1.607 &lt; \chi^2_{2; 0.95} = 5.99\)</span>, donc on ne rejette pas
+l’hypothèse nulle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degree_of_freedom</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">valeur_critique</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">t_obs</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="c1"># Test pour savoir si on rejette ou non l&#39;hypothèse nulle</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-5">
+<h2>Exercice 5:<a class="headerlink" href="#exercice-5" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Dans l’étude des défaillances d’un composant électronique, on a relevé les  retours en fabrique de 200 composants dont les défaillances ont été classées  par type (T1, T2) et par localisation (L1, L2, L3).</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p>L1</p></td>
+<td><p>L2</p></td>
+<td><p>L3</p></td>
+</tr>
+<tr class="row-odd"><td><p>T1</p></td>
+<td><p>50</p></td>
+<td><p>16</p></td>
+<td><p>31</p></td>
+</tr>
+<tr class="row-even"><td><p>T2</p></td>
+<td><p>61</p></td>
+<td><p>26</p></td>
+<td><p>16</p></td>
+</tr>
+</tbody>
+</table>
+<p>1) Donnez les hypothèses nulle et alternative permettant de tester la dépendance entre le type et la localisation du défaut. Puis, donnez la statistique de test que vous comptez utiliser tester ces hypothèses.</p>
+<p><strong>Solution</strong>:</p>
+<p>2) Y a-t-il des paramètres à estimer ? Si oui, lesquels ? Estimez ces paramètres.</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data_obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">50</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">31</span><span class="p">],[</span><span class="mi">61</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">16</span><span class="p">]])</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">data_obs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># Estimation des probabilités</span>
+<span class="o">...</span>
+
+
+<span class="c1"># Calculez les nombres attendus </span>
+<span class="o">...</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data_obs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3) En déduire la distributions de la statistique de test sous <span class="math notranslate nohighlight">\(H_O\)</span>.</p>
+<p><strong>Solution</strong>:</p>
+<p>4) Testez l’hypothèse <span class="math notranslate nohighlight">\(H_0\)</span> à un seuil de <span class="math notranslate nohighlight">\(5\,\%\)</span>. Peut-on conclure qu’il y a une dépendance entre le type et la localisation du défaut?</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="n">degree_of_freedom</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">valeur_critique</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">t_obs</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="c1"># Test pour savoir si on rejette ou non l&#39;hypothèse nulle</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-6">
+<h2>Exercice 6:<a class="headerlink" href="#exercice-6" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Pour certains jeux de données, il peut être judicieux de calculer une transformation des données avant d’effectuer une régression linéaire.</p>
+<p>Les données suivantes montrent les valeurs expérimentales de la pression <span class="math notranslate nohighlight">\(P\)</span> d’une masse donnée de gaz pour différentes valeurs du volume <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+<th class="head text-align:center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>Volume V [<span class="math notranslate nohighlight">\(\text{cm}^3\)</span>]</p></td>
+<td class="text-align:center"><p>54.3</p></td>
+<td class="text-align:center"><p>61.8</p></td>
+<td class="text-align:center"><p>72.4</p></td>
+<td class="text-align:center"><p>88.7</p></td>
+<td class="text-align:center"><p>118.6</p></td>
+<td class="text-align:center"><p>194.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Pression P [<span class="math notranslate nohighlight">\(\text{kg/cm}^2\)</span>]</p></td>
+<td class="text-align:center"><p>61.2</p></td>
+<td class="text-align:center"><p>49.5</p></td>
+<td class="text-align:center"><p>37.6</p></td>
+<td class="text-align:center"><p>28.4</p></td>
+<td class="text-align:center"><p>19.2</p></td>
+<td class="text-align:center"><p>10.1</p></td>
+</tr>
+</tbody>
+</table>
+<p>D’après les principes de la thermodynamique, on a la relation <span class="math notranslate nohighlight">\(P\,V^{\gamma}=C\)</span>, où <span class="math notranslate nohighlight">\(\gamma\)</span> et <span class="math notranslate nohighlight">\(C\)</span> sont des constantes dépendant des conditions d’expérience.</p>
+<p>1) Transformer <span class="math notranslate nohighlight">\(P\,V^{\gamma}=C\)</span> en une relation linéaire avec <span class="math notranslate nohighlight">\(Y=\log(P)\)</span>. Quels sont les paramètres dont on cherche la valeur?</p>
+<p><strong>Solution</strong>:</p>
+<p>2) Pour des observations non-transformées, écrire une fonction qui retourne l’estimation des paramètres <span class="math notranslate nohighlight">\(\hat{\alpha}\)</span> et <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> de la régréssion linéaire.</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">regr_est</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    
+    <span class="o">...</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3) Estimez <span class="math notranslate nohighlight">\(P\)</span> quand <span class="math notranslate nohighlight">\(V=100\)</span> <span class="math notranslate nohighlight">\(\text{cm}^3\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;V&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">54.3</span><span class="p">,</span><span class="mf">61.8</span><span class="p">,</span><span class="mf">72.4</span><span class="p">,</span><span class="mf">88.7</span><span class="p">,</span><span class="mf">118.6</span><span class="p">,</span><span class="mf">194.0</span><span class="p">],</span>
+                           <span class="s2">&quot;P&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">61.2</span><span class="p">,</span><span class="mf">49.5</span><span class="p">,</span><span class="mf">37.6</span><span class="p">,</span><span class="mf">28.4</span><span class="p">,</span><span class="mf">19.2</span><span class="p">,</span><span class="mf">10.1</span><span class="p">]})</span>
+
+<span class="c1"># Estimez P</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>4) Calculer l’intervalle de confiance à <span class="math notranslate nohighlight">\(95\%\)</span> pour la pente de la droite du modèle de régression trouvé précédement.</p>
+<p><strong>Solution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">data_trans</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="n">s</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">quantile</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="c1"># Autres valeurs à calculer ?</span>
+<span class="o">...</span>
+
+
+<span class="n">lower_bound</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="n">upper_bound</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;intervalle de confiance à 95% pour la pente de la droite du modèle de régréssion est donc [</span><span class="si">{</span><span class="n">lower_bound</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">upper_bound</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">].&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Série/Python/Série4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../S%C3%A9rie3/S%C3%A9rie3Python.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Série3</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../R/S%C3%A9rie1/S%C3%A9rie1R.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Série1</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
