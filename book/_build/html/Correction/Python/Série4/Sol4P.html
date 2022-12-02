@@ -60,6 +60,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Correction/Python/Série4/Sol4P.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="Série1 : Correction" href="../../R/S%C3%A9rie1/Sol1R.html" />
+    <link rel="prev" title="Série3 : Correction" href="../S%C3%A9rie3/Sol3Python.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -371,7 +373,7 @@ const thebe_selector_output = ".output, .cell_output"
   Correction Série Python
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../S%C3%A9rie1/Sol1P.html">
    Série1 : Correction
@@ -385,6 +387,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../S%C3%A9rie3/Sol3Python.html">
    Série3 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Série4 : Correction
   </a>
  </li>
 </ul>
@@ -407,6 +414,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../R/S%C3%A9rie3/Sol3R.html">
    Série3 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie4/Sol4R.html">
+   Série4 : Correction
   </a>
  </li>
 </ul>
@@ -745,32 +757,39 @@ title="Print to PDF"
 <h2>Exercice 1:<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Une entreprise d’automobiles veut publier des informations sur la consommation d’un nouveau modèle de voiture.
 Pour 12 voitures de ce modèle on mesure la consommation d’essence, en litres, pour parcourir 100 km, et on obtient
-les résultats suivants:
-$<span class="math notranslate nohighlight">\(
+les résultats suivants:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
 14.60, 11.21, 11.56, 11.37, 13.68, 15.07, 11.06, 16.58, 13.37, 15.98,
 12.07, 13.22
-\)</span>$</p>
+\end{gather*}\]</div>
 <p>1) Supposez que la consommation d’essence pour une voiture de ce modèle est une variable aléatoire <span class="math notranslate nohighlight">\( X \sim \mathcal{N}(\mu , 3.5 ) \)</span> avec <span class="math notranslate nohighlight">\( \mu \)</span> inconnu, et que les données récoltées sont indépendantes.<br />
 a) Écrire une fonction qui retourne un intervalle de confiance symmétrique à <span class="math notranslate nohighlight">\( (1-\alpha)100\,\% \)</span>  pour <span class="math notranslate nohighlight">\( \mu \)</span> dans le cas où l’on connait la variance. (N’hésitez pas à faire des développements à la main ou en markdown avant de vous lancez dans l’implémentatioonde cette fonction)</p>
 <p><strong>Solution</strong>:
-Si <span class="math notranslate nohighlight">\(X_1,\dots,X_n\)</span> sont iid <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,\sigma^2)\)</span>, alors
-$<span class="math notranslate nohighlight">\(
+Si <span class="math notranslate nohighlight">\(X_1,\dots,X_n\)</span> sont iid <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,\sigma^2)\)</span>, alors</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
 Z_n=\sqrt{n}\,\frac{\overline X_n-\mu}{\sigma}\sim \mathcal{N}(0,1).
-\)</span><span class="math notranslate nohighlight">\(
-On sait que
-\)</span><span class="math notranslate nohighlight">\(
+\end{gather*}\]</div>
+<p>On sait que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
 \Pr(-z &lt; Z_n &lt; z) = 2\, \Phi(z) - 1 ,
-\)</span><span class="math notranslate nohighlight">\(
-pour toute constante \)</span> z &gt; 0 <span class="math notranslate nohighlight">\(.
-Donc si on choisit \)</span> z_{1-\alpha/2} = \Phi^{-1}(1-\alpha/2) <span class="math notranslate nohighlight">\(
-(le \)</span> (1-\alpha/2)- <span class="math notranslate nohighlight">\(quantile de la loi \)</span> N(0,1) <span class="math notranslate nohighlight">\(), on obtient que
-\)</span><span class="math notranslate nohighlight">\(
+\end{gather*}\]</div>
+<p>pour toute constante <span class="math notranslate nohighlight">\( z &gt; 0 \)</span>.
+Donc si on choisit <span class="math notranslate nohighlight">\( z_{1-\alpha/2} = \Phi^{-1}(1-\alpha/2) \)</span>
+(le <span class="math notranslate nohighlight">\( (1-\alpha/2)- \)</span>quantile de la loi <span class="math notranslate nohighlight">\( N(0,1) \)</span>), on obtient que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
 1-\alpha = \mathbb{P}(-z_{1-\alpha/2} &lt; Z_n &lt; z_{1-\alpha/2}) = \mathbb{P} \left( -z_{1-\alpha/2} &lt; \sqrt{n}\,\frac{\overline{X}_n-\mu}{\sigma} &lt; z_{1-\alpha/2} \right)  = \mathbb{P} \left( \overline{X}_n -\frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma &lt; \mu &lt; \overline{X}_n + \frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma \right) 
-\)</span><span class="math notranslate nohighlight">\(
-L'intervalle 
-\)</span><span class="math notranslate nohighlight">\(\left( \overline{X}_n -\frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma , \overline{X}_n + \frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma 
-\right)\)</span><span class="math notranslate nohighlight">\(
-couvre donc la vraie valeur de \)</span> \mu <span class="math notranslate nohighlight">\( avec la probabilité \)</span> 1-\alpha $.</p>
+\end{gather*}\]</div>
+<p>L’intervalle</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\left( \overline{X}_n -\frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma , \overline{X}_n + \frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma 
+\right)
+\end{gather*}\]</div>
+<p>couvre donc la vraie valeur de <span class="math notranslate nohighlight">\( \mu \)</span> avec la probabilité <span class="math notranslate nohighlight">\( 1-\alpha \)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -814,24 +833,30 @@ couvre donc la vraie valeur de \)</span> \mu <span class="math notranslate nohig
 <p>On va maintenant abandonner l’hypothèse de variance connue (ce qui est plus réaliste).  On considère toujours un modèle normal, mais cette fois on suppose que <span class="math notranslate nohighlight">\( X ~\sim \mathcal{N}(\mu , \sigma^2 ) \)</span> avec <span class="math notranslate nohighlight">\( \mu \)</span> et <span class="math notranslate nohighlight">\( \sigma^2 \)</span> inconnus. Les données récoltées sont toujours considérées indépendantes.</p>
 <p>2) Impémentez une fonction qui retourne un intervalle de confiance symmétrique à <span class="math notranslate nohighlight">\( (1-\alpha)100\,\% \)</span>  pour <span class="math notranslate nohighlight">\( \mu \)</span> dans le cas où la variance est inconnue. (N’hésitez pas à faire des développements à la main ou en markdown avant de vous lancez dans l’implémentatioonde cette fonction)</p>
 <p><strong>Solution</strong>:
-Si <span class="math notranslate nohighlight">\(X_1,\dots,X_n\)</span> sont iid <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,\sigma^2)\)</span>, alors
-$<span class="math notranslate nohighlight">\(
+Si <span class="math notranslate nohighlight">\(X_1,\dots,X_n\)</span> sont iid <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,\sigma^2)\)</span>, alors</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
 T=\sqrt{n}\,\frac{\overline{X}_n-\mu}{S_n}\sim t_{n-1},
-\)</span><span class="math notranslate nohighlight">\(
-où \)</span>S_n^2=\frac1{n-1}\sum_{i=1}^n(X_i-\overline{X})^2<span class="math notranslate nohighlight">\(, et \)</span> t_{\nu} <span class="math notranslate nohighlight">\(
-est la loi de Student avec \)</span> \nu <span class="math notranslate nohighlight">\( degrés de liberté. La loi de Student
-est symétrique autour de zéro de la même manière que la loi \)</span> \mathcal{N}(0,1) <span class="math notranslate nohighlight">\(.
-On a donc
-\)</span><span class="math notranslate nohighlight">\(
+\end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(S_n^2=\frac1{n-1}\sum_{i=1}^n(X_i-\overline{X})^2\)</span>, et <span class="math notranslate nohighlight">\( t_{\nu} \)</span>
+est la loi de Student avec <span class="math notranslate nohighlight">\( \nu \)</span> degrés de liberté. La loi de Student
+est symétrique autour de zéro de la même manière que la loi <span class="math notranslate nohighlight">\( \mathcal{N}(0,1) \)</span>.
+On a donc</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
 \Pr(-t_{n-1,1-\alpha/2} &lt; T &lt; t_{n-1,1-\alpha/2} =  1 - \alpha, 
-\)</span><span class="math notranslate nohighlight">\(
-c'est-à-dire que \)</span>t_{n-1,\alpha/2} = -t_{n-1,1-\alpha/2}<span class="math notranslate nohighlight">\(, et donc
-\)</span><span class="math notranslate nohighlight">\(]t_{n-1,\alpha/2}, t_{n-1,1-\alpha/2} [\quad=\quad ]-t_{n-1,1-\alpha/2} , t_{n-1,1-\alpha/2} [.\)</span>$</p>
+\end{gather*}\]</div>
+<p>c’est-à-dire que <span class="math notranslate nohighlight">\(t_{n-1,\alpha/2} = -t_{n-1,1-\alpha/2}\)</span>, et donc</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+]t_{n-1,\alpha/2}, t_{n-1,1-\alpha/2} [\quad=\quad ]-t_{n-1,1-\alpha/2} , t_{n-1,1-\alpha/2} [.
+\end{gather*}\]</div>
 <p>On obtient l’intervalle de confiance
-sous la forme
-$<span class="math notranslate nohighlight">\(
+sous la forme</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
 \left( \overline{X}_n -\frac{t_{n-1,1-\alpha/2}}{\sqrt{n}}\, S_n ,\ \overline{X}_n + \frac{t_{n-1,1-\alpha/2}}{\sqrt{n}}\, S_n \right).
-\)</span>$</p>
+\end{gather*}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
@@ -927,13 +952,17 @@ de vert et <span class="math notranslate nohighlight">\( p_D \)</span> la propor
 <p>2) Quel test allez-vous utiliser pour tester ces deux hypothèses ? Donnez la statistique <span class="math notranslate nohighlight">\(T\)</span> associé à ce test, ainsi que sa loi approximative sous <span class="math notranslate nohighlight">\(H_0\)</span>. De plus, y a-t-il une/des conditions pour que la convergence de <span class="math notranslate nohighlight">\(T\)</span> soit le moins déraisonnable possible ? Si oui, énoncé-la/les et vérifier la/les.</p>
 <p><strong>Solution</strong>: Il s’agit d’un test d’adéquation. On peut baser la statistique de test sur les différences
 entre les nombres de bonbons des différentes couleurs observés (<span class="math notranslate nohighlight">\( O_i \)</span>) et les nombres attendus
-si <span class="math notranslate nohighlight">\( H_0 \)</span> est vraie (<span class="math notranslate nohighlight">\( E_i \)</span>):
-$<span class="math notranslate nohighlight">\(
+si <span class="math notranslate nohighlight">\( H_0 \)</span> est vraie (<span class="math notranslate nohighlight">\( E_i \)</span>):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
 T=\sum_{i=1}^k \frac{(O_i-E_i)^2}{E_i}, 
-\)</span><span class="math notranslate nohighlight">\(
-où \)</span> k <span class="math notranslate nohighlight">\( est le nombre de classes.
-Si le nombre d'observations est assez grand et les nombres attendus sont suffisamment élevés (en pratique supérieurs ou égaux à 5), la statistique \)</span> T <span class="math notranslate nohighlight">\( suit approximativement sous \)</span> H_0 <span class="math notranslate nohighlight">\( une loi \)</span> \chi^2 <span class="math notranslate nohighlight">\( dont le nombre de degrés de liberté est égal à
-\)</span><span class="math notranslate nohighlight">\( (\text{nombre de classes}) - 1 - (\text{nombre de paramètres estimés sous \)</span>H_0<span class="math notranslate nohighlight">\(}). \)</span>$</p>
+\end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\( k \)</span> est le nombre de classes.
+Si le nombre d’observations est assez grand et les nombres attendus sont suffisamment élevés (en pratique supérieurs ou égaux à 5), la statistique <span class="math notranslate nohighlight">\( T \)</span> suit approximativement sous <span class="math notranslate nohighlight">\( H_0 \)</span> une loi <span class="math notranslate nohighlight">\( \chi^2 \)</span> dont le nombre de degrés de liberté est égal à</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+(\text{nombre de classes}) - 1 - (\text{nombre de paramètres estimés sous $H_0$}). 
+\end{gather*}\]</div>
 <p>Dans notre cas, les nombres observés et attendus sont affichés dans la cellule de code suivante. La taille de l’échantillon est grande et tous les nombres attendus <span class="math notranslate nohighlight">\(e_i\)</span> sont plus grands que <span class="math notranslate nohighlight">\(5\)</span>.
 On peut donc utiliser l’approximation de la loi de la statistique <span class="math notranslate nohighlight">\( T \)</span> sous <span class="math notranslate nohighlight">\( H_0 \)</span> par la loi asymptotique (mentionnée ci-dessus). Nous avons 6 classes et aucun paramètre à estimer sous <span class="math notranslate nohighlight">\( H_0 \)</span> (les proportions sous <span class="math notranslate nohighlight">\( H_0 \)</span> sont
 données). Cela donne 5 degrés de liberté pour la loi asymptotique.</p>
@@ -961,7 +990,12 @@ données). Cela donne 5 degrés de liberté pour la loi asymptotique.</p>
 </div>
 </div>
 <p>3) Tester l’hypothèse nulle <span class="math notranslate nohighlight">\(H_0\)</span> à un seuil de <span class="math notranslate nohighlight">\(5\,\%\)</span>. Les données semblent-elles en accord avec l’affirmation du responsable de communication ?</p>
-<p><strong>Solution</strong>: Il reste à calculer la valeur observée de la statistique de test et la comparer avec une valeur critique. En testant à un niveau de <span class="math notranslate nohighlight">\( 5\, \% \)</span> (ce qui est le niveau standard),la valeur critique est  <span class="math notranslate nohighlight">\( \chi^2_{5; 0.95}=11.07 \)</span>. La valeur observée de la statistique de test est $<span class="math notranslate nohighlight">\(t_{obs} = \sum_{i=1}^6 \frac{(o_i-e_i)^2}{e_i} = 13.54.\)</span><span class="math notranslate nohighlight">\( Puisque cette valeur est plus grande que la valeur critique, on rejette \)</span>H_0<span class="math notranslate nohighlight">\( en faveur de \)</span> H_1 <span class="math notranslate nohighlight">\(. On peut dire que, à un niveau de signification de \)</span> 5, % $, on a montré que l’affirmation du responsable de communication est fausse.</p>
+<p><strong>Solution</strong>: Il reste à calculer la valeur observée de la statistique de test et la comparer avec une valeur critique. En testant à un niveau de <span class="math notranslate nohighlight">\( 5\, \% \)</span> (ce qui est le niveau standard),la valeur critique est  <span class="math notranslate nohighlight">\( \chi^2_{5; 0.95}=11.07 \)</span>. La valeur observée de la statistique de test est</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+t_{obs} = \sum_{i=1}^6 \frac{(o_i-e_i)^2}{e_i} = 13.54.
+\end{gather*}\]</div>
+<p>Puisque cette valeur est plus grande que la valeur critique, on rejette <span class="math notranslate nohighlight">\(H_0\)</span> en faveur de <span class="math notranslate nohighlight">\( H_1 \)</span>. On peut dire que, à un niveau de signification de <span class="math notranslate nohighlight">\( 5\, \% \)</span>, on a montré que l’affirmation du responsable de communication est fausse.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
@@ -1026,11 +1060,12 @@ a) Écrire explicitement les hypothèses nulle et alternative qui nous permetten
 <p>b) Quel test allez-vous utiliser pour tester ces deux hypothèses ? Donnez la statistique <span class="math notranslate nohighlight">\(T\)</span> associé à ce test, ainsi que sa loi approximative sous <span class="math notranslate nohighlight">\(H_0\)</span>. De plus, y a-t-il une/des conditions pour que la convergence de <span class="math notranslate nohighlight">\(T\)</span> soit le moins déraisonnable possible ? Si oui, énoncé-la/les et vérifier la/les.</p>
 <p><strong>Solution</strong>: Il s’agit d’un test d’adéquation. On peut baser la statistique de test sur les différences
 entre les nombres de naissances observées (<span class="math notranslate nohighlight">\( O_i \)</span>) et les nombres attendus
-si <span class="math notranslate nohighlight">\( H_0 \)</span> est vraie (<span class="math notranslate nohighlight">\( E_i \)</span>):
-$<span class="math notranslate nohighlight">\(
+si <span class="math notranslate nohighlight">\( H_0 \)</span> est vraie (<span class="math notranslate nohighlight">\( E_i \)</span>):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
 T=\sum_{i=1}^4 \frac{(O_i-E_i)^2}{E_i}.
-\)</span><span class="math notranslate nohighlight">\(
-qui, sous \)</span>H_0<span class="math notranslate nohighlight">\(, suit la loi \)</span>\chi^2_\nu<span class="math notranslate nohighlight">\( avec \)</span>\nu = 4-1-0=3<span class="math notranslate nohighlight">\(, à condition que les nombres attendus sous \)</span>H_0<span class="math notranslate nohighlight">\( soit supérieures à \)</span>5$, ce qui est le cas comme on peut le voir ci-dessous.</p>
+\end{gather*}\]</div>
+<p>qui, sous <span class="math notranslate nohighlight">\(H_0\)</span>, suit la loi <span class="math notranslate nohighlight">\(\chi^2_\nu\)</span> avec <span class="math notranslate nohighlight">\(\nu = 4-1-0=3\)</span>, à condition que les nombres attendus sous <span class="math notranslate nohighlight">\(H_0\)</span> soit supérieures à <span class="math notranslate nohighlight">\(5\)</span>, ce qui est le cas comme on peut le voir ci-dessous.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1055,7 +1090,12 @@ qui, sous \)</span>H_0<span class="math notranslate nohighlight">\(, suit la loi
 </div>
 </div>
 <p>c) Tester l’hypothèse nulle <span class="math notranslate nohighlight">\(H_0\)</span> à un seuil de <span class="math notranslate nohighlight">\(1\,\%\)</span>.</p>
-<p><strong>Solution</strong>: Il reste à calculer la valeur observée de la statistique de test et la comparer avec une valeur critique. En testant à un niveau de <span class="math notranslate nohighlight">\( 1\, \% \)</span> ,la valeur critique est  <span class="math notranslate nohighlight">\( \chi^2_{5; 0.95}=11.345 \)</span>. La valeur observée de la statistique de test est $<span class="math notranslate nohighlight">\(t_{obs} = \sum_{i=1}^6 \frac{(o_i-e_i)^2}{e_i} = 8.467.\)</span><span class="math notranslate nohighlight">\( Puisque cette valeur est plus petite que la valeur critique, on ne rejette donc pas \)</span>H_0$.</p>
+<p><strong>Solution</strong>: Il reste à calculer la valeur observée de la statistique de test et la comparer avec une valeur critique. En testant à un niveau de <span class="math notranslate nohighlight">\( 1\, \% \)</span> ,la valeur critique est  <span class="math notranslate nohighlight">\( \chi^2_{5; 0.95}=11.345 \)</span>. La valeur observée de la statistique de test est</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+t_{obs} = \sum_{i=1}^6 \frac{(o_i-e_i)^2}{e_i} = 8.467.
+\end{gather*}\]</div>
+<p>Puisque cette valeur est plus petite que la valeur critique, on ne rejette donc pas <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
@@ -1098,9 +1138,13 @@ du maximum de vraisemblance; ceci est laissé en exercice.</p>
 <p>c) Quel test allez-vous utiliser pour tester ces deux hypothèses ? Donnez la statistique <span class="math notranslate nohighlight">\(T\)</span> associé à ce test, ainsi que sa loi approximative sous <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <p><strong>Solution</strong>: En utilisant <span class="math notranslate nohighlight">\( \hat{p}_{IV} = \hat p_{I} \)</span> et <span class="math notranslate nohighlight">\( \hat p_{II} = \hat p_{III} = (1 - 2\, \hat p_{I}) / 2 \)</span>,
 on obtient les nombres attendus estimés calculés dans la cellule de code suivante.
-Il s’agit encore d’un test d’adéquation, on utilise alors la statistique de test  $<span class="math notranslate nohighlight">\(T=\sum_{j=1}^4 \frac{(O_j-E_j)^2}{E_j},\)</span><span class="math notranslate nohighlight">\(
-qui, sous \)</span>H_0<span class="math notranslate nohighlight">\(, suit la loi \)</span>\chi^2_\nu<span class="math notranslate nohighlight">\( avec
-\)</span>\nu = 4-1-1=2$ (on a estimé un paramètre).</p>
+Il s’agit encore d’un test d’adéquation, on utilise alors la statistique de test</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+T=\sum_{j=1}^4 \frac{(O_j-E_j)^2}{E_j},
+\end{gather*}\]</div>
+<p>qui, sous <span class="math notranslate nohighlight">\(H_0\)</span>, suit la loi <span class="math notranslate nohighlight">\(\chi^2_\nu\)</span> avec
+<span class="math notranslate nohighlight">\(\nu = 4-1-1=2\)</span> (on a estimé un paramètre).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Semestre&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Janv-Mars&quot;</span> <span class="p">,</span> <span class="s2">&quot;Avr-Juin&quot;</span> <span class="p">,</span> <span class="s2">&quot;Juil-Sept&quot;</span> <span class="p">,</span> <span class="s2">&quot;Oct-Déc&quot;</span> <span class="p">],</span>
@@ -1319,9 +1363,12 @@ l’hypothèse nulle.</p>
 &amp; H_1: &amp; H_0 \text{ n'est pas vraie}.
 \end{eqnarray*}\]</div>
 <p>Nous allons utiliser un test d’indépendance entre deux caractéristiques de données. On peut de nouveau  baser la statistique de test sur les différences entre les nombres observés et attendus.
-Si on a <span class="math notranslate nohighlight">\( n_1 \)</span> classes pour la première caractéristique et <span class="math notranslate nohighlight">\( n_2 \)</span> classes pour la deuxième  caractéristique, et si on note <span class="math notranslate nohighlight">\( N_{ij} \)</span> et <span class="math notranslate nohighlight">\( E_{ij} \)</span> les nombres observés et attendus d’observations de la <span class="math notranslate nohighlight">\( i \)</span>ème classe de la première caractéristique et <span class="math notranslate nohighlight">\( j \)</span>ème classe de la  deuxième caractéristique, la statistique de test à utiliser est
-$<span class="math notranslate nohighlight">\(T=\sum_{i=1}^{n_1}\sum_{j=1}^{n_2} \frac{(N_{ij}-E_{ij})^2}{E_{ij}}.\)</span>$
-2) Y a-t-il des paramètres à estimer ? Si oui, lesquels ? Estimez ces paramètres.</p>
+Si on a <span class="math notranslate nohighlight">\( n_1 \)</span> classes pour la première caractéristique et <span class="math notranslate nohighlight">\( n_2 \)</span> classes pour la deuxième  caractéristique, et si on note <span class="math notranslate nohighlight">\( N_{ij} \)</span> et <span class="math notranslate nohighlight">\( E_{ij} \)</span> les nombres observés et attendus d’observations de la <span class="math notranslate nohighlight">\( i \)</span>ème classe de la première caractéristique et <span class="math notranslate nohighlight">\( j \)</span>ème classe de la  deuxième caractéristique, la statistique de test à utiliser est</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+T=\sum_{i=1}^{n_1}\sum_{j=1}^{n_2} \frac{(N_{ij}-E_{ij})^2}{E_{ij}}.
+\end{gather*}\]</div>
+<p>2) Y a-t-il des paramètres à estimer ? Si oui, lesquels ? Estimez ces paramètres.</p>
 <p><strong>Solution</strong>: Cela vient du fait que sous <span class="math notranslate nohighlight">\( H_0 \)</span> on a <span class="math notranslate nohighlight">\( p_{ij} = p_i \times p_j \)</span>, où <span class="math notranslate nohighlight">\( p_i \)</span> est la probabilité d’être dans la <span class="math notranslate nohighlight">\( i \)</span>ème classe de la première caractéristique, <span class="math notranslate nohighlight">\( p_j \)</span> est la probabilité d’être dans la <span class="math notranslate nohighlight">\( j \)</span>ème classe de la deuxième caractéristique et <span class="math notranslate nohighlight">\( p_{ij} \)</span> est la probabilité d’être dans la <span class="math notranslate nohighlight">\( i \)</span>ème classe de la première caractéristique et
 dans la <span class="math notranslate nohighlight">\( j \)</span>ème classe de la deuxième caractéristique. On estime <span class="math notranslate nohighlight">\( p_i \)</span> par <span class="math notranslate nohighlight">\( (\sum_{j=1}^{n_2}n_{ij}) / (\sum_{i=1}^{n_1} \sum_{j=1}^{n_2} n_{ij}) \)</span> et <span class="math notranslate nohighlight">\( p_j \)</span> par <span class="math notranslate nohighlight">\( (\sum_{i=1}^{n_1}n_{ij}) / (\sum_{i=1}^{n_1} \sum_{j=1}^{n_2} n_{ij}) \)</span>.</p>
 <div class="cell docutils container">
@@ -1364,9 +1411,12 @@ Le nombre total de classes est <span class="math notranslate nohighlight">\( n_1
 (on a <span class="math notranslate nohighlight">\( n_1 - 1 \)</span> estimateurs pour <span class="math notranslate nohighlight">\( p_i \)</span> et <span class="math notranslate nohighlight">\( n_2 - 1 \)</span> estimateurs pour <span class="math notranslate nohighlight">\( p_j \)</span>).
 Enfin, <span class="math notranslate nohighlight">\( n_1\times n_2 - 1 - n_1 - n_2 + 2 = (n_1 - 1)\times (n_2-1) \)</span>. Ce qui nous donne que <span class="math notranslate nohighlight">\(T \sim \chi^2_{2}\)</span> sous <span class="math notranslate nohighlight">\(H_O\)</span>.</p>
 <p>4) Testez l’hypothèse <span class="math notranslate nohighlight">\(H_0\)</span> à un seuil de <span class="math notranslate nohighlight">\(5\,\%\)</span>. Peut-on conclure qu’il y a une dépendance entre le type et la localisation du défaut?</p>
-<p><strong>Solution</strong>: La valeur observée de la statistique
-$<span class="math notranslate nohighlight">\(T=\sum_{i=1}^2\sum_{j=1}^3 \frac{(N_{ij}-E_{ij})^2}{E_{ij}}\)</span><span class="math notranslate nohighlight">\(
-est \)</span>t_{obs} = 8.08 &gt; \chi^2_{2; 0.95} = 5.99,<span class="math notranslate nohighlight">\( donc, au niveau de \)</span> 5,% <span class="math notranslate nohighlight">\(, on a montré qu'il y a une dépendance entre le type et la localisation du défaut. Notons que l'approximation par la loi \)</span>\chi^2<span class="math notranslate nohighlight">\( est possible, car le nombre d'observations est grand et tous les nombres attendus \)</span>e_{ij}<span class="math notranslate nohighlight">\( sont plus grands que \)</span>5$.</p>
+<p><strong>Solution</strong>: La valeur observée de la statistique</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+T=\sum_{i=1}^2\sum_{j=1}^3 \frac{(N_{ij}-E_{ij})^2}{E_{ij}}
+\end{gather*}\]</div>
+<p>est <span class="math notranslate nohighlight">\(t_{obs} = 8.08 &gt; \chi^2_{2; 0.95} = 5.99,\)</span> donc, au niveau de <span class="math notranslate nohighlight">\( 5\,\% \)</span>, on a montré qu’il y a une dépendance entre le type et la localisation du défaut. Notons que l’approximation par la loi <span class="math notranslate nohighlight">\(\chi^2\)</span> est possible, car le nombre d’observations est grand et tous les nombres attendus <span class="math notranslate nohighlight">\(e_{ij}\)</span> sont plus grands que <span class="math notranslate nohighlight">\(5\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
@@ -1429,20 +1479,25 @@ On rejette H_0 en faveur de H_1
 </table>
 <p>D’après les principes de la thermodynamique, on a la relation <span class="math notranslate nohighlight">\(P\,V^{\gamma}=C\)</span>, où <span class="math notranslate nohighlight">\(\gamma\)</span> et <span class="math notranslate nohighlight">\(C\)</span> sont des constantes dépendant des conditions d’expérience.</p>
 <p>1) Transformer <span class="math notranslate nohighlight">\(P\,V^{\gamma}=C\)</span> en une relation linéaire avec <span class="math notranslate nohighlight">\(Y=\log(P)\)</span>. Quels sont les paramètres dont on cherche la valeur?</p>
-<p><strong>Solution</strong>: Puisque <span class="math notranslate nohighlight">\(P\,V^{\gamma}=C\)</span>, on a
-$<span class="math notranslate nohighlight">\(
+<p><strong>Solution</strong>: Puisque <span class="math notranslate nohighlight">\(P\,V^{\gamma}=C\)</span>, on a</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
   \log(P) +\gamma \log (V)=\log (C) \quad \text{et donc} \quad \log(P) =\log(C)-\gamma \log(V).
-  \)</span><span class="math notranslate nohighlight">\(
-  En posant \)</span>X=\log(V)<span class="math notranslate nohighlight">\( et \)</span>Y=\log§<span class="math notranslate nohighlight">\(, l'équation de la droite du modèle linéaire s'écrit
-  \)</span><span class="math notranslate nohighlight">\(
+\end{gather*}\]</div>
+<p>En posant <span class="math notranslate nohighlight">\(X=\log(V)\)</span> et <span class="math notranslate nohighlight">\(Y=\log(P)\)</span>, l’équation de la droite du modèle linéaire s’écrit</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
   Y=\alpha+\beta X\,,
-  \)</span><span class="math notranslate nohighlight">\(
-  où \)</span>\alpha=\log©<span class="math notranslate nohighlight">\( et \)</span>\beta=-\gamma<span class="math notranslate nohighlight">\(. Nous souhaitons estimer les paramètres \)</span>\alpha<span class="math notranslate nohighlight">\( et \)</span>\beta<span class="math notranslate nohighlight">\(.
-2\) Pour des observations non-transformées, écrire une fonction qui retourne l'estimation des paramètres \)</span>\hat{\alpha}<span class="math notranslate nohighlight">\( et \)</span>\hat{\beta}$ de la régréssion linéaire.</p>
-<p><strong>Solution</strong>: On sait d’après le cours que les estimateurs des paramètres de la droite de régression sont donnés par
-$<span class="math notranslate nohighlight">\(  \hat \beta=\frac{\sum_{i=1}^{n} Y_i(x_i -\overline x)}{\sum_{i=1}^{n} (x_i-\overline x)^2} \quad\text{et}\quad \hat \alpha=\overline y-\hat \beta \overline x,\)</span><span class="math notranslate nohighlight">\(
-où \)</span>x_i=\log(v_i)<span class="math notranslate nohighlight">\( et \)</span>Y_i=\log(P_i), i=1, \dots, 6<span class="math notranslate nohighlight">\(.
-  On trouve \)</span>\hat \beta=-1.4<span class="math notranslate nohighlight">\( et \)</span>\hat\alpha=9.66<span class="math notranslate nohighlight">\(. Ainsi, on a \)</span>\hat{C}=\exp(\hat{\alpha})=15677.78<span class="math notranslate nohighlight">\( et \)</span>\hat{\gamma}=-\hat{\beta}=1.4$.</p>
+\end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\alpha=\log(C)\)</span> et <span class="math notranslate nohighlight">\(\beta=-\gamma\)</span>. Nous souhaitons estimer les paramètres <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(\beta\)</span>.
+2) Pour des observations non-transformées, écrire une fonction qui retourne l’estimation des paramètres <span class="math notranslate nohighlight">\(\hat{\alpha}\)</span> et <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> de la régréssion linéaire.</p>
+<p><strong>Solution</strong>: On sait d’après le cours que les estimateurs des paramètres de la droite de régression sont donnés par</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\hat \beta=\frac{\sum_{i=1}^{n} Y_i(x_i -\overline x)}{\sum_{i=1}^{n} (x_i-\overline x)^2} \quad\text{et}\quad \hat \alpha=\overline y-\hat \beta \overline x,
+\end{gather*}\]</div>
+<p>où <span class="math notranslate nohighlight">\(x_i=\log(v_i)\)</span> et <span class="math notranslate nohighlight">\(Y_i=\log(P_i), i=1, \dots, 6\)</span>.
+On trouve <span class="math notranslate nohighlight">\(\hat \beta=-1.4\)</span> et <span class="math notranslate nohighlight">\(\hat\alpha=9.66\)</span>. Ainsi, on a <span class="math notranslate nohighlight">\(\hat{C}=\exp(\hat{\alpha})=15677.78\)</span> et <span class="math notranslate nohighlight">\(\hat{\gamma}=-\hat{\beta}=1.4\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1482,12 +1537,27 @@ où \)</span>x_i=\log(v_i)<span class="math notranslate nohighlight">\( et \)</s
 </div>
 </div>
 <p>4) Calculer l’intervalle de confiance à <span class="math notranslate nohighlight">\(95\%\)</span> pour la pente de la droite du modèle de régression trouvé précédement.</p>
-<p><strong>Solution</strong>: Soit $<span class="math notranslate nohighlight">\( S^2 = \frac{1}{n-2} \sum_{i=1}^n(Y_i-\hat{\alpha}-\hat{\beta}x_i)^2.\)</span><span class="math notranslate nohighlight">\(
-On sait d'après le cours que \)</span><span class="math notranslate nohighlight">\( \frac{\hat{\beta}-\beta}{\sqrt{\frac{S^2}{\sum_{i=1}^n (x_i-\overline{x})^2}}} \sim t_{n-2}.\)</span><span class="math notranslate nohighlight">\(
-L'intervalle de confiance à \)</span>95%<span class="math notranslate nohighlight">\( est donc donné par les bornes \)</span><span class="math notranslate nohighlight">\( \hat{\beta}\pm \frac{s}{\sqrt{\sum_{i=1}^n (x_i-\overline{x})^2}}\ t_{n-2;0.975},\)</span><span class="math notranslate nohighlight">\(
-où
-\)</span><span class="math notranslate nohighlight">\(s=\sqrt{\frac{1}{n-2} \sum_{i=1}^n(y_i-\hat{\alpha}-\hat{\beta}x_i)^2}.\)</span><span class="math notranslate nohighlight">\(
-L'intervalle de confiance recherché est donc approximativement \)</span>[-1.502, -1.306]$.</p>
+<p><strong>Solution</strong>: Soit</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+S^2 = \frac{1}{n-2} \sum_{i=1}^n(Y_i-\hat{\alpha}-\hat{\beta}x_i)^2.
+\end{gather*}\]</div>
+<p>On sait d’après le cours que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\frac{\hat{\beta}-\beta}{\sqrt{\frac{S^2}{\sum_{i=1}^n (x_i-\overline{x})^2}}} \sim t_{n-2}.
+\end{gather*}\]</div>
+<p>L’intervalle de confiance à <span class="math notranslate nohighlight">\(95\%\)</span> est donc donné par les bornes</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\hat{\beta}\pm \frac{s}{\sqrt{\sum_{i=1}^n (x_i-\overline{x})^2}}\ t_{n-2;0.975},
+\end{gather*}\]</div>
+<p>où</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+s=\sqrt{\frac{1}{n-2} \sum_{i=1}^n(y_i-\hat{\alpha}-\hat{\beta}x_i)^2}.
+\end{gather*}\]</div>
+<p>L’intervalle de confiance recherché est donc approximativement <span class="math notranslate nohighlight">\([-1.502, -1.306]\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">st</span>
@@ -1545,6 +1615,20 @@ L'intervalle de confiance recherché est donc approximativement \)</span>[-1.502
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../S%C3%A9rie3/Sol3Python.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Série3 : Correction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../R/S%C3%A9rie1/Sol1R.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Série1 : Correction</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

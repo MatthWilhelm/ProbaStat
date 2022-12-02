@@ -389,6 +389,11 @@ const thebe_selector_output = ".output, .cell_output"
    Série3 : Correction
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Correction/Python/S%C3%A9rie4/Sol4P.html">
+   Série4 : Correction
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -409,6 +414,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../../Correction/R/S%C3%A9rie3/Sol3R.html">
    Série3 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Correction/R/S%C3%A9rie4/Sol4R.html">
+   Série4 : Correction
   </a>
  </li>
 </ul>
@@ -747,11 +757,12 @@ title="Print to PDF"
 <h2>Exercice 1:<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Une entreprise d’automobiles veut publier des informations sur la consommation d’un nouveau modèle de voiture.
 Pour 12 voitures de ce modèle on mesure la consommation d’essence, en litres, pour parcourir 100 km, et on obtient
-les résultats suivants:
-$<span class="math notranslate nohighlight">\(
+les résultats suivants:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
 14.60, 11.21, 11.56, 11.37, 13.68, 15.07, 11.06, 16.58, 13.37, 15.98,
 12.07, 13.22
-\)</span>$</p>
+\end{gather*}\]</div>
 <p>1) Supposez que la consommation d’essence pour une voiture de ce modèle est une variable aléatoire <span class="math notranslate nohighlight">\( X \sim \mathcal{N}(\mu , 3.5 ) \)</span> avec <span class="math notranslate nohighlight">\( \mu \)</span> inconnu, et que les données récoltées sont indépendantes.<br />
 a) Écrire une fonction qui retourne un intervalle de confiance symmétrique à <span class="math notranslate nohighlight">\( (1-\alpha)100\,\% \)</span>  pour <span class="math notranslate nohighlight">\( \mu \)</span> dans le cas où l’on connait la variance. (N’hésitez pas à faire des développements à la main ou en markdown avant de vous lancez dans l’implémentatioonde cette fonction)</p>
 <p><strong>Solution</strong>:</p>

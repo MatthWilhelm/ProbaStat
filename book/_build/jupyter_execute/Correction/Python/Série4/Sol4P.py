@@ -7,10 +7,10 @@
 # Une entreprise d'automobiles veut publier des informations sur la consommation d'un nouveau modèle de voiture. 
 # Pour 12 voitures de ce modèle on mesure la consommation d'essence, en litres, pour parcourir 100 km, et on obtient
 # les résultats suivants:
-# $$
+# \begin{gather*}
 # 14.60, 11.21, 11.56, 11.37, 13.68, 15.07, 11.06, 16.58, 13.37, 15.98,
 # 12.07, 13.22
-# $$
+# \end{gather*}
 # 
 # 1\) Supposez que la consommation d'essence pour une voiture de ce modèle est une variable aléatoire $ X \sim \mathcal{N}(\mu , 3.5 ) $ avec $ \mu $ inconnu, et que les données récoltées sont indépendantes.  
 # a\) Écrire une fonction qui retourne un intervalle de confiance symmétrique à $ (1-\alpha)100\,\% $  pour $ \mu $ dans le cas où l'on connait la variance. (N'hésitez pas à faire des développements à la main ou en markdown avant de vous lancez dans l'implémentatioonde cette fonction)
@@ -18,22 +18,24 @@
 # 
 # **Solution**: 
 # Si $X_1,\dots,X_n$ sont iid $\mathcal{N}(\mu,\sigma^2)$, alors
-# $$
+# \begin{gather*}
 # Z_n=\sqrt{n}\,\frac{\overline X_n-\mu}{\sigma}\sim \mathcal{N}(0,1).
-# $$
+# \end{gather*}
 # On sait que
-# $$
+# \begin{gather*}
 # \Pr(-z < Z_n < z) = 2\, \Phi(z) - 1 ,
-# $$
+# \end{gather*}
 # pour toute constante $ z > 0 $.
 # Donc si on choisit $ z_{1-\alpha/2} = \Phi^{-1}(1-\alpha/2) $
 # (le $ (1-\alpha/2)- $quantile de la loi $ N(0,1) $), on obtient que
-# $$
+# \begin{gather*}
 # 1-\alpha = \mathbb{P}(-z_{1-\alpha/2} < Z_n < z_{1-\alpha/2}) = \mathbb{P} \left( -z_{1-\alpha/2} < \sqrt{n}\,\frac{\overline{X}_n-\mu}{\sigma} < z_{1-\alpha/2} \right)  = \mathbb{P} \left( \overline{X}_n -\frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma < \mu < \overline{X}_n + \frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma \right) 
-# $$
+# \end{gather*}
 # L'intervalle 
-# $$\left( \overline{X}_n -\frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma , \overline{X}_n + \frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma 
-# \right)$$
+# \begin{gather*}
+# \left( \overline{X}_n -\frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma , \overline{X}_n + \frac{z_{1-\alpha/2}}{\sqrt{n}}\, \sigma 
+# \right)
+# \end{gather*}
 # couvre donc la vraie valeur de $ \mu $ avec la probabilité $ 1-\alpha $.
 # 
 # 
@@ -78,24 +80,26 @@ print(f"L'intervalle de confiance à 95% est donc: [{IC.lower_bound[0]:.3f},{IC.
 # 
 # **Solution**: 
 # Si $X_1,\dots,X_n$ sont iid $\mathcal{N}(\mu,\sigma^2)$, alors
-# $$
+# \begin{gather*}
 # T=\sqrt{n}\,\frac{\overline{X}_n-\mu}{S_n}\sim t_{n-1},
-# $$
+# \end{gather*}
 # où $S_n^2=\frac1{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$, et $ t_{\nu} $
 # est la loi de Student avec $ \nu $ degrés de liberté. La loi de Student
 # est symétrique autour de zéro de la même manière que la loi $ \mathcal{N}(0,1) $.
 # On a donc
-# $$
+# \begin{gather*}
 # \Pr(-t_{n-1,1-\alpha/2} < T < t_{n-1,1-\alpha/2} =  1 - \alpha, 
-# $$
+# \end{gather*}
 # c'est-à-dire que $t_{n-1,\alpha/2} = -t_{n-1,1-\alpha/2}$, et donc
-# $$]t_{n-1,\alpha/2}, t_{n-1,1-\alpha/2} [\quad=\quad ]-t_{n-1,1-\alpha/2} , t_{n-1,1-\alpha/2} [.$$
+# \begin{gather*}
+# ]t_{n-1,\alpha/2}, t_{n-1,1-\alpha/2} [\quad=\quad ]-t_{n-1,1-\alpha/2} , t_{n-1,1-\alpha/2} [.
+# \end{gather*}
 # 
 # On obtient l'intervalle de confiance
 # sous la forme
-# $$
+# \begin{gather*}
 # \left( \overline{X}_n -\frac{t_{n-1,1-\alpha/2}}{\sqrt{n}}\, S_n ,\ \overline{X}_n + \frac{t_{n-1,1-\alpha/2}}{\sqrt{n}}\, S_n \right).
-# $$
+# \end{gather*}
 # 
 
 # In[ ]:
@@ -173,12 +177,14 @@ print(f"L'intervalle de confiance à 90% est donc: [{IC.lower_bound[0]:.3f},{IC.
 # **Solution**: Il s'agit d'un test d'adéquation. On peut baser la statistique de test sur les différences
 # entre les nombres de bonbons des différentes couleurs observés ($ O_i $) et les nombres attendus 
 # si $ H_0 $ est vraie ($ E_i $):
-# $$
+# \begin{gather*}
 # T=\sum_{i=1}^k \frac{(O_i-E_i)^2}{E_i}, 
-# $$
+# \end{gather*}
 # où $ k $ est le nombre de classes.
 # Si le nombre d'observations est assez grand et les nombres attendus sont suffisamment élevés (en pratique supérieurs ou égaux à 5), la statistique $ T $ suit approximativement sous $ H_0 $ une loi $ \chi^2 $ dont le nombre de degrés de liberté est égal à
-# $$ (\text{nombre de classes}) - 1 - (\text{nombre de paramètres estimés sous $H_0$}). $$
+# \begin{gather*}
+# (\text{nombre de classes}) - 1 - (\text{nombre de paramètres estimés sous $H_0$}). 
+# \end{gather*}
 # 
 # Dans notre cas, les nombres observés et attendus sont affichés dans la cellule de code suivante. La taille de l'échantillon est grande et tous les nombres attendus $e_i$ sont plus grands que $5$.
 # On peut donc utiliser l'approximation de la loi de la statistique $ T $ sous $ H_0 $ par la loi asymptotique (mentionnée ci-dessus). Nous avons 6 classes et aucun paramètre à estimer sous $ H_0 $ (les proportions sous $ H_0 $ sont
@@ -204,7 +210,11 @@ else:
 
 # 3\) Tester l'hypothèse nulle $H_0$ à un seuil de $5\,\%$. Les données semblent-elles en accord avec l'affirmation du responsable de communication ? 
 # 
-# **Solution**: Il reste à calculer la valeur observée de la statistique de test et la comparer avec une valeur critique. En testant à un niveau de $ 5\, \% $ (ce qui est le niveau standard),la valeur critique est  $ \chi^2_{5; 0.95}=11.07 $. La valeur observée de la statistique de test est $$t_{obs} = \sum_{i=1}^6 \frac{(o_i-e_i)^2}{e_i} = 13.54.$$ Puisque cette valeur est plus grande que la valeur critique, on rejette $H_0$ en faveur de $ H_1 $. On peut dire que, à un niveau de signification de $ 5\, \% $, on a montré que l'affirmation du responsable de communication est fausse.
+# **Solution**: Il reste à calculer la valeur observée de la statistique de test et la comparer avec une valeur critique. En testant à un niveau de $ 5\, \% $ (ce qui est le niveau standard),la valeur critique est  $ \chi^2_{5; 0.95}=11.07 $. La valeur observée de la statistique de test est 
+# \begin{gather*}
+# t_{obs} = \sum_{i=1}^6 \frac{(o_i-e_i)^2}{e_i} = 13.54.
+# \end{gather*}
+# Puisque cette valeur est plus grande que la valeur critique, on rejette $H_0$ en faveur de $ H_1 $. On peut dire que, à un niveau de signification de $ 5\, \% $, on a montré que l'affirmation du responsable de communication est fausse.
 # 
 
 # In[ ]:
@@ -253,9 +263,9 @@ else:
 # **Solution**: Il s'agit d'un test d'adéquation. On peut baser la statistique de test sur les différences
 # entre les nombres de naissances observées ($ O_i $) et les nombres attendus 
 # si $ H_0 $ est vraie ($ E_i $):
-# $$
+# \begin{gather*}
 # T=\sum_{i=1}^4 \frac{(O_i-E_i)^2}{E_i}.
-# $$
+# \end{gather*}
 # qui, sous $H_0$, suit la loi $\chi^2_\nu$ avec $\nu = 4-1-0=3$, à condition que les nombres attendus sous $H_0$ soit supérieures à $5$, ce qui est le cas comme on peut le voir ci-dessous.  
 # 
 
@@ -278,7 +288,11 @@ else:
 
 # c\) Tester l'hypothèse nulle $H_0$ à un seuil de $1\,\%$.
 # 
-# **Solution**: Il reste à calculer la valeur observée de la statistique de test et la comparer avec une valeur critique. En testant à un niveau de $ 1\, \% $ ,la valeur critique est  $ \chi^2_{5; 0.95}=11.345 $. La valeur observée de la statistique de test est $$t_{obs} = \sum_{i=1}^6 \frac{(o_i-e_i)^2}{e_i} = 8.467.$$ Puisque cette valeur est plus petite que la valeur critique, on ne rejette donc pas $H_0$. 
+# **Solution**: Il reste à calculer la valeur observée de la statistique de test et la comparer avec une valeur critique. En testant à un niveau de $ 1\, \% $ ,la valeur critique est  $ \chi^2_{5; 0.95}=11.345 $. La valeur observée de la statistique de test est 
+# \begin{gather*}
+# t_{obs} = \sum_{i=1}^6 \frac{(o_i-e_i)^2}{e_i} = 8.467.
+# \end{gather*}
+# Puisque cette valeur est plus petite que la valeur critique, on ne rejette donc pas $H_0$. 
 # 
 
 # In[ ]:
@@ -322,7 +336,10 @@ else:
 # 
 # **Solution**: En utilisant $ \hat{p}_{IV} = \hat p_{I} $ et $ \hat p_{II} = \hat p_{III} = (1 - 2\, \hat p_{I}) / 2 $,
 # on obtient les nombres attendus estimés calculés dans la cellule de code suivante.
-# Il s'agit encore d'un test d'adéquation, on utilise alors la statistique de test  $$T=\sum_{j=1}^4 \frac{(O_j-E_j)^2}{E_j},$$
+# Il s'agit encore d'un test d'adéquation, on utilise alors la statistique de test  
+# \begin{gather*}
+# T=\sum_{j=1}^4 \frac{(O_j-E_j)^2}{E_j},
+# \end{gather*}
 # qui, sous $H_0$, suit la loi $\chi^2_\nu$ avec
 # $\nu = 4-1-1=2$ (on a estimé un paramètre). 
 # 
@@ -483,7 +500,9 @@ else:
 # \end{eqnarray*}
 # Nous allons utiliser un test d'indépendance entre deux caractéristiques de données. On peut de nouveau  baser la statistique de test sur les différences entre les nombres observés et attendus. 
 # Si on a $ n_1 $ classes pour la première caractéristique et $ n_2 $ classes pour la deuxième  caractéristique, et si on note $ N_{ij} $ et $ E_{ij} $ les nombres observés et attendus d'observations de la $ i $ème classe de la première caractéristique et $ j $ème classe de la  deuxième caractéristique, la statistique de test à utiliser est
-# $$T=\sum_{i=1}^{n_1}\sum_{j=1}^{n_2} \frac{(N_{ij}-E_{ij})^2}{E_{ij}}.$$
+# \begin{gather*}
+# T=\sum_{i=1}^{n_1}\sum_{j=1}^{n_2} \frac{(N_{ij}-E_{ij})^2}{E_{ij}}.
+# \end{gather*}
 # 2\) Y a-t-il des paramètres à estimer ? Si oui, lesquels ? Estimez ces paramètres.
 # 
 # **Solution**: Cela vient du fait que sous $ H_0 $ on a $ p_{ij} = p_i \times p_j $, où $ p_i $ est la probabilité d'être dans la $ i $ème classe de la première caractéristique, $ p_j $ est la probabilité d'être dans la $ j $ème classe de la deuxième caractéristique et $ p_{ij} $ est la probabilité d'être dans la $ i $ème classe de la première caractéristique et
@@ -523,7 +542,9 @@ print(data_obs)
 # 4\) Testez l'hypothèse $H_0$ à un seuil de $5\,\%$. Peut-on conclure qu'il y a une dépendance entre le type et la localisation du défaut?  
 # 
 # **Solution**: La valeur observée de la statistique
-# $$T=\sum_{i=1}^2\sum_{j=1}^3 \frac{(N_{ij}-E_{ij})^2}{E_{ij}}$$
+# \begin{gather*}
+# T=\sum_{i=1}^2\sum_{j=1}^3 \frac{(N_{ij}-E_{ij})^2}{E_{ij}}
+# \end{gather*}
 # est $t_{obs} = 8.08 > \chi^2_{2; 0.95} = 5.99,$ donc, au niveau de $ 5\,\% $, on a montré qu'il y a une dépendance entre le type et la localisation du défaut. Notons que l'approximation par la loi $\chi^2$ est possible, car le nombre d'observations est grand et tous les nombres attendus $e_{ij}$ sont plus grands que $5$.
 # 
 
@@ -561,20 +582,22 @@ else:
 # 1\) Transformer $P\,V^{\gamma}=C$ en une relation linéaire avec $Y=\log(P)$. Quels sont les paramètres dont on cherche la valeur?  
 # 
 # **Solution**: Puisque $P\,V^{\gamma}=C$, on a
-#   $$
+# \begin{gather*}
 #   \log(P) +\gamma \log (V)=\log (C) \quad \text{et donc} \quad \log(P) =\log(C)-\gamma \log(V).
-#   $$
+# \end{gather*}
 #   En posant $X=\log(V)$ et $Y=\log(P)$, l'équation de la droite du modèle linéaire s'écrit
-#   $$
+# \begin{gather*}
 #   Y=\alpha+\beta X\,,
-#   $$
+# \end{gather*}
 #   où $\alpha=\log(C)$ et $\beta=-\gamma$. Nous souhaitons estimer les paramètres $\alpha$ et $\beta$.
 # 2\) Pour des observations non-transformées, écrire une fonction qui retourne l'estimation des paramètres $\hat{\alpha}$ et $\hat{\beta}$ de la régréssion linéaire.  
 # 
 # **Solution**: On sait d'après le cours que les estimateurs des paramètres de la droite de régression sont donnés par
-# $$  \hat \beta=\frac{\sum_{i=1}^{n} Y_i(x_i -\overline x)}{\sum_{i=1}^{n} (x_i-\overline x)^2} \quad\text{et}\quad \hat \alpha=\overline y-\hat \beta \overline x,$$
+# \begin{gather*}
+# \hat \beta=\frac{\sum_{i=1}^{n} Y_i(x_i -\overline x)}{\sum_{i=1}^{n} (x_i-\overline x)^2} \quad\text{et}\quad \hat \alpha=\overline y-\hat \beta \overline x,
+# \end{gather*}
 # où $x_i=\log(v_i)$ et $Y_i=\log(P_i), i=1, \dots, 6$.
-#   On trouve $\hat \beta=-1.4$ et $\hat\alpha=9.66$. Ainsi, on a $\hat{C}=\exp(\hat{\alpha})=15677.78$ et $\hat{\gamma}=-\hat{\beta}=1.4$.
+# On trouve $\hat \beta=-1.4$ et $\hat\alpha=9.66$. Ainsi, on a $\hat{C}=\exp(\hat{\alpha})=15677.78$ et $\hat{\gamma}=-\hat{\beta}=1.4$.
 # 
 
 # In[ ]:
@@ -611,11 +634,22 @@ print(f"Pour V = 100cm^3, notre modèle linéaire estime donc P à {p:.3f} kg/cm
 
 # 4\) Calculer l'intervalle de confiance à $95\%$ pour la pente de la droite du modèle de régression trouvé précédement.  
 # 
-# **Solution**: Soit $$ S^2 = \frac{1}{n-2} \sum_{i=1}^n(Y_i-\hat{\alpha}-\hat{\beta}x_i)^2.$$
-# On sait d'après le cours que $$ \frac{\hat{\beta}-\beta}{\sqrt{\frac{S^2}{\sum_{i=1}^n (x_i-\overline{x})^2}}} \sim t_{n-2}.$$
-# L'intervalle de confiance à $95\%$ est donc donné par les bornes $$ \hat{\beta}\pm \frac{s}{\sqrt{\sum_{i=1}^n (x_i-\overline{x})^2}}\ t_{n-2;0.975},$$
+# **Solution**: Soit 
+# \begin{gather*}
+# S^2 = \frac{1}{n-2} \sum_{i=1}^n(Y_i-\hat{\alpha}-\hat{\beta}x_i)^2.
+# \end{gather*}
+# On sait d'après le cours que 
+# \begin{gather*}
+# \frac{\hat{\beta}-\beta}{\sqrt{\frac{S^2}{\sum_{i=1}^n (x_i-\overline{x})^2}}} \sim t_{n-2}.
+# \end{gather*}
+# L'intervalle de confiance à $95\%$ est donc donné par les bornes 
+# \begin{gather*}
+# \hat{\beta}\pm \frac{s}{\sqrt{\sum_{i=1}^n (x_i-\overline{x})^2}}\ t_{n-2;0.975},
+# \end{gather*}
 # où
-# $$s=\sqrt{\frac{1}{n-2} \sum_{i=1}^n(y_i-\hat{\alpha}-\hat{\beta}x_i)^2}.$$
+# \begin{gather*}
+# s=\sqrt{\frac{1}{n-2} \sum_{i=1}^n(y_i-\hat{\alpha}-\hat{\beta}x_i)^2}.
+# \end{gather*}
 # L'intervalle de confiance recherché est donc approximativement $[-1.502, -1.306]$.
 # 
 

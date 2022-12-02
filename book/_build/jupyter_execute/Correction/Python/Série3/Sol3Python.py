@@ -142,7 +142,7 @@ X = st.beta.rvs(a,b,size=n)
 # a\) Calculer la moyenne et la variance de la loi que vous avez choisi pour les paramètres que vous avez fixé.
 # 
 # **Solution**:  
-# On rappelle une variable aléatoire $X\sim\text{Beta}(a,b)$, on a $\mathbb{E}[X] = \frac{a}{a +b}$ et $\text{Var}[X] = \frac{a - 1}{a + b -2}$.
+# On rappelle une variable aléatoire $X\sim\text{Beta}(a,b)$, on a $\mathbb{E}[X] = \frac{a}{a +b}$ et $\text{Var}[X] = \frac{ab}{(a+b)^2(a+b+1)}$.
 # 
 
 # In[ ]:

@@ -7,10 +7,10 @@
 # Une entreprise d'automobiles veut publier des informations sur la consommation d'un nouveau modèle de voiture. 
 # Pour 12 voitures de ce modèle on mesure la consommation d'essence, en litres, pour parcourir 100 km, et on obtient
 # les résultats suivants:
-# $$
+# \begin{gather*}
 # 14.60, 11.21, 11.56, 11.37, 13.68, 15.07, 11.06, 16.58, 13.37, 15.98,
 # 12.07, 13.22
-# $$
+# \end{gather*}
 # 
 # 1\) Supposez que la consommation d'essence pour une voiture de ce modèle est une variable aléatoire $ X \sim \mathcal{N}(\mu , 3.5 ) $ avec $ \mu $ inconnu, et que les données récoltées sont indépendantes.  
 # a\) Écrire une fonction qui retourne un intervalle de confiance symmétrique à $ (1-\alpha)100\,\% $  pour $ \mu $ dans le cas où l'on connait la variance. (N'hésitez pas à faire des développements à la main ou en markdown avant de vous lancez dans l'implémentatioonde cette fonction)
