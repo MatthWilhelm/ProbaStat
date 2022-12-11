@@ -1,0 +1,1171 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>SérieBeta : Correction &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Correction/Python/SérieBeta/SolBetaP.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+    <link rel="next" title="Série1 : Correction" href="../../R/S%C3%A9rie1/Sol1R.html" />
+    <link rel="prev" title="Série4 : Correction" href="../S%C3%A9rie4/Sol4P.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/EPFL_Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Tutoriel_Python.html">
+   Tutoriel Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   1. Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/graphiques.html">
+   2. Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   3. Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/boxplot.html">
+   4. Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/loi_normale.html">
+   5. Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   6. Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/concepts_de_base.html">
+   1. Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/arrangements_et_combinaisons.html">
+   2. Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/probabilite_conditionnelle_independance.html">
+   3. Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/probabilites_totales_et_theoreme_de_bayes.html">
+   4. Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_discretes.html">
+   5. Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_continues.html">
+   6. Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/variables_aleatoires_conjointes.html">
+   7. Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/valeurs_caracteristiques.html">
+   8. Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/theoreme_fondamentaux.html">
+   9. Théorème fondamentaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Probabilit%C3%A9/Simulation_thm_fondamentaux.html">
+   10. Simulation théorème fondamentaux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   2. Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/Simulation_est_max_vraisemblance.html">
+   3. Illustration convergence de l’estimateur du maximum de vraisemblance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   4. Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   5. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   6. Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   7. Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/test_chi2.html">
+   8. Test du
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Statistique_inf%C3%A9rentielle/puissance_test.html">
+   9. Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   2. Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   3. Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   4. Régréssion linéaire: hypothèses et diagnostiques
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rie1/S%C3%A9rie1Python.html">
+   Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rie3/S%C3%A9rie3Python.html">
+   Série3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rie4/S4Python.html">
+   Série4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/Python/S%C3%A9rieBeta/SBetaP.html">
+   SérieBeta
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
+   Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rie3/S%C3%A9rie3R.html">
+   Série3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rie4/S4R.html">
+   Série4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../S%C3%A9rie/R/S%C3%A9rieBeta/SBetaR.html">
+   SérieBeta
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie2/Sol2P.html">
+   Série2 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie3/Sol3Python.html">
+   Série3 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../S%C3%A9rie4/Sol4P.html">
+   Série4 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   SérieBeta : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie2/Sol2R.html">
+   Série2 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie3/Sol3R.html">
+   Série3 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rie4/Sol4R.html">
+   Série4 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../R/S%C3%A9rieBeta/SolBetaR.html">
+   SérieBeta : Correction
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/MatthWilhelm/ProbaStat/master?urlpath=tree/book/Correction/Python/SérieBeta/SolBetaP.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://noto.epfl.ch/hub/user-redirect/git-pull?repo=https%3A//github.com/MatthWilhelm/ProbaStat&urlpath=tree/ProbaStat/book/Correction/Python/S%C3%A9rieBeta/SolBetaP.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat/issues/new?title=Issue%20on%20page%20%2FCorrection/Python/SérieBeta/SolBetaP.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat/edit/master/book/Correction/Python/SérieBeta/SolBetaP.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/Correction/Python/SérieBeta/SolBetaP.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1-biais">
+   Exercice 1: Biais
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2-temps-de-deboguage">
+   Exercice 2: Temps de déboguage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3-experience-repetee">
+   Exercice 3: Expérience répétée
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4-transformation-de-v-a">
+   Exercice 4: Transformation de V.A.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5-estimateur-du-maximum-de-vraisemblance">
+   Exercice 5: Estimateur du maximum de vraisemblance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-6-statistiques-descriptives">
+   Exercice 6: Statistiques descriptives
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SérieBeta : Correction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1-biais">
+   Exercice 1: Biais
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2-temps-de-deboguage">
+   Exercice 2: Temps de déboguage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3-experience-repetee">
+   Exercice 3: Expérience répétée
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4-transformation-de-v-a">
+   Exercice 4: Transformation de V.A.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5-estimateur-du-maximum-de-vraisemblance">
+   Exercice 5: Estimateur du maximum de vraisemblance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-6-statistiques-descriptives">
+   Exercice 6: Statistiques descriptives
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="seriebeta-correction">
+<h1>SérieBeta : Correction<a class="headerlink" href="#seriebeta-correction" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="exercice-1-biais">
+<h2>Exercice 1: Biais<a class="headerlink" href="#exercice-1-biais" title="Lien permanent vers cette rubrique">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Soit <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> un échantillon de taille <span class="math notranslate nohighlight">\(n\)</span> de réalisations indépendantes
+issues d’une distribution de Bernoulli avec paramètre <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>On propose l’estimateur suivant <span class="math notranslate nohighlight">\(\widehat{p}_n\)</span> pour <span class="math notranslate nohighlight">\(p\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\widehat{p}_n = \frac{1 + \sum_{i=1}^n X_i}{2 + n}
+\end{gather*}\]</div>
+<p><strong>Question:</strong> Quel est le biais de l’estimateur lorsque <span class="math notranslate nohighlight">\(n \to \infty\)</span> ? Écrivez la valeur numérique (approximative à l’ordre <span class="math notranslate nohighlight">\(10^{-2}\)</span>) dans la variable <code class="docutils literal notranslate"><span class="pre">biais</span></code>.</p>
+<p><strong>Solution analytique</strong>: On peut calculer le biais par la formule</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\operatorname{biais}(\widehat{p}_n) = \mathbb{E}\left[\widehat{p}_n - p\right]
+\end{gather*}\]</div>
+<p>pour laquelle on trouve, via la linéarité de l’espérance,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mathbb{E}\left[\widehat{p}_n\right] &amp;= \frac{1}{2+n} \left(1 + \sum_{i=1}^n \mathbb{E}[X_i]\right) \\
+&amp;= \frac{1}{2+n} \left(1 + np\right) \\
+&amp;= \frac{1}{2+n} + \frac{n}{2+n} p
+\end{align*}\]</div>
+<p>Puisque l’expression ci-dessus tend vers <span class="math notranslate nohighlight">\(p\)</span> lorsque <span class="math notranslate nohighlight">\(n \to \infty\)</span>, le biais aussi tend vers <span class="math notranslate nohighlight">\(0\)</span> lorsque <span class="math notranslate nohighlight">\(n \to \infty\)</span>.</p>
+<p><em>Note: L’estimateur proposé est utilisé pour éviter une estimation de <span class="math notranslate nohighlight">\(\widehat{p} = 0\)</span> ou <span class="math notranslate nohighlight">\(1\)</span> exactement, ce qui arrive lorsqu’on utilise l’estimateur du maximum de vraisemblance. Voir aussi le lissage de Laplace (<a class="reference external" href="https://en.wikipedia.org/wiki/Rule_of_succession">https://en.wikipedia.org/wiki/Rule_of_succession</a>)</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+
+<span class="c1"># Solution numérique par simulation:</span>
+<span class="c1"># On va approximer le biais par une moyenne de p_n - p sur beaucoup de tirages</span>
+<span class="n">n_tirages</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># Longueur d&#39;un tirage (doit être grand)</span>
+<span class="c1"># Puisqu&#39;on ne connait pas p, on va calculer le biais pour plusieurs valeurs possibles de p</span>
+<span class="n">valeurs_p</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">biais</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">valeurs_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">estim</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_tirages</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_tirages</span><span class="p">):</span>
+        <span class="n">tirages</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># Un tirage</span>
+        <span class="n">estim</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tirages</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span> <span class="c1"># On calcule l&#39;estimateur</span>
+    <span class="n">biais</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">estim</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># Le biais pour cette valeur de p</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">valeurs_p</span><span class="p">,</span> <span class="n">biais</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Biais&quot;</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># On remarque que le biais est très proche de 0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/SolBetaP_6_0.png" src="../../../_images/SolBetaP_6_0.png" />
+</div>
+</div>
+</section>
+<section id="exercice-2-temps-de-deboguage">
+<h2>Exercice 2: Temps de déboguage<a class="headerlink" href="#exercice-2-temps-de-deboguage" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Une erreur se tapit dans le code de votre projet de bachelor. Chaque membre <span class="math notranslate nohighlight">\(i\)</span> de votre équipe de trois étudiants (<span class="math notranslate nohighlight">\(i \in \{1, 2, 3\}\)</span>) a besoin de <span class="math notranslate nohighlight">\(T_i\)</span> heures pour trouver le bug. On suppose que les temps <span class="math notranslate nohighlight">\(T_i\)</span> ont des distributions exponentielles avec paramètres <span class="math notranslate nohighlight">\(\lambda_1 = 0.1\)</span>, <span class="math notranslate nohighlight">\(\lambda_2 = 0.35\)</span>, <span class="math notranslate nohighlight">\(\lambda_3 = 0.06\)</span> respectivement.</p>
+<p>Un seul membre de votre équipe est choisi au hasard avec probabilités égales pour trouver le bug.</p>
+<p><strong>Question</strong>: Dans cette situation, avec quelle probabilité est-ce que le bug sera trouvé en moins de 12h? Stockez la valeur dans la variable <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
+<p><strong>Solution analytique</strong>: Soit <span class="math notranslate nohighlight">\(A = \left\{ \text{le bug est trouvé en moins de 12h }\right\}\)</span>. On décompose cet événement selon le choix <span class="math notranslate nohighlight">\(C \in \left\{1,2,3\right\}\)</span> du membre de l’équipe:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+P(A) &amp;= \sum_{i=1}^3 P(A \mid C = i) P(C = i)  \\
+&amp;= \frac{1}{3} \sum_{i=1}^3 P(T_i \leqslant 12) \\
+&amp;= \frac{1}{3} \left( 1 - e^{-0.1 \times 12} + 1 - e^{-0.35 \times 12} + 1 - e^{-0.06 \times 12} \right) \\
+&amp;\approx \frac{1}{3} (3 - 0.803) \approx 0.732
+\end{align*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+
+<span class="c1"># On répete sur de nombreux tirages</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">resultat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># 1 = Trouvé, 0 = Non</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">T1</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">T2</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">T3</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">0.06</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">Ts</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">T3</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="c1"># Ce sont les temps qui auraient été pris par tous les membres</span>
+    <span class="n">choisi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">Ts</span><span class="p">)</span> <span class="c1"># On en choisit un avec probabilités égales</span>
+    <span class="n">resultat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">choisi</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">)</span> <span class="c1"># Est ce que le temps était inférieur à 12h ?</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">resultat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-3-experience-repetee">
+<h2>Exercice 3: Expérience répétée<a class="headerlink" href="#exercice-3-experience-repetee" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Un chercheur souhaite à tout prix démontrer par une expérience un phénomène dont il est convaincu de l’existence. Si le phénomène existe, on suppose que l’expérience le fait apparaitre avec probabilité <span class="math notranslate nohighlight">\(0 &lt; p &lt; 1\)</span>. En revanche, si le phénomène n’existe pas, alors l’expérience le fait faussement apparaitre (faux positif) avec probabilité <span class="math notranslate nohighlight">\(0 &lt; q &lt; 1\)</span>.</p>
+<p><strong>Question</strong>: Le chercheur manque de scrupule et répète indépendamment l’expérience jusqu’au premier résultat positif (confirmant l’existence du phénomène). Si <span class="math notranslate nohighlight">\(p = 0.9\)</span>, <span class="math notranslate nohighlight">\(q = 0.05\)</span>, et si le phénomène existe réelement avec probabilité 50%, donnez la probabilité (dans la variable <code class="docutils literal notranslate"><span class="pre">p</span></code>) qu’il y arrive en 20 expériences ou moins.</p>
+<p>Ensuite, on regarde le nombre <span class="math notranslate nohighlight">\(N\)</span> d’expériences identiques et indépendantes jusqu’au premier succès, ce qui implique que <span class="math notranslate nohighlight">\(N\)</span> a une distribution Géométrique avec paramètre <span class="math notranslate nohighlight">\(p\)</span> ou <span class="math notranslate nohighlight">\(q\)</span> dépendant de l’existence réele du phénomène. Sinon, on peut regarder l’évenement inverse, c’est à dire <span class="math notranslate nohighlight">\(B = \left\{ \text{Aucun succès parmi les 20 premières expériences} \right\} = \left\{ N &gt; 20 \right\}\)</span>. En tout cas, on obtient</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+P(N \leqslant 20 \mid \text{existe}) &amp;= 1 - P(B\mid \text{existe}) = 1 - (1-0.9)^{20}\\
+P(N \leqslant 20 \mid \text{n'existe pas}) &amp;= 1 - P(B \mid \text{n'existe pas}) = 1 - (1-0.05)^{20}
+\end{align*}\]</div>
+<p>Enfin, on prend en compte les deux possibilités pour l’existence:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+P(N \leqslant 20) = P(N \leqslant 20 \mid \text{existe}) \times 0.5 + P(N \leqslant 20 \mid \text{n'existe pas}) \times 0.5 \approx 0.5 + 0.64 \times 0.5 \approx 0.82
+\end{gather*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+
+<span class="c1"># On va répeter l&#39;entièreté du processus un grand nombre de fois</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">existence</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">au_moins_un_positif</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">existence</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mf">0.9</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="n">resultats_experiences</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">resultats_experiences</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">au_moins_un_positif</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">au_moins_un_positif</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">au_moins_un_positif</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-4-transformation-de-v-a">
+<h2>Exercice 4: Transformation de V.A.<a class="headerlink" href="#exercice-4-transformation-de-v-a" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Soit <span class="math notranslate nohighlight">\(X\sim\mathcal{U}([1,2])\)</span> une variable aléatoire uniforme sur l’intervalle <span class="math notranslate nohighlight">\([1, 2]\)</span> et soit <span class="math notranslate nohighlight">\(Y\)</span> la variable aléatoire donnée par <span class="math notranslate nohighlight">\(Y = \frac{1}{X}\)</span>.</p>
+<p><strong>Question</strong>: Quelle est l’espérance de <span class="math notranslate nohighlight">\(Y\)</span> ? Donnez une valeur approximée à au moins deux décimales dans la variable <code class="docutils literal notranslate"><span class="pre">ey</span></code></p>
+<p><strong>Solution Analytique</strong>: On utilise un changement de variables pour trouver la densité de <span class="math notranslate nohighlight">\(Y\)</span>. D’abord, remarquons que <span class="math notranslate nohighlight">\(P(Y &lt; 1/2) = P(1/X &lt; 1/2) = P(X &gt; 2) = 0\)</span>, et pareil pour <span class="math notranslate nohighlight">\(P(Y &gt; 1)\)</span>. Donc <span class="math notranslate nohighlight">\(Y\)</span> prend presque surement des valeurs dans l’intervalle <span class="math notranslate nohighlight">\([1/2, 1]\)</span>. On note aussi que <span class="math notranslate nohighlight">\(Y\)</span> est une variable aléatoire continue.</p>
+<p>Pour trouver la densité de <span class="math notranslate nohighlight">\(Y\)</span>, on calcule d’abord pour <span class="math notranslate nohighlight">\(1/2 &lt; y &lt; 1\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+P\left(Y \leqslant y\right) = P\left(\frac{1}{X} \leqslant y\right) = P(X \geqslant 1/y) = 1 - P(X \leqslant 1/y) = 1 - \frac{1/y - 1}{2 - 1} = 2 - 1/y =: F_Y(y)
+\end{gather*}\]</div>
+<p>Suivant quoi la densité se trouve par</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+f_Y(y) = \frac{\partial F_Y(y)}{\partial y} = 1/y^2
+\end{gather*}\]</div>
+<p>pour <span class="math notranslate nohighlight">\(1/2 &lt; y &lt; 1\)</span>.</p>
+<p>Pour calculer l’espérance, on intègre:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\mathbb{E}\left[Y\right] = \int_{1/2}^1 y f_Y(y) \, dy = \int_{1/2}^1 1/y \, dy = \log 1 + \log 2 = \log 2
+\end{gather*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span>
+<span class="n">ey</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-5-estimateur-du-maximum-de-vraisemblance">
+<h2>Exercice 5: Estimateur du maximum de vraisemblance<a class="headerlink" href="#exercice-5-estimateur-du-maximum-de-vraisemblance" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>On observe un échantillon <span class="math notranslate nohighlight">\(x_1,\dots, x_n\)</span> de réalisations indépendantes d’une loi de Poisson de paramètre <span class="math notranslate nohighlight">\(\lambda\)</span>, dont les valeurs sont rapportées ci-dessous:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Valeurs</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_1\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_2\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_3\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_4\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_5\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_6\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_7\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_8\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_9\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="simple">
+<li><p>Calculez l’estimateur du maximum de vraisemblance de <span class="math notranslate nohighlight">\(\lambda\)</span> que vous stockerez dans la variable <code class="docutils literal notranslate"><span class="pre">estim</span></code>.</p></li>
+</ol>
+<p>La fonction de vraisemblance est, à une constante près,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\ell(\lambda) = \sum_{i=1}^n x_i \log \lambda - n\lambda
+\end{gather*}\]</div>
+<p>pour lequel le maximum est <span class="math notranslate nohighlight">\(\widehat{\lambda} = \frac{1}{n} \sum_{i=1}^n x_i\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valeurs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">estim</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">valeurs</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Calculer un intervalle de confiance approximatif <strong>à 95%</strong> pour ce paramètre, basé sur la distribution asymptotique du l’estimateur du maximum de vraisemblance et stockez-le dans le vecteur <code class="docutils literal notranslate"><span class="pre">ci</span></code> à deux composantes ci-dessous en y remplaçant les valeurs manquantes (<code class="docutils literal notranslate"><span class="pre">numpy.nan</span></code> ou <code class="docutils literal notranslate"><span class="pre">NA</span></code>) par votre réponse.</p></li>
+</ol>
+<p><strong>Solution</strong>:</p>
+<p>On trouve pour l’information de Fisher théorique</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+I(\lambda) = -\mathbb{E}\left[\frac{\partial^2}{\partial \lambda^2} \ell(\lambda)\right] = n/\lambda
+\end{gather*}\]</div>
+<p>L’information observée est de</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\widehat{I}_n = n/\widehat{\lambda} = \frac{n^2}{\sum_{i=1}^n x_i} = 9^2 / 11
+\end{gather*}\]</div>
+<p>Et donc la variance asymptotique de l’estimateur est de</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\widehat{I}_n^{-1} = 11/81 \approx 0.1358
+\end{gather*}\]</div>
+<p>L’intervalle de confiance demandé est donc</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\widehat{\lambda} \pm z_{1-\alpha/2} \sqrt{0.1358} \approx [0.499, 1.944]
+\end{gather*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ci</span> <span class="o">=</span> <span class="n">estim</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.96</span><span class="p">,</span> <span class="mf">1.96</span><span class="p">])</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">estim</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">valeurs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-6-statistiques-descriptives">
+<h2>Exercice 6: Statistiques descriptives<a class="headerlink" href="#exercice-6-statistiques-descriptives" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>On considère le jeu de données ci-dessous décrivant la taille, le poids et la couleur du poil de 5 races de chien domestique (identifiés par <code class="docutils literal notranslate"><span class="pre">id</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chiens</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
+    <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;poids&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">9.69</span><span class="p">,</span> <span class="mf">9.87</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">,</span> <span class="mf">8.43</span><span class="p">,</span> <span class="mf">8.8</span><span class="p">,</span> <span class="mf">9.64</span><span class="p">,</span> <span class="mf">4.92</span><span class="p">,</span> <span class="mf">7.13</span><span class="p">,</span> <span class="mf">5.12</span><span class="p">,</span> <span class="mf">11.82</span><span class="p">,</span> <span class="mf">10.32</span><span class="p">,</span> <span class="mf">10.64</span><span class="p">,</span> <span class="mf">11.94</span><span class="p">,</span> <span class="mf">11.51</span><span class="p">,</span> <span class="mf">11.17</span><span class="p">],</span>
+    <span class="s1">&#39;taille&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.68</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mf">0.44</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.44</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.66</span><span class="p">,</span> <span class="mf">0.52</span><span class="p">,</span> <span class="mf">1.46</span><span class="p">,</span> <span class="mf">0.68</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">],</span>
+    <span class="s1">&#39;poil&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;noir&quot;</span><span class="p">,</span> <span class="s2">&quot;clair&quot;</span><span class="p">,</span> <span class="s2">&quot;brun&quot;</span><span class="p">,</span> <span class="s2">&quot;clair&quot;</span><span class="p">,</span> 
+<span class="s2">&quot;noir&quot;</span><span class="p">,</span> <span class="s2">&quot;brun&quot;</span><span class="p">,</span> <span class="s2">&quot;noir&quot;</span><span class="p">,</span> <span class="s2">&quot;clair&quot;</span><span class="p">,</span> <span class="s2">&quot;brun&quot;</span><span class="p">,</span> <span class="s2">&quot;brun&quot;</span><span class="p">,</span> <span class="s2">&quot;clair&quot;</span><span class="p">,</span> <span class="s2">&quot;noir&quot;</span><span class="p">,</span> 
+<span class="s2">&quot;noir&quot;</span><span class="p">,</span> <span class="s2">&quot;clair&quot;</span><span class="p">,</span> <span class="s2">&quot;brun&quot;</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chiens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    id  poids  taille   poil
+0    1   9.69    1.02   noir
+1    1   9.87    0.68  clair
+2    1   9.90    0.74   brun
+3    2   8.43    0.80  clair
+4    2   8.80    0.48   noir
+5    2   9.64    0.44   brun
+6    3   4.92    0.50   noir
+7    3   7.13    0.44  clair
+8    3   5.12    0.70   brun
+9    4  11.82    1.66   brun
+10   4  10.32    0.52  clair
+11   4  10.64    1.46   noir
+12   5  11.94    0.68   noir
+13   5  11.51    0.84  clair
+14   5  11.17    0.74   brun
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Calculez la moyenne empirique et la variance empirique (les deux versions de la variance sont acceptées ici, à la différence du point suivant) des colonnes <code class="docutils literal notranslate"><span class="pre">poids</span></code> et <code class="docutils literal notranslate"><span class="pre">taille</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moy_poids</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">chiens</span><span class="p">[</span><span class="s2">&quot;poids&quot;</span><span class="p">])</span>
+<span class="n">var_poids</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">chiens</span><span class="p">[</span><span class="s2">&quot;poids&quot;</span><span class="p">],</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>On suppose que les tailles sont issues d’une seule distribution normale <span class="math notranslate nohighlight">\(N(\mu, \sigma^2)\)</span> pour tous les chiens. Construisez un intervalle de confiance à 95% pour le paramètre <span class="math notranslate nohighlight">\(\mu\)</span> de cette distribution dans la variable <code class="docutils literal notranslate"><span class="pre">ci</span></code> <em>(Attention: utilisez un estimateur non-biaisé de <span class="math notranslate nohighlight">\(\sigma^2\)</span>)</em>.</p></li>
+</ol>
+<p><strong>Solution</strong>: L’intervalle est celui basé sur la distribution <span class="math notranslate nohighlight">\(t\)</span> avec <span class="math notranslate nohighlight">\(n - 1\)</span> degrés de liberté, c’est-à-dire</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+\widehat{\mu} \pm t_{1-\alpha/2, n-1} \frac{\widehat{\sigma}}{\sqrt{n}}
+\end{gather*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########### Solution Python: ##########</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">chiens</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">ci</span> <span class="o">=</span> <span class="n">moy_poids</span> <span class="o">+</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">([</span><span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">],</span> <span class="n">df</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_poids</span><span class="p">)</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Correction/Python/SérieBeta"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../S%C3%A9rie4/Sol4P.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Série4 : Correction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../R/S%C3%A9rie1/Sol1R.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Série1 : Correction</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

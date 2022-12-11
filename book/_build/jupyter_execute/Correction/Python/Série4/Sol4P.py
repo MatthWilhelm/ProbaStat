@@ -394,6 +394,7 @@ else:
 # ## Exercice 4: 
 # 
 # Les données ci-dessous représentent le taux d'oxygénation de cours d'eau ayant la même température dans une certaine région:
+# 
 # | taux d'oxygénation (par jour) | fréquence |
 # |-------------------------------|-----------|
 # | $ \le 0.1$                    | 12        |

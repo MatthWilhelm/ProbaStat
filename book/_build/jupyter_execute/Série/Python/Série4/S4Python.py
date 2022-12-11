@@ -394,6 +394,18 @@ t_obs = ...
 #   
 # 
 
+# In[8]:
+
+
+x  =2
+
+list_ =[5,"ghf"]
+list_[0]
+list_[1]
+import pandas
+help(pandas.DataFrame)
+
+
 # In[ ]:
 
 
