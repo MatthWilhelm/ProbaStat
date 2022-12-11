@@ -10,7 +10,7 @@
 # |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 # | **Taille** | 147 | 59 | 152 | 155 | 157 | 160 | 64 | 165 | 168 | 170 | 173 | 175 | 178 | 180 | 183 |
 
-# In[1]:
+# In[ ]:
 
 
 import pandas as pd 
@@ -23,7 +23,7 @@ data = pd.DataFrame(np.array([147 , 59 , 152 , 155 , 157 , 160 , 64 , 165 , 168 
 
 # 1\) Calculer la moyenne et la médiane des tailles observées, puis faire un boxplot et un histogramme de ces tailles. Sur chacun de ces graphiques faire apparaître la moyenne et la médiane.
 
-# In[2]:
+# In[ ]:
 
 
 # Calculer la moyenne et la médiane des tailles observées
@@ -64,15 +64,19 @@ plt.show()
 # et l'écart inter-quartile, plutôt que la moyenne et l'écart-type pour caractériser
 # la distribution des données.
 # 
+# <font color='red'>**Modification (11/12/2022)**: Pour calculer les quantiles d'une loi discrete la librairie pandas ne propose pas de fonction qui retourne le quantile comme définie en cours. Pour cela il faut utiliser la librairie NumPy, qui propose la fonction **numpy.quantile** qui correspond à notre définition du quantile lorsque nous utilisons le paramètre " **method = 'inverted_cdf'** ". Voir cellule de code suivante pour un exemple.</font>
 
-# In[3]:
+# In[9]:
 
 
 # Calcul de l'écart inter-quartiles
 
-quantile = data.Taille.quantile((0.25,0.75), interpolation = "inverted_cdf").rename("Quantiles").to_frame()
+# Ancienne version non fonctionnel
+#quantile = data.Taille.quantile((0.25,0.75), interpolation = "inverted_cdf").rename("Quantiles").to_frame()
+#EIQ = quantile["Quantiles"][0.75] - quantile["Quantiles"][0.25]
 
-EIQ = quantile["Quantiles"][0.75] - quantile["Quantiles"][0.25]
+quantile = np.quantile(data.Taille,(0.25,0.75), method = "inverted_cdf")
+EIQ = quantile[1] - quantile[0]
 
 # Calcul de l'écart-type
 
@@ -83,9 +87,9 @@ data_140 = data[data.Taille > 140]
 
 # Calcul de l'écart inter-quartile et de l'écart-type pour les tailles supérieures à 140cm
 
-quantile_140 = data_140.Taille.quantile((0.25,0.75), interpolation = "inverted_cdf").rename("Quantiles").to_frame()
-
-EIQ_140 = quantile_140["Quantiles"][0.75] - quantile_140["Quantiles"][0.25]
+# Nouvellw version 
+quantile_140 = np.quantile(data_140.Taille,(0.25,0.75), method = "inverted_cdf")
+EIQ_140 = quantile_140[1] - quantile_140[0]
 
 std_140 = data_140.Taille.std()
 
@@ -102,7 +106,7 @@ print(f"Sur l'ensemble des tailles supérieures à 140cm, l'écart inter-quartil
 # | **Taille** | 147 | 150 | 152 | 155 | 157 | 160 | 163 | 165 | 168 | 170 | 173 | 175 | 178 | 180 | 183 |
 # | **Poids** | 52 | 53 | 54 | 56 | 57 | 59 | 60 | 61 | 63 | 64 | 66 | 68 | 70 | 72 | 74 |
 
-# In[4]:
+# In[12]:
 
 
 import pandas as pd 
@@ -119,7 +123,7 @@ datas = pd.DataFrame(np.array([[147 , 150 , 152 , 155 , 157 , 160 , 163 , 165 , 
 #   
 # 2\) Calculez la moyenne et l'écart-type des tailles observées.
 
-# In[5]:
+# In[13]:
 
 
 # Calculer la moyenne des tailles
@@ -141,14 +145,14 @@ print("L'écart-type des tailles observées est (en cm):\n",std)
 # L’idée des quantiles est qu’ils partagent les données en deux parties d’une manière spéciale. Par exemple, le quantile d’ordre 30%, q(30 %), est une valeur telle qu’environ 30% des données sont inférieures à cette valeur et environ 70% des données sont supérieures à cette valeur.
 # 
 
-# In[6]:
+# In[14]:
 
 
 min = datas.Taille.min()
 max = datas.Taille.max()
 med = datas.Taille.median()
 
-q_ = datas.Taille.quantile((0.25,0.3,0.75), interpolation = "inverted_cdf").rename("Quantiles").to_frame()
+q_ =  np.quantile(datas.Taille,(0.25,0.75), method = "inverted_cdf")
 # Afficher les résultats caclulés  
 print("Le minimum des tailles est: ",min)
 print("Le minimum des tailles est: ",max)
@@ -158,11 +162,11 @@ print("Les quantiles inférieur, d'ordre 30% et supérieure des tailles sont:\n"
 
 # 4\) Calculez l'écart inter-quartile des tailles observées
 
-# In[7]:
+# In[15]:
 
 
 # Calcul de l'écart inter-quartile
-EIQ = q_["Quantiles"][0.75] - q_["Quantiles"][0.25]
+EIQ = q_[1] - q_[0]
 # Afficher ce résultat
 print("L'écart inter-quartile des tailles est EIQ = " + str(EIQ) + " cm.")
 
@@ -367,21 +371,3 @@ plt.show()
 # sur les graphiques, on voit que la moyenne est décalée vers les observations
 # extrêmes, qui sont ici assez nombreuses. Par contre, dans ce cas-ci, il ne s'agit pas d'une erreur dans les données, il est tout à fait normal d'observer d'importantes averses au cours d'une année. Même si la tendance centrale des pluies journalières typiques est généralement mieux représentée par la médiane, la différence entre la moyenne et la médiane attire notre attention sur le fait qu'il y a plus de la moitié des jours où il ne pleut pas. En regardant l'histogramme, on peut aussi constater que les données à droite de la médiane sont plus dispersées que les données à gauche. La quantité d'information fournit par ces deux valeurs est donc limitée. La quantité de précipitation journalière  dépendant fortement de la saison ou encore du mois, il serait plus approprié d'étudier ces données sur des périodes différentes. Les tendances centrales de chaque période serait alors mieux représeneter par la médiane serait moins influencé par de potentielles observations extrêmes.
 # 
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-

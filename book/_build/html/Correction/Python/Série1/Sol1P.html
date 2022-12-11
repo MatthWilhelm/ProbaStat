@@ -848,13 +848,17 @@ La moyenne est beaucoup plus influencée par un changement d’une petite partie
 L’écart inter-quartile. En général, si l’on suspecte la présence de valeurs aberrantes, on utilise la médiane
 et l’écart inter-quartile, plutôt que la moyenne et l’écart-type pour caractériser
 la distribution des données.</p>
+<p><font color='red'><strong>Modification (11/12/2022)</strong>: Pour calculer les quantiles d’une loi discrete la librairie pandas ne propose pas de fonction qui retourne le quantile comme définie en cours. Pour cela il faut utiliser la librairie NumPy, qui propose la fonction <strong>numpy.quantile</strong> qui correspond à notre définition du quantile lorsque nous utilisons le paramètre  » <strong>method = ‘inverted_cdf’</strong> « . Voir cellule de code suivante pour un exemple.</font></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcul de l&#39;écart inter-quartiles</span>
 
-<span class="n">quantile</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">Taille</span><span class="o">.</span><span class="n">quantile</span><span class="p">((</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.75</span><span class="p">),</span> <span class="n">interpolation</span> <span class="o">=</span> <span class="s2">&quot;inverted_cdf&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;Quantiles&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="c1"># Ancienne version non fonctionnel</span>
+<span class="c1">#quantile = data.Taille.quantile((0.25,0.75), interpolation = &quot;inverted_cdf&quot;).rename(&quot;Quantiles&quot;).to_frame()</span>
+<span class="c1">#EIQ = quantile[&quot;Quantiles&quot;][0.75] - quantile[&quot;Quantiles&quot;][0.25]</span>
 
-<span class="n">EIQ</span> <span class="o">=</span> <span class="n">quantile</span><span class="p">[</span><span class="s2">&quot;Quantiles&quot;</span><span class="p">][</span><span class="mf">0.75</span><span class="p">]</span> <span class="o">-</span> <span class="n">quantile</span><span class="p">[</span><span class="s2">&quot;Quantiles&quot;</span><span class="p">][</span><span class="mf">0.25</span><span class="p">]</span>
+<span class="n">quantile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">Taille</span><span class="p">,(</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.75</span><span class="p">),</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;inverted_cdf&quot;</span><span class="p">)</span>
+<span class="n">EIQ</span> <span class="o">=</span> <span class="n">quantile</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">quantile</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># Calcul de l&#39;écart-type</span>
 
@@ -865,9 +869,9 @@ la distribution des données.</p>
 
 <span class="c1"># Calcul de l&#39;écart inter-quartile et de l&#39;écart-type pour les tailles supérieures à 140cm</span>
 
-<span class="n">quantile_140</span> <span class="o">=</span> <span class="n">data_140</span><span class="o">.</span><span class="n">Taille</span><span class="o">.</span><span class="n">quantile</span><span class="p">((</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.75</span><span class="p">),</span> <span class="n">interpolation</span> <span class="o">=</span> <span class="s2">&quot;inverted_cdf&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;Quantiles&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-
-<span class="n">EIQ_140</span> <span class="o">=</span> <span class="n">quantile_140</span><span class="p">[</span><span class="s2">&quot;Quantiles&quot;</span><span class="p">][</span><span class="mf">0.75</span><span class="p">]</span> <span class="o">-</span> <span class="n">quantile_140</span><span class="p">[</span><span class="s2">&quot;Quantiles&quot;</span><span class="p">][</span><span class="mf">0.25</span><span class="p">]</span>
+<span class="c1"># Nouvellw version </span>
+<span class="n">quantile_140</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">data_140</span><span class="o">.</span><span class="n">Taille</span><span class="p">,(</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.75</span><span class="p">),</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;inverted_cdf&quot;</span><span class="p">)</span>
+<span class="n">EIQ_140</span> <span class="o">=</span> <span class="n">quantile_140</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">quantile_140</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">std_140</span> <span class="o">=</span> <span class="n">data_140</span><span class="o">.</span><span class="n">Taille</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 
@@ -994,7 +998,7 @@ L’idée des quantiles est qu’ils partagent les données en deux parties d’
 <span class="nb">max</span> <span class="o">=</span> <span class="n">datas</span><span class="o">.</span><span class="n">Taille</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="n">med</span> <span class="o">=</span> <span class="n">datas</span><span class="o">.</span><span class="n">Taille</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 
-<span class="n">q_</span> <span class="o">=</span> <span class="n">datas</span><span class="o">.</span><span class="n">Taille</span><span class="o">.</span><span class="n">quantile</span><span class="p">((</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.75</span><span class="p">),</span> <span class="n">interpolation</span> <span class="o">=</span> <span class="s2">&quot;inverted_cdf&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;Quantiles&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="n">q_</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">datas</span><span class="o">.</span><span class="n">Taille</span><span class="p">,(</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.75</span><span class="p">),</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;inverted_cdf&quot;</span><span class="p">)</span>
 <span class="c1"># Afficher les résultats caclulés  </span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le minimum des tailles est: &quot;</span><span class="p">,</span><span class="nb">min</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le minimum des tailles est: &quot;</span><span class="p">,</span><span class="nb">max</span><span class="p">)</span>
@@ -1008,10 +1012,7 @@ L’idée des quantiles est qu’ils partagent les données en deux parties d’
 Le minimum des tailles est:  183
 La médiane des tailles est:  165.0
 Les quantiles inférieur, d&#39;ordre 30% et supérieure des tailles sont:
-       Quantiles
-0.25        155
-0.30        157
-0.75        175
+ [155 175]
 </pre></div>
 </div>
 </div>
@@ -1020,7 +1021,7 @@ Les quantiles inférieur, d&#39;ordre 30% et supérieure des tailles sont:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcul de l&#39;écart inter-quartile</span>
-<span class="n">EIQ</span> <span class="o">=</span> <span class="n">q_</span><span class="p">[</span><span class="s2">&quot;Quantiles&quot;</span><span class="p">][</span><span class="mf">0.75</span><span class="p">]</span> <span class="o">-</span> <span class="n">q_</span><span class="p">[</span><span class="s2">&quot;Quantiles&quot;</span><span class="p">][</span><span class="mf">0.25</span><span class="p">]</span>
+<span class="n">EIQ</span> <span class="o">=</span> <span class="n">q_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">q_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="c1"># Afficher ce résultat</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;écart inter-quartile des tailles est EIQ = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">EIQ</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; cm.&quot;</span><span class="p">)</span>
 </pre></div>
