@@ -1,0 +1,2623 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Tutoriel R &#8212; Probabilité et statistique (MATH-234(d))</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Tutoriel_R.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Introduction" href="Introduction.html" />
+    <link rel="prev" title="Tutoriel Python" href="Tutoriel_Python.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/EPFL_Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Probabilités et Statistique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  À propos du cours
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel_Python.html">
+   Tutoriel Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Tutoriel R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique Exploratoire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistiques_exploratoire/types_de_donn%C3%A9es.html">
+   1. Types de données
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistiques_exploratoire/graphiques.html">
+   2. Graphiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistiques_exploratoire/synth%C3%A8ses_num%C3%A9riques.html">
+   3. Synthèses numériques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistiques_exploratoire/boxplot.html">
+   4. Boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistiques_exploratoire/loi_normale.html">
+   5. Loi normale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistiques_exploratoire/quelques_principes_g%C3%A9n%C3%A9raux.html">
+   6. Quelques principes généraux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Probabilité
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probabilit%C3%A9/concepts_de_base.html">
+   1. Concepts de base
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probabilit%C3%A9/arrangements_et_combinaisons.html">
+   2. Arrangements et combinaisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probabilit%C3%A9/probabilite_conditionnelle_independance.html">
+   3. Probabilité conditionelle et indépendence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probabilit%C3%A9/probabilites_totales_et_theoreme_de_bayes.html">
+   4. Probabilités totales et théorème de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probabilit%C3%A9/variables_aleatoires_discretes.html">
+   5. Variables aléatoires discrètes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probabilit%C3%A9/variables_aleatoires_continues.html">
+   6. Variables aléatoires continues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probabilit%C3%A9/variables_aleatoires_conjointes.html">
+   7. Variables aléatoires conjointes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probabilit%C3%A9/valeurs_caracteristiques.html">
+   8. Valeurs caractéristiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probabilit%C3%A9/theoreme_fondamentaux.html">
+   9. Théorème fondamentaux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probabilit%C3%A9/Simulation_thm_fondamentaux.html">
+   10. Simulation théorème fondamentaux
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Statistique inférentielle
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistique_inf%C3%A9rentielle/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistique_inf%C3%A9rentielle/estimation_de_parametres.html">
+   2. Estimation de paramètres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistique_inf%C3%A9rentielle/Simulation_est_max_vraisemblance.html">
+   3. Illustration convergence de l’estimateur du maximum de vraisemblance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistique_inf%C3%A9rentielle/proprietes_estimateur.html">
+   4. Propriétés d’un estimateur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistique_inf%C3%A9rentielle/estimation_par_intervalle.html">
+   5. Estimation par intervalle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistique_inf%C3%A9rentielle/tests_hypotheses_statistiques.html">
+   6. Tests d’hypothèses statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistique_inf%C3%A9rentielle/tests_et_ic.html">
+   7. Tests et IC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistique_inf%C3%A9rentielle/test_chi2.html">
+   8. Test du
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Statistique_inf%C3%A9rentielle/puissance_test.html">
+   9. Puissance d’un test
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Régréssion linéaire
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/cas_general.html">
+   2. Régréssion linéaire: cas général
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/tests.html">
+   3. Régréssion linéaire: tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="R%C3%A9gr%C3%A9ssion_lin%C3%A9aire/hypotheses_et_diagnostics.html">
+   4. Régréssion linéaire: hypothèses et diagnostiques
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/Python/S%C3%A9rie1/S%C3%A9rie1Python.html">
+   Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/Python/S%C3%A9rie2/S%C3%A9rie2Python.html">
+   Série2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/Python/S%C3%A9rie3/S%C3%A9rie3Python.html">
+   Série3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/Python/S%C3%A9rie4/S4Python.html">
+   Série4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/Python/S%C3%A9rieBeta/SBetaP.html">
+   SérieBeta
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/R/S%C3%A9rie1/S%C3%A9rie1R.html">
+   Série1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/R/S%C3%A9rie2/S%C3%A9rie2R.html">
+   Série2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/R/S%C3%A9rie3/S%C3%A9rie3R.html">
+   Série3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/R/S%C3%A9rie4/S4R.html">
+   Série4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S%C3%A9rie/R/S%C3%A9rieBeta/SBetaR.html">
+   SérieBeta
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/Python/S%C3%A9rie1/Sol1P.html">
+   Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/Python/S%C3%A9rie2/Sol2P.html">
+   Série2 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/Python/S%C3%A9rie3/Sol3Python.html">
+   Série3 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/Python/S%C3%A9rie4/Sol4P.html">
+   Série4 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/Python/S%C3%A9rieBeta/SolBetaP.html">
+   SérieBeta : Correction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Correction Série R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/R/S%C3%A9rie1/Sol1R.html">
+   Série1 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/R/S%C3%A9rie2/Sol2R.html">
+   Série2 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/R/S%C3%A9rie3/Sol3R.html">
+   Série3 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/R/S%C3%A9rie4/Sol4R.html">
+   Série4 : Correction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Correction/R/S%C3%A9rieBeta/SolBetaR.html">
+   SérieBeta : Correction
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/MatthWilhelm/ProbaStat/master?urlpath=tree/book/Tutoriel_R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://noto.epfl.ch/hub/user-redirect/git-pull?repo=https%3A//github.com/MatthWilhelm/ProbaStat&urlpath=tree/ProbaStat/book/Tutoriel_R.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat/issues/new?title=Issue%20on%20page%20%2FTutoriel_R.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/MatthWilhelm/ProbaStat/edit/master/book/Tutoriel_R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Tutoriel_R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comment-utiliser-les-jupyter-notebooks">
+   Comment utiliser les Jupyter notebooks ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-a-r">
+   Introduction à R
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-et-operateurs">
+     Types et opérateurs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#vecteur">
+       vecteur
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#operations-sur-des-vecteurs-matrices">
+       Opérations sur des vecteurs/matrices
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-listes">
+       Les listes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-principales-structures">
+     Les principales structures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linstruction-if">
+       L’instruction if
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linstruction-while">
+       L’instruction while
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linstruction-for">
+       L’instruction for
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-fonctions">
+     Les fonctions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#syntaxe-des-fonctions">
+       Syntaxe des fonctions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#portee-des-variables-scope">
+       Portée des variables (scope)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-librairies-packages">
+   Les librairies (packages)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-frames">
+     data frames
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operations-numeriques">
+     Opérations numériques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plots">
+     Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recherches-sur-les-librairies-avec-help">
+     Recherches sur les librairies avec help
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tutoriel R</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comment-utiliser-les-jupyter-notebooks">
+   Comment utiliser les Jupyter notebooks ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-a-r">
+   Introduction à R
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-et-operateurs">
+     Types et opérateurs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#vecteur">
+       vecteur
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#operations-sur-des-vecteurs-matrices">
+       Opérations sur des vecteurs/matrices
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-listes">
+       Les listes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-principales-structures">
+     Les principales structures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linstruction-if">
+       L’instruction if
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linstruction-while">
+       L’instruction while
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linstruction-for">
+       L’instruction for
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-fonctions">
+     Les fonctions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#syntaxe-des-fonctions">
+       Syntaxe des fonctions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#portee-des-variables-scope">
+       Portée des variables (scope)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-librairies-packages">
+   Les librairies (packages)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-frames">
+     data frames
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operations-numeriques">
+     Opérations numériques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plots">
+     Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recherches-sur-les-librairies-avec-help">
+     Recherches sur les librairies avec help
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-r">
+<h1>Tutoriel R<a class="headerlink" href="#tutoriel-r" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Ceci est un notebook jupyter. C’est le support que nous allons utiliser tout au long du semestre pour les séances d’exercices. La révision des concepts présentés dans ce noteboook vous sera grandement bénéfique et vous permettra de gagner du temps lors des séances d’exercices.</p>
+<p><strong>Qu’est-ce que les Jupyter Notebooks et pourquoi les utiliser?</strong>.</p>
+<p>L’environnement Jupyter Notebooks est un système hybride écrit en Python dont l’interface utilisateur s’exécute comme des applications web dans votre navigateur. Par conséquent, comme Python, les Jupyter Notebooks sont des applications open source qui facilitent la création et le partage de codes et de documents. Les carnets Jupyter fournissent un environnement dans lequel vous disposez de différents types de cellules (par exemple, celle qui est présentée ici est appelée cellule <strong>Markdown</strong> et est pratique pour la documentation, l’intégration d’images, de liens url, l’explication de ce que vous prévoyez de faire, comment, etc.) Les cellules de code sont utiles car elles peuvent être exécutées une par une et facilitent le prototypage et le débeuguage, un peu comme la division d’un scrip Matlab en sections. Ces cellules de codes peuvent être en un langage différent Python, comme R et c’est le cas de ce document. Contrairement à Matlab cependant, vous n’avez pas une vue d’ensemble de vos variables et de leurs valeurs, mais vous pouvez toujours les imprimer.</p>
+</section>
+<section id="comment-utiliser-les-jupyter-notebooks">
+<h2>Comment utiliser les Jupyter notebooks ?<a class="headerlink" href="#comment-utiliser-les-jupyter-notebooks" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Pour utiliser un Jupyter notebook, vous devez comprendre quelques principes de base :</p>
+<p><strong>Ajout et suppression de cellules</strong></p>
+<p>Si vous avez ouvert le notebook avec <strong>noto</strong>, vous pouvez ajouter (au-dessus ou en-dessous) et supprimer des cellules depuis le coin supérieur droit de chaque cellule.</p>
+<p>Si vous travaillez en local avec une distribution <strong>Anaconda</strong>,vous pouvez ajouter des cellules en allant dans le menu “Insertion” et en choisissant “Ajouter au-dessus ou au-dessous” et déplacer des cellules vers le haut ou vers le bas en choisissant les flèches sous la barre à outils.</p>
+<p>A tout moment vous pouvez changer le type de cellule : Code, Markdown,etc…</p>
+<p><strong>Faire tourner les cellules</strong></p>
+<p>Vous devrez procéder de la sorte pour exécuter le code contenu dans les cellules individuelles.</p>
+<ul class="simple">
+<li><p>Pour exécuter une cellule individuelle, sélectionnez-la et appuyez sur “Maj+Entrée”.</p></li>
+<li><p>Pour exécuter le notebook en entier, allez dans “Cellule-&gt;Exécuter tout”. Pour exécuter seulement les cellules au-dessus ou au-dessous, vous trouverez cela dans le même menu.</p></li>
+<li><p>Pour éxécuter de nouveau le notebook en entier, allez dans “Kernel -&gt; Restart and Run all” ou appuyez sur le bouton qui ressemble à un bouton d’avance rapide. Ceci efface toutes les variables stockées en mémoire et exécute le notebook depuis le début. Il est important de ré-exécuter le notebook à partir de zéro de temps en temps, par exemple lorsque vous avez atteint une étape importante pour vous assurer que vous n’avez pas de beugs. Comme le notebook stocke toutes les variables en mémoire, cela permet d’éviter les erreurs dues à la suppression d’un élément ou à l’ordre incorrect de certains éléments dans les cellules ou entre les cellules.</p></li>
+</ul>
+<p><strong>Bonnes pratiques</strong></p>
+<ul class="simple">
+<li><p>Expliquez votre raisonnement dans les cellules Markdown, de la même manière que vous le feriez dans un rapport. Vous pouvez avoir des sections, des sous-sections, écrire des paragraphes, saisir des images, etc.</p></li>
+<li><p>Commentez votre code afin que toute personne qui ouvre votre notebook comprenne ce que vous faites.</p></li>
+<li><p>Lorsque vous faites appel à une librairie, il est considéré comme une bonne pratique de l’importer au début du notebook.</p></li>
+<li><p>N’oubliez pas de sauvegarder régulièrement votre notebook. Vous pouvez le faire soit avec le raccourci d’enregistrement (Ctrl+S), soit en passant par Fichier -&gt; Enregistrer sous. Sous Fichier, vous trouverez également d’autres options telles que créer un nouveau notebook, renommer le notebook actuel, le télécharger en tant que fichier pdf, python etc…</p></li>
+</ul>
+<p><strong>Installation des extensions Jupyter Notebook</strong></p>
+<p>Les extensions Jupyter sont des modules complémentaires qui fonctionnent avec les notebooks Jupyter (et non avec Jupyter Lab) permettant d’améliorer votre productivité.
+Si vous êtes intéressés, vous pouvez installer quelques <a class="reference external" href="https://towardsdatascience.com/jupyter-tools-to-increase-productivity-7b3c6b90be09">extensions qui sont utiles</a></p>
+</section>
+<section id="introduction-a-r">
+<h2>Introduction à R<a class="headerlink" href="#introduction-a-r" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>R est un langage open source qui a été développé sur la base d’un autre langage, S, qui n’est désormais plus utilisé. R est devenu le langage privilégié de la communauté statistique. Il implémente un nombre très important de fonctions permettant de manipuler des données et de méthodes d’analyse statistiques. Il s’agit, à l’instar de Matlab ou Python, d’un langage interprété. Cela rend son utilisation typiquement plus lente qu’un langage compilé, comme C et C++, mais plus aisée puisqu’il n’est pas nécessaire de compiler une fonction pour l’utiliser. Par ailleurs, lorsque dans certaines situations, la vitesse d’exécution de R devient problématique, il est possible d’appeler depuis des routines écrites en C (nativement) ou C++ (via le package Rcpp).</p>
+<section id="types-et-operateurs">
+<h3>Types et opérateurs<a class="headerlink" href="#types-et-operateurs" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>En R, il y a différents <strong>types</strong> prédéfinis:</p>
+<ul class="simple">
+<li><p>chaîne de caractères:	<strong>string</strong></p></li>
+<li><p>numérique:	<strong>int</strong>, <strong>float</strong></p></li>
+<li><p>listes:	<strong>list</strong>, <strong>data.frame</strong> , <strong>tibble</strong>, etc.</p></li>
+<li><p>booléen:	<strong>bool</strong> (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p>facteurs:	<strong>fac</strong> (niveau encodant une variable catégorielle)</p></li>
+</ul>
+<p>Le type d’une variable est défini au moment où on lui assigne une valeur.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-align:left"><p>Exemple</p></th>
+<th class="head text-align:center"><p>Type correspondant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>x = “Hello World”</p></td>
+<td class="text-align:center"><p>string</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>x = 20</p></td>
+<td class="text-align:center"><p>integer</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>x = 20.5</p></td>
+<td class="text-align:center"><p>float</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>x = list(“apple”, “banana”, “cherry”)</p></td>
+<td class="text-align:center"><p>list</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>x = c(“apple”, “banana”, “cherry”)</p></td>
+<td class="text-align:center"><p>vector</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>x = True</p></td>
+<td class="text-align:center"><p>bool</p></td>
+</tr>
+</tbody>
+</table>
+<p>Les <strong>opérateurs</strong> sont utilisés pour faire des opérations sur des variables ou des valeurs.</p>
+<p><strong>Les opérateurs arithmétiques</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-align:center"><p>Opérateur</p></th>
+<th class="head text-align:left"><p>Nom</p></th>
+<th class="head text-align:center"><p>Exemple</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>+</p></td>
+<td class="text-align:left"><p>Addition</p></td>
+<td class="text-align:center"><p>x + y</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>-</p></td>
+<td class="text-align:left"><p>Soustraction</p></td>
+<td class="text-align:center"><p>x - y</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>*</p></td>
+<td class="text-align:left"><p>Multiplication composante par composante</p></td>
+<td class="text-align:center"><p>x * y</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>/</p></td>
+<td class="text-align:left"><p>Division</p></td>
+<td class="text-align:center"><p>x / y</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>%%</p></td>
+<td class="text-align:left"><p>Modulo (reste d’une division entière)</p></td>
+<td class="text-align:center"><p>x %% y</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>^</p></td>
+<td class="text-align:left"><p>Exponentielle</p></td>
+<td class="text-align:center"><p>x ^ y</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Les opérateurs d’affectation</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-align:center"><p>Opérateur</p></th>
+<th class="head text-align:left"><p>Exemple</p></th>
+<th class="head text-align:center"><p>Comme</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>= ou &lt;-</p></td>
+<td class="text-align:left"><p>x = 5</p></td>
+<td class="text-align:center"><p>x = 5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>&lt;-</p></td>
+<td class="text-align:left"><p>x += 3</p></td>
+<td class="text-align:center"><p>x = x + 3</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Les opérateurs de comparaison</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Opérateur</p></th>
+<th class="head"><p>Nom</p></th>
+<th class="head"><p>Exemple</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>==</p></td>
+<td><p>Egal</p></td>
+<td><p>x == y</p></td>
+</tr>
+<tr class="row-odd"><td><p>!=</p></td>
+<td><p>Différent</p></td>
+<td><p>x != y</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;</p></td>
+<td><p>Plus grand que</p></td>
+<td><p>x &gt; y</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;</p></td>
+<td><p>Plus petit que</p></td>
+<td><p>x &lt; y</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;=</p></td>
+<td><p>Plus grand ou égal</p></td>
+<td><p>x &gt;= y</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;=</p></td>
+<td><p>Plus petit ou égal</p></td>
+<td><p>x &lt;= y</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Les opérateurs logiques</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Opérateur</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Exemple</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&amp;</p></td>
+<td><p>Retourne Vrai si les deux déclarations sont vraies</p></td>
+<td><p>x &lt; 5 &amp;  x &lt; 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>|</p></td>
+<td><p>Retourne Vrai si au moins une des deux déclarations est vraie</p></td>
+<td><p>x &lt; 5 or x &lt; 4</p></td>
+</tr>
+<tr class="row-even"><td><p>!</p></td>
+<td><p>Négation, Inverse le résultat, renvoie Faux si le résultat est vrai.</p></td>
+<td><p>not(x &lt; 5 and x &lt; 10)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="vecteur">
+<h4>vecteur<a class="headerlink" href="#vecteur" title="Lien permanent vers cette rubrique">#</a></h4>
+<p>Un vecteur est un ensemble ordonné et modifiable. En R, les vecteurs se déclarent avec des avec la fonction <code class="docutils literal notranslate"><span class="pre">c()</span></code>.
+<strong>L’indexation commence à 1 en R.</strong> L’index -1 permet de supprimer le premier élément de la liste et de manière générale, les indices négatifs retirent du vecteur les éléments correspondants.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="kc">pi</span><span class="p">,</span> <span class="nf">exp</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
+<span class="n">vec</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1</div></div>
+</div>
+<p>Voilà mon titre</p>
+<p>On peut déclarer un vecteur d’une suite d’entiers de manière particulièrement aisée en utilisant <code class="docutils literal notranslate"><span class="pre">:</span></code> ou alors, avec un peu plus de possibilités, en utilisant la fonction <code class="docutils literal notranslate"><span class="pre">seq</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">:</span><span class="m">10</span> <span class="c1"># vecteur dont les composantes sont les entiers de 1 à 10</span>
+<span class="m">8</span><span class="o">:</span><span class="m">-2</span> <span class="c1"># vecteur dont les composantes sont les entiers de 8 à -2, dans l&#39;ordre décroissant</span>
+<span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">12</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="n">.</span><span class="m">25</span><span class="p">)</span> <span class="c1"># vecteur de 1 à 12, avec un incrément de 0.25</span>
+<span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">12</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span> <span class="c1"># vecteur de 1 à 12, avec un incrément constant et une longueur de 10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ol>
+</div><div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>8</li><li>7</li><li>6</li><li>5</li><li>4</li><li>3</li><li>2</li><li>1</li><li>0</li><li>-1</li><li>-2</li></ol>
+</div><div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>1.25</li><li>1.5</li><li>1.75</li><li>2</li><li>2.25</li><li>2.5</li><li>2.75</li><li>3</li><li>3.25</li><li>3.5</li><li>3.75</li><li>4</li><li>4.25</li><li>4.5</li><li>4.75</li><li>5</li><li>5.25</li><li>5.5</li><li>5.75</li><li>6</li><li>6.25</li><li>6.5</li><li>6.75</li><li>7</li><li>7.25</li><li>7.5</li><li>7.75</li><li>8</li><li>8.25</li><li>8.5</li><li>8.75</li><li>9</li><li>9.25</li><li>9.5</li><li>9.75</li><li>10</li><li>10.25</li><li>10.5</li><li>10.75</li><li>11</li><li>11.25</li><li>11.5</li><li>11.75</li><li>12</li></ol>
+</div><div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>2.22222222222222</li><li>3.44444444444444</li><li>4.66666666666667</li><li>5.88888888888889</li><li>7.11111111111111</li><li>8.33333333333333</li><li>9.55555555555556</li><li>10.7777777777778</li><li>12</li></ol>
+</div></div>
+</div>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">matrix</span></code> permet de définir des matrices (en deux dimensions) en spécifiant ses éléments à l’aide d’un vecteur. Il est nécessaire de préciser le nombre de lignes et/ou de colonnes. Par défaut, la matrice se remplit par colonne mais l’option <code class="docutils literal notranslate"><span class="pre">byrow</span> <span class="pre">=</span> <span class="pre">T</span></code> permet de la remplir par ligne.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">),</span> <span class="n">nc</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+
+<span class="n">M</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span>  <span class="c1">#élément à la 1ère ligne, 2ème colonne</span>
+<span class="n">M</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">),</span> <span class="n">nc</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+</pre></div>
+</div>
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>2</li></ol>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour afficher une dimension (ligne ou colonne), on laisse vide l’indice correspondant.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span>  <span class="c1">#affiche toute la 1ère ligne</span>
+<span class="n">M</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span>  <span class="c1">#affiche toute la 2ème colonne</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>2</li><li>3</li></ol>
+</div><div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>2</li><li>5</li></ol>
+</div></div>
+</div>
+</section>
+<section id="operations-sur-des-vecteurs-matrices">
+<h4>Opérations sur des vecteurs/matrices<a class="headerlink" href="#operations-sur-des-vecteurs-matrices" title="Lien permanent vers cette rubrique">#</a></h4>
+<p>Voir les exemples ci-dessous:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span> <span class="n">M</span> <span class="o">%*%</span> <span class="n">vec</span> <span class="c1">#multiplication matrice-vecteur</span>
+ <span class="n">M</span> <span class="o">%*%</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span> <span class="c1"># identique; un vecteur est considere comme une matrice de taille n x 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2 × 1 of type dbl</caption>
+<tbody>
+	<tr><td>15.43803</td></tr>
+	<tr><td>36.01765</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2 × 1 of type dbl</caption>
+<tbody>
+	<tr><td>15.43803</td></tr>
+	<tr><td>36.01765</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">3</span> <span class="o">*</span> <span class="n">M</span> <span class="c1"># est similaire a une multiplication de la matrice par un scalaire</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2 × 3 of type dbl</caption>
+<tbody>
+	<tr><td> 3</td><td> 6</td><td> 9</td></tr>
+	<tr><td>12</td><td>15</td><td>18</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="o">*</span><span class="n">M</span> <span class="o">+</span> <span class="m">5</span> <span class="c1"># est similaire a une multiplication de la matrice par un scalaire suivi d&#39;une addition d&#39;un scalaire</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2 × 3 of type dbl</caption>
+<tbody>
+	<tr><td> 8</td><td>11</td><td>14</td></tr>
+	<tr><td>17</td><td>20</td><td>23</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rep</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="c1"># répétition de 3 fois le même vecteur  </span>
+<span class="nf">rep</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">each</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span> <span class="c1"># répétition 3 fois de chaque éléments du vecteur consécutivement</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>3.14159265358979</li><li>2.71828182845905</li><li>1</li><li>3.14159265358979</li><li>2.71828182845905</li><li>1</li><li>3.14159265358979</li><li>2.71828182845905</li></ol>
+</div><div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>1</li><li>1</li><li>3.14159265358979</li><li>3.14159265358979</li><li>3.14159265358979</li><li>2.71828182845905</li><li>2.71828182845905</li><li>2.71828182845905</li></ol>
+</div></div>
+</div>
+<p>Finalement, appeler un objet fait implicitement appel à la méthode <code class="docutils literal notranslate"><span class="pre">print</span></code> qui y est associée. Ainsi</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="c1"># affiche M</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">])</span> <span class="c1"># affiche la composante (2,1) de la matrice M </span>
+<span class="n">M</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span> <span class="c1"># affiche aussi la composante (2,1) de la matrice M </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2 × 3 of type dbl</caption>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td></tr>
+	<tr><td>4</td><td>5</td><td>6</td></tr>
+</tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 4
+</pre></div>
+</div>
+<div class="output text_html">4</div></div>
+</div>
+</section>
+<section id="les-listes">
+<h4>Les listes<a class="headerlink" href="#les-listes" title="Lien permanent vers cette rubrique">#</a></h4>
+<p>Les listes sont un type d’objets constitué d’objets. C’est particulièrement pratique pour stocker dans un même objet plusieurs informations de types différents. Il est à noter qu’un <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> est un type particulier de liste, et donc que beaucoup de commandes sont similaires.
+On peut accéder aux éléments d’une liste de deux manières. En utilisant l’indice, à l’aide de deux crochets ou via leur nom, en utilisant le caractère <code class="docutils literal notranslate"><span class="pre">$</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">-1</span><span class="p">,</span><span class="m">-1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span> <span class="n">nc</span> <span class="o">=</span> <span class="m">2</span><span class="p">))</span> <span class="c1"># liste de deux objets, le premier, x est un vecteur</span>
+<span class="c1"># et le second, y, est une matrice</span>
+<span class="n">mylist</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># on accède au premier élément</span>
+<span class="n">mylist</span><span class="o">$</span><span class="n">y</span> <span class="c1"># on accède à l&#39;élément y</span>
+<span class="n">mylist</span><span class="o">$</span><span class="n">z</span> <span class="o">&lt;-</span> <span class="bp">T</span> <span class="c1"># on déclare un élément z qui est un booléen T</span>
+<span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>2</li><li>3</li></ol>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2 × 2 of type dbl</caption>
+<tbody>
+	<tr><td> 1</td><td>-1</td></tr>
+	<tr><td>-1</td><td> 2</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><dl>
+	<dt>$x</dt>
+		<dd><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>2</li><li>3</li></ol>
+</dd>
+	<dt>$y</dt>
+		<dd><table class="dataframe">
+<caption>A matrix: 2 × 2 of type dbl</caption>
+<tbody>
+	<tr><td> 1</td><td>-1</td></tr>
+	<tr><td>-1</td><td> 2</td></tr>
+</tbody>
+</table>
+</dd>
+	<dt>$z</dt>
+		<dd>TRUE</dd>
+</dl>
+</div></div>
+</div>
+</section>
+</section>
+<section id="les-principales-structures">
+<h3>Les principales structures<a class="headerlink" href="#les-principales-structures" title="Lien permanent vers cette rubrique">#</a></h3>
+<section id="linstruction-if">
+<h4>L’instruction if<a class="headerlink" href="#linstruction-if" title="Lien permanent vers cette rubrique">#</a></h4>
+<p>Exécutez les différents exemples ci-dessous pour vous familiariser avec sa syntaxe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="m">33</span>
+<span class="n">b</span> <span class="o">=</span> <span class="m">200</span>
+<span class="nf">if</span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="nf">print</span><span class="p">(</span><span class="s">&quot;b is greater than a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;b is greater than a&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si ce qui suit le <code class="docutils literal notranslate"><span class="pre">if</span></code> fait plus d’une ligne, l’utilisation d’accolades en guise de délimiteurs devient nécessaire.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="m">33</span>
+<span class="n">b</span> <span class="o">=</span> <span class="m">200</span>
+<span class="nf">if</span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">){</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;b is greater than a&quot;</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;b is greater than a&quot;
+[1] 167
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’indentation n’importe pas (sauf pour la lisibilité de votre code. Lorsque <code class="docutils literal notranslate"><span class="pre">else</span></code> est utilisé, il doit être sur la même ligne que l’accolade fermant la condition <code class="docutils literal notranslate"><span class="pre">if</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="m">200</span>
+<span class="n">b</span> <span class="o">=</span> <span class="m">33</span>
+<span class="c1"># version correcte</span>
+<span class="nf">if </span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">)</span>
+    <span class="p">{</span>
+     <span class="nf">print</span><span class="p">(</span><span class="s">&quot;b is greater than a&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">else</span>
+    <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;a is greater than b&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+ 
+  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;a is greater than b&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="m">200</span>
+<span class="n">b</span> <span class="o">=</span> <span class="m">33</span>
+<span class="c1"># donne une erreur</span>
+<span class="nf">if </span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">)</span>
+    <span class="p">{</span>
+     <span class="nf">print</span><span class="p">(</span><span class="s">&quot;b is greater than a&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">else</span>
+    <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;a is greater than b&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+ 
+  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">parse</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">srcfile</span> <span class="o">=</span> <span class="n">src</span><span class="p">):</span> <span class="o">&lt;</span><span class="n">text</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="n">unexpected</span> <span class="s1">&#39;else&#39;</span>
+<span class="mi">7</span><span class="p">:</span> <span class="p">}</span>
+<span class="mi">8</span><span class="p">:</span> <span class="k">else</span>
+   <span class="o">^</span>
+<span class="ne">Traceback</span>:
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="m">33</span>
+<span class="n">b</span> <span class="o">=</span> <span class="m">33</span>
+<span class="c1"># version correcte</span>
+<span class="nf">if </span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">)</span>
+    <span class="p">{</span>
+     <span class="nf">print</span><span class="p">(</span><span class="s">&quot;b is greater than a&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">a</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;a is equal to b&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">else</span>
+<span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;a is greater than b&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;a is equal to b&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il peut y avoir un nombre quelconque de parties <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if()</span></code>.</p>
+</section>
+<section id="linstruction-while">
+<h4>L’instruction while<a class="headerlink" href="#linstruction-while" title="Lien permanent vers cette rubrique">#</a></h4>
+<p>La boucle <strong>while</strong> permet d’exécuter un ensemble d’instructions tant qu’une condition est vraie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="m">1</span>
+<span class="nf">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="m">6</span><span class="p">)</span>
+    <span class="p">{</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>La boucle while exige que les variables pertinentes soient prêtes. Dans cet exemple, nous avons dû définir une variable d’indexation, i, fixée à 1.</p>
+<p>Exécutez les cellules ci-dessous pour découvrir la commande <strong>break</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="m">1</span>
+<span class="nf">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="m">6</span><span class="p">)</span>
+  <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="nf">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="m">3</span><span class="p">)</span> <span class="n">break</span>
+  <span class="n">i</span>  <span class="o">&lt;-</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 1
+[1] 2
+[1] 3
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Break</strong> permet d’arrêter la boucle while même si la condition du while est toujours satisfaite.</p>
+</section>
+<section id="linstruction-for">
+<h4>L’instruction for<a class="headerlink" href="#linstruction-for" title="Lien permanent vers cette rubrique">#</a></h4>
+<p>L’instruction <strong>for</strong> que propose R est un peu différente de celle que l’on peut trouver dans d’autres langages de programmation et fonctionne davantage comme une méthode d’itération que l’on trouve dans les langages de programmation orientés objet.</p>
+<p>Elle est utilisée pour itérer sur un vecteur ou même sur une liste (c’est-à-dire une liste, un vecteur).</p>
+<p>De nouveau, éxécutez les différents exemples ci-dessous pour vous familiariser avec sa synthaxe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">,</span> <span class="s">&quot;cherry&quot;</span><span class="p">)</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">x</span> <span class="n">in</span> <span class="n">fruits</span><span class="p">)</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;apple&quot;
+[1] &quot;banana&quot;
+[1] &quot;cherry&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">for</span><span class="p">(</span><span class="n">x</span> <span class="n">in</span> <span class="n">vec</span><span class="p">)</span> <span class="c1">#avec un vecteur</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 2
+[1] 6.283185
+[1] 5.436564
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comme pour la boucle <strong>while</strong>, on peut utiliser <strong>break</strong> et <strong>continue</strong> pour sortir de la boucle for ou passer à l’itération suivante.</p>
+<p>Vous avez remarqué que contrairement à une boucle <strong>for</strong> en C où l’on donne à l’utilisateur la possibilité de définir le pas d’itération et la condition de fin, l’instruction <strong>for</strong> en Python itère sur les éléments d’une séquence (qui peut être une liste, une chaîne de caractères…), dans l’ordre dans lequel ils apparaissent dans la séquence.</p>
+<p>Exécutez les cellules suivantes pour voir l’utilité de certaines fonctions complémentaires comme <code class="docutils literal notranslate"><span class="pre">seq</span></code> et <code class="docutils literal notranslate"><span class="pre">seq_along</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">for</span><span class="p">(</span><span class="n">x</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">3</span><span class="p">))</span> <span class="c1">#commence à 2, finit à 29 et incrémente de 3</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># seq_along permet déclare un vecteur correspondant au vecteur des indices d&#39;un autre vecteur</span>
+<span class="nf">seq_along</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+<span class="c1"># typiquement utilisé de la manière suivante</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">seq_along</span><span class="p">(</span><span class="n">vec</span><span class="p">))</span>
+    <span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="c1"># et qui est équivalent à </span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">vec</span><span class="p">))</span>
+    <span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 2
+[1] 5
+[1] 8
+[1] 11
+[1] 14
+[1] 17
+[1] 20
+[1] 23
+[1] 26
+[1] 29
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="les-fonctions">
+<h3>Les fonctions<a class="headerlink" href="#les-fonctions" title="Lien permanent vers cette rubrique">#</a></h3>
+<section id="syntaxe-des-fonctions">
+<h4>Syntaxe des fonctions<a class="headerlink" href="#syntaxe-des-fonctions" title="Lien permanent vers cette rubrique">#</a></h4>
+<p>La syntaxe R pour la définition d’une fonction est la suivante :</p>
+<p><code class="docutils literal notranslate"><span class="pre">myfun</span> <span class="pre">&lt;-</span> <span class="pre">function(liste</span> <span class="pre">de</span> <span class="pre">paramètres){bloc</span> <span class="pre">d'instructions}</span></code></p>
+<p>Vous pouvez choisir n’importe quel nom pour la fonction que vous créez, à l’exception des mots-clés réservés du langage, et à la condition de n’utiliser aucun caractère spécial ou accentué (le caractère souligné « _ » est permis).
+Une fonction peut avoir un, plusieurs ou pas de paramètres d’entrée (appelés <strong>arguments</strong>) et elle peut retourner indirectement (print) ou directement des variables (avec <strong>return</strong>). Par défaut, la dernière variable appelée dans la fonction est retournée.
+Exécutez les cellules ci-dessous pour vous familiariser avec les fonctions.
+A noter qu’en R, il n’est pas possible de retourner plusieurs objets. Toutefois il est possible de retourner une liste, qui comprend tous les objets que l’on souhaite.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">compteur</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(){</span> <span class="c1">#sans paramètres d&#39;entreé ni de sortie</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="m">0</span>
+    <span class="nf">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="m">3</span><span class="p">){</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span>
+        <span class="p">}</span>
+<span class="p">}</span> 
+    
+<span class="nf">compteur</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0
+[1] 1
+[1] 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">compteur</span><span class="p">()</span> <span class="c1">#une fois définie, on peut appeler la fonction depuis une autre cellule du notebook.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0
+[1] 1
+[1] 2
+</pre></div>
+</div>
+<div class="output text_html">3</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">compteur2</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">stop</span><span class="p">){</span> <span class="c1">#avec un paramètre d&#39;entrée</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="m">0</span>
+    <span class="nf">while </span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">){</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="nf">compteur2</span><span class="p">(</span><span class="m">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0
+[1] 1
+[1] 2
+[1] 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut utiliser la syntaxe <code class="docutils literal notranslate"><span class="pre">=</span></code> dans un argument pour lui donner une valeur par défaut. Ainsi</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">compteur2</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">stop</span> <span class="o">=</span> <span class="m">2</span><span class="p">){</span> <span class="c1">#avec un paramètre d&#39;entrée</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="m">0</span>
+    <span class="nf">while </span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">){</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="nf">compteur2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0
+[1] 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">compteur3</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">stop</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="m">3</span><span class="p">){</span> <span class="c1">#avec 2 paramètres d&#39;entrée, le second étant par défaut b = 3</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="m">0</span>
+    <span class="nf">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">){</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;avec deux paramètres spécifiés&quot;</span><span class="p">)</span>
+<span class="nf">compteur3</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;avec un seul paramètre spécifié&quot;</span><span class="p">)</span>
+<span class="nf">compteur3</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;avec deux paramètres spécifiés&quot;
+[1] 2
+[1] 4
+[1] &quot;avec un seul paramètre spécifié&quot;
+[1] 3
+[1] 6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">compteur</span><span class="p">(</span><span class="m">4</span><span class="p">)</span> <span class="c1">#on peut directement attribuer ce que retourne la fonction à des variables en dehors de la fonction</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>On montre comment retourner plusieurs objets <em>via</em> une liste.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">compteur</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">stop</span><span class="p">){</span> <span class="c1">#avec un paramètre d&#39;entrée et 2 de sortie</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="m">0</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="m">100</span>
+    <span class="nf">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">){</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="m">1</span>
+        <span class="p">}</span>
+    <span class="nf">return</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="p">))</span> 
+<span class="p">}</span>
+<span class="n">mylist</span> <span class="o">&lt;-</span> <span class="nf">compteur</span><span class="p">(</span><span class="m">4</span><span class="p">)</span> <span class="c1"># Attention à l&#39;ordre des paramètres: x prend la valeur de i et y de j.</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">mylist</span><span class="o">$</span><span class="n">i</span><span class="p">,</span><span class="n">mylist</span><span class="o">$</span><span class="n">j</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]  4 96
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">myfunction</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="m">5</span><span class="p">){</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="m">2</span>
+    <span class="n">y</span> <span class="c1"># équivalent à return(y)</span>
+<span class="p">}</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">myfunction</span><span class="p">(</span><span class="m">3</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="portee-des-variables-scope">
+<h4>Portée des variables (scope)<a class="headerlink" href="#portee-des-variables-scope" title="Lien permanent vers cette rubrique">#</a></h4>
+<p>En R, nous pouvons déclarer des variables n’importe où dans notre script : au début du script, à l’intérieur de boucles, au sein de nos fonctions, etc. L’endroit où l’on définit une variable dans le script va déterminer l’endroit où la variable va être accessible c’est-à-dire utilisable.</p>
+<p>Le terme de “portée des variables” sert à désigner les différents espaces dans le script dans lesquels une variable est accessible. En R, une variable peut avoir une portée locale ou une portée globale.</p>
+<p>Les variables définies à l’intérieur d’une fonction sont appelées <strong>variables locales</strong>. Elles ne peuvent être utilisées que localement c’est-à-dire qu’à l’intérieur de la fonction qui les a définies. Tenter d’appeler une variable locale depuis l’extérieur de la fonction qui l’a définie provoquera une erreur.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">example</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(){</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="m">5</span>
+<span class="p">}</span> 
+<span class="nf">print</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span> <span class="c1"># retourne une erreur puisque loc n&#39;existe que dans la fonction</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="nb">print</span><span class="p">(</span><span class="n">loc</span><span class="p">):</span> <span class="nb">object</span> <span class="s1">&#39;loc&#39;</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="ne">Traceback</span>:
+
+<span class="mi">1</span><span class="o">.</span> <span class="nb">print</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cela est dû au fait que chaque fois qu’une fonction est appelée, R réserve pour elle (dans la mémoire de l’ordinateur) un nouvel espace de noms (c’est-à-dire une sorte de dossier virtuel). Les contenus des variables locales sont stockés dans cet espace de noms qui est inaccessible depuis l’extérieur de la fonction.</p>
+<p>Cet espace de noms est automatiquement détruit dès que la fonction a terminé son travail, réinitialisant les valeurs des variables à chaque nouvel appel de fonction.</p>
+<p>Les variables définies dans l’espace global du script, c’est-à-dire en dehors de toute fonction sont appelées des <strong>variables globales</strong>. Ces variables sont accessibles (= utilisables) à travers l’ensemble du script et accessible en lecture seulement à l’intérieur des fonctions utilisées dans ce script.</p>
+<p>Pour le dire très simplement : une fonction va pouvoir utiliser la valeur d’une variable définie globalement mais ne va pas pouvoir modifier sa valeur c’est-à-dire la redéfinir. En effet, toute variable définie dans une fonction est par définition locale ce qui fait que si on essaie de redéfinir une variable globale à l’intérieur d’une fonction on ne fera que créer une autre variable de même nom que la variable globale qu’on souhaite redéfinir mais qui sera locale et bien distincte de cette dernière.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">var_globale</span> <span class="o">=</span> <span class="m">5</span>
+
+<span class="n">exemple</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(){</span>
+    <span class="n">var_globale</span> <span class="o">=</span> <span class="m">0</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">var_globale</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="nf">exemple</span><span class="p">()</span>        
+<span class="nf">print</span><span class="p">(</span><span class="n">var_globale</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0
+[1] 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>De manière générale, il est imprudent d’utiliser une variable globale dans une fonction. En effet, il suffit que l’on redémarre une session et que l’on ne déclare pas la variable globale utilisée pour que la fonction produise une erreur difficile à repérer.</p>
+</section>
+</section>
+</section>
+<section id="les-librairies-packages">
+<h2>Les librairies (packages)<a class="headerlink" href="#les-librairies-packages" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Jusque là, nous avons vu les différentes structures (if, while, for) et comment implémenter une fonction. Nous allons à présent aborder ce qui fait la puissance de R grâce à sa communauté de développeurs qui créent et mettent à disposition de nombreuses <strong>librairies</strong> permettant de gagner un temps précieux.</p>
+<p>En R, une librairie est un ensemble de fonctions, de classes d’objet et de données qui permettent de travailler sur un thème en particulier. R contient de base de très nombreuses fonctions et, contrairement à Python, il n’est pas nécessaire de charger des librairies pour effectuer la plupart des choses nécessaires dans le cadre de ce cours.</p>
+<p>Avant toute chose, il faut les installer puis les importer sur le notebook.</p>
+<p><strong>Installation des packages via le notebook</strong></p>
+<p>La plupart des packages sont déjà préinstallés, ce qui signifie qu’il suffit de les charger. Cela se fait au moyen de la commande <code class="docutils literal notranslate"><span class="pre">library</span></code>. L’argument est le nom de la librairie (entre guillemet ou pas, les deux fonctionnent normalement). Par exemple, la librairie <code class="docutils literal notranslate"><span class="pre">tidyverse</span></code> qui regroupe de nombreuses libraires très utilisées, se charge de la manière suivante:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;tidyverse&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lorsque l’on souhaite utiliser une seule fonction d’une librairie, sans nécessairement charger toute la librairie, il suffit d’appeler cette fonction avec le préfixe de la librairie suivi de <code class="docutils literal notranslate"><span class="pre">::</span></code>: <code class="docutils literal notranslate"><span class="pre">package::function</span></code>. Par exemple, si on souhaite utiliser la fonction <code class="docutils literal notranslate"><span class="pre">mapvalues</span></code> du package <code class="docutils literal notranslate"><span class="pre">plyr</span></code> qui remplace un ensemble de valeurs par autre ensemble de valeurs dans un vecteur, par exemple on remplace <code class="docutils literal notranslate"><span class="pre">1</span></code> par <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> par <code class="docutils literal notranslate"><span class="pre">B</span></code>, etc. Toutefois, cette fonction utile fait partie d’une librarie qui n’est plus en développement. Autrement dit, il est peu avisé de charger cette librarie puisque d’autres librairies ont pris le relai. Toutefois, cette fonction est relativement utile. Du coup, on souhaiterais ne faire appel qu’à elle. On procède donc comme ci-dessous.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="c1"># pour fixer une graine dans le générateur de nombre aléatoire</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="bp">T</span> <span class="p">)</span> <span class="c1"># On choisit de manière équiprobable et avec remise 20 valeurs entre 1 et 5,</span>
+<span class="n">plyr</span><span class="o">::</span><span class="nf">mapvalues</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">from</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="kc">LETTERS</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">])</span> <span class="c1"># on remplace 1,..., 5 par A,...,E</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'A'</li><li>'D'</li><li>'A'</li><li>'B'</li><li>'E'</li><li>'C'</li><li>'B'</li><li>'C'</li><li>'C'</li><li>'A'</li><li>'E'</li><li>'E'</li><li>'B'</li><li>'B'</li><li>'A'</li><li>'E'</li><li>'E'</li><li>'A'</li><li>'A'</li><li>'E'</li></ol>
+</div></div>
+</div>
+<section id="data-frames">
+<h3>data frames<a class="headerlink" href="#data-frames" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>La manipulation de données est une opération essentielle dans R et ne nécessite donc, a priori, pas de charger une quelconque librairie. On peut donc aisément charger des fichiers <code class="docutils literal notranslate"><span class="pre">.csv</span></code> ou plus généralement des tables à l’aide des fonctions <code class="docutils literal notranslate"><span class="pre">read.table</span></code> et <code class="docutils literal notranslate"><span class="pre">read.csv</span></code>.<br />
+Pandas permet également d’effectuer des calculs statistiques sur tes données, par exemple avec la méthode .mean() qui permet d’obtenir la moyenne des valeurs contenues dans une colonne.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datas</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">Taille</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">147</span> <span class="p">,</span> <span class="m">150</span> <span class="p">,</span> <span class="m">152</span> <span class="p">,</span> <span class="m">155</span> <span class="p">,</span> <span class="m">157</span> <span class="p">,</span> <span class="m">160</span> <span class="p">,</span> <span class="m">163</span> <span class="p">,</span> <span class="m">165</span> <span class="p">,</span> <span class="m">168</span> <span class="p">,</span> <span class="m">170</span> <span class="p">,</span> <span class="m">173</span> <span class="p">,</span> <span class="m">175</span> <span class="p">,</span> <span class="m">178</span> <span class="p">,</span> <span class="m">180</span> <span class="p">,</span> <span class="m">183</span><span class="p">),</span> 
+                                <span class="n">Poids</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">52</span> <span class="p">,</span> <span class="m">53</span> <span class="p">,</span> <span class="m">54</span> <span class="p">,</span> <span class="m">56</span> <span class="p">,</span> <span class="m">57</span> <span class="p">,</span> <span class="m">59</span> <span class="p">,</span> <span class="m">60</span> <span class="p">,</span> <span class="m">61</span> <span class="p">,</span> <span class="m">63</span> <span class="p">,</span> <span class="m">64</span> <span class="p">,</span> <span class="m">66</span> <span class="p">,</span> <span class="m">68</span> <span class="p">,</span> <span class="m">70</span> <span class="p">,</span> <span class="m">72</span> <span class="p">,</span> <span class="m">74</span><span class="p">))</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">datas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 2</caption>
+<thead>
+	<tr><th></th><th scope=col>Taille</th><th scope=col>Poids</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>147</td><td>52</td></tr>
+	<tr><th scope=row>2</th><td>150</td><td>53</td></tr>
+	<tr><th scope=row>3</th><td>152</td><td>54</td></tr>
+	<tr><th scope=row>4</th><td>155</td><td>56</td></tr>
+	<tr><th scope=row>5</th><td>157</td><td>57</td></tr>
+	<tr><th scope=row>6</th><td>160</td><td>59</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">mean</span><span class="p">(</span><span class="n">datas</span><span class="o">$</span><span class="n">Poids</span><span class="p">)</span> <span class="c1"># calcule la moyenne de la colonne &quot;Poids&quot; </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">61.9333333333333</div></div>
+</div>
+<p>Si par exemple, on souhaite appliquer une même fonction à toutes les colonnes d’un <code class="docutils literal notranslate"><span class="pre">data.frame</span></code>, on peut utiliser la fonction <code class="docutils literal notranslate"><span class="pre">lapply</span></code> qui prend en argument une <code class="docutils literal notranslate"><span class="pre">list</span></code> et qui applique une même fonction à tous les arguments. Puisqu’un <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> est une liste, cela fonctionne comme espéré.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">lapply</span><span class="p">(</span><span class="n">datas</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><dl>
+	<dt>$Taille</dt>
+		<dd>165.066666666667</dd>
+	<dt>$Poids</dt>
+		<dd>61.9333333333333</dd>
+</dl>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">lapply</span><span class="p">(</span><span class="n">datas</span><span class="p">,</span> <span class="n">median</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><dl>
+	<dt>$Taille</dt>
+		<dd>165</dd>
+	<dt>$Poids</dt>
+		<dd>61</dd>
+</dl>
+</div></div>
+</div>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">hist</span></code> permet de produire facilement un histogramme. Par exemple</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">datas</span><span class="o">$</span><span class="n">Poids</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Histogramme du poids&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Poids&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Tutoriel_R_79_0.png" src="_images/Tutoriel_R_79_0.png" />
+</div>
+</div>
+<p>Un nuage de points s’obtient en utilisant la fonction <code class="docutils literal notranslate"><span class="pre">plot</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">datas</span><span class="o">$</span><span class="n">Taille</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">datas</span><span class="o">$</span><span class="n">Poids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Tutoriel_R_81_0.png" src="_images/Tutoriel_R_81_0.png" />
+</div>
+</div>
+<p>Parfois, lorsque l’on travaille avec un <code class="docutils literal notranslate"><span class="pre">data.frame</span></code>, il est utile de s’éviter de devoir systématiquement appeler le data.frame. Cela se fait via la fonction <code class="docutils literal notranslate"><span class="pre">with</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">with</span><span class="p">(</span><span class="n">datas</span><span class="p">,</span> <span class="nf">plot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Taille</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Poids</span><span class="p">))</span> <span class="c1"># with prend comme premier argument le nom de l&#39;environnement,</span>
+<span class="c1"># puis l&#39;expression à évaluer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Tutoriel_R_83_0.png" src="_images/Tutoriel_R_83_0.png" />
+</div>
+</div>
+</section>
+<section id="operations-numeriques">
+<h3>Opérations numériques<a class="headerlink" href="#operations-numeriques" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">numeric(n)</span></code> renvoie un vecteur de <code class="docutils literal notranslate"><span class="pre">n</span></code> chiffres, tous égaux à 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">numeric</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>0</li><li>0</li><li>0</li><li>0</li><li>0</li><li>0</li><li>0</li><li>0</li><li>0</li><li>0</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>   <span class="c1">#mean est la fonction pour calculer la moyenne d&#39;un vecteur</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">3</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">9</span><span class="p">),</span> <span class="n">nc</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">det</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="c1"># calcule le déterminant de M</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nf">solve</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># résout l&#39;équation Ax = y</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># affiche la solution x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">-6</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] -0.1666667  0.0000000  0.1666667
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="c1"># renvoit la taille de M: matrice 3x3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>3</li><li>3</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rowSums</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="c1"># permet de faire la somme sur les lignes</span>
+<span class="nf">colSums</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="c1"># permet de faire la somme sur les colonne</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>11</li><li>15</li><li>18</li></ol>
+</div><div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>6</li><li>14</li><li>24</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="c1"># matrice transposée de M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 3 × 3 of type dbl</caption>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td></tr>
+	<tr><td>3</td><td>5</td><td>6</td></tr>
+	<tr><td>7</td><td>8</td><td>9</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="plots">
+<h3>Plots<a class="headerlink" href="#plots" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>R gère de manière native des graphiques performants et relativement intuitifs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">16</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Tutoriel_R_93_0.png" src="_images/Tutoriel_R_93_0.png" />
+</div>
+</div>
+<p>Quelques autres exemples. Il est aussi possible de personnaliser le style des graphiques de manière très complète.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># vecteurs de points equidistants</span>
+<span class="n">t</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
+<span class="n">ft</span> <span class="o">&lt;-</span> <span class="nf">sin</span><span class="p">(</span><span class="m">2</span><span class="o">*</span> <span class="kc">pi</span> <span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="c1"># une droite</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">xlim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Some value&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="c1"># à laquelle on ajoute des points</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span><span class="p">)</span>
+<span class="c1"># on joute une droite en traits tillés du sinus</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ft</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="c1"># the function legend adds a legend</span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topleft&quot;</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;A nice line&quot;</span><span class="p">,</span> <span class="s">&quot;some points&quot;</span><span class="p">),</span> <span class="n">lty</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="kc">NA</span><span class="p">),</span> <span class="n">pch</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="m">19</span><span class="p">),</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="s">&quot;red&quot;</span><span class="p">))</span>
+<span class="c1"># l&#39;argument lty correspond au type de ligne : la première est une ligne continue, correspondant à la valeur 1</span>
+<span class="c1"># le second n&#39;est pas une ligne (c&#39;est un point), donc nous fixons la seconde valeur à NA</span>
+<span class="c1"># l&#39;argument pch correspond au type de point : le premier n&#39;est pas un point mais une ligne, donc on met la deuxième valeur à NA.</span>
+<span class="c1"># le second est un point correspondant au type de point 19, tel que défini dans la fonction points ci-dessus. </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Tutoriel_R_95_0.png" src="_images/Tutoriel_R_95_0.png" />
+</div>
+</div>
+<p>On voit sur le graphique précédent que puisque l’affiche se fait de manière séquentielle puisque d’abord on créé le graphique puis on y ajoute la courbe du sinus, l’échelle est celle fixée automatiquement lors de la création du graphique par la commande <code class="docutils literal notranslate"><span class="pre">plot</span></code>. Pour pouvoir afficher le sinus, il faut anticiper les limites du graphique avant de créer le graphique. Cela peut se faire à l’aide de la fonction <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># evenly sampled time at 200ms intervals</span>
+<span class="n">t</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">100</span><span class="p">)</span>
+<span class="c1"># on créé un vecteur de translations</span>
+<span class="n">shift_seq</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">2</span> <span class="o">*</span> <span class="kc">pi</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">7</span><span class="p">)</span>
+<span class="c1"># on déclare une matrice de NA en spécifiant ses composantes</span>
+<span class="n">shifted_sine</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="n">nr</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">nc</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">shift_seq</span><span class="p">))</span> 
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">seq_along</span><span class="p">(</span><span class="n">shift_seq</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="n">shifted_sine</span><span class="p">[,</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">sin</span><span class="p">(</span><span class="m">2</span><span class="o">*</span> <span class="kc">pi</span> <span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">shift_seq</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1"># on pose que la ieme colonne est ce vecteur</span>
+<span class="p">}</span>
+<span class="n">limits_y</span> <span class="o">&lt;-</span> <span class="nf">range</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">shifted_sine</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span> <span class="c1"># on concatène les valeurs a grapher et on en prend le min et le max</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">xlim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Some value&quot;</span><span class="p">,</span> <span class="n">ylim</span> <span class="o">=</span> <span class="n">limits_y</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;A nice title&quot;</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="m">5</span><span class="p">)],</span><span class="n">t</span><span class="p">[</span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="m">5</span><span class="p">)],</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span><span class="p">)</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">seq_along</span><span class="p">(</span><span class="n">shift_seq</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="nf">lines</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">shifted_sine</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="n">lty</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">i</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topleft&quot;</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="s">&quot;A nice line&quot;</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">shift_seq</span><span class="p">)),</span> <span class="s">&quot;some points&quot;</span><span class="p">),</span>
+       <span class="n">lty</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">shift_seq</span><span class="p">),</span><span class="kc">NA</span><span class="p">),</span> <span class="n">pch</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">shift_seq</span><span class="p">)),</span> <span class="m">19</span><span class="p">),</span>
+       <span class="n">col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">shift_seq</span><span class="p">),</span> <span class="s">&quot;red&quot;</span><span class="p">),</span><span class="n">bg</span><span class="o">=</span><span class="s">&quot;transparent&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Tutoriel_R_97_0.png" src="_images/Tutoriel_R_97_0.png" />
+</div>
+</div>
+<p>Un exemple d’histogramme:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="m">100</span><span class="p">;</span> <span class="n">sigma</span> <span class="o">=</span> <span class="m">15</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">10000</span><span class="p">)</span>
+
+<span class="c1"># the histogram of the data</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Histogramme de QIs&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Tutoriel_R_99_0.png" src="_images/Tutoriel_R_99_0.png" />
+</div>
+</div>
+</section>
+<section id="recherches-sur-les-librairies-avec-help">
+<h3>Recherches sur les librairies avec help<a class="headerlink" href="#recherches-sur-les-librairies-avec-help" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>Vous pouvez directement rechercher des informations sur les fonctions des packages installés (mais pas nécessairement chargés). Cela se fait via la commande <code class="docutils literal notranslate"><span class="pre">?</span></code> ou <code class="docutils literal notranslate"><span class="pre">help</span></code>.
+Par ailleurs, il est possible d’utiliser la commande <code class="docutils literal notranslate"><span class="pre">??</span></code> pour rechercher dans l’aide certains mot-clés.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">help</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<table style="width: 100%;"><tr><td>plot.default {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>The Default Scatterplot Function</h2>
+
+<h3>Description</h3>
+
+<p>Draw a scatter plot with decorations such as axes and titles
+in the active graphics window.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## Default S3 method:
+plot(x, y = NULL, type = "p",  xlim = NULL, ylim = NULL,
+     log = "", main = NULL, sub = NULL, xlab = NULL, ylab = NULL,
+     ann = par("ann"), axes = TRUE, frame.plot = axes,
+     panel.first = NULL, panel.last = NULL, asp = NA,
+     xgap.axis = NA, ygap.axis = NA,
+     ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;"><td><code>x, y</code></td>
+<td>
+<p>the <code>x</code> and <code>y</code> arguments provide the x and y
+coordinates for the plot.  Any reasonable way of defining the
+coordinates is acceptable.  See the function <code>xy.coords</code>
+for details.  If supplied separately, they must be of the same length.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>type</code></td>
+<td>
+<p>1-character string giving the type of plot desired.  The
+following values are possible, for details, see <code>plot</code>:
+<code>"p"</code> for points, <code>"l"</code> for lines,
+<code>"b"</code> for both points and lines,
+<code>"c"</code> for empty points joined by lines,
+<code>"o"</code> for overplotted points and lines,
+<code>"s"</code> and <code>"S"</code> for stair steps and
+<code>"h"</code> for histogram-like vertical lines.  Finally,
+<code>"n"</code> does not produce any points or lines.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>xlim</code></td>
+<td>
+<p>the x limits (x1, x2) of the plot.  Note that <code>x1 &gt; x2</code>
+is allowed and leads to a &lsquo;reversed axis&rsquo;.
+</p>
+<p>The default value, <code>NULL</code>, indicates that the range of the
+finite values to be plotted should be used.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>ylim</code></td>
+<td>
+<p>the y limits of the plot.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>log</code></td>
+<td>
+<p>a character string which contains <code>"x"</code> if the x axis
+is to be logarithmic, <code>"y"</code> if the y axis is to be logarithmic
+and <code>"xy"</code> or <code>"yx"</code> if both axes are to be logarithmic.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>main</code></td>
+<td>
+<p>a main title for the plot, see also <code>title</code>.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>sub</code></td>
+<td>
+<p>a subtitle for the plot.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>xlab</code></td>
+<td>
+<p>a label for the x axis, defaults to a description of <code>x</code>.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>ylab</code></td>
+<td>
+<p>a label for the y axis, defaults to a description of <code>y</code>.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>ann</code></td>
+<td>
+<p>a logical value indicating whether the default annotation
+(title and x and y axis labels) should appear on the plot.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>axes</code></td>
+<td>
+<p>a logical value indicating whether both axes should be drawn on
+the plot.  Use graphical parameter <code>"xaxt"</code> or <code>"yaxt"</code>
+to suppress just one of the axes.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>frame.plot</code></td>
+<td>
+<p>a logical indicating whether a box should be drawn
+around the plot.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>panel.first</code></td>
+<td>
+<p>an &lsquo;expression&rsquo; to be evaluated after the
+plot axes are set up but before any plotting takes place.  This can
+be useful for drawing background grids or scatterplot smooths.  Note
+that this works by lazy evaluation: passing this argument from other
+<code>plot</code> methods may well not work since it may be evaluated too
+early.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>panel.last</code></td>
+<td>
+<p>an expression to be evaluated after plotting has
+taken place but before the axes, title and box are added.  See the
+comments about <code>panel.first</code>.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>asp</code></td>
+<td>
+<p>the <code class="reqn">y/x</code> aspect ratio, see <code>plot.window</code>.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>xgap.axis, ygap.axis</code></td>
+<td>
+<p>the <code class="reqn">x/y</code> axis gap factors, passed as
+<code>gap.axis</code> to the two <code>axis()</code> calls (when
+<code>axes</code> is true, as per default).</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>...</code></td>
+<td>
+<p>other graphical parameters (see <code>par</code> and
+section &lsquo;Details&rsquo; below).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Commonly used graphical parameters are:
+</p>
+
+<dl>
+<dt><code>col</code></dt><dd><p>The colors for lines and points.  Multiple colors can be
+specified so that each point can be given its own color.  If there
+are fewer colors than points they are recycled in the standard
+fashion.  Lines will all be plotted in the first colour specified.</p>
+</dd>
+<dt><code>bg</code></dt><dd><p>a vector of background colors for open plot symbols, see
+<code>points</code>.  Note: this is <b>not</b> the same setting
+as <code>par("bg")</code>.</p>
+</dd>
+<dt><code>pch</code></dt><dd><p>a vector of plotting characters or symbols:
+see <code>points</code>.</p>
+</dd>
+<dt><code>cex</code></dt><dd><p>a numerical vector giving the amount by which
+plotting characters and symbols should be scaled relative to the
+default.  This works as a multiple of <code>par("cex")</code>.
+<code>NULL</code> and <code>NA</code> are equivalent to <code>1.0</code>.  Note that
+this does not affect annotation: see below.</p>
+</dd>
+<dt><code>lty</code></dt><dd><p>a vector of line types, see <code>par</code>.</p>
+</dd>
+<dt><code>cex.main</code>, <code>col.lab</code>, <code>font.sub</code>,
+etc</dt><dd><p>settings for main- and sub-title and axis annotation, see
+<code>title</code> and <code>par</code>.</p>
+</dd>
+<dt><code>lwd</code></dt><dd><p>a vector of line widths, see <code>par</code>.</p>
+</dd>
+</dl>
+
+
+
+<h3>Note</h3>
+
+<p>The presence of <code>panel.first</code> and <code>panel.last</code> is a
+historical anomaly: default plots do not have &lsquo;panels&rsquo;, unlike
+e.g. <code>pairs</code> plots.  For more control, use lower-level
+plotting functions: <code>plot.default</code> calls in turn some of
+<code>plot.new</code>, <code>plot.window</code>,
+<code>plot.xy</code>, <code>axis</code>, <code>box</code> and
+<code>title</code>, and plots can be built up by calling these
+individually, or by calling <code>plot(type = "n")</code> and adding further
+elements.
+</p>
+<p>The <code>plot</code> generic was moved from the <span class="pkg">graphics</span> package to
+the <span class="pkg">base</span> package in <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> 4.0.0. It is currently re-exported from
+the <span class="pkg">graphics</span> namespace to allow packages importing it from there
+to continue working, but this may change in future versions of <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Cleveland, W. S. (1985)
+<em>The Elements of Graphing Data.</em>
+Monterey, CA: Wadsworth.
+</p>
+<p>Murrell, P. (2005) <em>R Graphics</em>. Chapman &amp; Hall/CRC Press.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>plot</code>, <code>plot.window</code>, <code>xy.coords</code>.
+For thousands of points, consider using <code>smoothScatter</code>
+instead.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>Speed &lt;- cars$speed
+Distance &lt;- cars$dist
+plot(Speed, Distance, panel.first = grid(8, 8),
+     pch = 0, cex = 1.2, col = "blue")
+plot(Speed, Distance,
+     panel.first = lines(stats::lowess(Speed, Distance), lty = "dashed"),
+     pch = 0, cex = 1.2, col = "blue")
+
+## Show the different plot types
+x &lt;- 0:12
+y &lt;- sin(pi/5 * x)
+op &lt;- par(mfrow = c(3,3), mar = .1+ c(2,2,3,1))
+for (tp in c("p","l","b",  "c","o","h",  "s","S","n")) {
+   plot(y ~ x, type = tp, main = paste0("plot(*, type = \"", tp, "\")"))
+   if(tp == "S") {
+      lines(x, y, type = "s", col = "red", lty = 2)
+      mtext("lines(*, type = \"s\", ...)", col = "red", cex = 0.8)
+   }
+}
+par(op)
+
+##--- Log-Log Plot  with  custom axes
+lx &lt;- seq(1, 5, length.out = 41)
+yl &lt;- expression(e^{-frac(1,2) * {log[10](x)}^2})
+y &lt;- exp(-.5*lx^2)
+op &lt;- par(mfrow = c(2,1), mar = par("mar")-c(1,0,2,0), mgp = c(2, .7, 0))
+plot(10^lx, y, log = "xy", type = "l", col = "purple",
+     main = "Log-Log plot", ylab = yl, xlab = "x")
+plot(10^lx, y, log = "xy", type = "o", pch = ".", col = "forestgreen",
+     main = "Log-Log plot with custom axes", ylab = yl, xlab = "x",
+     axes = FALSE, frame.plot = TRUE)
+my.at &lt;- 10^(1:5)
+axis(1, at = my.at, labels = formatC(my.at, format = "fg"))
+e.y &lt;- -5:-1 ; at.y &lt;- 10^e.y
+axis(2, at = at.y, col.axis = "red", las = 1,
+     labels = as.expression(lapply(e.y, function(E) bquote(10^.(E)))))
+par(op)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 4.2.2 ]</div>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="o">??</span> <span class="n">histogram</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R Information
+
+Demos with name or title matching ‘histogram’ using fuzzy matching:
+
+
+plotly::crosstalk-highlight-binned-target-c
+                        Dynamically re-rendering a histogram based on
+                        selection
+
+
+Type &#39;demo(PKG::FOO)&#39; to run demonstration &#39;PKG::FOO&#39;.
+
+
+
+Help files with alias or concept or title matching ‘histogram’ using
+fuzzy matching:
+
+
+deSolve::plot.deSolve   Plot, Image and Histogram Method for deSolve
+                        Objects
+DiagrammeR::get_degree_histogram
+                        Get histogram data for a graph&#39;s degree
+                        frequency
+  Aliases: get_degree_histogram
+flowViz::densityplot    One-dimensional density/histogram plots for
+                        flow data
+  Aliases: histogram,formula,flowSet-method,
+    histogram,formula,flowFrame-method,
+    histogram,formula,ncdfFlowSet-method,
+    histogram,formula,ncdfFlowList-method
+geneplotter::histStack
+                        Stacked histogram
+ggforce::geom_autodensity
+                        A distribution geoms that fills the panel and
+                        works with discrete and continuous data
+  Aliases: geom_autohistogram
+ggplot2::geom_freqpoly
+                        Histograms and frequency polygons
+  Aliases: geom_histogram
+ggpubr::gghistogram     Histogram plot
+  Aliases: gghistogram
+ggpubr::ggscatterhist   Scatter Plot with Marginal Histograms
+ggridges::stat_binline
+                        Stat for histogram ridgeline plots
+ggstatsplot::gghistostats
+                        Histogram for distribution of a numeric
+                        variable
+ggstatsplot::grouped_ggdotplotstats
+                        Grouped histograms for distribution of a
+                        labeled numeric variable
+ggstatsplot::grouped_gghistostats
+                        Grouped histograms for distribution of a
+                        numeric variable
+gplots::hist2d          Compute and Plot a 2-Dimensional Histogram
+graphics::hist          Histograms
+graphics::hist.POSIXt   Histogram of a Date or Date-Time Object
+graphics::plot.histogram
+                        Plot Histograms
+  Aliases: plot.histogram, lines.histogram
+grDevices::nclass.Sturges
+                        Compute the Number of Classes for a Histogram
+Hmisc::hist.data.frame
+                        Histograms for Variables in a Data Frame
+Hmisc::histbackback     Back to Back Histograms
+Hmisc::histboxp         Use plotly to Draw Stratified Spike Histogram
+                        and Box Plot Statistics
+Hmisc::scat1d           One-Dimensional Scatter Diagram, Spike
+                        Histogram, or Density
+infer::shade_p_value    Shade histogram area beyond an observed
+                        statistic
+KernSmooth::dpih        Select a Histogram Bin Width
+ks::histde              Histogram density estimate
+ks::plot.histde         Plot for histogram density estimate
+lattice::histogram      Histograms and Kernel Density Plots
+  Aliases: histogram, histogram.factor, histogram.numeric,
+    histogram.formula
+lattice::panel.histogram
+                        Default Panel Function for histogram
+  Aliases: panel.histogram
+lattice::prepanel.default.bwplot
+                        Default Prepanel Functions
+  Aliases: prepanel.default.histogram
+MASS::hist.scott        Plot a Histogram with Automatic Bin Width
+                        Selection
+MASS::ldahist           Histograms or Density Plots of Multiple Groups
+MASS::truehist          Plot a Histogram
+mc2d::hist.mc           Histogram of a Monte Carlo Simulation
+plot3D::persp3D         Perspective plots, 3-D ribbons and 3-D
+                        histograms.
+plotly::add_trace       Add trace(s) to a plotly visualization
+  Aliases: add_histogram, add_histogram2d, add_histogram2dcontour
+pracma::histc           Histogram Count (Matlab style)
+pracma::histss          Histogram Bin-width Optimization
+psych::multi.hist       Multiple histograms with density and normal
+                        fits on one page
+psych::pairs.panels     SPLOM, histograms and correlations for a data
+                        matrix
+psych::scatter.hist     Draw a scatter plot with associated X and Y
+                        histograms, densities and correlation
+spatstat.explore::kaplan.meier
+                        Kaplan-Meier Estimator using Histogram Data
+spatstat.explore::km.rs
+                        Kaplan-Meier and Reduced Sample Estimator using
+                        Histograms
+spatstat.explore::panel.contour
+                        Panel Plots using Colour Image or Contour Lines
+  Aliases: panel.histogram
+spatstat.explore::reduced.sample
+                        Reduced Sample Estimator using Histogram Data
+spatstat.explore::rose
+                        Rose Diagram
+  Aliases: rose.histogram
+spatstat.geom::hist.funxy
+                        Histogram of Values of a Spatial Function
+spatstat.geom::hist.im
+                        Histogram of Pixel Values in an Image
+spatstat.geom::transformquantiles
+                        Transform the Quantiles
+  Concepts: Histogram equalisation
+spatstat.geom::whist    Weighted Histogram
+
+
+Type &#39;?PKG::FOO&#39; to inspect entries &#39;PKG::FOO&#39;, or &#39;TYPE?PKG::FOO&#39; for
+entries like &#39;PKG::FOO-TYPE&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Tutoriel_Python.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Tutoriel Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Introduction.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Introduction</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matthieu Wilhelm et Kieran Vaudaux<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

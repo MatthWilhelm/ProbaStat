@@ -9,6 +9,7 @@ parts:
   - caption: À propos du cours
     chapters:
     - file: Tutoriel_Python
+    - file: Tutoriel_R
     - file: Introduction
   - caption: Statistique Exploratoire
     numbered: True
