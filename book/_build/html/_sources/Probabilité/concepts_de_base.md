@@ -207,9 +207,9 @@ En réalité, la fonction $\mathbb{P}$ n'est pas uniquement définie sur tous le
 Une fonction de probabilité satisfait les propriétés suivantes:
 1. $ \mathbb{P}(\emptyset) = 0 $ : la probabilité de l'événement impossible est nulle;
 1. pour toute famille finie de $N$ événements $\{A_n\}_{n=0}^N$ deux à deux disjoints, on a
-    \begin{gather*}
+\begin{gather*}
         \mathbb{P}\left(\bigcup_{n=0}^N A_n\right) = \sum_{n = 0}^N \mathbb{P}(A_n).
-    \end{gather*}
+\end{gather*}
 1. $ \mathbb{P}(A^c) = 1 - \mathbb{P}(A) $;
 1. $ \mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A\cap B) $;    
 1. $ A \subset B $ implique $ \mathbb{P}(A) \leq \mathbb{P}(B) $

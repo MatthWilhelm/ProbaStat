@@ -26,12 +26,12 @@ def FileList(dir):
     return pathList
 
 ########################################################
-import pandas as pd
+#import pandas as pd
 
-to_translate = pd.DataFrame(data = {
+to_translate = {
 "english": ["Algorithm","Axiom","Assumption","Criterion","Definition","Example","Lemma","Property","Remark","Theorem"],
 "french": ["Algorithme","Axiome","Supposition","Critère","Définition","Exemple","Lemme","Propriété","Remarque","Théorème"]
-                            })
+                            }
 
 def translate_admonition(source):
     ind = 0
@@ -40,9 +40,9 @@ def translate_admonition(source):
     while re.search("<p class=\"admonition-title\">",source[ind:]):
         i = source[ind:].find("<p class=\"admonition-title\">")
         j = source[i+ind:].find("</p>")
-        for ii, name in enumerate(to_translate.english):
+        for ii, name in enumerate(to_translate["english"]):
             if re.search(name,source[i+ind:ind+i+j]):
-                source = source[:ind+i]  + source[ind+i:ind+i+j].replace(name,to_translate.french[ii]) + source[ind+i+j:]
+                source = source[:ind+i]  + source[ind+i:ind+i+j].replace(name,to_translate["french"][ii]) + source[ind+i+j:]
         ind = ind + j + i + 1
         
     return source

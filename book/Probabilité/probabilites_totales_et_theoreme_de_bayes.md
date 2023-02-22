@@ -9,7 +9,7 @@ Soit $ A $ un événement, et $ B_1 \dots B_n $ une **partition** de $ \Omega $,
 - $\bigcup_{i=1}^n B_i = \Omega$;
 - $B_i \cap B_j = \emptyset$ pour tous $i\neq j$.
 On a alors:
-    \begin{gather*} \mathbb{P}(A) = \sum_{i=1}^n \mathbb{P}(A \cap B_i) = \sum_{i=1}^n \mathbb{P}(A|B_i) \mathbb{P}(B_i).\end{gather*}  
+\begin{gather*} \mathbb{P}(A) = \sum_{i=1}^n \mathbb{P}(A \cap B_i) = \sum_{i=1}^n \mathbb{P}(A|B_i) \mathbb{P}(B_i).\end{gather*}  
 ````
 
 ```{figure} latex/PDFSVG/prob_tot_venn.svg

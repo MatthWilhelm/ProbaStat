@@ -121,7 +121,7 @@ On calcule la probabilité demandée par standardisation
         \mathbb{P}(X \leq r ) &= \mathbb{P}(X - n p \leq r - n p) \\
                 &= \mathbb{P} \left(\frac{X - n p}{\sqrt{n  p  (1-p)}} \leq \frac{r - n  p}{\sqrt{n  p  (1-p)}} \right) \\
                 & \approx \Phi \left( \frac{r - n  p}{\sqrt{n  p  (1-p)}} \right)
-    \end{align*}
+\end{align*}
 ```
 ````
 
@@ -140,7 +140,7 @@ De nouveau, on a affaire a une somme de variables IID. On peut donc appliquer le
         \mathbb{P}( X_1 + \dots + X_n \leq r ) &= \mathbb{P}(\overline{X}_n - \frac{1}{\lambda} \leq r/n - \frac{1}{\lambda}) \\
                 &= \mathbb{P} \left(\frac{\overline{X}_n - \frac{1}{\lambda}}{\frac{1}{\sqrt{n}\lambda}} \leq \frac{r - \frac{n}{\lambda}}{\frac{n}{\sqrt{n}\lambda}}  \right) \\
                 & \approx \Phi \left( \frac{r - n / \lambda}{\sqrt{n} / \lambda} \right) =  \Phi \left( \frac{\lambda r - n}{\sqrt{n}} \right).
-    \end{align*}    
+\end{align*}    
 ```
 ````
 
@@ -205,14 +205,14 @@ L'approximation Gaussienne naïve nous donne:
     
 \begin{align*}
         \mathbb{P}(Z_n \leq a) &= \Phi(a) \\
-    \end{align*}
+\end{align*}
 L'approximation Gaussienne naïve nous dit donc de choisir $ a \approx 1.60 $.
 Le TCL de Berry-Esseen nous donne à la place:
     
 \begin{align*}
         \mathbb{P}(Z_n \leq a) &\geq \Phi(a) - \frac{0.5\kappa}{\sigma^3\sqrt{n}} \\
                 & \geq \Phi(a) - 0.04
-    \end{align*}
+\end{align*}
     
 La valeur naïve $ a \approx 1.60 $ garantie donc uniquement une probabilité de 
 $ 0.91 < 0.95 $. Pour garantir une probabilité de 0.95, il faut utiliser $ a^\star = 2.33 $.

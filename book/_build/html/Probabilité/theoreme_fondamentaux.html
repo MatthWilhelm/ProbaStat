@@ -808,7 +808,7 @@ On a alors</p>
         \mathbb{P}(X \leq r ) &amp;= \mathbb{P}(X - n p \leq r - n p) \\
                 &amp;= \mathbb{P} \left(\frac{X - n p}{\sqrt{n  p  (1-p)}} \leq \frac{r - n  p}{\sqrt{n  p  (1-p)}} \right) \\
                 &amp; \approx \Phi \left( \frac{r - n  p}{\sqrt{n  p  (1-p)}} \right)
-    \end{align*}\]</div>
+\end{align*}\]</div>
 </div>
 </section>
 </div><div class="proof example admonition" id="ex_thm_fond2">
@@ -827,7 +827,7 @@ On a alors</p>
         \mathbb{P}( X_1 + \dots + X_n \leq r ) &amp;= \mathbb{P}(\overline{X}_n - \frac{1}{\lambda} \leq r/n - \frac{1}{\lambda}) \\
                 &amp;= \mathbb{P} \left(\frac{\overline{X}_n - \frac{1}{\lambda}}{\frac{1}{\sqrt{n}\lambda}} \leq \frac{r - \frac{n}{\lambda}}{\frac{n}{\sqrt{n}\lambda}}  \right) \\
                 &amp; \approx \Phi \left( \frac{r - n / \lambda}{\sqrt{n} / \lambda} \right) =  \Phi \left( \frac{\lambda r - n}{\sqrt{n}} \right).
-    \end{align*}\]</div>
+\end{align*}\]</div>
 </div>
 </section>
 </div><div class="proof remark admonition" id="remarque_avancee">
@@ -892,14 +892,14 @@ Proposez une explication intuitive de cette observation basées sur le TCL.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
         \mathbb{P}(Z_n \leq a) &amp;= \Phi(a) \\
-    \end{align*}\]</div>
+\end{align*}\]</div>
 <p>L’approximation Gaussienne naïve nous dit donc de choisir <span class="math notranslate nohighlight">\( a \approx 1.60 \)</span>.
 Le TCL de Berry-Esseen nous donne à la place:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
         \mathbb{P}(Z_n \leq a) &amp;\geq \Phi(a) - \frac{0.5\kappa}{\sigma^3\sqrt{n}} \\
                 &amp; \geq \Phi(a) - 0.04
-    \end{align*}\]</div>
+\end{align*}\]</div>
 <p>La valeur naïve <span class="math notranslate nohighlight">\( a \approx 1.60 \)</span> garantie donc uniquement une probabilité de
 <span class="math notranslate nohighlight">\( 0.91 &lt; 0.95 \)</span>. Pour garantir une probabilité de 0.95, il faut utiliser <span class="math notranslate nohighlight">\( a^\star = 2.33 \)</span>.
 NB: cette borne est pessimiste, mais elle montre bien que le décalage entre l’application naïve du TCL et une application avec de bonnes garanties.</p>

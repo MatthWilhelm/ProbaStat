@@ -99,7 +99,7 @@ Par définition, son intégrale donne la proportion d'observations qui tombent d
 \begin{gather*} \Phi(z) = \int_{-\infty}^z \phi(t) dt, \hspace{1 cm} z \in \mathbb{R}.\end{gather*}
 
 Par définition de l'intégrale, on a:
- \begin{gather*} \int_{z_1}^{z_2} \phi(z) dz = \Phi(z_2) - \Phi(z_1),\end{gather*}
+\begin{gather*} \int_{z_1}^{z_2} \phi(z) dz = \Phi(z_2) - \Phi(z_1),\end{gather*}
 et par symétrie de la fonction $\Phi(z)$:
 \begin{gather*} \Phi(-z) = 1 - \Phi(z).\end{gather*}
 Pour connaitre la valeur de $ \Phi(z) $, on peut se référer à une table.

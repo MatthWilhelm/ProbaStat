@@ -169,8 +169,7 @@ Des valeurs $p_{\rm obs}$ « assez petites » s'opposent à $H_0$ (ils démontre
 Comment décider le rejet ou non de l'hypothèse nulle en utilisant la $p_{\rm obs}$?
 
 - Nous suivons la même approche que nous avons établie avec le **niveau de signification**.
-    * Nous choisissons une probabilité  $\alpha$ maximale d'erreur de type I que nous allons tolérer:
-    \begin{gather*}\mathbb{P}[\mbox{Rejet de }H_0|H_0\mbox{ est vraie}]\leq \alpha,\end{gather*}
+    * Nous choisissons une probabilité  $\alpha$ maximale d'erreur de type I que nous allons tolérer:\begin{gather*}\mathbb{P}[\mbox{Rejet de }H_0|H_0\mbox{ est vraie}]\leq \alpha,\end{gather*}
     par exemple $\alpha=0.05$.
     * Notre règle de décision sera: **Rejeter $H_0$ si $p_{\rm obs}\leq \alpha$**
     * La probabilité d'erreur de type I en utilisant cette règle de décision est exactement $\alpha$.

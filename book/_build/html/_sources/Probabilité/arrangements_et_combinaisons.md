@@ -26,8 +26,7 @@ Les coefficients binomiaux se retrouvent dans bien des domaines des mathématiqu
 
 ````{prf:example} l'Euromillion
 :label: ex_arrangement_combinaison
-On s'intéresse à la probabilité de gagner à l'Euromillion. Il s'agit
-    D'une loterie à deux grilles. Dans la première, il faut choisir, sans remise, 5 numéros choisis entre 1 et 50. Dans la seconde, il s'agit de choisir 2 « étoiles » parmi 12.
+On s'intéresse à la probabilité de gagner à l'Euromillion. Il s'agit d'une loterie à deux grilles. Dans la première, il faut choisir, sans remise, 5 numéros choisis entre 1 et 50. Dans la seconde, il s'agit de choisir 2 « étoiles » parmi 12.
 Quelle est la probabilité de gagner? 
 ```{admonition} Solution
 :class: dropdown

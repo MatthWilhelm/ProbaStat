@@ -1,15 +1,3 @@
----
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 # Types de données
 
 Nous allons définir un certain nombre de concepts et de termes reliés à l'analyse de données. Cela nous donnera un premier aperçu de la notion d'aléa. En particulier, on abordera les concepts clés suivants:
