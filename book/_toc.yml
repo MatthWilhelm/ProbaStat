@@ -59,7 +59,6 @@ parts:
     - file: Série/Python/Série3/Série3Python
     - file: Série/Python/Série4/S4Python
     - file: Série/Python/SérieBeta/SBetaP
-
   - caption: Série R
     chapters:
     - file: Série/R/Série1/Série1R
@@ -81,4 +80,12 @@ parts:
     - file: Correction/R/Série3/Sol3R
     - file: Correction/R/Série4/Sol4R
     - file: Correction/R/SérieBeta/SolBetaR
+
+
+
+
+
+
+
+
 

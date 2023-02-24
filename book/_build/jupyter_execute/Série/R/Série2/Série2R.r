@@ -41,7 +41,7 @@ f3 <- ggplot(data3,aes(x,y)) + geom_line() + labs(title = "Figure 3") + theme(pl
 
 bern <- function(p,n){
     # Générer une variable aléatoire de Bernouilli avec probabilité de succès p
-        X <- ...
+    X <- ...
     X
 }
 

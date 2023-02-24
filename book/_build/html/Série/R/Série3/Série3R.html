@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Série3 &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -34,10 +34,8 @@
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
@@ -98,11 +96,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
       
-      
-      <img src="../../../_static/EPFL_Logo.svg" class="logo" alt="logo">
+      <img src="../../../_static/../../../_static/EPFL_Logo.svg" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
@@ -151,7 +146,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
-   1. Types de données
+   1. Types de données
   </a>
  </li>
  <li class="toctree-l1">
@@ -948,7 +943,7 @@ a) Calculer <span class="math notranslate nohighlight">\(\mathbb{P}(X\in D)\)</s
 
 <span class="c1"># Écrire la fonction h</span>
 <span class="n">h</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">X</span><span class="p">){</span>
-        <span class="n">val</span> <span class="o">&lt;-</span> <span class="kc">...</span>
+    <span class="n">val</span> <span class="o">&lt;-</span> <span class="kc">...</span>
     <span class="n">val</span>
 <span class="p">}</span>
 <span class="c1"># Générer la variable aléatoire Y</span>
@@ -981,11 +976,11 @@ a) Calculer <span class="math notranslate nohighlight">\(\mathbb{P}(X\in D)\)</s
     é<span class="n">chantillon_estimation</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="n">.</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
     <span class="nf">for </span><span class="p">(</span><span class="n">j</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">m</span><span class="p">){</span>
         <span class="c1"># Générer un échantillon de n VA unif([-1,1])</span>
-                <span class="n">X</span> <span class="o">&lt;-</span> <span class="kc">...</span>
+        <span class="n">X</span> <span class="o">&lt;-</span> <span class="kc">...</span>
         <span class="c1"># Estimation de pi</span>
-                <span class="n">pi_est</span> <span class="o">=</span> <span class="m">4</span><span class="o">*</span><span class="nf">mean</span><span class="p">(</span><span class="nf">apply</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="n">FUN</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">)</span><span class="o">&lt;=</span><span class="m">1</span><span class="p">)</span>        _
+        <span class="n">pi_est</span> <span class="o">=</span> <span class="m">4</span><span class="o">*</span><span class="nf">mean</span><span class="p">(</span><span class="nf">apply</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="n">FUN</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">)</span><span class="o">&lt;=</span><span class="m">1</span><span class="p">)</span>        _
         <span class="c1"># Calcul de la MSE de l&#39;échantillon</span>
-                é<span class="n">chantillon_estimation</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kc">...</span>
+        é<span class="n">chantillon_estimation</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kc">...</span>
     <span class="p">}</span>
     <span class="n">RMSE</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span>é<span class="n">chantillon_estimation</span><span class="p">))</span>
 <span class="p">}</span>
@@ -1076,7 +1071,7 @@ Soient <span class="math notranslate nohighlight">\( X_i \)</span>, <span class=
             mode: "r"
         },
         kernelOptions: {
-            kernelName: "ir",
+            name: "ir",
             path: "./Série/R/Série3"
         },
         predefinedOutput: true

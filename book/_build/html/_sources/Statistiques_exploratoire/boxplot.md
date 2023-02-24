@@ -10,7 +10,7 @@ Les cinq valeurs suivantes donnent un bonne description d'une variable:
     \text{minimum, $\hat{q}(25\%)$, médiane, $\hat{q}(75\%)$, maximum}.
 \end{equation*} 
  
- Cette liste est à la base de la **boîte à moustaches**.
+Cette liste est à la base de la **boîte à moustaches**.
 
 ```{figure} PDFSVG/Boxplot_weight.svg
 ---

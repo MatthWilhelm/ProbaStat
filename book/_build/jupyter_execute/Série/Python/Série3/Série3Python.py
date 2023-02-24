@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Série3
-#   ## Exercice 1: 
+# ## Exercice 1: 
 # 
 # On suppose que la taille, en centimètres, d'un homme âgé de 25 ans est une variable aléatoire 
 # normale de paramètres $\mu= 176.6$ et $\sigma^2=63.84$. 
@@ -198,7 +198,7 @@ X = ...
 
 # Écrire la fonction h
 def h(X):
-        val = ...
+    val = ...
     return val
 
 # Générer la variable aléatoire Y
@@ -226,11 +226,11 @@ for i,n in enumerate(N):
     échantillon_estimation = np.zeros(m)
     for j in range(m):
         # Générer un échantillon de n VA unif([-1,1])
-                X = ...
+        X = ...
         # Estimation de pi
-                pi = ...
+        pi = ...
         # Calcul de la MSE de l'échantillon
-                échantillon_estimation[j] = ...
+        échantillon_estimation[j] = ...
     
     RMSE[i] = np.sqrt(échantillon_estimation.mean())
 

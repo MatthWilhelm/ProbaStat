@@ -13,21 +13,16 @@ output:
 Les mathématiques (du grec *Mathema* $\approx$ apprendre) sont une manière:
 
 - d'exprimer une grande variété de notions complexes avec précision et cohérence.
-- de « *légitimer les conquêtes de notre intuition* » (Jacques Hadamard)
-        [^citationHadamard]
-        : raisonner rigoureusement à partir d'hypothèses, tirer les conclusions correctes d'une observation, d'une expérience, etc.
-
-[^citationHadamard]: La citation exacte est [« La rigueur n’a d’autre objet que de sanctionner et de légitimer les conquêtes de l’intuition »](http://idm-old.math.cnrs.fr/Jacques-Hadamard-passeur.html).
+- de « *légitimer les conquêtes de notre intuition* » (Jacques Hadamard)[^citationHadamard]: raisonner rigoureusement à partir d'hypothèses, tirer les conclusions correctes d'une observation, d'une expérience, etc. [^citationHadamard]: La citation exacte est [« La rigueur n’a d’autre objet que de sanctionner et de légitimer les conquêtes de l’intuition »](http://idm-old.math.cnrs.fr/Jacques-Hadamard-passeur.html).
 
 La statistique souffre d'un problème de nomenclature. On a deux « statistiques » (définitions [TLF](http://stella.atilf.fr/Dendien/scripts/tlfiv5/visusel.exe?12;s=467953305;r=1;nat=;sol=1;)):
-- « Recueil de données numériques concernant des faits économiques et sociaux »; par exemple des données démographiques (répartition en âge, métiers, etc. de la population), ou économiques (taux de chômage, salaire médian, etc.).  
-    «L'ensemble des connaissances que doit posséder un homme d'État », introduit en allemand *Statistik* par l'économiste G. Achenwall (1719-1772) (de l'italien *statista*, homme d'\'Etat).
+- « Recueil de données numériques concernant des faits économiques et sociaux »; par exemple des données démographiques (répartition en âge, métiers, etc. de la population), ou économiques (taux de chômage, salaire médian, etc.). «L'ensemble des connaissances que doit posséder un homme d'État », introduit en allemand *Statistik* par l'économiste G. Achenwall (1719-1772) (de l'italien *statista*, homme d'\'Etat).
 - « Branche des mathématiques ayant pour objet l'analyse et l'interprétation de données quantifiables.»
 
 
 
 <p style="text-align:center">
-    <font color="red">Utiliser les maths</font> <br> pour <br> <font color="red">extraire des informations</font> <br> à partir de <br> <font color="red">données</font> <br> en présence <br> <font color="red">d'incertitudes</font> <br>
+<font color="red">Utiliser les maths</font> <br> pour <br> <font color="red">extraire des informations</font> <br> à partir de <br> <font color="red">données</font> <br> en présence <br> <font color="red">d'incertitudes</font> <br>
 </p>
 
 Les données sont absolument partout de nos jours.

@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Série1
-#   ## Exercice 1:  
+# ## Exercice 1:  
 # 
 # On a observé la taille de 15 femmes. Le boxplot et l'histogramme ci-dessous ont été construits avec ces données:
 # 
@@ -75,7 +75,7 @@ std_140 = ...
 # 
 # On a observé la taille et le poids de quelques femmes. Les résultats sont présentés dans le tableau suivant (la taille en centimètres, le poids en kilogrammes):
 # 
-#   |||||||||||||||||
+# |||||||||||||||||
 # |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 # | **Taille** | 147 | 150 | 152 | 155 | 157 | 160 | 163 | 165 | 168 | 170 | 173 | 175 | 178 | 180 | 183 |
 # | **Poids** | 52 | 53 | 54 | 56 | 57 | 59 | 60 | 61 | 63 | 64 | 66 | 68 | 70 | 72 | 74 |
@@ -153,6 +153,7 @@ EIQ = ...
 # Faire un boxplot des tailles observées
 
 
+
 # 6\) Divisez les tailles observées en 5 groupes :  
 # $ < 150 $, $ 150 - 159 $, $ 160 - 169 $, $ 170 - 179 $, $ > 179 $ cm.  
 # Construisez un histogramme en utilisant une ligne par groupe. Quels aspects des données cette représentation graphique nous permet-elle de visualiser?
@@ -165,6 +166,7 @@ EIQ = ...
 
 
 # Faire un histogramme avec les groupes mentionnés ci-dessus
+
 
 
 # 7\) Pensez-vous qu'il existe une relation entre la taille et le poids des femmes ayant participé à l'enquête? Justifiez votre réponse à l'aide d'un graphique adéquat.
@@ -208,6 +210,7 @@ data = pd.DataFrame(np.array([[68, 20, 15, 5], [119, 84, 54, 29], [26, 17, 14,14
 
 
 # Calculer et affficher le nombre total d'étudiants qui ont participé à cette enquête
+
 
 
 # 2\) Est-ce que la couleur des cheveux est une variable quantitative, qualitative nominale ou qualitative

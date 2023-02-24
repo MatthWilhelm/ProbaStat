@@ -59,7 +59,7 @@ X <- ...
 
 # Écrire la fonction h
 h <- function(X){
-        val <- ...
+    val <- ...
     val
 }
 # Générer la variable aléatoire Y
@@ -80,11 +80,11 @@ for (n in N){
     échantillon_estimation = rep(0.,m)
     for (j in 1:m){
         # Générer un échantillon de n VA unif([-1,1])
-                X <- ...
+        X <- ...
         # Estimation de pi
-                pi_est = 4*mean(apply(X,1,FUN=norm,type="2")<=1)        _
+        pi_est = 4*mean(apply(X,1,FUN=norm,type="2")<=1)        _
         # Calcul de la MSE de l'échantillon
-                échantillon_estimation[j] <- ...
+        échantillon_estimation[j] <- ...
     }
     RMSE[i] = sqrt(mean(échantillon_estimation))
 }

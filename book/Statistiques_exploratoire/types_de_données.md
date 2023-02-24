@@ -1,4 +1,4 @@
-# Types de données
+# Types de données
 
 Nous allons définir un certain nombre de concepts et de termes reliés à l'analyse de données. Cela nous donnera un premier aperçu de la notion d'aléa. En particulier, on abordera les concepts clés suivants:
 - population, échantillon, individu, variable;
@@ -45,7 +45,7 @@ Pour les exemples suivants, pensez-vous que ce sont des variables **qualitatives
 - être gaucher ou droitier;
 
 ```{warning}
- Il faut souvent considérer ces questions de près, et on peut être surpris.
+Il faut souvent considérer ces questions de près, et on peut être surpris.
 ```
 
 ```{admonition} Solution

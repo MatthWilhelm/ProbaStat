@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Introduction &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -34,10 +34,8 @@
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
@@ -60,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://MatthWilhelm.github.io/ProbaStat/Introduction.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="1. Types de données" href="Statistiques_exploratoire/types_de_donn%C3%A9es.html" />
+    <link rel="next" title="1. Types de données" href="Statistiques_exploratoire/types_de_donn%C3%A9es.html" />
     <link rel="prev" title="Tutoriel R" href="Tutoriel_R.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
@@ -98,11 +96,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
       
-      
-      <img src="_static/EPFL_Logo.svg" class="logo" alt="logo">
+      <img src="_static/_static/EPFL_Logo.svg" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
@@ -151,7 +146,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Statistiques_exploratoire/types_de_donn%C3%A9es.html">
-   1. Types de données
+   1. Types de données
   </a>
  </li>
  <li class="toctree-l1">
@@ -726,18 +721,15 @@ title="Print to PDF"
 <p>Les mathématiques (du grec <em>Mathema</em> <span class="math notranslate nohighlight">\(\approx\)</span> apprendre) sont une manière:</p>
 <ul class="simple">
 <li><p>d’exprimer une grande variété de notions complexes avec précision et cohérence.</p></li>
-<li><p>de « <em>légitimer les conquêtes de notre intuition</em> » (Jacques Hadamard)
-<a class="footnote-reference brackets" href="#citationhadamard" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
-: raisonner rigoureusement à partir d’hypothèses, tirer les conclusions correctes d’une observation, d’une expérience, etc.</p></li>
+<li><p>de « <em>légitimer les conquêtes de notre intuition</em> » (Jacques Hadamard)[^citationHadamard]: raisonner rigoureusement à partir d’hypothèses, tirer les conclusions correctes d’une observation, d’une expérience, etc. [^citationHadamard]: La citation exacte est <a class="reference external" href="http://idm-old.math.cnrs.fr/Jacques-Hadamard-passeur.html">« La rigueur n’a d’autre objet que de sanctionner et de légitimer les conquêtes de l’intuition »</a>.</p></li>
 </ul>
 <p>La statistique souffre d’un problème de nomenclature. On a deux « statistiques » (définitions <a class="reference external" href="http://stella.atilf.fr/Dendien/scripts/tlfiv5/visusel.exe?12%3Bs=467953305%3Br=1%3Bnat=%3Bsol=1%3B">TLF</a>):</p>
 <ul class="simple">
-<li><p>« Recueil de données numériques concernant des faits économiques et sociaux »; par exemple des données démographiques (répartition en âge, métiers, etc. de la population), ou économiques (taux de chômage, salaire médian, etc.).<br />
-«L’ensemble des connaissances que doit posséder un homme d’État », introduit en allemand <em>Statistik</em> par l’économiste G. Achenwall (1719-1772) (de l’italien <em>statista</em>, homme d’”Etat).</p></li>
+<li><p>« Recueil de données numériques concernant des faits économiques et sociaux »; par exemple des données démographiques (répartition en âge, métiers, etc. de la population), ou économiques (taux de chômage, salaire médian, etc.). «L’ensemble des connaissances que doit posséder un homme d’État », introduit en allemand <em>Statistik</em> par l’économiste G. Achenwall (1719-1772) (de l’italien <em>statista</em>, homme d’”Etat).</p></li>
 <li><p>« Branche des mathématiques ayant pour objet l’analyse et l’interprétation de données quantifiables.»</p></li>
 </ul>
 <p style="text-align:center">
-    <font color="red">Utiliser les maths</font> <br> pour <br> <font color="red">extraire des informations</font> <br> à partir de <br> <font color="red">données</font> <br> en présence <br> <font color="red">d'incertitudes</font> <br>
+<font color="red">Utiliser les maths</font> <br> pour <br> <font color="red">extraire des informations</font> <br> à partir de <br> <font color="red">données</font> <br> en présence <br> <font color="red">d'incertitudes</font> <br>
 </p>
 <p>Les données sont absolument partout de nos jours.</p>
 <ul class="simple">
@@ -823,11 +815,6 @@ Le <font color="red">fil rouge</font> de ce cours consiste à comprendre des don
 <li><p>La probabilité et la statistique présentent camparativement peu de difficultés mathématiques (calculs difficiles, etc.) mais des difficultés conceptuelles.</p></li>
 </ul>
 </div>
-<hr class="footnotes docutils" />
-<aside class="footnote brackets" id="citationhadamard" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>La citation exacte est <a class="reference external" href="http://idm-old.math.cnrs.fr/Jacques-Hadamard-passeur.html">« La rigueur n’a d’autre objet que de sanctionner et de légitimer les conquêtes de l’intuition »</a>.</p>
-</aside>
 </section>
 </section>
 
@@ -843,7 +830,7 @@ Le <font color="red">fil rouge</font> de ce cours consiste à comprendre des don
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -868,7 +855,7 @@ Le <font color="red">fil rouge</font> de ce cours consiste à comprendre des don
     <a class='right-next' id="next-link" href="Statistiques_exploratoire/types_de_donn%C3%A9es.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Types de données</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Types de données</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -2,17 +2,18 @@
 # coding: utf-8
 
 # # Série2
-#   ## Exercice 1:  
+# ## Exercice 1:  
 # 
 # Nous avons à notre disposition les données d'échec ou de réussite de l'examen de cette matière de 2020. Nous allons nous intérésser en particulier à deux variables binaires de ces données:
 # - La section: **S** $\in\{\text{GM},\text{EL}\}$
 # - Le succes à l'examen: **A** $\in\{0,1\}$
 # 
 # Dans le cadre des probabilités conditionnelles, avec deux variables binaires, une erreur qui revient souvent est de penser que:
-# \begin{equation*} \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{GM}\right) + \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{EL}\right) = 1 \end{equation*}
+# \begin{equation*} \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{GM}\right) + \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{EL}\right) = 1 
+# \end{equation*}
 # Néanmoins, cela est généralement faux. Nous allons donc nous appliquer à montrer que cela est faux dans notre cas, ainsi que de voir quel serait la version correcte de cette équation.
 
-# In[ ]:
+# In[1]:
 
 
 import pandas as pd
@@ -21,7 +22,7 @@ data = pd.read_csv("Success_ProbaStat.csv")
 
 # 1\) Synthétiser ces données de façon à avoir le nombre d'échec ou de réussite par section.
 
-# In[ ]:
+# In[2]:
 
 
 # Place your answer here
@@ -29,7 +30,7 @@ data = pd.read_csv("Success_ProbaStat.csv")
 
 # 2\) Montrer expérimentalement que $ \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{GM}\right) + \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{EL}\right) \neq 1 $:
 
-# In[ ]:
+# In[3]:
 
 
 # Place your answer here
@@ -154,13 +155,12 @@ plt.show()
 # ## Exercice 4: Lien entre une variable de Bernoulli et une variable géométrique
 # 
 # Considérons un archer, qui vise le milieu de la cible. Il tire autant de flèche que nécessaire et s'arrête une fois qu'une d'entre elle frappe le centre de la cible. On suppose qu'il parvient à atteindre son but avec une probabilité $p$ à chaque flèche et que chaque tir est indépendant des autres.
+# 
 # - Le fait que le $i^{ème}$ tir atteigne le centre de la cible peut alors être modéliser par la variable aléatoire $X_i \sim Bern(p)$.  
 # - De même, le nombre de flèches nécéssaires avant d'atteindre le centre de la cible peut être modéliser par la variable aléatoire $ S = \min\left\{{i\in\mathbb{N} | X_i = 1}\right\}$, qui suit une loi géométrique de paramètre $p$. 
 
 # 1\) Dans question nous allons créer une fonction ```bern``` qui génère aléatoirement une variable de Bernouilli pour un paramètre $p$ donné en argument.  
-# a\) En utilisant la fonction  
-#   
-# ```random.uniform```, du package ```numpy```, qui permet de générer des réalisations de variables aléatoires uniformes, et la fonction indicatrice $\mathbf{1}_{\{U<p\}}$ (où $U \sim Unif(0,1)$) écrire une fonction ```bern``` qui génère $n$ réalisations de variables de Bernoulli $X$ avec probabilité de succès $p\in[0,1]$.
+# a\) En utilisant la fonction ```random.uniform```, du package ```numpy```, qui permet de générer des réalisations de variables aléatoires uniformes, et la fonction indicatrice $\mathbf{1}_{\{U<p\}}$ (où $U \sim Unif(0,1)$) écrire une fonction ```bern``` qui génère $n$ réalisations de variables de Bernoulli $X$ avec probabilité de succès $p\in[0,1]$.
 
 # In[ ]:
 
@@ -169,7 +169,7 @@ import numpy as np
 def bern(p,n):
     
     # Générer une variable aléatoire de Bernouilli avec probabilité de succès p
-        X = ...
+    X = ...
 
     return X
 

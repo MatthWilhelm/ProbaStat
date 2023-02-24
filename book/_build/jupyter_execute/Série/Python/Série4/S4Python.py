@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Série4
-#   ## Exercice 1: 
+# ## Exercice 1: 
 # 
 # Une entreprise d'automobiles veut publier des informations sur la consommation d'un nouveau modèle de voiture. 
 # Pour 12 voitures de ce modèle on mesure la consommation d'essence, en litres, pour parcourir 100 km, et on obtient
@@ -29,7 +29,7 @@ import numpy as np
 
 def IC_variance_connue(x_bar,sigma_square,n,alpha):
     quantile = ... 
-        IC = ...
+    IC = ...
     return IC
 
 

@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # SérieBeta
-#   ## Exercice 1: Biais
+# ## Exercice 1: Biais
 
 # In[ ]:
 

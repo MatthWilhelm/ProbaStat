@@ -4,7 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Série2 &#8212; Probabilité et statistique (MATH-234(d))</title>
     
@@ -34,10 +34,8 @@
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
@@ -98,11 +96,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
       
-      
-      <img src="../../../_static/EPFL_Logo.svg" class="logo" alt="logo">
+      <img src="../../../_static/../../../_static/EPFL_Logo.svg" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Probabilité et statistique (MATH-234(d))</h1>
@@ -151,7 +146,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../Statistiques_exploratoire/types_de_donn%C3%A9es.html">
-   1. Types de données
+   1. Types de données
   </a>
  </li>
  <li class="toctree-l1">
@@ -787,7 +782,8 @@ title="Print to PDF"
 </ul>
 <p>Dans le cadre des probabilités conditionnelles, avec deux variables binaires, une erreur qui revient souvent est de penser que:</p>
 <div class="amsmath math notranslate nohighlight">
-\[\begin{equation*} \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{GM}\right) + \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{EL}\right) = 1 \end{equation*}\]</div>
+\[\begin{equation*} \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{GM}\right) + \mathbb{P}\left(\textbf{A} = 1 | \textbf{S} = \text{EL}\right) = 1 
+\end{equation*}\]</div>
 <p>Néanmoins, cela est généralement faux. Nous allons donc nous appliquer à montrer que cela est faux dans notre cas, ainsi que de voir quel serait la version correcte de cette équation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -918,15 +914,14 @@ title="Print to PDF"
 <li><p>De même, le nombre de flèches nécéssaires avant d’atteindre le centre de la cible peut être modéliser par la variable aléatoire <span class="math notranslate nohighlight">\( S = \min\left\{{i\in\mathbb{N} | X_i = 1}\right\}\)</span>, qui suit une loi géométrique de paramètre <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
 </ul>
 <p>1) Dans question nous allons créer une fonction <code class="docutils literal notranslate"><span class="pre">bern</span></code> qui génère aléatoirement une variable de Bernouilli pour un paramètre <span class="math notranslate nohighlight">\(p\)</span> donné en argument.<br />
-a) En utilisant la fonction</p>
-<p><code class="docutils literal notranslate"><span class="pre">random.uniform</span></code>, du package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, qui permet de générer des réalisations de variables aléatoires uniformes, et la fonction indicatrice <span class="math notranslate nohighlight">\(\mathbf{1}_{\{U&lt;p\}}\)</span> (où <span class="math notranslate nohighlight">\(U \sim Unif(0,1)\)</span>) écrire une fonction <code class="docutils literal notranslate"><span class="pre">bern</span></code> qui génère <span class="math notranslate nohighlight">\(n\)</span> réalisations de variables de Bernoulli <span class="math notranslate nohighlight">\(X\)</span> avec probabilité de succès <span class="math notranslate nohighlight">\(p\in[0,1]\)</span>.</p>
+a) En utilisant la fonction <code class="docutils literal notranslate"><span class="pre">random.uniform</span></code>, du package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, qui permet de générer des réalisations de variables aléatoires uniformes, et la fonction indicatrice <span class="math notranslate nohighlight">\(\mathbf{1}_{\{U&lt;p\}}\)</span> (où <span class="math notranslate nohighlight">\(U \sim Unif(0,1)\)</span>) écrire une fonction <code class="docutils literal notranslate"><span class="pre">bern</span></code> qui génère <span class="math notranslate nohighlight">\(n\)</span> réalisations de variables de Bernoulli <span class="math notranslate nohighlight">\(X\)</span> avec probabilité de succès <span class="math notranslate nohighlight">\(p\in[0,1]\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="k">def</span> <span class="nf">bern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
     
     <span class="c1"># Générer une variable aléatoire de Bernouilli avec probabilité de succès p</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="o">...</span>
 
     <span class="k">return</span> <span class="n">X</span>
 </pre></div>
@@ -1126,7 +1121,7 @@ a) Grâce à un plot et une valeure numérique, estimer la valeure de <span clas
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./Série/Python/Série2"
         },
         predefinedOutput: true
